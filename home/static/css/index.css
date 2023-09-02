@@ -1,0 +1,39 @@
+main {
+    background: url('/media/background-mobile.webp') no-repeat center bottom fixed;
+    background-size: cover;
+    height: 100dvh;
+    width: 100dvw;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-around;
+}
+
+main img {
+    width: 250px;
+    height: 150px;
+}
+
+@media screen and (min-width: 500px) {
+    main {
+        background: url('/media/background-desktop.webp') no-repeat center bottom fixed;
+    }
+    main img {
+        width: 400px;
+        height: 240px;
+    }
+}
+
+.main-button {
+    font-size: 1.8rem;
+    font-weight: bold;
+    font-family: 'KoHo';
+    color: #160f69;
+    background-color: #1ED446;
+    border: 2px solid #160f69;
+    border-radius: 4rem;
+    display: inline;
+    padding: .5rem 3rem 1rem;
+    text-decoration: none;
+    margin-bottom: 1rem;
+}

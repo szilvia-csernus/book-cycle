@@ -1,0 +1,13 @@
+{% extends "base.html" %}
+{% load static %}
+
+{% block extra_css %}
+<link rel="stylesheet" href="{% static 'css/index.css' %}">
+{% endblock %}
+
+{% block content %}
+<main>
+    <img src="/media/book-cycle-logo.svg" alt="book cycle logo" width="10" height="6">
+    <a class="main-button" href="">shop</a>
+</main>
+{% endblock %}
