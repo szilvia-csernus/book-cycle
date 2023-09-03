@@ -20,7 +20,7 @@
         rel="stylesheet">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=KoHo:wght@200;500&family=Koulen&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=KoHo:wght@300;500&family=Koulen&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="{% static 'css/base.css' %}">
     {% endblock %}
 
@@ -38,6 +38,28 @@
 
 <body>
     <header>
+        <div class="header-left">
+            <div class="mobile">
+                <img src="{% static 'svg/hamburger-icon.svg' %}" alt="hamburger icon">
+            </div>
+            <div class="desktop">
+                Browse Textbooks
+            </div>
+        </div>
+        <div class="header-right">
+            <div class="mobile">
+                <img class="user" src="{% static 'svg/user-icon.svg' %}" alt="user icon">
+            </div>
+            <div class="desktop">
+                Sign In
+            </div>
+            <div class="desktop">
+                Register
+            </div>
+            <div>
+                <img class="basket" src="{% static 'svg/shopping-bag-icon.svg' %}" alt="shopping bag icon">
+            </div>
+        </div>
     </header>
 
     {% block page_header %}

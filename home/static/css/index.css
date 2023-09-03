@@ -9,7 +9,7 @@ main {
     justify-content: space-around;
 }
 
-main img {
+main img.logo {
     width: 250px;
     height: 150px;
 }
@@ -18,7 +18,7 @@ main img {
     main {
         background: url('/media/background-desktop.webp') no-repeat center bottom fixed;
     }
-    main img {
+    main img.logo {
         width: 400px;
         height: 240px;
     }
