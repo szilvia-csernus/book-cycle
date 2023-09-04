@@ -14,5 +14,8 @@ describe("DOM tests", () => {
 	test("header exists", () => {
 		expect(document.getElementsByTagName("header").length).toBe(1);
 	})
+	test("main exists", () => {
+		expect(document.getElementsByTagName("main").length).toBe(1);
+	})
 })
 
