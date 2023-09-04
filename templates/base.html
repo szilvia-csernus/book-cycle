@@ -37,7 +37,6 @@
 </head>
 
 <body>
-    <div class="test">TestDiv</div>
     <header>
         <div class="header-left">
             <div class="mobile browse-link">
@@ -63,14 +62,29 @@
         </div>
     </header>
     <div id="browse">
-        <div class="browse-category">
-            Search By Subject
-        </div>
-        <div class="browse-category">
-            Search By Yeargroup
-        </div>
-        <div class="browse-category">
-            Search 
+        <ul>
+            <li class="browse-category">
+                All Textbooks
+            </li>
+            <li class="browse-category">
+                Search By Subject
+            </li>
+            <li class="browse-category">
+                Search By Yeargroup
+            </li>
+            <li >
+                <form id="search-form" method="GET" action="">
+                    <div >
+                        <input id="search-input" type="text" name="q" placeholder="Search">
+                        <button id="search-button" type="submit" disabled>
+                            <img class="search" src="{% static 'svg/search-icon.svg' %}" alt="search icon" width="30" height="20">
+                        </button>
+                    </div>
+                </form>
+            </li>
+        </ul>
+        <div>
+            <img class="open-book" src="{% static 'svg/open-book-icon.svg' %}" alt="open book icon" width="159" height="98">
         </div>
     </div>
 
@@ -81,7 +95,7 @@
     {% endblock %}
 
     {% block postloadjs %}
-    <script src="{% static 'js/menu.js' %}"></script>
+    <script src="{% static 'js/menu.js' %}" type="module"></script>
     {% endblock %}
 
 

@@ -1,10 +1,49 @@
+/* --------------- RESET ------------- */
+
+html, 
+body, 
+header, 
+footer, 
+section, 
+article, 
+h1, 
+h2, 
+h3, 
+p, 
+a, 
+button, 
+ul, 
+address, 
+svg,
+input,
+textarea {
+    margin: 0;
+    border: 0;
+    padding: 0;
+    font: inherit;
+    color: inherit;
+    background: transparent;
+    text-decoration: none;
+    box-sizing: border-box;
+}
+
+img {
+    display: block;
+    width: 100%;
+    height: auto;
+}
+
+li {
+    list-style: none;
+}
+
 body {
     display: flex;
     flex-direction: column;
     margin: 0;
     background-color: #160f69;
     font-family: 'KoHo', sans-serif;
-    font-size: 1.5rem;
+    font-size: 1.4rem;
     font-weight: 200;
 }
 
@@ -78,32 +117,88 @@ img.basket {
     }
 }
 
-.browse {
-    display: none;
+#browse {
     position: fixed;
     top: 0;
-    left: -20rem; /* Hidden off-screen initially */
-    width: 20rem;
-    height: 30rem;
-    background-color: #d4d4d4;
+    left: -17rem; /* Hidden off-screen initially */
+    width: 15rem;
+    height: 25rem;
+    background-color: #bababa;
+    background: linear-gradient(to bottom, #bababa, #160f69);
     transition: left 0.3s ease;
-    color: #160f69;
+    color: #1d194b;
     padding: 1rem;
+    z-index: 2;
+}
+
+#browse img.open-book {
+    position: absolute;
+    bottom: 1rem;
+    margin: auto;
+    padding: 0 2.5rem;
+}
+
+/* When the browse menu is open */
+#browse.browse-open {
+    left: 0; /* Slide the menu in */
+}
+
+@media screen and (min-width: 1442px) {
+    #browse.browse-open {
+        left: calc(50% - 721px);
+    }
 }
 
 .overlay {
-    display: none;
+    position: fixed;
     width: 100dvw;
     height: 100dvh;
-    background-color: #170f696c;
-}
-
-/* Add styles for when the browse menu is open */
-.browse-open {
-    left: 0; /* Slide the menu in */
+    background-color: #161528c7;
 }
 
 .overlay-active {
     display: block;
 }
 
+.browse-category {
+    padding: .8rem 0;
+    font-size: 1.2rem;
+    font-weight: 500;
+    cursor: pointer;
+    transition: transform 0.6s;
+}
+
+.browse-category:hover,
+.browse-category:active {
+    transform: translate(.4rem, -.1rem) scale(1.05);
+    color: #120791;
+}
+
+#browse input {
+    display: inline;
+    border: 2px inset #160f69;
+    background-color: #ededed;
+    color: #1d194b;
+    font-size: 1rem;
+    padding: .5rem 3rem .5rem .5rem;
+    margin-top: .8rem;
+    text-transform: uppercase;
+    width: 15rem;
+}
+
+#browse button {
+    display: inline;
+    position: relative;
+    left: 12.3rem;
+    top: -2.1rem;
+    cursor: pointer;
+}
+
+#browse button img {
+    display: inline;
+    width: 2rem;
+}
+
+img.open-book {
+    width: 10rem;
+}
