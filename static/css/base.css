@@ -8,6 +8,8 @@ body {
     font-weight: 200;
 }
 
+/* --------------------------------------- HEADER  */
+
 .mobile {
     display: inline-block;
 }
@@ -75,3 +77,33 @@ img.basket {
         column-gap: 2rem;
     }
 }
+
+.browse {
+    display: none;
+    position: fixed;
+    top: 0;
+    left: -20rem; /* Hidden off-screen initially */
+    width: 20rem;
+    height: 30rem;
+    background-color: #d4d4d4;
+    transition: left 0.3s ease;
+    color: #160f69;
+    padding: 1rem;
+}
+
+.overlay {
+    display: none;
+    width: 100dvw;
+    height: 100dvh;
+    background-color: #170f696c;
+}
+
+/* Add styles for when the browse menu is open */
+.browse-open {
+    left: 0; /* Slide the menu in */
+}
+
+.overlay-active {
+    display: block;
+}
+

@@ -37,18 +37,19 @@
 </head>
 
 <body>
+    <div class="test">TestDiv</div>
     <header>
         <div class="header-left">
-            <div class="mobile">
-                <img src="{% static 'svg/hamburger-icon.svg' %}" alt="hamburger icon">
+            <div class="mobile browse-link">
+                <img src="{% static 'svg/burger-icon.svg' %}" alt="burger icon" width="30" height="24">
             </div>
-            <div class="desktop">
+            <div class="desktop browse-link">
                 Browse Textbooks
             </div>
         </div>
         <div class="header-right">
             <div class="mobile">
-                <img class="user" src="{% static 'svg/user-icon.svg' %}" alt="user icon">
+                <img class="user" src="{% static 'svg/user-icon.svg' %}" alt="user icon" width="22" height="26">
             </div>
             <div class="desktop">
                 Sign In
@@ -57,10 +58,21 @@
                 Register
             </div>
             <div>
-                <img class="basket" src="{% static 'svg/shopping-bag-icon.svg' %}" alt="shopping bag icon">
+                <img class="basket" src="{% static 'svg/shopping-bag-icon.svg' %}" alt="shopping bag icon" width="30" height="30">
             </div>
         </div>
     </header>
+    <div id="browse">
+        <div class="browse-category">
+            Search By Subject
+        </div>
+        <div class="browse-category">
+            Search By Yeargroup
+        </div>
+        <div class="browse-category">
+            Search 
+        </div>
+    </div>
 
     {% block page_header %}
     {% endblock %}
@@ -69,6 +81,7 @@
     {% endblock %}
 
     {% block postloadjs %}
+    <script src="{% static 'js/menu.js' %}"></script>
     {% endblock %}
 
 
