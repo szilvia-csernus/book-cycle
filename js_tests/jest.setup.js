@@ -2,7 +2,7 @@ const { JSDOM } = require('jsdom');
 const fs = require('fs');
 const path = require('path');
 
-const templatePath = path.resolve(__dirname, '../templates/base.html');
+const templatePath = path.resolve(__dirname, './compiled-index.html');
 const templateContents = fs.readFileSync(templatePath, 'utf8');
 
 // Configure jsdom with the template contents
