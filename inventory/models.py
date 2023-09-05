@@ -21,7 +21,7 @@ class Book(models.Model):
         'YearGroup',
         null=True,
         blank=True,
-        related_name='books_by_yea',
+        related_name='books',
         on_delete=models.SET_NULL)
     subject = models.ForeignKey(
         'Subject',
@@ -29,8 +29,8 @@ class Book(models.Model):
         blank=True,
         related_name='books',
         on_delete=models.SET_NULL)
-    exam_board = models.CharField(max_length=254)
-    publisher = models.CharField(max_length=254)
+    exam_board = models.CharField(max_length=254, null=True, blank=True)
+    publisher = models.CharField(max_length=254, null=True, blank=True)
     image = models.ImageField(null=True, blank=True)
     image_url = models.URLField(max_length=1024, null=True, blank=True)
     product_url = models.URLField(max_length=1024, null=True, blank=True)
