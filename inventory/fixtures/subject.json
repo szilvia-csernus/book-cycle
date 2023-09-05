@@ -1,0 +1,142 @@
+[
+	{
+		"model": "inventory.subject",
+		"pk": 1,
+		"fields": {
+			"name": "English"
+		}
+	},
+	{
+		"model": "inventory.subject",
+		"pk": 2,
+		"fields": {
+			"name": "Mathematics"
+		}
+	},
+	{
+		"model": "inventory.subject",
+		"pk": 3,
+		"fields": {
+			"name": "Sciences"
+		}
+	},
+	{
+		"model": "inventory.subject",
+		"pk": 4,
+		"fields": {
+			"name": "Geography"
+		}
+	},
+	{
+		"model": "inventory.subject",
+		"pk": 5,
+		"fields": {
+			"name": "Drama"
+		}
+	},
+	{
+		"model": "inventory.subject",
+		"pk": 6,
+		"fields": {
+			"name": "Religious Education"
+		}
+	},
+	{
+		"model": "inventory.subject",
+		"pk": 7,
+		"fields": {
+			"name": "Design Technology"
+		}
+	},
+	{
+		"model": "inventory.subject",
+		"pk": 8,
+		"fields": {
+			"name": "History"
+		}
+	},
+	{
+		"model": "inventory.subject",
+		"pk": 9,
+		"fields": {
+			"name": "Spanish"
+		}
+	},
+	{
+		"model": "inventory.subject",
+		"pk": 10,
+		"fields": {
+			"name": "French"
+		}
+	},
+	{
+		"model": "inventory.subject",
+		"pk": 11,
+		"fields": {
+			"name": "Computing"
+		}
+	},
+	{
+		"model": "inventory.subject",
+		"pk": 12,
+		"fields": {
+			"name": "Food"
+		}
+	},
+	{
+		"model": "inventory.subject",
+		"pk": 13,
+		"fields": {
+			"name": "Music"
+		}
+	},
+	{
+		"model": "inventory.subject",
+		"pk": 14,
+		"fields": {
+			"name": "Physical Education"
+		}
+	},
+	{
+		"model": "inventory.subject",
+		"pk": 15,
+		"fields": {
+			"name": "Business"
+		}
+	},
+	{
+		"model": "inventory.subject",
+		"pk": 16,
+		"fields": {
+			"name": "Economics"
+		}
+	},
+	{
+		"model": "inventory.subject",
+		"pk": 17,
+		"fields": {
+			"name": "Further Mathematics"
+		}
+	},
+	{
+		"model": "inventory.subject",
+		"pk": 18,
+		"fields": {
+			"name": "Media Studies"
+		}
+	},
+	{
+		"model": "inventory.subject",
+		"pk": 19,
+		"fields": {
+			"name": "Psychology"
+		}
+	},
+	{
+		"model": "inventory.subject",
+		"pk": 20,
+		"fields": {
+			"name": "Sociology"
+		}
+	}
+]

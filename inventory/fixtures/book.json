@@ -1,0 +1,1081 @@
+[
+	{
+		"model": "inventory.book",
+		"pk": 1,
+		"fields": {
+			"year_group": 1,
+			"subject": 10,
+			"title": "Studio 1 Pupil Book (11-14 French)",
+			"exam_board": "",
+			"publisher": "Pearson",
+			"image": "french_yr7-9.jpg",
+			"product_url": "https://www.pearsonschoolsandfecolleges.co.uk/secondary/subjects/modernlanguages/studio-11-14-french-ks3/studio-1-pupil-book-11-14-french-1"
+		}
+	},
+	{
+		"model": "inventory.book",
+		"pk": 2,
+		"fields": {
+			"year_group": 1,
+			"subject": 9,
+			"title": "Viva! Pupil Book 1",
+			"exam_board": "",
+			"publisher": "Pearson",
+			"image": "spanish_yr7-9.jpg",
+			"product_url": "https://www.pearsonschoolsandfecolleges.co.uk/secondary/subjects/modernlanguages/viva-ks3-spanish/viva-pupil-book-1"
+		}
+	},
+	{
+		"model": "inventory.book",
+		"pk": 3,
+		"fields": {
+			"year_group": 1,
+			"subject": 4,
+			"title": "Progress in Geography: Key Stage 3: Motivate, engage and prepare pupils",
+			"exam_board": "",
+			"publisher": "",
+			"image": "geography_yr7-9.jpg",
+			"product_url": "https://www.whsmith.co.uk/products/progress-in-geography-key-stage-3/david-gardner/rebecca-blackshaw/paperback/9781510428003.html"
+		}
+	},
+	{
+		"model": "inventory.book",
+		"pk": 4,
+		"fields": {
+			"year_group": 1,
+			"subject": 8,
+			"title": "Knowing History - Medieval British and World History 410-1509 (Knowing History): Second edition",
+			"exam_board": "",
+			"publisher": "Collins",
+			"image": "history1_yr7-9.webp",
+			"product_url": "https://collins.co.uk/collections/knowing-history/products/9780008492045"
+		}
+	},
+	{
+		"model": "inventory.book",
+		"pk": 5,
+		"fields": {
+			"year_group": 1,
+			"subject": 8,
+			"title": "Knowing History - Twentieth Century British and World History 1900-2020 (Knowing History): Second edition",
+			"exam_board": "",
+			"publisher": "Collins",
+			"image": "history2_yr7-9.webp",
+			"product_url": "https://collins.co.uk/collections/knowing-history/products/9780008492076"
+		}
+	},
+	{
+		"model": "inventory.book",
+		"pk": 6,
+		"fields": {
+			"year_group": 1,
+			"subject": 8,
+			"title": "Knowing History - Modern British and World History 1760-1900 (Knowing History): Second edition",
+			"exam_board": "",
+			"publisher": "Collins",
+			"image": "history2_yr7-9.webp",
+			"product_url": "https://collins.co.uk/collections/knowing-history/products/9780008492069"
+		}
+	},
+	{
+		"model": "inventory.book",
+		"pk": 7,
+		"fields": {
+			"year_group": 1,
+			"subject": 8,
+			"title": "Knowing History - Early Modern British and World History 1509-1760 (Knowing History): Second edition",
+			"exam_board": "",
+			"publisher": "Collins",
+			"image": "history2_yr7-9.webp",
+			"product_url": "https://collins.co.uk/collections/knowing-history/products/9780008492052"
+		}
+	},
+	{
+		"model": "inventory.book",
+		"pk": 8,
+		"fields": {
+			"year_group": 1,
+			"subject": 3,
+			"title": "Exploring Science: Working Scientifically Student Book Year 7",
+			"exam_board": "",
+			"publisher": "Pearson",
+			"image": "science_yr7.jpg",
+			"product_url": "https://www.pearsonschoolsandfecolleges.co.uk/secondary/subjects/science/exploring-science-working-scientifically/exploring-science-working-scientifically-student-book-year-7-2#products"
+		}
+	},
+	{
+		"model": "inventory.book",
+		"pk": 9,
+		"fields": {
+			"year_group": 1,
+			"subject": 3,
+			"title": "Exploring Science: Working Scientifically Student Book Year 8",
+			"exam_board": "",
+			"publisher": "Pearson",
+			"image": "science_yr8.jpg",
+			"product_url": "https://www.pearsonschoolsandfecolleges.co.uk/secondary/subjects/science/exploring-science-working-scientifically/exploring-science-working-scientifically-student-book-year-8-2#products"
+		}
+	},
+	{
+		"model": "inventory.book",
+		"pk": 10,
+		"fields": {
+			"year_group": 1,
+			"subject": 3,
+			"title": "Exploring Science: Working Scientifically Student Book Year 9",
+			"exam_board": "",
+			"publisher": "Pearson",
+			"image": "science_yr9.jpg",
+			"product_url": "https://www.pearsonschoolsandfecolleges.co.uk/secondary/subjects/science/exploring-science-working-scientifically/exploring-science-working-scientifically-student-book-year-9-2#products"
+		}
+	},
+	{
+		"model": "inventory.book",
+		"pk": 11,
+		"fields": {
+			"year_group": 1,
+			"subject": 1,
+			"title": "New KS3 English Complete Revision & Practice (with Online Edition, Quizzes and Knowledge Organisers)",
+			"exam_board": "",
+			"publisher": "CGP",
+			"image": "english1_yr7-9.jpg",
+			"product_url": "https://www.cgpbooks.co.uk/secondary-books/ks3/english/ehs37-new-ks3-english-complete-revision"
+		}
+	},
+	{
+		"model": "inventory.book",
+		"pk": 12,
+		"fields": {
+			"year_group": 1,
+			"subject": 1,
+			"title": "New KS3 Spelling, Punctuation & Grammar Revision Guide (with Online Edition & Quizzes)",
+			"exam_board": "",
+			"publisher": "CGP",
+			"image": "english2_yr7-9.jpg",
+			"product_url": "https://www.cgpbooks.co.uk/secondary-books/ks3/english/egr32-new-ks3-spelling-punctuation-grammar"
+		}
+	},
+	{
+		"model": "inventory.book",
+		"pk": 13,
+		"fields": {
+			"year_group": 1,
+			"subject": 1,
+			"title": "Macbeth - The Complete Play with Annotations, Audio and Knowledge Organisers",
+			"exam_board": "",
+			"publisher": "CGP",
+			"image": "english3_yr7-9.jpg",
+			"product_url": "https://www.cgpbooks.co.uk/secondary-books/ks3/english/epm45-macbeth-the-complete-play-with"
+		}
+	},
+	{
+		"model": "inventory.book",
+		"pk": 14,
+		"fields": {
+			"year_group": 1,
+			"subject": 1,
+			"title": "The Tempest - The Complete Play with Annotations, Audio and Knowledge Organisers",
+			"exam_board": "",
+			"publisher": "CGP",
+			"image": "english4_yr7-9.jpg",
+			"product_url": "https://www.cgpbooks.co.uk/secondary-books/ks3/english/eptt43-the-tempest-the-complete-play-with"
+		}
+	},
+	{
+		"model": "inventory.book",
+		"pk": 15,
+		"fields": {
+			"year_group": 1,
+			"subject": 1,
+			"title": "Romeo & Juliet - The Complete Play with Annotations, Audio and Knowledge Organisers",
+			"exam_board": "",
+			"publisher": "CGP",
+			"image": "english5_yr7-9.jpg",
+			"product_url": "https://www.cgpbooks.co.uk/secondary-books/ks3/english/epr45-romeo-juliet-the-complete-play-with"
+		}
+	},
+	{
+		"model": "inventory.book",
+		"pk": 16,
+		"fields": {
+			"year_group": 1,
+			"subject": 1,
+			"title": "Much Ado About Nothing - The Complete Play with Annotations, Audio and Knowledge Organisers",
+			"exam_board": "",
+			"publisher": "CGP",
+			"image": "english6_yr7-9.jpg",
+			"product_url": "https://www.cgpbooks.co.uk/secondary-books/ks3/english/epma44-much-ado-about-nothing-the-complete"
+		}
+	},
+	{
+		"model": "inventory.book",
+		"pk": 17,
+		"fields": {
+			"year_group": 1,
+			"subject": 1,
+			"title": "The Merchant of Venice - The Complete Play with Annotations, Audio and Knowledge Organisers",
+			"exam_board": "",
+			"publisher": "CGP",
+			"image": "english7_yr7-9.jpg",
+			"product_url": "https://www.cgpbooks.co.uk/secondary-books/ks3/english/epmv42-the-merchant-of-venice-the-complete"
+		}
+	},
+	{
+		"model": "inventory.book",
+		"pk": 18,
+		"fields": {
+			"year_group": 1,
+			"subject": 2,
+			"title": "White Rose Maths - White Rose Maths – Key Stage 3 Maths Student Book 1",
+			"exam_board": "",
+			"publisher": "Collins",
+			"image": "maths1_yr7-9.webp",
+			"product_url": "https://collins.co.uk/collections/white-rose-maths/products/9780008400880"
+		}
+	},
+	{
+		"model": "inventory.book",
+		"pk": 19,
+		"fields": {
+			"year_group": 1,
+			"subject": 2,
+			"title": "White Rose Maths - White Rose Maths – Key Stage 3 Maths Student Book 2",
+			"exam_board": "",
+			"publisher": "Collins",
+			"image": "maths2_yr7-9.webp",
+			"product_url": "https://collins.co.uk/collections/white-rose-maths/products/9780008400897"
+		}
+	},
+	{
+		"model": "inventory.book",
+		"pk": 20,
+		"fields": {
+			"year_group": 1,
+			"subject": 2,
+			"title": "White Rose Maths - White Rose Maths – Key Stage 3 Maths Student Book 3",
+			"exam_board": "",
+			"publisher": "Collins",
+			"image": "maths3_yr7-9.webp",
+			"product_url": "https://collins.co.uk/collections/white-rose-maths/products/9780008400903"
+		}
+	},
+	{
+		"model": "inventory.book",
+		"pk": 21,
+		"fields": {
+			"year_group": 1,
+			"subject": 11,
+			"title": "Cambridge Lower Secondary Computing 7 Student's Book",
+			"exam_board": "",
+			"publisher": "Cambridge",
+			"image": "computing_yr7.jpg",
+			"product_url": "https://www.whsmith.co.uk/products/cambridge-lower-secondary-computing-7-students-book/margaret-debbadi/ben-barnes/paperback/9781398369320.html?gclid=CjwKCAjw3dCnBhBCEiwAVvLcu64uFytOGlYyGCAIMAR2mOsFB2d5139p1Uahq7E09rmPaHOx_8N7txoCrA0QAvD_BwE&gclsrc=aw.ds"
+		}
+	},
+	{
+		"model": "inventory.book",
+		"pk": 22,
+		"fields": {
+			"year_group": 1,
+			"subject": 11,
+			"title": "Cambridge Lower Secondary Computing 8 Student's Book",
+			"exam_board": "",
+			"publisher": "Cambridge",
+			"image": "computing_yr8.jpg",
+			"product_url": "https://www.whsmith.co.uk/products/cambridge-lower-secondary-computing-8-students-book/tristan-kirkpatrick/pam-jones/paperback/9781398369795.html?gclid=CjwKCAjw3dCnBhBCEiwAVvLcu0VhMJr2C2-OOCNyggPB-2ueG__c_08Q5x1dEbHDfsS1wxSOD4JbWhoCWSkQAvD_BwE&gclsrc=aw.ds"
+		}
+	},
+	{
+		"model": "inventory.book",
+		"pk": 23,
+		"fields": {
+			"year_group": 1,
+			"subject": 11,
+			"title": "Cambridge Lower Secondary Computing 9 Student's Book",
+			"exam_board": "",
+			"publisher": "Cambridge",
+			"image": "computing_yr9.jpg",
+			"product_url": "https://www.whsmith.co.uk/products/cambridge-lower-secondary-computing-9-students-book/tristan-kirkpatrick/pam-jones/paperback/9781398369825.html?gclid=CjwKCAjw3dCnBhBCEiwAVvLcu9yKvNh_bBrI5A0YGMIxG-V_yDUI5LJQzI_9dV3dbDgT5Mz7dvbyyRoCYckQAvD_BwE&gclsrc=aw.ds"
+		}
+	},
+	{
+		"model": "inventory.book",
+		"pk": 24,
+		"fields": {
+			"year_group": 2,
+			"subject": 11,
+			"title": "GCSE Computer Science for OCR Student Book Updated Edition",
+			"exam_board": "OCR",
+			"publisher": "Cambridge",
+			"image": "computing_gcse.jpg",
+			"product_url": "https://www.cambridge.org/gb/education/subject/computing/computer-science/gcse-computer-science-1/gcse-computer-science-ocr-student-book-updated-edition?isbn=9781108812542&format=PB#"
+		}
+	},
+	{
+		"model": "inventory.book",
+		"pk": 25,
+		"fields": {
+			"year_group": 2,
+			"subject": 7,
+			"title": "Pearson Edexcel GCSE (9-1) Design & Technology",
+			"exam_board": "Edexcel",
+			"publisher": "Pearson",
+			"image": "dt_gcse.jpg",
+			"product_url": "https://www.pearsonschoolsandfecolleges.co.uk/secondary/subjects/design-and-technology/pearson-edexcel-gcse-9-1-design-technology/edexcel-gcse-9-1-design-and-technology-student-book-2#products"
+		}
+	},
+	{
+		"model": "inventory.book",
+		"pk": 26,
+		"fields": {
+			"year_group": 2,
+			"subject": 5,
+			"title": "WJEC/EDUQAS GCSE DRAMA – STUDENT BOOK",
+			"exam_board": "Eduqas",
+			"publisher": "",
+			"image": "drama_gcse.jpg",
+			"product_url": "https://www.illuminatepublishing.com/product/wjec-eduqas-gcse-drama-student-book"
+		}
+	},
+	{
+		"model": "inventory.book",
+		"pk": 27,
+		"fields": {
+			"year_group": 2,
+			"subject": 1,
+			"title": "GCSE English Language for AQA Progress Student Book",
+			"exam_board": "AQA",
+			"publisher": "Cambridge",
+			"image": "english1_gcse.jpg",
+			"product_url": "https://www.cambridge.org/gb/education/subject/english/english-language/gcse-english-language/gcse-english-language-aqa-progress-student-book?isbn=9781107453135&format=PB"
+		}
+	},
+	{
+		"model": "inventory.book",
+		"pk": 28,
+		"fields": {
+			"year_group": 2,
+			"subject": 1,
+			"title": "GCSE English Shakespeare Text Guide - Romeo & Juliet",
+			"exam_board": "",
+			"publisher": "CGP",
+			"image": "english2_gcse.jpg",
+			"product_url": "https://www.cgpbooks.co.uk/secondary-books/gcse/english/text-guides-and-plays/etr45-gcse-english-shakespeare-text-guide"
+		}
+	},
+	{
+		"model": "inventory.book",
+		"pk": 29,
+		"fields": {
+			"year_group": 2,
+			"subject": 1,
+			"title": "GCSE English Text Guide - An Inspector Calls",
+			"exam_board": "",
+			"publisher": "CGP",
+			"image": "english3_gcse.jpg",
+			"product_url": "https://www.cgpbooks.co.uk/secondary-books/gcse/english/text-guides-and-plays/eti45-gcse-english-text-guide-an-inspector"
+		}
+	},
+	{
+		"model": "inventory.book",
+		"pk": 30,
+		"fields": {
+			"year_group": 2,
+			"subject": 1,
+			"title": "GCSE English Text Guide - Dr Jekyll and Mr Hyde",
+			"exam_board": "",
+			"publisher": "CGP",
+			"image": "english4_gcse.jpg",
+			"product_url": "https://www.cgpbooks.co.uk/secondary-books/gcse/english/text-guides-and-plays/etjh42-gcse-english-text-guide-dr-jekyll-and"
+		}
+	},
+	{
+		"model": "inventory.book",
+		"pk": 31,
+		"fields": {
+			"year_group": 2,
+			"subject": 1,
+			"title": "GCSE English AQA Poetry Guide - Power & Conflict Anthology",
+			"exam_board": "",
+			"publisher": "CGP",
+			"image": "english5_gcse.jpg",
+			"product_url": "https://www.cgpbooks.co.uk/secondary-books/gcse/english/poetry-guides/achr44-gcse-english-aqa-poetry-guide-power"
+		}
+	},
+	{
+		"model": "inventory.book",
+		"pk": 32,
+		"fields": {
+			"year_group": 2,
+			"subject": 12,
+			"title": "OCR GCSE Food Preparation and Nutrition",
+			"exam_board": "OCR",
+			"publisher": "Hodder Education",
+			"image": "food_gcse.webp",
+			"product_url": "https://www.hoddereducation.co.uk/subjects/general/products/key-stage-4-14/ocr-gcse-food-preparation-and-nutrition"
+		}
+	},
+	{
+		"model": "inventory.book",
+		"pk": 33,
+		"fields": {
+			"year_group": 2,
+			"subject": 10,
+			"title": "Studio for Edexcel GCSE (9-1) French",
+			"exam_board": "Edexcel",
+			"publisher": "Pearson",
+			"image": "french_gcse.jpeg",
+			"product_url": "https://www.pearson.com/international-schools/british-curriculum/secondary-curriculum/pearson-edexcel-gcse-9-1/Studio-Edexcel-GCSE-9-1-French.html.html"
+		}
+	},
+	{
+		"model": "inventory.book",
+		"pk": 34,
+		"fields": {
+			"year_group": 2,
+			"subject": 4,
+			"title": "GCSE (9-1) Geography specification A: Geographical Themes and Challenges",
+			"exam_board": "Edexcel",
+			"publisher": "Pearson",
+			"image": "geography_gcse.jpg",
+			"product_url": "https://www.pearsonschoolsandfecolleges.co.uk/secondary/subjects/geography-secondary/edexcel-gcse-9-1-geography-a/gcse-9-1-geography-specification-a-geographical-themes-and-challenges-1?_ga=2.23578682.146445665.1693742657-920242270.1693742657"
+		}
+	},
+	{
+		"model": "inventory.book",
+		"pk": 35,
+		"fields": {
+			"year_group": 2,
+			"subject": 8,
+			"title": "Oxford AQA History for GCSE: Conflict and Tension: The Inter-War Years 1918-1939",
+			"exam_board": "AQA",
+			"publisher": "Oxford University Press",
+			"image": "history1_gcse.jpg",
+			"product_url": "https://global.oup.com/education/product/9780198370116/?region=uk"
+		}
+	},
+	{
+		"model": "inventory.book",
+		"pk": 36,
+		"fields": {
+			"year_group": 2,
+			"subject": 8,
+			"title": "Oxford AQA GCSE History: America 1920-1973: Opportunity and Inequality Student Book",
+			"exam_board": "AQA",
+			"publisher": "Oxford University Press",
+			"image": "history2_gcse.jpg",
+			"product_url": "https://global.oup.com/education/product/9780198412625/?region=uk"
+		}
+	},
+	{
+		"model": "inventory.book",
+		"pk": 37,
+		"fields": {
+			"year_group": 2,
+			"subject": 8,
+			"title": "Oxford AQA GCSE History (9-1): Britain: Health and the People c1000-Present Day Student Book Second Edition",
+			"exam_board": "AQA",
+			"publisher": "Oxford University Press",
+			"image": "history3_gcse.jpg",
+			"product_url": "https://global.oup.com/education/product/9781382023108/?region=uk"
+		}
+	},
+	{
+		"model": "inventory.book",
+		"pk": 38,
+		"fields": {
+			"year_group": 2,
+			"subject": 8,
+			"title": "Oxford AQA GCSE History (9-1): Elizabethan England c1568-1603 Student Book Second Edition",
+			"exam_board": "AQA",
+			"publisher": "Oxford University Press",
+			"image": "history4_gcse.jpg",
+			"product_url": "https://global.oup.com/education/product/9781382045155/?region=uk"
+		}
+	},
+	{
+		"model": "inventory.book",
+		"pk": 39,
+		"fields": {
+			"year_group": 2,
+			"subject": 2,
+			"title": "Edexcel GCSE (9-1) Mathematics: Foundation Student Book",
+			"exam_board": "Edexcel",
+			"publisher": "Pearson",
+			"image": "maths1_gcse.jpg",
+			"product_url": "https://www.pearsonschoolsandfecolleges.co.uk/fe-vocational/subjects/mathematics-fe-vocational/edexcel-gcse-maths-post-16-resits/edexcel-gcse-9-1-mathematics-foundation-student-book-1#products"
+		}
+	},
+	{
+		"model": "inventory.book",
+		"pk": 40,
+		"fields": {
+			"year_group": 2,
+			"subject": 2,
+			"title": "Edexcel GCSE (9-1) Mathematics: Higher Student Book",
+			"exam_board": "Edexcel",
+			"publisher": "Pearson",
+			"image": "maths2_gcse.jpg",
+			"product_url": "https://www.pearsonschoolsandfecolleges.co.uk/fe-vocational/subjects/mathematics-fe-vocational/edexcel-gcse-maths-post-16-resits/edexcel-gcse-9-1-mathematics-higher-student-book-1#products"
+		}
+	},
+	{
+		"model": "inventory.book",
+		"pk": 41,
+		"fields": {
+			"year_group": 2,
+			"subject": 13,
+			"title": "OCR GCSE Music Study Guide",
+			"exam_board": "OCR",
+			"publisher": "",
+			"image": "music_gcse.jpg",
+			"product_url": "https://www.amazon.co.uk/OCR-GCSE-Music-Study-Guide/dp/1785581597/ref=asc_df_1785581597/?tag=googshopuk-21&product_urlCode=df0&hvadid=310817467131&hvpos=&hvnetw=g&hvrand=4999960938267981117&hvpone=&hvptwo=&hvqmt=&hvdev=c&hvdvcmdl=&hvlocint=&hvlocphy=9046099&hvtargid=pla-563330597179&psc=1&th=1&psc=1"
+		}
+	},
+	{
+		"model": "inventory.book",
+		"pk": 42,
+		"fields": {
+			"year_group": 2,
+			"subject": 14,
+			"title": "Edexcel GCSE (9-1) PE Student Book 2nd editions",
+			"exam_board": "Edexcel",
+			"publisher": "Pearson",
+			"image": "pe_gcse.jpg",
+			"product_url": "https://www.pearsonschoolsandfecolleges.co.uk/secondary/subjects/pe-and-sport/edexcel-gcse-physical-education-9-1-2016/edexcel-gcse-9-1-pe-student-book-2nd-editions-1#products"
+		}
+	},
+	{
+		"model": "inventory.book",
+		"pk": 43,
+		"fields": {
+			"year_group": 2,
+			"subject": 3,
+			"title": "AQA GCSE Biology Student Book",
+			"exam_board": "AQA",
+			"publisher": "Oxford University Press",
+			"image": "biology_gcse.jpg",
+			"product_url": "https://global.oup.com/education/product/9780198359371/?region=uk"
+		}
+	},
+	{
+		"model": "inventory.book",
+		"pk": 44,
+		"fields": {
+			"year_group": 2,
+			"subject": 3,
+			"title": "AQA GCSE Chemistry Student Book",
+			"exam_board": "AQA",
+			"publisher": "Oxford University Press",
+			"image": "chemistry_gcse.jpg",
+			"product_url": "https://global.oup.com/education/product/9780198359388/?region=uk"
+		}
+	},
+	{
+		"model": "inventory.book",
+		"pk": 45,
+		"fields": {
+			"year_group": 2,
+			"subject": 3,
+			"title": "AQA GCSE Physics Student Book",
+			"exam_board": "AQA",
+			"publisher": "Oxford University Press",
+			"image": "physics_gcse.jpg",
+			"product_url": "https://global.oup.com/education/product/9780198359395/?region=uk"
+		}
+	},
+	{
+		"model": "inventory.book",
+		"pk": 46,
+		"fields": {
+			"year_group": 2,
+			"subject": 6,
+			"title": "AQA GCSE (9-1) Religious Studies Specification A Christianity, Islam, Judaism and the Religious, Philosophical and Ethical Themes",
+			"exam_board": "AQA",
+			"publisher": "Hodder Education",
+			"image": "re1_gcse.webp",
+			"product_url": "https://www.hoddereducation.co.uk/subjects/religious-education-philosophy/products/14-16/aqa-gcse-religious-studies-specification-a"
+		}
+	},
+	{
+		"model": "inventory.book",
+		"pk": 47,
+		"fields": {
+			"year_group": 2,
+			"subject": 6,
+			"title": "GCSE Religious Studies for AQA A: Islam",
+			"exam_board": "AQA",
+			"publisher": "Oxford University Press",
+			"image": "re2_gcse.jpg",
+			"product_url": "https://global.oup.com/education/product/9780198370345/?region=uk"
+		}
+	},
+	{
+		"model": "inventory.book",
+		"pk": 48,
+		"fields": {
+			"year_group": 2,
+			"subject": 6,
+			"title": "GCSE Religious Studies for AQA A: Christianity",
+			"exam_board": "AQA",
+			"publisher": "Oxford University Press",
+			"image": "re3_gcse.jpg",
+			"product_url": "https://global.oup.com/education/product/9780198370338/?region=uk"
+		}
+	},
+	{
+		"model": "inventory.book",
+		"pk": 49,
+		"fields": {
+			"year_group": 2,
+			"subject": 9,
+			"title": "¡Viva! for Edexcel GCSE (9-1) Spanish",
+			"exam_board": "Edexcel",
+			"publisher": "Pearson",
+			"image": "spanish_gcse.jpeg",
+			"product_url": "https://www.pearson.com/international-schools/british-curriculum/secondary-curriculum/pearson-edexcel-gcse-9-1/Viva-Edexcel-GCSE-9-1-Spanish.html.html"
+		}
+	},
+	{
+		"model": "inventory.book",
+		"pk": 50,
+		"fields": {
+			"year_group": 3,
+			"subject": 15,
+			"title": "Edexcel AS/A level Business 5th edition Student Book",
+			"exam_board": "Edexcel",
+			"publisher": "Pearson",
+			"image": "business_alevel.jpg",
+			"product_url": "https://www.pearsonschoolsandfecolleges.co.uk/secondary/subjects/business-and-economics/edexcel-asa-level-business/edexcel-asa-level-business-5th-edition-student-book-and-activebook?_ga=2.196395820.146445665.1693742657-920242270.1693742657"
+		}
+	},
+	{
+		"model": "inventory.book",
+		"pk": 51,
+		"fields": {
+			"year_group": 3,
+			"subject": 11,
+			"title": "A/AS Level Computer Science for OCR Student Book",
+			"exam_board": "OCR",
+			"publisher": "Cambridge",
+			"image": "computing_alevel.jpg",
+			"product_url": "https://www.cambridge.org/gb/education/subject/computing/computer-science/level-computer-science/a-as-level-computer-science-ocr-student-book?isbn=9781108412711&format=PB"
+		}
+	},
+	{
+		"model": "inventory.book",
+		"pk": 52,
+		"fields": {
+			"year_group": 3,
+			"subject": 7,
+			"title": "A Level Design and Technology for Edexcel: Product Design: Graphic Products",
+			"exam_board": "Edexcel",
+			"publisher": "Pearson",
+			"image": "dt1_alevel.jpg",
+			"product_url": "https://www.pearsonschoolsandfecolleges.co.uk/secondary/subjects/design-and-technology/pearson-edexcel-a-level-design-and-technology-product-design/a-level-design-and-technology-for-edexcel-product-design-graphic-products-1#products"
+		}
+	},
+	{
+		"model": "inventory.book",
+		"pk": 53,
+		"fields": {
+			"year_group": 3,
+			"subject": 7,
+			"title": "A Level Design and Technology for Edexcel: Product Design: Resistant Materials",
+			"exam_board": "Edexcel",
+			"publisher": "Pearson",
+			"image": "dt2_alevel.jpg",
+			"product_url": "https://www.pearsonschoolsandfecolleges.co.uk/secondary/subjects/design-and-technology/pearson-edexcel-a-level-design-and-technology-product-design/a-level-design-and-technology-for-edexcel-product-design-resistant-materials-1#products"
+		}
+	},
+	{
+		"model": "inventory.book",
+		"pk": 54,
+		"fields": {
+			"year_group": 3,
+			"subject": 5,
+			"title": "AQA Drama and Theatre: A Level and AS",
+			"exam_board": "AQA",
+			"publisher": "Oxford University Press",
+			"image": "drama_alevel.jpg",
+			"product_url": "https://global.oup.com/education/product/9780198426974/?region=uk"
+		}
+	},
+	{
+		"model": "inventory.book",
+		"pk": 55,
+		"fields": {
+			"year_group": 3,
+			"subject": 16,
+			"title": "AQA A-level Economics Fifth Edition",
+			"exam_board": "AQA",
+			"publisher": "Hodder Education",
+			"image": "economics_alevel.webp",
+			"product_url": "https://www.hoddereducation.co.uk/subjects/economics/products/16-18/aqa-a-level-economics-fifth-edition"
+		}
+	},
+	{
+		"model": "inventory.book",
+		"pk": 56,
+		"fields": {
+			"year_group": 3,
+			"subject": 1,
+			"title": "A/AS Level English Language for AQA Student Book",
+			"exam_board": "AQA",
+			"publisher": "Cambridge",
+			"image": "english_alevel.jpg",
+			"product_url": "https://www.cambridge.org/gb/education/subject/english/english-language/level-english-language/a-as-level-english-language-aqa-student-book?isbn=9781107465626&format=PB"
+		}
+	},
+	{
+		"model": "inventory.book",
+		"pk": 57,
+		"fields": {
+			"year_group": 3,
+			"subject": 10,
+			"title": "Edexcel A level French (includes AS)",
+			"exam_board": "Edexcel",
+			"publisher": "Pearson",
+			"image": "french_alevel.jpg",
+			"product_url": "https://www.hoddereducation.co.uk/subjects/languages/products/16-18/edexcel-a-level-french-(includes-as)"
+		}
+	},
+	{
+		"model": "inventory.book",
+		"pk": 58,
+		"fields": {
+			"year_group": 3,
+			"subject": 4,
+			"title": "Edexcel AS Level Geography 2016 Year 1 ActiveBook",
+			"exam_board": "Edexcel",
+			"publisher": "Pearson",
+			"image": "geography1_alevel.jpg",
+			"product_url": "https://www.pearsonschoolsandfecolleges.co.uk/secondary/subjects/geography-secondary/edexcel-as-and-a-level-geography/edexcel-as-level-geography-2016-active-book-single-1?_ga=2.228452381.146445665.1693742657-920242270.1693742657"
+		}
+	},
+	{
+		"model": "inventory.book",
+		"pk": 59,
+		"fields": {
+			"year_group": 3,
+			"subject": 4,
+			"title": "Edexcel A Level Geography 2016 Year 2 ActiveBook",
+			"exam_board": "Edexcel",
+			"publisher": "Pearson",
+			"image": "geography2_alevel.jpg",
+			"product_url": "https://www.pearsonschoolsandfecolleges.co.uk/secondary/subjects/geography-secondary/edexcel-as-and-a-level-geography/edexcel-a-level-y2-geography-2016-active-book-single-1?_ga=2.229559708.146445665.1693742657-920242270.1693742657"
+		}
+	},
+	{
+		"model": "inventory.book",
+		"pk": 60,
+		"fields": {
+			"year_group": 3,
+			"subject": 8,
+			"title": "Oxford AQA History for A Level: The Making of Modern Britain 1951-2007",
+			"exam_board": "AQA",
+			"publisher": "Oxford University Press",
+			"image": "history1_alevel.jpg",
+			"product_url": "https://global.oup.com/education/product/9780198354642/?region=uk"
+		}
+	},
+	{
+		"model": "inventory.book",
+		"pk": 61,
+		"fields": {
+			"year_group": 3,
+			"subject": 8,
+			"title": "Oxford AQA History for A Level: Tsarist and Communist Russia 1855-1964",
+			"exam_board": "AQA",
+			"publisher": "Oxford University Press",
+			"image": "history2_alevel.jpg",
+			"product_url": "https://global.oup.com/education/product/9780198354673/?region=uk"
+		}
+	},
+	{
+		"model": "inventory.book",
+		"pk": 62,
+		"fields": {
+			"year_group": 3,
+			"subject": 8,
+			"title": "Oxford AQA History for A Level: The Quest for Political Stability: Germany 1871-1991",
+			"exam_board": "AQA",
+			"publisher": "Oxford University Press",
+			"image": "history3_alevel.jpg",
+			"product_url": "https://global.oup.com/education/product/9780198354680/?region=uk"
+		}
+	},
+	{
+		"model": "inventory.book",
+		"pk": 63,
+		"fields": {
+			"year_group": 3,
+			"subject": 2,
+			"title": "Edexcel AS and A level Mathematics Statistics & Mechanics Year 1/AS",
+			"exam_board": "Edexcel",
+			"publisher": "Pearson",
+			"image": "maths1_alevel.jpg",
+			"product_url": "https://www.pearsonschoolsandfecolleges.co.uk/secondary/subjects/mathematics-secondary/pearson-edexcel-as-and-a-level-mathematics-and-further-mathematics-2017/edexcel-as-and-a-level-mathematics-statistics-mechanics-year-1as-textbook-e-book-2?_ga=2.129419276.146445665.1693742657-920242270.1693742657"
+		}
+	},
+	{
+		"model": "inventory.book",
+		"pk": 64,
+		"fields": {
+			"year_group": 3,
+			"subject": 2,
+			"title": "Edexcel A level Mathematics Statistics & Mechanics Year 2",
+			"exam_board": "Edexcel",
+			"publisher": "Pearson",
+			"image": "maths2_alevel.jpg",
+			"product_url": "https://www.pearsonschoolsandfecolleges.co.uk/secondary/subjects/mathematics-secondary/pearson-edexcel-as-and-a-level-mathematics-and-further-mathematics-2017/edexcel-a-level-mathematics-statistics-mechanics-year-2-textbook-e-book-2?_ga=2.232761119.146445665.1693742657-920242270.1693742657"
+		}
+	},
+	{
+		"model": "inventory.book",
+		"pk": 65,
+		"fields": {
+			"year_group": 3,
+			"subject": 2,
+			"title": "Edexcel AS and A level Mathematics Pure Mathematics Year 1/AS",
+			"exam_board": "Edexcel",
+			"publisher": "Pearson",
+			"image": "maths3_alevel.jpg",
+			"product_url": "https://www.pearsonschoolsandfecolleges.co.uk/secondary/subjects/mathematics-secondary/pearson-edexcel-as-and-a-level-mathematics-and-further-mathematics-2017/edexcel-as-and-a-level-mathematics-pure-mathematics-year-1as-textbook-e-book-2?_ga=2.23080890.146445665.1693742657-920242270.1693742657"
+		}
+	},
+	{
+		"model": "inventory.book",
+		"pk": 66,
+		"fields": {
+			"year_group": 3,
+			"subject": 2,
+			"title": "Edexcel A level Mathematics Pure Mathematics Year 2",
+			"exam_board": "Edexcel",
+			"publisher": "Pearson",
+			"image": "maths4_alevel.jpg",
+			"product_url": "https://www.pearsonschoolsandfecolleges.co.uk/secondary/subjects/mathematics-secondary/pearson-edexcel-as-and-a-level-mathematics-and-further-mathematics-2017/edexcel-a-level-mathematics-pure-mathematics-year-2-textbook-e-book-2?_ga=2.133622670.146445665.1693742657-920242270.1693742657"
+		}
+	},
+	{
+		"model": "inventory.book",
+		"pk": 67,
+		"fields": {
+			"year_group": 3,
+			"subject": 17,
+			"title": "Edexcel AS and A level Further Mathematics Core Pure Mathematics Book 1/AS",
+			"exam_board": "Edexcel",
+			"publisher": "Pearson",
+			"image": "fmaths1_alevel.jpg",
+			"product_url": "https://www.pearsonschoolsandfecolleges.co.uk/secondary/subjects/mathematics-secondary/pearson-edexcel-as-and-a-level-mathematics-and-further-mathematics-2017/edexcel-as-and-a-level-further-mathematics-core-pure-mathematics-book-1as-textbook-e-book-2?_ga=2.25610429.146445665.1693742657-920242270.1693742657"
+		}
+	},
+	{
+		"model": "inventory.book",
+		"pk": 68,
+		"fields": {
+			"year_group": 3,
+			"subject": 17,
+			"title": "Edexcel A level Further Mathematics Core Pure Mathematics Book 2",
+			"exam_board": "Edexcel",
+			"publisher": "Pearson",
+			"image": "fmaths2_alevel.jpg",
+			"product_url": "https://www.pearsonschoolsandfecolleges.co.uk/secondary/subjects/mathematics-secondary/pearson-edexcel-as-and-a-level-mathematics-and-further-mathematics-2017/edexcel-a-level-further-mathematics-core-pure-mathematics-book-2-textbook-e-book-2?_ga=2.23578682.146445665.1693742657-920242270.1693742657"
+		}
+	},
+	{
+		"model": "inventory.book",
+		"pk": 69,
+		"fields": {
+			"year_group": 3,
+			"subject": 17,
+			"title": "Edexcel AS and A level Further Mathematics Further Statistics 1",
+			"exam_board": "Edexcel",
+			"publisher": "Pearson",
+			"image": "fmaths3_alevel.jpg",
+			"product_url": "https://www.pearsonschoolsandfecolleges.co.uk/secondary/subjects/mathematics-secondary/pearson-edexcel-as-and-a-level-mathematics-and-further-mathematics-2017/edexcel-as-and-a-level-further-mathematics-further-statistics-1-textbook-e-book-1?_ga=2.25610429.146445665.1693742657-920242270.1693742657"
+		}
+	},
+	{
+		"model": "inventory.book",
+		"pk": 70,
+		"fields": {
+			"year_group": 3,
+			"subject": 17,
+			"title": "Edexcel AS and A level Further Mathematics Further Pure Mathematics 1",
+			"exam_board": "Edexcel",
+			"publisher": "Pearson",
+			"image": "fmaths4_alevel.jpg",
+			"product_url": "https://www.pearsonschoolsandfecolleges.co.uk/secondary/subjects/mathematics-secondary/pearson-edexcel-as-and-a-level-mathematics-and-further-mathematics-2017/edexcel-as-and-a-level-further-mathematics-further-pure-mathematics-1-textbook-e-book-2?_ga=2.228459677.146445665.1693742657-920242270.1693742657"
+		}
+	},
+	{
+		"model": "inventory.book",
+		"pk": 71,
+		"fields": {
+			"year_group": 3,
+			"subject": 18,
+			"title": "WJEC/EDUQAS MEDIA STUDIES FOR A LEVEL YEAR 1 & AS STUDENT BOOK: REVISED EDITION",
+			"exam_board": "Eduqas",
+			"publisher": "",
+			"image": "media1_alevel.jpg",
+			"product_url": "https://www.illuminatepublishing.com/product/wjec-eduqas-media-studies-for-a-level-year-1-as-student-book-revised-edition"
+		}
+	},
+	{
+		"model": "inventory.book",
+		"pk": 72,
+		"fields": {
+			"year_group": 3,
+			"subject": 18,
+			"title": "WJEC/EDUQAS MEDIA STUDIES FOR A LEVEL YEAR 2 & A2 STUDENT BOOK: REVISED EDITION",
+			"exam_board": "Eduqas",
+			"publisher": "",
+			"image": "media2_alevel.jpg",
+			"product_url": "https://www.illuminatepublishing.com/product/wjec-eduqas-media-studies-for-a-level-year-2-a2-student-book-revised-edition-boost-ebook"
+		}
+	},
+	{
+		"model": "inventory.book",
+		"pk": 73,
+		"fields": {
+			"year_group": 3,
+			"subject": 13,
+			"title": "WJEC / Eduqas AS And A Level Music Study Guide",
+			"exam_board": "Eduqas",
+			"publisher": "",
+			"image": "music_alevel.jpg",
+			"product_url": "https://www.starland.co.uk/eduqas-as-and-a-level-music-study-guide.html"
+		}
+	},
+	{
+		"model": "inventory.book",
+		"pk": 74,
+		"fields": {
+			"year_group": 3,
+			"subject": 14,
+			"title": "OCR A Level PE (Year 1 and Year 2)",
+			"exam_board": "OCR",
+			"publisher": "Hodder Education",
+			"image": "pe_alevel.webp",
+			"product_url": "https://www.hoddereducation.co.uk/subjects/sport-pe/products/16-18/ocr-a-level-pe-(year-1-and-year-2)"
+		}
+	},
+	{
+		"model": "inventory.book",
+		"pk": 75,
+		"fields": {
+			"year_group": 3,
+			"subject": 19,
+			"title": "AQA A-level Psychology (Year 1 and Year 2)",
+			"exam_board": "AQA",
+			"publisher": "Hodder Education",
+			"image": "psychology_alevel.webp",
+			"product_url": "https://www.hoddereducation.co.uk/subjects/psychology/products/16-18/aqa-a-level-psychology-(year-1-and-year-2)"
+		}
+	},
+	{
+		"model": "inventory.book",
+		"pk": 76,
+		"fields": {
+			"year_group": 3,
+			"subject": 6,
+			"title": "OCR Religious Studies A Level Year 1 and AS",
+			"exam_board": "OCR",
+			"publisher": "Hodder Education",
+			"image": "re1_alevel.webp",
+			"product_url": "https://www.hoddereducation.co.uk/subjects/religious-education-philosophy/products/16-18/ocr-religious-studies-a-level-year-1-and-as"
+		}
+	},
+	{
+		"model": "inventory.book",
+		"pk": 77,
+		"fields": {
+			"year_group": 3,
+			"subject": 6,
+			"title": "OCR Religious Studies A Level Year 2",
+			"exam_board": "OCR",
+			"publisher": "Hodder Education",
+			"image": "re2_alevel.webp",
+			"product_url": "https://www.hoddereducation.co.uk/subjects/religious-education-philosophy/products/16-18/ocr-religious-studies-a-level-year-2"
+		}
+	},
+	{
+		"model": "inventory.book",
+		"pk": 78,
+		"fields": {
+			"year_group": 3,
+			"subject": 20,
+			"title": "Collins AQA A Level Sociology - AQA A Level Sociology Student Book 1",
+			"exam_board": "AQA",
+			"publisher": "Collins",
+			"image": "sociology1_alevel.webp",
+			"product_url": "https://collins.co.uk/products/9780007597475"
+		}
+	},
+	{
+		"model": "inventory.book",
+		"pk": 79,
+		"fields": {
+			"year_group": 3,
+			"subject": 20,
+			"title": "Collins AQA A Level Sociology - AQA A Level Sociology Student Book 2",
+			"exam_board": "AQA",
+			"publisher": "Collins",
+			"image": "sociology2_alevel.webp",
+			"product_url": "https://collins.co.uk/products/9780007597499"
+		}
+	},
+	{
+		"model": "inventory.book",
+		"pk": 80,
+		"fields": {
+			"year_group": 3,
+			"subject": 9,
+			"title": "Edexcel A level Spanish (includes AS)",
+			"exam_board": "Edexcel",
+			"publisher": "Hodder Education",
+			"image": "spanish_alevel.webp",
+			"product_url": "https://www.hoddereducation.co.uk/subjects/languages/products/16-18/edexcel-a-level-spanish-(includes-as)"
+		}
+	},
+	{
+		"model": "inventory.book",
+		"pk": 81,
+		"fields": {
+			"year_group": 3,
+			"subject": 3,
+			"title": "A Level Biology for OCR A Student Book",
+			"exam_board": "OCR",
+			"publisher": "Oxford University Press",
+			"image": "biology_alevel.jpg",
+			"product_url": "https://global.oup.com/education/product/9780198351924/?region=uk"
+		}
+	},
+	{
+		"model": "inventory.book",
+		"pk": 82,
+		"fields": {
+			"year_group": 3,
+			"subject": 3,
+			"title": "A Level Chemistry for OCR A Student Book",
+			"exam_board": "OCR",
+			"publisher": "Oxford University Press",
+			"image": "chemistry_alevel.jpg",
+			"product_url": "https://global.oup.com/education/product/9780198351979/?region=uk"
+		}
+	},
+	{
+		"model": "inventory.book",
+		"pk": 83,
+		"fields": {
+			"year_group": 3,
+			"subject": 3,
+			"title": "A Level Physics for OCR A Student Book",
+			"exam_board": "OCR",
+			"publisher": "Oxford University Press",
+			"image": "physics_alevel.jpg",
+			"product_url": "https://global.oup.com/education/product/9780198352181/?region=uk"
+		}
+	}
+]
