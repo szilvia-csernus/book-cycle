@@ -49,4 +49,4 @@ class Stock(models.Model):
         on_delete=models.CASCADE)
     price = models.DecimalField(max_digits=6, decimal_places=2)
     condition = models.CharField(max_length=30)
-    quantity = models.IntegerField
+    quantity = models.IntegerField(default=0)
