@@ -26,7 +26,7 @@ class TestViews(TestCase):
 
         response = self.client.post('/books/add/', {'title': 'Test Book'})
         self.assertEqual(response.status_code, 201)
-        self.assertTemplateUsed((response, 'books/add_book.html'))
+        self.assertRedirects((response, 'books/'))
 
     def test_delete_book_unauthorized(self):
         book = Book.objects.create(
@@ -49,14 +49,13 @@ class TestViews(TestCase):
             title='Test Book'
         )
         response = self.client.get(f'/books/delete/{book.id}')
-        self.assertTemplateUsed((response, 'books/add_book.html'))
-        response = self.client.get('/books/delete/{id}')
-        self.assertEqual(response.status_code, 200)
+        self.assertRedirects(response, 'books/')
+        book_in_database = Book.objects.filter(id=book.id)
+        self.assertEqual(len(book_in_database), 0)
 
     def test_all_stock_unauthorized(self):
         response = self.client.get('/books/all_stock/')
         self.assertEqual(response.status_code, 401)
-        self.assertTemplateUsed(response, 'inventory/all_stock.html')
 
     def test_all_stock_authorized(self):
         #  Set up a superuser
@@ -82,9 +81,9 @@ class TestViews(TestCase):
             condition='fair',
             quantity=2
         )
-        response = self.client.get(f'/books/update_stock/{stock.id}')
+        response = self.client.post(f'/books/update_stock/{stock}')
         self.assertEqual(response.status_code, 401)
-        self.assertTemplateUsed(response, 'inventory/update_stock/{id}')
+        self.assertTemplateUsed(response, f'inventory/edit_stock/{stock.id}')
 
     def test_update_stock_authorised(self):
         #  Set up a superuser
@@ -104,6 +103,6 @@ class TestViews(TestCase):
             condition='fair',
             quantity=2
         )
-        response = self.client.get(f'/books/update_stock/{stock.id}')
+        response = self.client.post(f'/books/update_stock/{stock}')
         self.assertEqual(response.status_code, 200)
-        self.assertTemplateUsed(response, f'inventory/update_stock/{stock.id}')
+        self.assertTemplateUsed(response, f'inventory/edit_stock/{stock.id}')
