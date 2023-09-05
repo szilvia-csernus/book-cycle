@@ -9,6 +9,7 @@
 ## Programs used
 
 * Image converter: https://cloudconvert.com/jpg-to-webp
+* File converter (csv to json): https://csvjson.com/csv2json
 
 ## Images
 

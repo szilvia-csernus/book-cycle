@@ -50,6 +50,7 @@ INSTALLED_APPS = [
 
     # my apps
     'home',
+    'inventory',
 ]
 
 MIDDLEWARE = [
@@ -194,7 +195,6 @@ SOCIALACCOUNT_PROVIDERS = {
         'OAUTH_PKCE_ENABLED': True,
     }
 },
-LOGIN_REDIRECT_URL = '/success'
+LOGIN_REDIRECT_URL = '/'
 
 EMAIL_BACKEND = 'django.core.mail.backends.console.EmailBackend'
-
