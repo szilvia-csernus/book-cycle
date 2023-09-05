@@ -47,15 +47,32 @@
             </div>
         </div>
         <div class="header-right">
-            <div class="mobile">
+            {% if request.user.is_authenticated %}
+                
+                <a href="{% url 'account_login' %}" class="mobile">
+                    <img class="user" src="{% static 'svg/user-icon.svg' %}" alt="user icon" width="22" height="26">
+                </a>
+                <a href="{% url 'account_logout' %}" class="desktop">
+                    Account
+                </a>
+                <a href="{% url 'account_logout' %}" class="desktop">
+                    Sign Out
+                </a>
+                <a href="{% url 'account_logout' %}" class="email">
+                    {{ request.user.email }}
+                </a>
+                
+            {% else %}
+            <a href="{% url 'account_login' %}" class="mobile">
                 <img class="user" src="{% static 'svg/user-icon.svg' %}" alt="user icon" width="22" height="26">
-            </div>
-            <div class="desktop">
+            </a>
+            <a href="{% url 'account_login' %}" class="desktop">
                 Sign In
-            </div>
-            <div class="desktop">
+            </a>
+            <a href="{% url 'account_signup' %}" class="desktop">
                 Register
-            </div>
+            </a>
+            {% endif %}
             <div>
                 <img class="basket" src="{% static 'svg/shopping-bag-icon.svg' %}" alt="shopping bag icon" width="30" height="30">
             </div>
@@ -67,10 +84,10 @@
                 All Textbooks
             </li>
             <li class="browse-category">
-                Search By Subject
+                Search by Subject
             </li>
             <li class="browse-category">
-                Search By Yeargroup
+                Search by Yeargroup
             </li>
             <li >
                 <form id="search-form" method="GET" action="">

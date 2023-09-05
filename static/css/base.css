@@ -1,4 +1,4 @@
-/* --------------- RESET ------------- */
+/* -------------------------------------- RESET ------------- */
 
 html, 
 body, 
@@ -47,19 +47,21 @@ body {
     font-weight: 200;
 }
 
-/* --------------------------------------- HEADER  */
+/* --------------------------------------- HEADER -------------- */
 
 .mobile {
     display: inline-block;
+    cursor: pointer;
 }
 
 .desktop {
     display: none;
+    cursor: pointer;
 }
 
 header {
     position: absolute;
-    top: 1rem;
+    top: 2.5rem;
     left: 2rem;
     right: 2rem;
     display: flex;
@@ -96,6 +98,14 @@ img.user {
 img.basket {
     width: 31px;
     height: 39px;
+    cursor: pointer;
+}
+
+.email {
+    font-size: .9rem;
+    position: absolute;
+    right: 0;
+    top: -2rem;
 }
 
 @media screen and (min-width: 600px) {
@@ -108,8 +118,8 @@ img.basket {
     }
 
     img.basket {
-        width: 40px;
-        height: 50px;
+        position: relative;
+        bottom: 0.4rem;
     }
 
     .header-right {
@@ -125,7 +135,7 @@ img.basket {
     height: 25rem;
     background-color: #bababa;
     background: linear-gradient(to bottom, #bababa, #160f69);
-    transition: left 0.3s ease;
+    transition: left 0.4s ease;
     color: #1d194b;
     padding: 1rem;
     z-index: 2;
@@ -170,13 +180,14 @@ img.basket {
 
 .browse-category:hover,
 .browse-category:active {
-    transform: translate(.4rem, -.1rem) scale(1.05);
+    transform: translateX(.3rem);
     color: #120791;
 }
 
 #browse input {
     display: inline;
-    border: 2px inset #160f69;
+    border: 1px inset #160f69;
+    border-radius: .5rem;
     background-color: #ededed;
     color: #1d194b;
     font-size: 1rem;
