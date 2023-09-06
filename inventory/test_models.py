@@ -13,5 +13,14 @@ class TestModels(TestCase):
         self.assertEqual(str(subject), subject.name)
 
     def test_book_string_representation(self):
-        book = Book(title="Test Book Title")
+        book = Book.objects.create(title="Test Book Title")
         self.assertEqual(str(book), book.title)
+
+    def test_slug_field_not_null(self):
+        book = Book.objects.create(title="Test Book Title")
+        self.assertIsNotNone(book.slug)
+
+    def test_slug_field_is_unique(self):
+        book1 = Book.objects.create(title="Test Book Title")
+        book2 = Book.objects.create(title="Test Book Title")
+        self.assertFalse(book1.slug == book2.slug)
