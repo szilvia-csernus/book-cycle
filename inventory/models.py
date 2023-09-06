@@ -1,4 +1,7 @@
 from django.db import models
+from django.urls import reverse
+from django.utils.text import slugify
+import uuid
 
 
 class YearGroup(models.Model):
@@ -34,10 +37,23 @@ class Book(models.Model):
     image = models.ImageField(null=True, blank=True)
     image_url = models.URLField(max_length=1024, null=True, blank=True)
     product_url = models.URLField(max_length=1024, null=True, blank=True)
-    slug = models.SlugField()
+    slug = models.SlugField(null=False, unique=True)
 
-    def __str__(self):
+    def __str__(self, *args, **kwargs):
         return self.title
+
+    def save(self, *args, **kwargs):
+        # Check if the book has no id (is now being created)
+        if not self.id:
+            # Create a new unique identifier,
+            # but limit the length to 8 characters.
+            new_uuid = str(uuid.uuid4())[:8]
+            # Create a slug based on the new identifier and the book's title
+            self.slug = slugify(f"{self.title}-{new_uuid}")
+        super().save(*args, **kwargs)
+
+    def get_absolute_url(self):
+        return reverse("book_detail", kwargs={"slug": self.slug})
 
 
 class Stock(models.Model):
