@@ -6,9 +6,9 @@ from .models import Book, Stock
 class TestViews(TestCase):
 
     def test_all_books(self):
-        response = self.client.get('/books/all_books/')
+        response = self.client.get('/inventory/books/')
         self.assertEqual(response.status_code, 200)
-        self.assertTemplateUsed(response, 'inventory/all_books.html')
+        self.assertTemplateUsed(response, 'inventory/books.html')
 
     def test_add_book_unauthorized(self):
         response = self.client.post('/books/add/', {'title': 'Test Book'})
