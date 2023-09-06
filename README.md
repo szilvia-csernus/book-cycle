@@ -2,6 +2,12 @@
 
 # Data
 
+# SEO
+
+* For Search Engine Optimization, I did everything that Chrome's Lighthouse suggested, hence the 100% score throughout all pages.
+
+* Furthermore, I created a `slug` for each book, based on their titles, that makes the book discoverable by search engines when someone is searching for the book's title. This approach will increase the site's traffic and increases potential revenue.
+
 
 
 # Credits

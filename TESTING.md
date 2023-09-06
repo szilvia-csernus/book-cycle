@@ -1,6 +1,9 @@
 # Automated Testing
 
-I followed the Test Driven Development (TDD) Principle, writing test cases before and alongside the code itself. To run the automated test cases, run:
+I wrote automated test cases before and alongside writing the code itself, so it
+helped identifying bugs early during the development process. 
+
+To run the automated test cases, run:
 
 `python manage.py test`
 
