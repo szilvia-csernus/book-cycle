@@ -8,6 +8,6 @@
 {% block content %}
 <main>
     <img class="logo" src={% static 'svg/book-cycle-logo.svg' %} alt="book cycle logo" width="10" height="6">
-    <a class="main-button" href="">shop</a>
+    <a class="main-button" href="{% url 'books' %}">shop</a>
 </main>
 {% endblock %}
