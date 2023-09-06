@@ -43,7 +43,7 @@ body {
     margin: 0;
     background-color: #160f69;
     font-family: 'KoHo', sans-serif;
-    font-size: 1.4rem;
+    font-size: 1rem;
     font-weight: 200;
 }
 
@@ -62,12 +62,20 @@ body {
 header {
     position: absolute;
     top: 2.5rem;
-    left: 2rem;
-    right: 2rem;
+    left: 1.5rem;
+    right: 1.5rem;
     display: flex;
     justify-content: space-between;
     align-items: center;
     max-width: 1440px;
+    font-size: 1.1rem;
+}
+
+.small-logo {
+    width: 6rem;
+    position: absolute;
+    left: calc(50% - 3rem);
+    top: 1.6rem;
 }
 
 @media screen and (min-width: 1442px) {
@@ -81,6 +89,11 @@ header {
     display: inline-block;
     color: white;
     align-items: center;
+}
+
+.burger-icon {
+    position: relative;
+    top: 0.4rem;
 }
 
 .header-right {
@@ -123,7 +136,7 @@ img.basket {
     }
 
     .header-right {
-        column-gap: 2rem;
+        column-gap: 1rem;
     }
 }
 

@@ -4,32 +4,62 @@
     margin: 7rem 1rem 2rem;
 }
 
-@media screen and (min-width: 1442px) {
-    .books-background {
-        margin-left: calc(50% - 721px + 2rem);
-        margin-right: calc(50% - 721px + 2rem);
-    }
-}
-
 .gallery {
     display: grid;
     grid-template-columns: 100%;
     grid-template-rows: auto;
-    font-size: 1.1rem;
-    padding: .5rem;
+    font-size: 1rem;
+    padding: .25rem;
 }
 
 .bookFrame {
-    display: inline-block;
-    margin: .5rem;
-    height: 25rem;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    margin: .25rem;
+    height: 45rem;
     background-color: rgb(237, 240, 252);
     border-radius: .2rem;
     box-shadow: 2px 2px 5px #160f69;
     padding: 1rem;
 }
 
-@media screen and (min-width: 640px) {
+@media screen and (min-width: 416px) {
+	.gallery {
+        padding: 1rem;
+	}
+    .books-background {
+        margin-left: 1.5rem;
+        margin-right: 1.5rem;
+    }
+}
+
+@media screen and (min-width: 450px) {
+	.gallery {
+        padding: 2rem;
+	}
+}
+
+@media screen and (min-width: 500px) {
+	.gallery {
+        padding: 3rem;
+	}
+}
+
+@media screen and (min-width: 550px) {
+	.gallery {
+        padding: 4rem;
+	}
+}
+
+@media screen and (min-width: 600px) {
+	.gallery {
+		grid-template-columns: 50% 50%;
+        padding: .25rem;
+	}
+}
+
+@media screen and (min-width: 600px) {
 	.gallery {
 		grid-template-columns: 50% 50%;
 	}
@@ -40,8 +70,74 @@
 		grid-template-columns: 33.33% 33.33% 33.33%;
 	}
 }
+
 @media screen and (min-width: 1200px) {
 	.gallery {
 		grid-template-columns: 25% 25% 25% 25%;
 	}
+}
+
+
+@media screen and (min-width: 1442px) {
+    .books-background {
+        margin-left: calc(50% - 721px + 2rem);
+        margin-right: calc(50% - 721px + 2rem);
+    }
+}
+
+.book-image-box {
+    height: 25rem;
+    display: flex;
+}
+
+.book-image {
+    max-height: 23rem;
+    object-fit: contain;
+}
+
+.book-title {
+    margin: 0.5rem 0 .2rem;
+    font-family: 'Koulen';
+    font-size: 1.2rem;
+    color: #160f69;
+    line-height: 1.3rem;
+}
+
+.book-details-box {
+    display: flex;
+    flex-direction: column;
+    height: 17rem;;
+    justify-content: space-between;
+    font-family: 'Montserrat', sans-serif;
+}
+
+.add-button {
+    border: 1px solid #160f69;
+    margin-top: .5rem;
+    padding: 0.5rem;
+    font-weight: bold;
+    color: #160f69;
+    border-radius: 1.6rem;
+    background-color: #1ED446;
+    cursor: pointer;
+}
+
+.cheaper {
+    font-size: .9rem;
+    font-weight: bold;
+    color: #160f69;
+}
+
+.book-price {
+    margin-bottom: .2rem;
+    font-weight: bold;
+    /* font-style: italic; */
+    font-size: 1.1rem;
+    color: #160f69;
+}
+
+.book-condition {
+    padding: 0.2rem;
+    font-size: .9rem;
+    border-radius: .2rem;
 }

@@ -6,16 +6,39 @@
 {% endblock %}
 
 {% block content %}
+<div class="small-logo">
+    <img class="logo" src={% static 'svg/book-cycle-logo.svg' %} alt="book cycle logo" width="10" height="6">
+</div>
 <main class="books">
     <div class="books-background">
         <div class="gallery">
             {% for book in books %}
                 <article class="bookFrame">
-                    {{ book }}
+                    <div class="book-image-box">
+                        <img class="book-image" src="/media/{{ book.image }}">
+                    </div>
+                    <div class="book-details-box">
+                        <h2 class="book-title">{{ book.title }}</h2>
+                        <p>from <span class="book-price">£15.00</span> (fair)</p>
+                        <!-- <p class="cheaper">Buy used book for less! See below:</p> -->
+                        <select name="book-condition" id="book-condition" class="book-condition">
+                            <option value="new">New £26 - in stock</option>
+                            <option value="good" disabled >Good £20 - out of stock</option>
+                            <option value="fair" selected>Fair £15 - in stock</option>
+                        </select>
+                        <p class="book-year-group"><strong>Year Group: </strong>{{ book.year_group }}</p>
+                        <p class="book-subject"><strong>Subject: </strong>{{ book.subject }}</p>
+                        {% if book.publisher %}
+                            <p class="book-publisher"><strong>Publisher: </strong>{{ book.publisher }}</p>
+                        {% endif %}
+                        {% if book.exam_board %}
+                            <p class="book-exam-board"><strong>Exam Board: </strong>{{ book.exam_board }}</p>
+                        {% endif %}
+                        <button class="add-button">Add</button>
+                    </div>
                 </article>
             {% endfor %}
         </div>
-        {{ books }}
     </div>
 </main>
 {% endblock %}
