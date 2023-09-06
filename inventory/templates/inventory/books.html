@@ -7,6 +7,15 @@
 
 {% block content %}
 <main class="books">
-    {{ books }}
+    <div class="books-background">
+        <div class="gallery">
+            {% for book in books %}
+                <article class="bookFrame">
+                    {{ book }}
+                </article>
+            {% endfor %}
+        </div>
+        {{ books }}
+    </div>
 </main>
 {% endblock %}
