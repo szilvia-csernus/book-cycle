@@ -10,6 +10,11 @@ class TestViews(TestCase):
         self.assertEqual(response.status_code, 200)
         self.assertTemplateUsed(response, 'inventory/books.html')
 
+    def test_book_detail(self, slug):
+        response = self.client.get(f'/inventory/books/{slug}')
+        self.assertEqual(response.status_code, 200)
+        self.assertTemplateUsed(response, f'inventory/book/{slug}')
+
     def test_add_book_unauthorized(self):
         response = self.client.post('/books/add/', {'title': 'Test Book'})
         self.assertEqual(response.status_code, 401)
