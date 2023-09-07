@@ -114,6 +114,18 @@ img.basket {
     cursor: pointer;
 }
 
+.book-nr {
+    position: absolute;
+    bottom: 0.7rem;
+    right: 0.5rem;
+    font-size: .7rem;
+    background-color: #1ed446;
+    padding: 0.1rem 0.3rem;
+    border-radius: 0.5rem;
+    color: #120791;
+    font-weight: bold;
+}
+
 .email {
     font-size: .9rem;
     position: absolute;
