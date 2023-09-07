@@ -116,7 +116,7 @@ img.basket {
 
 .book-nr {
     position: absolute;
-    bottom: 0.7rem;
+    bottom: 0.4rem;
     right: 0.5rem;
     font-size: .7rem;
     background-color: #1ed446;
@@ -124,6 +124,7 @@ img.basket {
     border-radius: 0.5rem;
     color: #120791;
     font-weight: bold;
+    font-family: system-ui;
 }
 
 .email {
@@ -145,6 +146,10 @@ img.basket {
     img.basket {
         position: relative;
         bottom: 0.4rem;
+    }
+
+    .book-nr {
+        bottom: 0.7rem;
     }
 
     .header-right {

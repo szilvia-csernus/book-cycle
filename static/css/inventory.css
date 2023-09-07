@@ -4,6 +4,8 @@
     margin: 7rem 1rem 2rem;
 }
 
+/* --------------------------------- Filter - Sort styles -----  */
+
 .filter-sort-input-box {
     padding: 1rem .5rem 0;
     display: flex;
@@ -30,6 +32,9 @@
     font-family: 'Montserrat', sans-serif;
 }
 
+
+/* ------------------------------------------ Book gallery styles -------  */
+
 .gallery {
     display: grid;
     grid-template-columns: 100%;
@@ -43,7 +48,7 @@
     flex-direction: column;
     justify-content: space-between;
     margin: .25rem;
-    height: 45rem;
+    height: 42rem;
     background-color: rgb(240, 243, 255);
     border-radius: .2rem;
     box-shadow: 2px 2px 5px #160f69;
@@ -150,7 +155,7 @@
 }
 
 .book-title {
-    margin: 0.5rem 0 .2rem;
+    margin: 1.5rem 0 .2rem;
     font-family: 'Koulen';
     font-size: 1.2rem;
     color: #160f69;
@@ -194,4 +199,60 @@
     padding: 0.2rem;
     font-size: .9rem;
     border-radius: .2rem;
+}
+
+.more-details {
+    text-transform: uppercase;
+    color:#160f69;
+    text-decoration: underline;
+}
+
+
+/* ------------------------------ Book detail page styles -------  */
+
+.detail-page {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    background-color: rgb(240, 243, 255);
+    padding: 1rem;
+}
+
+.detail-page-frame {
+    max-width: 20rem;
+}
+
+.detail-page-frame img {
+    width: unset;
+}
+
+.real-product-link {
+    font-size: .8rem;
+    color:#160f69;
+}
+
+.detail-page-frame .book-details-box {
+    min-height: 20rem;
+}
+
+@media screen and (min-width: 700px) {
+    .detail-page {
+        flex-direction: row;
+        justify-content: center;
+        align-items: flex-start;
+    }
+
+    .detail-page-frame {
+        display: flex;
+        padding: 2rem;
+        max-width: unset;
+    }
+
+    .detail-page-frame .book-details-box {
+        margin-left: 2rem;
+    }
+
+    .detail-page-frame .book-title {
+        margin-top: 0;
+    }
 }
