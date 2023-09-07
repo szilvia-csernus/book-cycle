@@ -9,7 +9,7 @@
 <div class="small-logo">
     <img class="logo" src={% static 'svg/book-cycle-logo.svg' %} alt="book cycle logo" width="10" height="6">
 </div>
-<main class="books">
+<main>
     <div class="books-background">
         <div class="filter-sort-input-box">
             <div class="filter-sort-input">
@@ -43,14 +43,13 @@
         <div class="gallery">
             {% for book in books %}
                 <article class="bookFrame">
-                    <div class="book-image-box">
+                    <a href="{{ book.get_slug_url}}" class="book-image-box">
                         {% if book.image %}
                             <img class="book-image" src="/media/{{ book.image }}">
                         {% else %}
                             <img class="book-image" src="/media/noimage.png">
                         {% endif %}
-                    </div>
-                    <a href="{{ book.product_url }}">{{ book.pk }} Link to original product url</a>
+                    </a>
                     <div class="book-details-box">
                         <h2 class="book-title">{{ book.title }}</h2>
                         {% if True %}
@@ -66,12 +65,7 @@
                         </select>
                         <p class="book-year-group">Year Group: <strong>{{ book.year_group }}</strong></p>
                         <p class="book-subject">Subject: <strong>{{ book.subject }}</strong></p>
-                        {% if book.publisher %}
-                            <p class="book-publisher">Publisher: <strong>{{ book.publisher }}</strong></p>
-                        {% endif %}
-                        {% if book.exam_board %}
-                            <p class="book-exam-board">Exam Board: <strong>{{ book.exam_board }}</strong></p>
-                        {% endif %}
+                        <a class="more-details" href="{{ book.get_slug_url }}">More details and options</a>
                         <button class="add-button">Add</button>
                     </div>
                 </article>

@@ -52,7 +52,7 @@ class Book(models.Model):
             self.slug = slugify(f"{self.title}-{new_uuid}")
         super().save(*args, **kwargs)
 
-    def get_absolute_url(self):
+    def get_slug_url(self):
         return reverse("book_detail", kwargs={"slug": self.slug})
 
 
