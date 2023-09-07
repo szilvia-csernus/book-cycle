@@ -32,7 +32,7 @@ class TestViews(TestCase):
         book = create_a_book()
         response = self.client.get(f'/inventory/books/{book.slug}')
         self.assertEqual(response.status_code, 200)
-        self.assertTemplateUsed(response, f'inventory/book/{book.slug}')
+        self.assertTemplateUsed(response, 'inventory/book_detail.html')
 
     def test_add_book_unauthorized(self):
         response = self.client.post('/books/add/', {'title': 'Test Book'})
