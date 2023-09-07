@@ -11,28 +11,66 @@
 </div>
 <main class="books">
     <div class="books-background">
+        <div class="filter-sort-input-box">
+            <div class="filter-sort-input">
+                <label for="filter-subject">Filter by Subject:  </label>
+                <select name="filter-subject" id="filter-subject" class="filter-select filter-subject">
+                    <option value="" selected>-----</option>
+                    <option value="English">English</option>
+                    <option value="Mathematics">Mathematics</option>
+                </select>
+            </div>
+            <div class="filter-sort-input">
+                <label for="filter-yeargroup">Filter by Year Group:  </label>
+                <select name="filter-yeargroup" id="filter-yeargroup" class="filter-select filter-yeargroup">
+                    <option value="" selected>-----</option>
+                    <option value="yr_7-9">Year 7-9</option>
+                    <option value="gcse">GCSE</option>
+                    <option value="alevel">A Level</option>
+                </select>
+            </div>
+            <div class="filter-sort-input">
+                <label for="filter-subject">Sort by:  </label>
+                <select name="sort" id="sort" class="filter-select sort">
+                    <option value="title_a_z" selected>Title - A-Z</option>
+                    <option value="title_z_a">Title - Z-A</option>
+                    <option value="price">Price - Low-High</option>
+                    <option value="subject_a_z">Subject - A-Z</option>
+                    <option value="year_group">Year Group</option>
+                </select>
+            </div>
+        </div>
         <div class="gallery">
             {% for book in books %}
                 <article class="bookFrame">
                     <div class="book-image-box">
-                        <img class="book-image" src="/media/{{ book.image }}">
+                        {% if book.image %}
+                            <img class="book-image" src="/media/{{ book.image }}">
+                        {% else %}
+                            <img class="book-image" src="/media/noimage.png">
+                        {% endif %}
                     </div>
+                    <a href="{{ book.product_url }}">{{ book.pk }} Link to original product url</a>
                     <div class="book-details-box">
                         <h2 class="book-title">{{ book.title }}</h2>
-                        <p>from <span class="book-price">£15.00</span> (fair)</p>
+                        {% if True %}
+                        <p class="out-of-stock">Out of stock X</p>
+                        {% else %}
+                            <p>from <span class="book-price">£15.00</span> (fair)</p>
+                        {% endif %}
                         <!-- <p class="cheaper">Buy used book for less! See below:</p> -->
                         <select name="book-condition" id="book-condition" class="book-condition">
                             <option value="new">New £26 - in stock</option>
                             <option value="good" disabled >Good £20 - out of stock</option>
                             <option value="fair" selected>Fair £15 - in stock</option>
                         </select>
-                        <p class="book-year-group"><strong>Year Group: </strong>{{ book.year_group }}</p>
-                        <p class="book-subject"><strong>Subject: </strong>{{ book.subject }}</p>
+                        <p class="book-year-group">Year Group: <strong>{{ book.year_group }}</strong></p>
+                        <p class="book-subject">Subject: <strong>{{ book.subject }}</strong></p>
                         {% if book.publisher %}
-                            <p class="book-publisher"><strong>Publisher: </strong>{{ book.publisher }}</p>
+                            <p class="book-publisher">Publisher: <strong>{{ book.publisher }}</strong></p>
                         {% endif %}
                         {% if book.exam_board %}
-                            <p class="book-exam-board"><strong>Exam Board: </strong>{{ book.exam_board }}</p>
+                            <p class="book-exam-board">Exam Board: <strong>{{ book.exam_board }}</strong></p>
                         {% endif %}
                         <button class="add-button">Add</button>
                     </div>

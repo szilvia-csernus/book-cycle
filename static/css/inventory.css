@@ -4,11 +4,37 @@
     margin: 7rem 1rem 2rem;
 }
 
+.filter-sort-input-box {
+    padding: 1rem .5rem 0;
+    display: flex;
+    flex-direction: column;
+    font-family: 'Montserrat', sans-serif;
+    font-weight: bold;
+}
+
+.filter-sort-input {
+    display: flex;
+    justify-content: space-between;
+    padding-bottom: 0;
+}
+
+.filter-sort-input label {
+    align-self: center;
+}
+
+.filter-select {
+    width: 50%;
+    padding: 0.2rem;
+    font-size: .9rem;
+    border-radius: .2rem;
+    font-family: 'Montserrat', sans-serif;
+}
+
 .gallery {
     display: grid;
     grid-template-columns: 100%;
     grid-template-rows: auto;
-    font-size: 1rem;
+    font-size: .9rem;
     padding: .25rem;
 }
 
@@ -18,7 +44,7 @@
     justify-content: space-between;
     margin: .25rem;
     height: 45rem;
-    background-color: rgb(237, 240, 252);
+    background-color: rgb(240, 243, 255);
     border-radius: .2rem;
     box-shadow: 2px 2px 5px #160f69;
     padding: 1rem;
@@ -28,6 +54,9 @@
 	.gallery {
         padding: 1rem;
 	}
+    .filter-sort-input-box {
+        padding: 1rem 1rem 0 1rem;
+	}
     .books-background {
         margin-left: 1.5rem;
         margin-right: 1.5rem;
@@ -36,27 +65,46 @@
 
 @media screen and (min-width: 450px) {
 	.gallery {
-        padding: 2rem;
+        padding: 1rem 2rem 2rem 2rem;
+	}
+    .filter-sort-input-box {
+        padding: 2rem 2rem 0 2rem;
 	}
 }
 
 @media screen and (min-width: 500px) {
 	.gallery {
-        padding: 3rem;
+        padding: 1rem 3rem 3rem 3rem;
+	}
+    .filter-sort-input-box {
+        padding: 2rem 3rem 0 3rem;
 	}
 }
 
 @media screen and (min-width: 550px) {
 	.gallery {
-        padding: 4rem;
+        padding: 1rem 4rem 4rem 4rem;
+	}
+    .filter-sort-input-box {
+        padding: 2rem 4rem 0 4rem;
 	}
 }
 
 @media screen and (min-width: 600px) {
 	.gallery {
 		grid-template-columns: 50% 50%;
-        padding: .25rem;
+        padding: 1rem .25rem .25rem .25rem;
 	}
+    .filter-sort-input-box {
+        padding: 1rem .25rem 0 .25rem;
+	}
+    .filter-sort-input {
+        justify-content: flex-end;
+    }
+    .filter-select {
+        width: 40%;
+        margin-left: 1rem;
+    }
 }
 
 @media screen and (min-width: 600px) {
@@ -69,6 +117,13 @@
 	.gallery {
 		grid-template-columns: 33.33% 33.33% 33.33%;
 	}
+    .filter-sort-input-box {
+        margin-right: 33.33%;
+    }
+    .filter-select {
+        /* width: 40%; */
+        margin-left: 1rem;
+    }
 }
 
 @media screen and (min-width: 1200px) {
@@ -106,7 +161,7 @@
 .book-details-box {
     display: flex;
     flex-direction: column;
-    height: 17rem;;
+    height: 20rem;;
     justify-content: space-between;
     font-family: 'Montserrat', sans-serif;
 }
@@ -122,10 +177,9 @@
     cursor: pointer;
 }
 
-.cheaper {
-    font-size: .9rem;
+.out-of-stock {
     font-weight: bold;
-    color: #160f69;
+    color: #b7000c;
 }
 
 .book-price {
@@ -136,7 +190,8 @@
     color: #160f69;
 }
 
-.book-condition {
+.book-condition,
+.filter-sort-input {
     padding: 0.2rem;
     font-size: .9rem;
     border-radius: .2rem;
