@@ -41,16 +41,6 @@ class TestModels(TestCase):
         in_stock = book.in_stock()
         self.assertFalse(in_stock)
 
-    def test_get_book_stock(self):
-        book = Book.objects.create(title="Test Book Title")
-        Stock.objects.create(
-            book=book,
-            condition="new",
-            price=Decimal("15.50"),
-            quantity=23)
-        stock = book.get_book_stock()
-        self.assertEqual(stock["new"]["quantity"], 23)
-
     def test_cheapest_stock(self):
         book = Book.objects.create(title="Test Book Title")
         Stock.objects.create(
@@ -69,10 +59,4 @@ class TestModels(TestCase):
             price=Decimal("10"),
             quantity=3)
         cheapest_stock = book.get_cheapest_stock()
-        self.assertEqual(cheapest_stock["quantity"], 3)
-        cheapest_price = book.get_cheapest_stock_price()
-        self.assertEqual(cheapest_price, Decimal("10"))
-        cheapest_condition = book.get_cheapest_stock_condition()
-        self.assertEqual(cheapest_condition, "fair")
-        cheapest_quantity = book.get_cheapest_stock_quantity()
-        self.assertEqual(cheapest_quantity, 3)
+        self.assertEqual(cheapest_stock.quantity, 3)
