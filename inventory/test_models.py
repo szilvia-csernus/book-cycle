@@ -26,16 +26,6 @@ class TestModels(TestCase):
         book2 = Book.objects.create(title="Test Book Title")
         self.assertFalse(book1.slug == book2.slug)
 
-    def test_get_book_stock(self):
-        book = Book.objects.create(title="Test Book Title")
-        stock = Stock.objects.create(
-            book=book,
-            condition="new",
-            price=Decimal("15.50"),
-            quantity=23)
-        stocks = book.get_book_stock()
-        self.assertEqual(stocks["new"], stock.price)
-
     def test_in_stock_true(self):
         book = Book.objects.create(title="Test Book Title")
         Stock.objects.create(
@@ -51,7 +41,17 @@ class TestModels(TestCase):
         in_stock = book.in_stock()
         self.assertFalse(in_stock)
 
-    def test_cheapest_price(self):
+    def test_get_book_stock(self):
+        book = Book.objects.create(title="Test Book Title")
+        Stock.objects.create(
+            book=book,
+            condition="new",
+            price=Decimal("15.50"),
+            quantity=23)
+        stock = book.get_book_stock()
+        self.assertEqual(stock["new"]["quantity"], 23)
+
+    def test_cheapest_stock(self):
         book = Book.objects.create(title="Test Book Title")
         Stock.objects.create(
             book=book,
@@ -63,10 +63,16 @@ class TestModels(TestCase):
             condition="good",
             price=Decimal("12"),
             quantity=2)
-        stock = Stock.objects.create(
+        Stock.objects.create(
             book=book,
-            condition="new",
+            condition="fair",
             price=Decimal("10"),
             quantity=3)
-        cheapest_price = book.get_cheapest_price()
-        self.assertEqual(cheapest_price, stock.price)
+        cheapest_stock = book.get_cheapest_stock()
+        self.assertEqual(cheapest_stock["quantity"], 3)
+        cheapest_price = book.get_cheapest_stock_price()
+        self.assertEqual(cheapest_price, Decimal("10"))
+        cheapest_condition = book.get_cheapest_stock_condition()
+        self.assertEqual(cheapest_condition, "fair")
+        cheapest_quantity = book.get_cheapest_stock_quantity()
+        self.assertEqual(cheapest_quantity, 3)
