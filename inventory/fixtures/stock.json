@@ -1,1003 +1,998 @@
 [
 	{
 		"model": "inventory.stock",
-		"fields": { "book": 1, "condition": "new", "price": 27.1, "quantity": 71 }
+		"fields": { "book": 1, "condition": "new", "price": 48.0, "quantity": 4 }
 	},
 	{
 		"model": "inventory.stock",
-		"fields": { "book": 1, "condition": "good", "price": 16.3, "quantity": 28 }
+		"fields": { "book": 1, "condition": "good", "price": 28.8, "quantity": 1 }
 	},
 	{
 		"model": "inventory.stock",
-		"fields": { "book": 1, "condition": "fair", "price": 10.8, "quantity": 16 }
+		"fields": { "book": 1, "condition": "fair", "price": 19.2, "quantity": 1 }
 	},
 	{
 		"model": "inventory.stock",
-		"fields": { "book": 2, "condition": "new", "price": 34.2, "quantity": 31 }
+		"fields": { "book": 2, "condition": "new", "price": 46.1, "quantity": 2 }
 	},
 	{
 		"model": "inventory.stock",
-		"fields": { "book": 2, "condition": "good", "price": 20.5, "quantity": 4 }
+		"fields": { "book": 2, "condition": "good", "price": 27.7, "quantity": 1 }
 	},
 	{
 		"model": "inventory.stock",
-		"fields": { "book": 2, "condition": "fair", "price": 13.7, "quantity": 75 }
+		"fields": { "book": 2, "condition": "fair", "price": 18.4, "quantity": 1 }
 	},
 	{
 		"model": "inventory.stock",
-		"fields": { "book": 3, "condition": "new", "price": 39.5, "quantity": 67 }
+		"fields": { "book": 3, "condition": "new", "price": 54.3, "quantity": 6 }
 	},
 	{
 		"model": "inventory.stock",
-		"fields": { "book": 3, "condition": "good", "price": 23.7, "quantity": 26 }
+		"fields": { "book": 3, "condition": "good", "price": 32.6, "quantity": 4 }
 	},
 	{
 		"model": "inventory.stock",
-		"fields": { "book": 3, "condition": "fair", "price": 15.8, "quantity": 70 }
+		"fields": { "book": 3, "condition": "fair", "price": 21.7, "quantity": 4 }
 	},
 	{
 		"model": "inventory.stock",
-		"fields": { "book": 4, "condition": "new", "price": 30.0, "quantity": 58 }
+		"fields": { "book": 4, "condition": "new", "price": 28.7, "quantity": 4 }
 	},
 	{
 		"model": "inventory.stock",
-		"fields": { "book": 4, "condition": "good", "price": 18.0, "quantity": 50 }
+		"fields": { "book": 4, "condition": "good", "price": 17.2, "quantity": 0 }
 	},
 	{
 		"model": "inventory.stock",
-		"fields": { "book": 4, "condition": "fair", "price": 12.0, "quantity": 43 }
+		"fields": { "book": 4, "condition": "fair", "price": 11.5, "quantity": 3 }
 	},
 	{
 		"model": "inventory.stock",
-		"fields": { "book": 5, "condition": "new", "price": 30.3, "quantity": 43 }
+		"fields": { "book": 5, "condition": "new", "price": 32.1, "quantity": 10 }
 	},
 	{
 		"model": "inventory.stock",
-		"fields": { "book": 5, "condition": "good", "price": 18.2, "quantity": 96 }
+		"fields": { "book": 5, "condition": "good", "price": 19.3, "quantity": 4 }
 	},
 	{
 		"model": "inventory.stock",
-		"fields": { "book": 5, "condition": "fair", "price": 12.1, "quantity": 80 }
+		"fields": { "book": 5, "condition": "fair", "price": 12.8, "quantity": 0 }
 	},
 	{
 		"model": "inventory.stock",
-		"fields": { "book": 6, "condition": "new", "price": 53.4, "quantity": 23 }
+		"fields": { "book": 6, "condition": "new", "price": 45.3, "quantity": 0 }
 	},
 	{
 		"model": "inventory.stock",
-		"fields": { "book": 6, "condition": "good", "price": 32.0, "quantity": 98 }
+		"fields": { "book": 6, "condition": "good", "price": 27.2, "quantity": 0 }
 	},
 	{
 		"model": "inventory.stock",
-		"fields": { "book": 6, "condition": "fair", "price": 21.4, "quantity": 40 }
+		"fields": { "book": 6, "condition": "fair", "price": 18.1, "quantity": 3 }
 	},
 	{
 		"model": "inventory.stock",
-		"fields": { "book": 7, "condition": "new", "price": 18.2, "quantity": 83 }
+		"fields": { "book": 7, "condition": "new", "price": 26.8, "quantity": 2 }
 	},
 	{
 		"model": "inventory.stock",
-		"fields": { "book": 7, "condition": "good", "price": 10.9, "quantity": 2 }
+		"fields": { "book": 7, "condition": "good", "price": 16.1, "quantity": 2 }
 	},
 	{
 		"model": "inventory.stock",
-		"fields": { "book": 7, "condition": "fair", "price": 7.3, "quantity": 66 }
+		"fields": { "book": 7, "condition": "fair", "price": 10.7, "quantity": 0 }
 	},
 	{
 		"model": "inventory.stock",
-		"fields": { "book": 8, "condition": "new", "price": 19.8, "quantity": 29 }
+		"fields": { "book": 8, "condition": "new", "price": 26.0, "quantity": 7 }
 	},
 	{
 		"model": "inventory.stock",
-		"fields": { "book": 8, "condition": "good", "price": 11.9, "quantity": 75 }
+		"fields": { "book": 8, "condition": "good", "price": 15.6, "quantity": 3 }
 	},
 	{
 		"model": "inventory.stock",
-		"fields": { "book": 8, "condition": "fair", "price": 7.9, "quantity": 16 }
+		"fields": { "book": 8, "condition": "fair", "price": 10.4, "quantity": 0 }
 	},
 	{
 		"model": "inventory.stock",
-		"fields": { "book": 9, "condition": "new", "price": 55.4, "quantity": 82 }
+		"fields": { "book": 9, "condition": "new", "price": 46.8, "quantity": 1 }
 	},
 	{
 		"model": "inventory.stock",
-		"fields": { "book": 9, "condition": "good", "price": 33.2, "quantity": 94 }
+		"fields": { "book": 9, "condition": "good", "price": 28.1, "quantity": 2 }
 	},
 	{
 		"model": "inventory.stock",
-		"fields": { "book": 9, "condition": "fair", "price": 22.2, "quantity": 65 }
+		"fields": { "book": 9, "condition": "fair", "price": 18.7, "quantity": 3 }
 	},
 	{
 		"model": "inventory.stock",
-		"fields": { "book": 10, "condition": "new", "price": 20.0, "quantity": 27 }
+		"fields": { "book": 10, "condition": "new", "price": 39.8, "quantity": 8 }
 	},
 	{
 		"model": "inventory.stock",
-		"fields": { "book": 10, "condition": "good", "price": 12.0, "quantity": 61 }
+		"fields": { "book": 10, "condition": "good", "price": 23.9, "quantity": 2 }
 	},
 	{
 		"model": "inventory.stock",
-		"fields": { "book": 10, "condition": "fair", "price": 8.0, "quantity": 8 }
+		"fields": { "book": 10, "condition": "fair", "price": 15.9, "quantity": 3 }
 	},
 	{
 		"model": "inventory.stock",
-		"fields": { "book": 11, "condition": "new", "price": 40.9, "quantity": 69 }
+		"fields": { "book": 11, "condition": "new", "price": 45.1, "quantity": 6 }
 	},
 	{
 		"model": "inventory.stock",
-		"fields": { "book": 11, "condition": "good", "price": 24.5, "quantity": 3 }
+		"fields": { "book": 11, "condition": "good", "price": 27.1, "quantity": 3 }
 	},
 	{
 		"model": "inventory.stock",
-		"fields": { "book": 11, "condition": "fair", "price": 16.4, "quantity": 92 }
+		"fields": { "book": 11, "condition": "fair", "price": 18.0, "quantity": 4 }
 	},
 	{
 		"model": "inventory.stock",
-		"fields": { "book": 12, "condition": "new", "price": 34.4, "quantity": 30 }
+		"fields": { "book": 12, "condition": "new", "price": 36.4, "quantity": 1 }
 	},
 	{
 		"model": "inventory.stock",
-		"fields": { "book": 12, "condition": "good", "price": 20.6, "quantity": 3 }
+		"fields": { "book": 12, "condition": "good", "price": 21.8, "quantity": 1 }
 	},
 	{
 		"model": "inventory.stock",
-		"fields": { "book": 12, "condition": "fair", "price": 13.8, "quantity": 23 }
+		"fields": { "book": 12, "condition": "fair", "price": 14.6, "quantity": 5 }
 	},
 	{
 		"model": "inventory.stock",
-		"fields": { "book": 13, "condition": "new", "price": 48.5, "quantity": 61 }
+		"fields": { "book": 13, "condition": "new", "price": 26.3, "quantity": 8 }
 	},
 	{
 		"model": "inventory.stock",
-		"fields": { "book": 13, "condition": "good", "price": 29.1, "quantity": 32 }
+		"fields": { "book": 13, "condition": "good", "price": 15.8, "quantity": 0 }
 	},
 	{
 		"model": "inventory.stock",
-		"fields": { "book": 13, "condition": "fair", "price": 19.4, "quantity": 32 }
+		"fields": { "book": 13, "condition": "fair", "price": 10.5, "quantity": 4 }
 	},
 	{
 		"model": "inventory.stock",
-		"fields": { "book": 14, "condition": "new", "price": 24.1, "quantity": 27 }
+		"fields": { "book": 14, "condition": "new", "price": 44.2, "quantity": 1 }
 	},
 	{
 		"model": "inventory.stock",
-		"fields": { "book": 14, "condition": "good", "price": 14.5, "quantity": 18 }
+		"fields": { "book": 14, "condition": "good", "price": 26.5, "quantity": 0 }
 	},
 	{
 		"model": "inventory.stock",
-		"fields": { "book": 14, "condition": "fair", "price": 9.6, "quantity": 29 }
+		"fields": { "book": 14, "condition": "fair", "price": 17.7, "quantity": 0 }
 	},
 	{
 		"model": "inventory.stock",
-		"fields": { "book": 15, "condition": "new", "price": 42.5, "quantity": 5 }
+		"fields": { "book": 15, "condition": "new", "price": 51.7, "quantity": 10 }
 	},
 	{
 		"model": "inventory.stock",
-		"fields": { "book": 15, "condition": "good", "price": 25.5, "quantity": 53 }
+		"fields": { "book": 15, "condition": "good", "price": 31.0, "quantity": 1 }
 	},
 	{
 		"model": "inventory.stock",
-		"fields": { "book": 15, "condition": "fair", "price": 17.0, "quantity": 41 }
+		"fields": { "book": 15, "condition": "fair", "price": 20.7, "quantity": 0 }
 	},
 	{
 		"model": "inventory.stock",
-		"fields": { "book": 16, "condition": "new", "price": 20.0, "quantity": 85 }
+		"fields": { "book": 16, "condition": "new", "price": 34.5, "quantity": 9 }
 	},
 	{
 		"model": "inventory.stock",
-		"fields": { "book": 16, "condition": "good", "price": 12.0, "quantity": 88 }
+		"fields": { "book": 16, "condition": "good", "price": 20.7, "quantity": 0 }
 	},
 	{
 		"model": "inventory.stock",
-		"fields": { "book": 16, "condition": "fair", "price": 8.0, "quantity": 52 }
+		"fields": { "book": 16, "condition": "fair", "price": 13.8, "quantity": 2 }
 	},
 	{
 		"model": "inventory.stock",
-		"fields": { "book": 17, "condition": "new", "price": 24.2, "quantity": 50 }
+		"fields": { "book": 17, "condition": "new", "price": 27.0, "quantity": 3 }
 	},
 	{
 		"model": "inventory.stock",
-		"fields": { "book": 17, "condition": "good", "price": 14.5, "quantity": 19 }
+		"fields": { "book": 17, "condition": "good", "price": 16.2, "quantity": 4 }
 	},
 	{
 		"model": "inventory.stock",
-		"fields": { "book": 17, "condition": "fair", "price": 9.7, "quantity": 72 }
+		"fields": { "book": 17, "condition": "fair", "price": 10.8, "quantity": 5 }
 	},
 	{
 		"model": "inventory.stock",
-		"fields": { "book": 18, "condition": "new", "price": 37.4, "quantity": 10 }
+		"fields": { "book": 18, "condition": "new", "price": 21.4, "quantity": 6 }
 	},
 	{
 		"model": "inventory.stock",
-		"fields": { "book": 18, "condition": "good", "price": 22.4, "quantity": 37 }
+		"fields": { "book": 18, "condition": "good", "price": 12.8, "quantity": 2 }
 	},
 	{
 		"model": "inventory.stock",
-		"fields": { "book": 18, "condition": "fair", "price": 15.0, "quantity": 66 }
+		"fields": { "book": 18, "condition": "fair", "price": 8.6, "quantity": 3 }
 	},
 	{
 		"model": "inventory.stock",
-		"fields": { "book": 19, "condition": "new", "price": 25.0, "quantity": 34 }
+		"fields": { "book": 19, "condition": "new", "price": 28.2, "quantity": 0 }
 	},
 	{
 		"model": "inventory.stock",
-		"fields": { "book": 19, "condition": "good", "price": 15.0, "quantity": 18 }
+		"fields": { "book": 19, "condition": "good", "price": 16.9, "quantity": 1 }
 	},
 	{
 		"model": "inventory.stock",
-		"fields": { "book": 19, "condition": "fair", "price": 10.0, "quantity": 95 }
+		"fields": { "book": 19, "condition": "fair", "price": 11.3, "quantity": 1 }
 	},
 	{
 		"model": "inventory.stock",
-		"fields": { "book": 20, "condition": "new", "price": 34.0, "quantity": 20 }
+		"fields": { "book": 20, "condition": "new", "price": 55.1, "quantity": 8 }
 	},
 	{
 		"model": "inventory.stock",
-		"fields": { "book": 20, "condition": "good", "price": 20.4, "quantity": 31 }
+		"fields": { "book": 20, "condition": "good", "price": 33.1, "quantity": 4 }
 	},
 	{
 		"model": "inventory.stock",
-		"fields": { "book": 20, "condition": "fair", "price": 13.6, "quantity": 1 }
+		"fields": { "book": 20, "condition": "fair", "price": 22.0, "quantity": 1 }
 	},
 	{
 		"model": "inventory.stock",
-		"fields": { "book": 21, "condition": "new", "price": 42.2, "quantity": 89 }
+		"fields": { "book": 21, "condition": "new", "price": 18.9, "quantity": 2 }
 	},
 	{
 		"model": "inventory.stock",
-		"fields": { "book": 21, "condition": "good", "price": 25.3, "quantity": 3 }
+		"fields": { "book": 21, "condition": "good", "price": 11.3, "quantity": 1 }
 	},
 	{
 		"model": "inventory.stock",
-		"fields": { "book": 21, "condition": "fair", "price": 16.9, "quantity": 81 }
+		"fields": { "book": 21, "condition": "fair", "price": 7.6, "quantity": 5 }
 	},
 	{
 		"model": "inventory.stock",
-		"fields": { "book": 22, "condition": "new", "price": 18.4, "quantity": 98 }
+		"fields": { "book": 22, "condition": "new", "price": 48.4, "quantity": 7 }
 	},
 	{
 		"model": "inventory.stock",
-		"fields": { "book": 22, "condition": "good", "price": 11.0, "quantity": 61 }
+		"fields": { "book": 22, "condition": "good", "price": 29.0, "quantity": 0 }
 	},
 	{
 		"model": "inventory.stock",
-		"fields": { "book": 22, "condition": "fair", "price": 7.4, "quantity": 77 }
+		"fields": { "book": 22, "condition": "fair", "price": 19.4, "quantity": 4 }
 	},
 	{
 		"model": "inventory.stock",
-		"fields": { "book": 23, "condition": "new", "price": 17.1, "quantity": 0 }
+		"fields": { "book": 23, "condition": "new", "price": 45.7, "quantity": 3 }
 	},
 	{
 		"model": "inventory.stock",
-		"fields": { "book": 23, "condition": "good", "price": 10.3, "quantity": 82 }
+		"fields": { "book": 23, "condition": "good", "price": 27.4, "quantity": 1 }
 	},
 	{
 		"model": "inventory.stock",
-		"fields": { "book": 23, "condition": "fair", "price": 6.8, "quantity": 10 }
+		"fields": { "book": 23, "condition": "fair", "price": 18.3, "quantity": 0 }
 	},
 	{
 		"model": "inventory.stock",
-		"fields": { "book": 24, "condition": "new", "price": 27.6, "quantity": 83 }
+		"fields": { "book": 24, "condition": "new", "price": 45.4, "quantity": 7 }
 	},
 	{
 		"model": "inventory.stock",
-		"fields": { "book": 24, "condition": "good", "price": 16.6, "quantity": 48 }
+		"fields": { "book": 24, "condition": "good", "price": 27.2, "quantity": 5 }
 	},
 	{
 		"model": "inventory.stock",
-		"fields": { "book": 24, "condition": "fair", "price": 11.0, "quantity": 12 }
+		"fields": { "book": 24, "condition": "fair", "price": 18.2, "quantity": 4 }
 	},
 	{
 		"model": "inventory.stock",
-		"fields": { "book": 25, "condition": "new", "price": 52.5, "quantity": 77 }
+		"fields": { "book": 25, "condition": "new", "price": 25.1, "quantity": 0 }
 	},
 	{
 		"model": "inventory.stock",
-		"fields": { "book": 25, "condition": "good", "price": 31.5, "quantity": 99 }
+		"fields": { "book": 25, "condition": "good", "price": 15.1, "quantity": 5 }
 	},
 	{
 		"model": "inventory.stock",
-		"fields": { "book": 25, "condition": "fair", "price": 21.0, "quantity": 84 }
+		"fields": { "book": 25, "condition": "fair", "price": 10.0, "quantity": 1 }
 	},
 	{
 		"model": "inventory.stock",
-		"fields": { "book": 26, "condition": "new", "price": 53.8, "quantity": 72 }
+		"fields": { "book": 26, "condition": "new", "price": 45.1, "quantity": 9 }
 	},
 	{
 		"model": "inventory.stock",
-		"fields": { "book": 26, "condition": "good", "price": 32.3, "quantity": 61 }
+		"fields": { "book": 26, "condition": "good", "price": 27.1, "quantity": 4 }
 	},
 	{
 		"model": "inventory.stock",
-		"fields": { "book": 26, "condition": "fair", "price": 21.5, "quantity": 86 }
+		"fields": { "book": 26, "condition": "fair", "price": 18.0, "quantity": 0 }
 	},
 	{
 		"model": "inventory.stock",
-		"fields": { "book": 27, "condition": "new", "price": 42.9, "quantity": 89 }
+		"fields": { "book": 27, "condition": "new", "price": 21.3, "quantity": 3 }
 	},
 	{
 		"model": "inventory.stock",
-		"fields": { "book": 27, "condition": "good", "price": 25.7, "quantity": 0 }
+		"fields": { "book": 27, "condition": "good", "price": 12.8, "quantity": 2 }
 	},
 	{
 		"model": "inventory.stock",
-		"fields": { "book": 27, "condition": "fair", "price": 17.2, "quantity": 12 }
+		"fields": { "book": 27, "condition": "fair", "price": 8.5, "quantity": 0 }
 	},
 	{
 		"model": "inventory.stock",
-		"fields": { "book": 28, "condition": "new", "price": 48.7, "quantity": 33 }
+		"fields": { "book": 28, "condition": "new", "price": 53.8, "quantity": 5 }
 	},
 	{
 		"model": "inventory.stock",
-		"fields": { "book": 28, "condition": "good", "price": 29.2, "quantity": 76 }
+		"fields": { "book": 28, "condition": "good", "price": 32.3, "quantity": 0 }
 	},
 	{
 		"model": "inventory.stock",
-		"fields": { "book": 28, "condition": "fair", "price": 19.5, "quantity": 53 }
+		"fields": { "book": 28, "condition": "fair", "price": 21.5, "quantity": 5 }
 	},
 	{
 		"model": "inventory.stock",
-		"fields": { "book": 29, "condition": "new", "price": 43.2, "quantity": 24 }
+		"fields": { "book": 29, "condition": "new", "price": 20.9, "quantity": 1 }
 	},
 	{
 		"model": "inventory.stock",
-		"fields": { "book": 29, "condition": "good", "price": 25.9, "quantity": 32 }
+		"fields": { "book": 29, "condition": "good", "price": 12.5, "quantity": 2 }
 	},
 	{
 		"model": "inventory.stock",
-		"fields": { "book": 29, "condition": "fair", "price": 17.3, "quantity": 91 }
+		"fields": { "book": 29, "condition": "fair", "price": 8.4, "quantity": 0 }
 	},
 	{
 		"model": "inventory.stock",
-		"fields": { "book": 30, "condition": "new", "price": 35.4, "quantity": 45 }
+		"fields": { "book": 30, "condition": "new", "price": 18.3, "quantity": 7 }
 	},
 	{
 		"model": "inventory.stock",
-		"fields": { "book": 30, "condition": "good", "price": 21.2, "quantity": 49 }
+		"fields": { "book": 30, "condition": "good", "price": 11.0, "quantity": 5 }
 	},
 	{
 		"model": "inventory.stock",
-		"fields": { "book": 30, "condition": "fair", "price": 14.2, "quantity": 94 }
+		"fields": { "book": 30, "condition": "fair", "price": 7.3, "quantity": 3 }
 	},
 	{
 		"model": "inventory.stock",
-		"fields": { "book": 31, "condition": "new", "price": 23.2, "quantity": 89 }
+		"fields": { "book": 31, "condition": "new", "price": 46.7, "quantity": 4 }
 	},
 	{
 		"model": "inventory.stock",
-		"fields": { "book": 31, "condition": "good", "price": 13.9, "quantity": 32 }
+		"fields": { "book": 31, "condition": "good", "price": 28.0, "quantity": 5 }
 	},
 	{
 		"model": "inventory.stock",
-		"fields": { "book": 31, "condition": "fair", "price": 9.3, "quantity": 30 }
+		"fields": { "book": 31, "condition": "fair", "price": 18.7, "quantity": 3 }
 	},
 	{
 		"model": "inventory.stock",
-		"fields": { "book": 32, "condition": "new", "price": 36.0, "quantity": 31 }
+		"fields": { "book": 32, "condition": "new", "price": 27.4, "quantity": 2 }
 	},
 	{
 		"model": "inventory.stock",
-		"fields": { "book": 32, "condition": "good", "price": 21.6, "quantity": 77 }
+		"fields": { "book": 32, "condition": "good", "price": 16.4, "quantity": 5 }
 	},
 	{
 		"model": "inventory.stock",
-		"fields": { "book": 32, "condition": "fair", "price": 14.4, "quantity": 9 }
+		"fields": { "book": 32, "condition": "fair", "price": 11.0, "quantity": 2 }
 	},
 	{
 		"model": "inventory.stock",
-		"fields": { "book": 33, "condition": "new", "price": 18.5, "quantity": 48 }
+		"fields": { "book": 33, "condition": "new", "price": 49.1, "quantity": 6 }
 	},
 	{
 		"model": "inventory.stock",
-		"fields": { "book": 33, "condition": "good", "price": 11.1, "quantity": 96 }
+		"fields": { "book": 33, "condition": "good", "price": 29.5, "quantity": 2 }
 	},
 	{
 		"model": "inventory.stock",
-		"fields": { "book": 33, "condition": "fair", "price": 7.4, "quantity": 6 }
+		"fields": { "book": 33, "condition": "fair", "price": 19.6, "quantity": 1 }
 	},
 	{
 		"model": "inventory.stock",
-		"fields": { "book": 34, "condition": "new", "price": 38.9, "quantity": 44 }
+		"fields": { "book": 34, "condition": "new", "price": 16.5, "quantity": 3 }
 	},
 	{
 		"model": "inventory.stock",
-		"fields": { "book": 34, "condition": "good", "price": 23.3, "quantity": 84 }
+		"fields": { "book": 34, "condition": "good", "price": 9.9, "quantity": 2 }
 	},
 	{
 		"model": "inventory.stock",
-		"fields": { "book": 34, "condition": "fair", "price": 15.6, "quantity": 73 }
+		"fields": { "book": 34, "condition": "fair", "price": 6.6, "quantity": 2 }
 	},
 	{
 		"model": "inventory.stock",
-		"fields": { "book": 35, "condition": "new", "price": 51.8, "quantity": 58 }
+		"fields": { "book": 35, "condition": "new", "price": 32.3, "quantity": 4 }
 	},
 	{
 		"model": "inventory.stock",
-		"fields": { "book": 35, "condition": "good", "price": 31.1, "quantity": 26 }
+		"fields": { "book": 35, "condition": "good", "price": 19.4, "quantity": 4 }
 	},
 	{
 		"model": "inventory.stock",
-		"fields": { "book": 35, "condition": "fair", "price": 20.7, "quantity": 66 }
+		"fields": { "book": 35, "condition": "fair", "price": 12.9, "quantity": 5 }
 	},
 	{
 		"model": "inventory.stock",
-		"fields": { "book": 36, "condition": "new", "price": 33.1, "quantity": 31 }
+		"fields": { "book": 36, "condition": "new", "price": 42.4, "quantity": 3 }
 	},
 	{
 		"model": "inventory.stock",
-		"fields": { "book": 36, "condition": "good", "price": 19.9, "quantity": 62 }
+		"fields": { "book": 36, "condition": "good", "price": 25.4, "quantity": 0 }
 	},
 	{
 		"model": "inventory.stock",
-		"fields": { "book": 36, "condition": "fair", "price": 13.2, "quantity": 68 }
+		"fields": { "book": 36, "condition": "fair", "price": 17.0, "quantity": 3 }
 	},
 	{
 		"model": "inventory.stock",
-		"fields": { "book": 37, "condition": "new", "price": 34.8, "quantity": 29 }
+		"fields": { "book": 37, "condition": "new", "price": 43.5, "quantity": 7 }
 	},
 	{
 		"model": "inventory.stock",
-		"fields": { "book": 37, "condition": "good", "price": 20.9, "quantity": 36 }
+		"fields": { "book": 37, "condition": "good", "price": 26.1, "quantity": 1 }
 	},
 	{
 		"model": "inventory.stock",
-		"fields": { "book": 37, "condition": "fair", "price": 13.9, "quantity": 99 }
+		"fields": { "book": 37, "condition": "fair", "price": 17.4, "quantity": 2 }
 	},
 	{
 		"model": "inventory.stock",
-		"fields": { "book": 38, "condition": "new", "price": 52.0, "quantity": 52 }
+		"fields": { "book": 38, "condition": "new", "price": 30.9, "quantity": 2 }
 	},
 	{
 		"model": "inventory.stock",
-		"fields": { "book": 38, "condition": "good", "price": 31.2, "quantity": 16 }
+		"fields": { "book": 38, "condition": "good", "price": 18.5, "quantity": 5 }
 	},
 	{
 		"model": "inventory.stock",
-		"fields": { "book": 38, "condition": "fair", "price": 20.8, "quantity": 26 }
+		"fields": { "book": 38, "condition": "fair", "price": 12.4, "quantity": 4 }
 	},
 	{
 		"model": "inventory.stock",
-		"fields": { "book": 39, "condition": "new", "price": 27.7, "quantity": 42 }
+		"fields": { "book": 39, "condition": "new", "price": 20.4, "quantity": 6 }
 	},
 	{
 		"model": "inventory.stock",
-		"fields": { "book": 39, "condition": "good", "price": 16.6, "quantity": 7 }
+		"fields": { "book": 39, "condition": "good", "price": 12.2, "quantity": 0 }
 	},
 	{
 		"model": "inventory.stock",
-		"fields": { "book": 39, "condition": "fair", "price": 11.1, "quantity": 61 }
+		"fields": { "book": 39, "condition": "fair", "price": 8.2, "quantity": 2 }
 	},
 	{
 		"model": "inventory.stock",
-		"fields": { "book": 40, "condition": "new", "price": 15.1, "quantity": 65 }
+		"fields": { "book": 40, "condition": "new", "price": 24.3, "quantity": 6 }
 	},
 	{
 		"model": "inventory.stock",
-		"fields": { "book": 40, "condition": "good", "price": 9.1, "quantity": 31 }
+		"fields": { "book": 40, "condition": "good", "price": 14.6, "quantity": 2 }
 	},
 	{
 		"model": "inventory.stock",
-		"fields": { "book": 40, "condition": "fair", "price": 6.0, "quantity": 36 }
+		"fields": { "book": 40, "condition": "fair", "price": 9.7, "quantity": 0 }
 	},
 	{
 		"model": "inventory.stock",
-		"fields": { "book": 41, "condition": "new", "price": 18.7, "quantity": 18 }
+		"fields": { "book": 41, "condition": "new", "price": 40.9, "quantity": 0 }
 	},
 	{
 		"model": "inventory.stock",
-		"fields": { "book": 41, "condition": "good", "price": 11.2, "quantity": 50 }
+		"fields": { "book": 41, "condition": "good", "price": 24.5, "quantity": 0 }
 	},
 	{
 		"model": "inventory.stock",
-		"fields": { "book": 41, "condition": "fair", "price": 7.5, "quantity": 55 }
+		"fields": { "book": 41, "condition": "fair", "price": 16.4, "quantity": 2 }
 	},
 	{
 		"model": "inventory.stock",
-		"fields": { "book": 42, "condition": "new", "price": 16.7, "quantity": 80 }
+		"fields": { "book": 42, "condition": "new", "price": 51.4, "quantity": 3 }
 	},
 	{
 		"model": "inventory.stock",
-		"fields": { "book": 42, "condition": "good", "price": 10.0, "quantity": 17 }
+		"fields": { "book": 42, "condition": "good", "price": 30.8, "quantity": 0 }
 	},
 	{
 		"model": "inventory.stock",
-		"fields": { "book": 42, "condition": "fair", "price": 6.7, "quantity": 62 }
+		"fields": { "book": 42, "condition": "fair", "price": 20.6, "quantity": 0 }
 	},
 	{
 		"model": "inventory.stock",
-		"fields": { "book": 43, "condition": "new", "price": 49.0, "quantity": 81 }
+		"fields": { "book": 43, "condition": "new", "price": 51.5, "quantity": 7 }
 	},
 	{
 		"model": "inventory.stock",
-		"fields": { "book": 43, "condition": "good", "price": 29.4, "quantity": 62 }
+		"fields": { "book": 43, "condition": "good", "price": 30.9, "quantity": 2 }
 	},
 	{
 		"model": "inventory.stock",
-		"fields": { "book": 43, "condition": "fair", "price": 19.6, "quantity": 98 }
+		"fields": { "book": 43, "condition": "fair", "price": 20.6, "quantity": 1 }
 	},
 	{
 		"model": "inventory.stock",
-		"fields": { "book": 44, "condition": "new", "price": 24.9, "quantity": 33 }
+		"fields": { "book": 44, "condition": "new", "price": 17.1, "quantity": 7 }
 	},
 	{
 		"model": "inventory.stock",
-		"fields": { "book": 44, "condition": "good", "price": 14.9, "quantity": 16 }
+		"fields": { "book": 44, "condition": "good", "price": 10.3, "quantity": 4 }
 	},
 	{
 		"model": "inventory.stock",
-		"fields": { "book": 44, "condition": "fair", "price": 10.0, "quantity": 58 }
+		"fields": { "book": 44, "condition": "fair", "price": 6.8, "quantity": 3 }
 	},
 	{
 		"model": "inventory.stock",
-		"fields": { "book": 45, "condition": "new", "price": 18.9, "quantity": 25 }
+		"fields": { "book": 45, "condition": "new", "price": 19.7, "quantity": 10 }
 	},
 	{
 		"model": "inventory.stock",
-		"fields": {
-			"book": 45,
-			"condition": "good",
-			"price": 11.3,
-			"quantity": 100
-		}
+		"fields": { "book": 45, "condition": "good", "price": 11.8, "quantity": 4 }
 	},
 	{
 		"model": "inventory.stock",
-		"fields": { "book": 45, "condition": "fair", "price": 7.6, "quantity": 95 }
+		"fields": { "book": 45, "condition": "fair", "price": 7.9, "quantity": 3 }
 	},
 	{
 		"model": "inventory.stock",
-		"fields": { "book": 46, "condition": "new", "price": 27.2, "quantity": 89 }
+		"fields": { "book": 46, "condition": "new", "price": 40.1, "quantity": 4 }
 	},
 	{
 		"model": "inventory.stock",
-		"fields": { "book": 46, "condition": "good", "price": 16.3, "quantity": 54 }
+		"fields": { "book": 46, "condition": "good", "price": 24.1, "quantity": 5 }
 	},
 	{
 		"model": "inventory.stock",
-		"fields": { "book": 46, "condition": "fair", "price": 10.9, "quantity": 17 }
+		"fields": { "book": 46, "condition": "fair", "price": 16.0, "quantity": 0 }
 	},
 	{
 		"model": "inventory.stock",
-		"fields": { "book": 47, "condition": "new", "price": 25.0, "quantity": 21 }
+		"fields": { "book": 47, "condition": "new", "price": 18.5, "quantity": 7 }
 	},
 	{
 		"model": "inventory.stock",
-		"fields": { "book": 47, "condition": "good", "price": 15.0, "quantity": 7 }
+		"fields": { "book": 47, "condition": "good", "price": 11.1, "quantity": 4 }
 	},
 	{
 		"model": "inventory.stock",
-		"fields": { "book": 47, "condition": "fair", "price": 10.0, "quantity": 76 }
+		"fields": { "book": 47, "condition": "fair", "price": 7.4, "quantity": 4 }
 	},
 	{
 		"model": "inventory.stock",
-		"fields": { "book": 48, "condition": "new", "price": 25.2, "quantity": 97 }
+		"fields": { "book": 48, "condition": "new", "price": 19.0, "quantity": 6 }
 	},
 	{
 		"model": "inventory.stock",
-		"fields": { "book": 48, "condition": "good", "price": 15.1, "quantity": 22 }
+		"fields": { "book": 48, "condition": "good", "price": 11.4, "quantity": 1 }
 	},
 	{
 		"model": "inventory.stock",
-		"fields": { "book": 48, "condition": "fair", "price": 10.1, "quantity": 46 }
+		"fields": { "book": 48, "condition": "fair", "price": 7.6, "quantity": 5 }
 	},
 	{
 		"model": "inventory.stock",
-		"fields": { "book": 49, "condition": "new", "price": 30.5, "quantity": 77 }
+		"fields": { "book": 49, "condition": "new", "price": 37.6, "quantity": 4 }
 	},
 	{
 		"model": "inventory.stock",
-		"fields": { "book": 49, "condition": "good", "price": 18.3, "quantity": 93 }
+		"fields": { "book": 49, "condition": "good", "price": 22.6, "quantity": 5 }
 	},
 	{
 		"model": "inventory.stock",
-		"fields": { "book": 49, "condition": "fair", "price": 12.2, "quantity": 40 }
+		"fields": { "book": 49, "condition": "fair", "price": 15.0, "quantity": 4 }
 	},
 	{
 		"model": "inventory.stock",
-		"fields": { "book": 50, "condition": "new", "price": 50.7, "quantity": 35 }
+		"fields": { "book": 50, "condition": "new", "price": 38.7, "quantity": 5 }
 	},
 	{
 		"model": "inventory.stock",
-		"fields": { "book": 50, "condition": "good", "price": 30.4, "quantity": 73 }
+		"fields": { "book": 50, "condition": "good", "price": 23.2, "quantity": 4 }
 	},
 	{
 		"model": "inventory.stock",
-		"fields": { "book": 50, "condition": "fair", "price": 20.3, "quantity": 43 }
+		"fields": { "book": 50, "condition": "fair", "price": 15.5, "quantity": 3 }
 	},
 	{
 		"model": "inventory.stock",
-		"fields": { "book": 51, "condition": "new", "price": 36.9, "quantity": 70 }
+		"fields": { "book": 51, "condition": "new", "price": 48.9, "quantity": 10 }
 	},
 	{
 		"model": "inventory.stock",
-		"fields": { "book": 51, "condition": "good", "price": 22.1, "quantity": 30 }
+		"fields": { "book": 51, "condition": "good", "price": 29.3, "quantity": 2 }
 	},
 	{
 		"model": "inventory.stock",
-		"fields": { "book": 51, "condition": "fair", "price": 14.8, "quantity": 95 }
+		"fields": { "book": 51, "condition": "fair", "price": 19.6, "quantity": 2 }
 	},
 	{
 		"model": "inventory.stock",
-		"fields": { "book": 52, "condition": "new", "price": 40.9, "quantity": 69 }
+		"fields": { "book": 52, "condition": "new", "price": 18.9, "quantity": 7 }
 	},
 	{
 		"model": "inventory.stock",
-		"fields": { "book": 52, "condition": "good", "price": 24.5, "quantity": 8 }
+		"fields": { "book": 52, "condition": "good", "price": 11.3, "quantity": 3 }
 	},
 	{
 		"model": "inventory.stock",
-		"fields": { "book": 52, "condition": "fair", "price": 16.4, "quantity": 84 }
+		"fields": { "book": 52, "condition": "fair", "price": 7.6, "quantity": 0 }
 	},
 	{
 		"model": "inventory.stock",
-		"fields": { "book": 53, "condition": "new", "price": 21.6, "quantity": 67 }
+		"fields": { "book": 53, "condition": "new", "price": 19.8, "quantity": 2 }
 	},
 	{
 		"model": "inventory.stock",
-		"fields": { "book": 53, "condition": "good", "price": 13.0, "quantity": 69 }
+		"fields": { "book": 53, "condition": "good", "price": 11.9, "quantity": 1 }
 	},
 	{
 		"model": "inventory.stock",
-		"fields": { "book": 53, "condition": "fair", "price": 8.6, "quantity": 11 }
+		"fields": { "book": 53, "condition": "fair", "price": 7.9, "quantity": 2 }
 	},
 	{
 		"model": "inventory.stock",
-		"fields": { "book": 54, "condition": "new", "price": 46.7, "quantity": 50 }
+		"fields": { "book": 54, "condition": "new", "price": 37.3, "quantity": 4 }
 	},
 	{
 		"model": "inventory.stock",
-		"fields": { "book": 54, "condition": "good", "price": 28.0, "quantity": 14 }
+		"fields": { "book": 54, "condition": "good", "price": 22.4, "quantity": 2 }
 	},
 	{
 		"model": "inventory.stock",
-		"fields": { "book": 54, "condition": "fair", "price": 18.7, "quantity": 95 }
+		"fields": { "book": 54, "condition": "fair", "price": 14.9, "quantity": 0 }
 	},
 	{
 		"model": "inventory.stock",
-		"fields": { "book": 55, "condition": "new", "price": 32.7, "quantity": 8 }
+		"fields": { "book": 55, "condition": "new", "price": 18.8, "quantity": 1 }
 	},
 	{
 		"model": "inventory.stock",
-		"fields": { "book": 55, "condition": "good", "price": 19.6, "quantity": 81 }
+		"fields": { "book": 55, "condition": "good", "price": 11.3, "quantity": 3 }
 	},
 	{
 		"model": "inventory.stock",
-		"fields": { "book": 55, "condition": "fair", "price": 13.1, "quantity": 24 }
+		"fields": { "book": 55, "condition": "fair", "price": 7.5, "quantity": 0 }
 	},
 	{
 		"model": "inventory.stock",
-		"fields": { "book": 56, "condition": "new", "price": 36.7, "quantity": 65 }
+		"fields": { "book": 56, "condition": "new", "price": 18.1, "quantity": 9 }
 	},
 	{
 		"model": "inventory.stock",
-		"fields": { "book": 56, "condition": "good", "price": 22.0, "quantity": 62 }
+		"fields": { "book": 56, "condition": "good", "price": 10.9, "quantity": 1 }
 	},
 	{
 		"model": "inventory.stock",
-		"fields": { "book": 56, "condition": "fair", "price": 14.7, "quantity": 50 }
+		"fields": { "book": 56, "condition": "fair", "price": 7.2, "quantity": 0 }
 	},
 	{
 		"model": "inventory.stock",
-		"fields": { "book": 57, "condition": "new", "price": 34.3, "quantity": 73 }
+		"fields": { "book": 57, "condition": "new", "price": 30.7, "quantity": 0 }
 	},
 	{
 		"model": "inventory.stock",
-		"fields": { "book": 57, "condition": "good", "price": 20.6, "quantity": 97 }
+		"fields": { "book": 57, "condition": "good", "price": 18.4, "quantity": 5 }
 	},
 	{
 		"model": "inventory.stock",
-		"fields": { "book": 57, "condition": "fair", "price": 13.7, "quantity": 42 }
+		"fields": { "book": 57, "condition": "fair", "price": 12.3, "quantity": 1 }
 	},
 	{
 		"model": "inventory.stock",
-		"fields": { "book": 58, "condition": "new", "price": 24.0, "quantity": 31 }
+		"fields": { "book": 58, "condition": "new", "price": 24.6, "quantity": 6 }
 	},
 	{
 		"model": "inventory.stock",
-		"fields": { "book": 58, "condition": "good", "price": 14.4, "quantity": 54 }
+		"fields": { "book": 58, "condition": "good", "price": 14.8, "quantity": 1 }
 	},
 	{
 		"model": "inventory.stock",
-		"fields": { "book": 58, "condition": "fair", "price": 9.6, "quantity": 92 }
+		"fields": { "book": 58, "condition": "fair", "price": 9.8, "quantity": 1 }
 	},
 	{
 		"model": "inventory.stock",
-		"fields": { "book": 59, "condition": "new", "price": 45.5, "quantity": 86 }
+		"fields": { "book": 59, "condition": "new", "price": 15.3, "quantity": 5 }
 	},
 	{
 		"model": "inventory.stock",
-		"fields": { "book": 59, "condition": "good", "price": 27.3, "quantity": 3 }
+		"fields": { "book": 59, "condition": "good", "price": 9.2, "quantity": 2 }
 	},
 	{
 		"model": "inventory.stock",
-		"fields": { "book": 59, "condition": "fair", "price": 18.2, "quantity": 2 }
+		"fields": { "book": 59, "condition": "fair", "price": 6.1, "quantity": 4 }
 	},
 	{
 		"model": "inventory.stock",
-		"fields": { "book": 60, "condition": "new", "price": 19.1, "quantity": 72 }
+		"fields": { "book": 60, "condition": "new", "price": 35.3, "quantity": 6 }
 	},
 	{
 		"model": "inventory.stock",
-		"fields": { "book": 60, "condition": "good", "price": 11.5, "quantity": 50 }
+		"fields": { "book": 60, "condition": "good", "price": 21.2, "quantity": 3 }
 	},
 	{
 		"model": "inventory.stock",
-		"fields": { "book": 60, "condition": "fair", "price": 7.6, "quantity": 95 }
+		"fields": { "book": 60, "condition": "fair", "price": 14.1, "quantity": 4 }
 	},
 	{
 		"model": "inventory.stock",
-		"fields": { "book": 61, "condition": "new", "price": 41.2, "quantity": 96 }
+		"fields": { "book": 61, "condition": "new", "price": 44.2, "quantity": 10 }
 	},
 	{
 		"model": "inventory.stock",
-		"fields": { "book": 61, "condition": "good", "price": 24.7, "quantity": 45 }
+		"fields": { "book": 61, "condition": "good", "price": 26.5, "quantity": 4 }
 	},
 	{
 		"model": "inventory.stock",
-		"fields": { "book": 61, "condition": "fair", "price": 16.5, "quantity": 27 }
+		"fields": { "book": 61, "condition": "fair", "price": 17.7, "quantity": 4 }
 	},
 	{
 		"model": "inventory.stock",
-		"fields": { "book": 62, "condition": "new", "price": 17.8, "quantity": 8 }
+		"fields": { "book": 62, "condition": "new", "price": 48.7, "quantity": 8 }
 	},
 	{
 		"model": "inventory.stock",
-		"fields": { "book": 62, "condition": "good", "price": 10.7, "quantity": 17 }
+		"fields": { "book": 62, "condition": "good", "price": 29.2, "quantity": 2 }
 	},
 	{
 		"model": "inventory.stock",
-		"fields": { "book": 62, "condition": "fair", "price": 7.1, "quantity": 43 }
+		"fields": { "book": 62, "condition": "fair", "price": 19.5, "quantity": 1 }
 	},
 	{
 		"model": "inventory.stock",
-		"fields": { "book": 63, "condition": "new", "price": 20.0, "quantity": 78 }
+		"fields": { "book": 63, "condition": "new", "price": 33.3, "quantity": 6 }
 	},
 	{
 		"model": "inventory.stock",
-		"fields": { "book": 63, "condition": "good", "price": 12.0, "quantity": 68 }
+		"fields": { "book": 63, "condition": "good", "price": 20.0, "quantity": 0 }
 	},
 	{
 		"model": "inventory.stock",
-		"fields": { "book": 63, "condition": "fair", "price": 8.0, "quantity": 4 }
+		"fields": { "book": 63, "condition": "fair", "price": 13.3, "quantity": 4 }
 	},
 	{
 		"model": "inventory.stock",
-		"fields": { "book": 64, "condition": "new", "price": 48.6, "quantity": 85 }
+		"fields": { "book": 64, "condition": "new", "price": 29.8, "quantity": 4 }
 	},
 	{
 		"model": "inventory.stock",
-		"fields": { "book": 64, "condition": "good", "price": 29.2, "quantity": 98 }
+		"fields": { "book": 64, "condition": "good", "price": 17.9, "quantity": 4 }
 	},
 	{
 		"model": "inventory.stock",
-		"fields": { "book": 64, "condition": "fair", "price": 19.4, "quantity": 56 }
+		"fields": { "book": 64, "condition": "fair", "price": 11.9, "quantity": 4 }
 	},
 	{
 		"model": "inventory.stock",
-		"fields": { "book": 65, "condition": "new", "price": 54.6, "quantity": 61 }
+		"fields": { "book": 65, "condition": "new", "price": 53.6, "quantity": 7 }
 	},
 	{
 		"model": "inventory.stock",
-		"fields": { "book": 65, "condition": "good", "price": 32.8, "quantity": 59 }
+		"fields": { "book": 65, "condition": "good", "price": 32.2, "quantity": 1 }
 	},
 	{
 		"model": "inventory.stock",
-		"fields": { "book": 65, "condition": "fair", "price": 21.8, "quantity": 35 }
+		"fields": { "book": 65, "condition": "fair", "price": 21.4, "quantity": 5 }
 	},
 	{
 		"model": "inventory.stock",
-		"fields": { "book": 66, "condition": "new", "price": 27.2, "quantity": 24 }
+		"fields": { "book": 66, "condition": "new", "price": 30.2, "quantity": 4 }
 	},
 	{
 		"model": "inventory.stock",
-		"fields": { "book": 66, "condition": "good", "price": 16.3, "quantity": 86 }
+		"fields": { "book": 66, "condition": "good", "price": 18.1, "quantity": 4 }
 	},
 	{
 		"model": "inventory.stock",
-		"fields": { "book": 66, "condition": "fair", "price": 10.9, "quantity": 57 }
+		"fields": { "book": 66, "condition": "fair", "price": 12.1, "quantity": 4 }
 	},
 	{
 		"model": "inventory.stock",
-		"fields": { "book": 67, "condition": "new", "price": 42.0, "quantity": 95 }
+		"fields": { "book": 67, "condition": "new", "price": 24.8, "quantity": 7 }
 	},
 	{
 		"model": "inventory.stock",
-		"fields": { "book": 67, "condition": "good", "price": 25.2, "quantity": 8 }
+		"fields": { "book": 67, "condition": "good", "price": 14.9, "quantity": 5 }
 	},
 	{
 		"model": "inventory.stock",
-		"fields": { "book": 67, "condition": "fair", "price": 16.8, "quantity": 40 }
+		"fields": { "book": 67, "condition": "fair", "price": 9.9, "quantity": 1 }
 	},
 	{
 		"model": "inventory.stock",
-		"fields": { "book": 68, "condition": "new", "price": 21.5, "quantity": 84 }
+		"fields": { "book": 68, "condition": "new", "price": 46.4, "quantity": 7 }
 	},
 	{
 		"model": "inventory.stock",
-		"fields": { "book": 68, "condition": "good", "price": 12.9, "quantity": 70 }
+		"fields": { "book": 68, "condition": "good", "price": 27.8, "quantity": 1 }
 	},
 	{
 		"model": "inventory.stock",
-		"fields": { "book": 68, "condition": "fair", "price": 8.6, "quantity": 76 }
+		"fields": { "book": 68, "condition": "fair", "price": 18.6, "quantity": 4 }
 	},
 	{
 		"model": "inventory.stock",
-		"fields": { "book": 69, "condition": "new", "price": 42.5, "quantity": 56 }
+		"fields": { "book": 69, "condition": "new", "price": 28.7, "quantity": 4 }
 	},
 	{
 		"model": "inventory.stock",
-		"fields": { "book": 69, "condition": "good", "price": 25.5, "quantity": 92 }
+		"fields": { "book": 69, "condition": "good", "price": 17.2, "quantity": 1 }
 	},
 	{
 		"model": "inventory.stock",
-		"fields": { "book": 69, "condition": "fair", "price": 17.0, "quantity": 67 }
+		"fields": { "book": 69, "condition": "fair", "price": 11.5, "quantity": 4 }
 	},
 	{
 		"model": "inventory.stock",
-		"fields": { "book": 70, "condition": "new", "price": 41.2, "quantity": 67 }
+		"fields": { "book": 70, "condition": "new", "price": 47.4, "quantity": 6 }
 	},
 	{
 		"model": "inventory.stock",
-		"fields": { "book": 70, "condition": "good", "price": 24.7, "quantity": 59 }
+		"fields": { "book": 70, "condition": "good", "price": 28.4, "quantity": 1 }
 	},
 	{
 		"model": "inventory.stock",
-		"fields": { "book": 70, "condition": "fair", "price": 16.5, "quantity": 84 }
+		"fields": { "book": 70, "condition": "fair", "price": 19.0, "quantity": 2 }
 	},
 	{
 		"model": "inventory.stock",
-		"fields": { "book": 71, "condition": "new", "price": 52.2, "quantity": 70 }
+		"fields": { "book": 71, "condition": "new", "price": 29.0, "quantity": 7 }
 	},
 	{
 		"model": "inventory.stock",
-		"fields": { "book": 71, "condition": "good", "price": 31.3, "quantity": 16 }
+		"fields": { "book": 71, "condition": "good", "price": 17.4, "quantity": 5 }
 	},
 	{
 		"model": "inventory.stock",
-		"fields": { "book": 71, "condition": "fair", "price": 20.9, "quantity": 30 }
+		"fields": { "book": 71, "condition": "fair", "price": 11.6, "quantity": 3 }
 	},
 	{
 		"model": "inventory.stock",
-		"fields": { "book": 72, "condition": "new", "price": 19.0, "quantity": 57 }
+		"fields": { "book": 72, "condition": "new", "price": 35.8, "quantity": 2 }
 	},
 	{
 		"model": "inventory.stock",
-		"fields": { "book": 72, "condition": "good", "price": 11.4, "quantity": 18 }
+		"fields": { "book": 72, "condition": "good", "price": 21.5, "quantity": 1 }
 	},
 	{
 		"model": "inventory.stock",
-		"fields": { "book": 72, "condition": "fair", "price": 7.6, "quantity": 92 }
+		"fields": { "book": 72, "condition": "fair", "price": 14.3, "quantity": 3 }
 	},
 	{
 		"model": "inventory.stock",
-		"fields": { "book": 73, "condition": "new", "price": 31.6, "quantity": 30 }
+		"fields": { "book": 73, "condition": "new", "price": 19.2, "quantity": 7 }
 	},
 	{
 		"model": "inventory.stock",
-		"fields": { "book": 73, "condition": "good", "price": 19.0, "quantity": 29 }
+		"fields": { "book": 73, "condition": "good", "price": 11.5, "quantity": 1 }
 	},
 	{
 		"model": "inventory.stock",
-		"fields": { "book": 73, "condition": "fair", "price": 12.6, "quantity": 77 }
+		"fields": { "book": 73, "condition": "fair", "price": 7.7, "quantity": 3 }
 	},
 	{
 		"model": "inventory.stock",
-		"fields": { "book": 74, "condition": "new", "price": 39.8, "quantity": 0 }
+		"fields": { "book": 74, "condition": "new", "price": 46.8, "quantity": 6 }
 	},
 	{
 		"model": "inventory.stock",
-		"fields": { "book": 74, "condition": "good", "price": 23.9, "quantity": 26 }
+		"fields": { "book": 74, "condition": "good", "price": 28.1, "quantity": 1 }
 	},
 	{
 		"model": "inventory.stock",
-		"fields": { "book": 74, "condition": "fair", "price": 15.9, "quantity": 25 }
+		"fields": { "book": 74, "condition": "fair", "price": 18.7, "quantity": 1 }
 	},
 	{
 		"model": "inventory.stock",
-		"fields": { "book": 75, "condition": "new", "price": 40.5, "quantity": 20 }
+		"fields": { "book": 75, "condition": "new", "price": 21.5, "quantity": 10 }
 	},
 	{
 		"model": "inventory.stock",
-		"fields": { "book": 75, "condition": "good", "price": 24.3, "quantity": 86 }
+		"fields": { "book": 75, "condition": "good", "price": 12.9, "quantity": 3 }
 	},
 	{
 		"model": "inventory.stock",
-		"fields": { "book": 75, "condition": "fair", "price": 16.2, "quantity": 68 }
+		"fields": { "book": 75, "condition": "fair", "price": 8.6, "quantity": 4 }
 	},
 	{
 		"model": "inventory.stock",
-		"fields": { "book": 76, "condition": "new", "price": 36.1, "quantity": 96 }
+		"fields": { "book": 76, "condition": "new", "price": 43.7, "quantity": 8 }
 	},
 	{
 		"model": "inventory.stock",
-		"fields": { "book": 76, "condition": "good", "price": 21.7, "quantity": 64 }
+		"fields": { "book": 76, "condition": "good", "price": 26.2, "quantity": 3 }
 	},
 	{
 		"model": "inventory.stock",
-		"fields": { "book": 76, "condition": "fair", "price": 14.4, "quantity": 31 }
+		"fields": { "book": 76, "condition": "fair", "price": 17.5, "quantity": 2 }
 	},
 	{
 		"model": "inventory.stock",
-		"fields": { "book": 77, "condition": "new", "price": 38.6, "quantity": 43 }
+		"fields": { "book": 77, "condition": "new", "price": 46.3, "quantity": 2 }
 	},
 	{
 		"model": "inventory.stock",
-		"fields": { "book": 77, "condition": "good", "price": 23.2, "quantity": 22 }
+		"fields": { "book": 77, "condition": "good", "price": 27.8, "quantity": 1 }
 	},
 	{
 		"model": "inventory.stock",
-		"fields": { "book": 77, "condition": "fair", "price": 15.4, "quantity": 91 }
+		"fields": { "book": 77, "condition": "fair", "price": 18.5, "quantity": 3 }
 	},
 	{
 		"model": "inventory.stock",
-		"fields": { "book": 78, "condition": "new", "price": 52.5, "quantity": 87 }
+		"fields": { "book": 78, "condition": "new", "price": 35.2, "quantity": 2 }
 	},
 	{
 		"model": "inventory.stock",
-		"fields": { "book": 78, "condition": "good", "price": 31.5, "quantity": 54 }
+		"fields": { "book": 78, "condition": "good", "price": 21.1, "quantity": 3 }
 	},
 	{
 		"model": "inventory.stock",
-		"fields": { "book": 78, "condition": "fair", "price": 21.0, "quantity": 98 }
+		"fields": { "book": 78, "condition": "fair", "price": 14.1, "quantity": 1 }
 	},
 	{
 		"model": "inventory.stock",
-		"fields": { "book": 79, "condition": "new", "price": 23.4, "quantity": 80 }
+		"fields": { "book": 79, "condition": "new", "price": 55.5, "quantity": 1 }
 	},
 	{
 		"model": "inventory.stock",
-		"fields": { "book": 79, "condition": "good", "price": 14.0, "quantity": 14 }
+		"fields": { "book": 79, "condition": "good", "price": 33.3, "quantity": 3 }
 	},
 	{
 		"model": "inventory.stock",
-		"fields": { "book": 79, "condition": "fair", "price": 9.4, "quantity": 56 }
+		"fields": { "book": 79, "condition": "fair", "price": 22.2, "quantity": 3 }
 	},
 	{
 		"model": "inventory.stock",
-		"fields": { "book": 80, "condition": "new", "price": 31.1, "quantity": 67 }
+		"fields": { "book": 80, "condition": "new", "price": 34.4, "quantity": 2 }
 	},
 	{
 		"model": "inventory.stock",
-		"fields": { "book": 80, "condition": "good", "price": 18.7, "quantity": 53 }
+		"fields": { "book": 80, "condition": "good", "price": 20.6, "quantity": 5 }
 	},
 	{
 		"model": "inventory.stock",
-		"fields": { "book": 80, "condition": "fair", "price": 12.4, "quantity": 55 }
+		"fields": { "book": 80, "condition": "fair", "price": 13.8, "quantity": 5 }
 	},
 	{
 		"model": "inventory.stock",
-		"fields": { "book": 81, "condition": "new", "price": 46.8, "quantity": 44 }
+		"fields": { "book": 81, "condition": "new", "price": 37.5, "quantity": 8 }
 	},
 	{
 		"model": "inventory.stock",
-		"fields": { "book": 81, "condition": "good", "price": 28.1, "quantity": 31 }
+		"fields": { "book": 81, "condition": "good", "price": 22.5, "quantity": 0 }
 	},
 	{
 		"model": "inventory.stock",
-		"fields": { "book": 81, "condition": "fair", "price": 18.7, "quantity": 58 }
+		"fields": { "book": 81, "condition": "fair", "price": 15.0, "quantity": 0 }
 	},
 	{
 		"model": "inventory.stock",
-		"fields": { "book": 82, "condition": "new", "price": 38.9, "quantity": 98 }
+		"fields": { "book": 82, "condition": "new", "price": 37.3, "quantity": 4 }
 	},
 	{
 		"model": "inventory.stock",
-		"fields": { "book": 82, "condition": "good", "price": 23.3, "quantity": 48 }
+		"fields": { "book": 82, "condition": "good", "price": 22.4, "quantity": 1 }
 	},
 	{
 		"model": "inventory.stock",
-		"fields": { "book": 82, "condition": "fair", "price": 15.6, "quantity": 65 }
+		"fields": { "book": 82, "condition": "fair", "price": 14.9, "quantity": 2 }
 	},
 	{
 		"model": "inventory.stock",
-		"fields": { "book": 83, "condition": "new", "price": 15.3, "quantity": 85 }
+		"fields": { "book": 83, "condition": "new", "price": 16.5, "quantity": 2 }
 	},
 	{
 		"model": "inventory.stock",
-		"fields": { "book": 83, "condition": "good", "price": 9.2, "quantity": 25 }
+		"fields": { "book": 83, "condition": "good", "price": 9.9, "quantity": 5 }
 	},
 	{
 		"model": "inventory.stock",
-		"fields": { "book": 83, "condition": "fair", "price": 6.1, "quantity": 10 }
+		"fields": { "book": 83, "condition": "fair", "price": 6.6, "quantity": 1 }
 	}
 ]
