@@ -286,13 +286,14 @@
 }
 
 .stockline-in-stock {
-    font-size: .8rem;
+    font-size: .7rem;
     color:#00ad26;
+    line-height: .7rem;
 }
 
 .stockline-out-of-stock {
     display: flex;
-    font-size: .8rem;
+    font-size: .7rem;
     color:#b7000c;
     grid-column-start: 3;
     grid-column-end: span2;
@@ -301,11 +302,17 @@
 
 .stockline-button {
     border: 1px solid #160f69;
-    padding: .3rem;
+    padding: .2rem .7rem;
     font-weight: bold;
     color: #160f69;
     border-radius: 1.6rem;
     background-color: #1ED446;
     cursor: pointer;
 
+}
+
+.replace-element {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
 }

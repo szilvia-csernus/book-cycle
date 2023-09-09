@@ -37,23 +37,30 @@
                 <a class="real-product-link" href="{{ book.product_url }}" target="_blank">{{ book.pk }} Link to real product</a>
 
                 {% if book.in_stock %}
-                
-                
                     {% for item in stock %}
                     <div class="stock-line">
                         <div class="stockline-condition">{{ item.condition }}</div>
                         <div class="stockline-price">£{{ item.price }}</div>
                         {% if item.quantity > 0 %}
-                        <div class="stockline-in-stock">&check; in stock</div>
-                        <button class="stockline-button">Add</button>
+                        <div class="stockline-in-stock"
+                            id="stock-{{item.id}}"
+                            >
+                            &check; in stock
+                        </div>
+                        <button 
+                            id="button-{{item.condition}}" 
+                            data-stock-id="{{ item.id }}" 
+                            data-stock-quantity="{{ item.quantity }}" 
+                            class="stockline-button">
+                            Add
+                        </button>
                         {% else %}
                         <div class="stockline-out-of-stock">&cross; out of stock</div>
                         {% endif %}
                     </div>
                     {% endfor %}
                 {% else %}
-                <p class="out-of-stock">X Out of stock</p>
-                
+                    <p class="out-of-stock">X Out of stock</p>
                 {% endif %}
                 
                 
@@ -63,4 +70,9 @@
         </div>
     </section>
 </main>
+{% endblock %}
+
+{% block postloadjs %}
+{{ block.super }}
+<script src="{% static 'js/book_details.js' %}" type="module"></script>
 {% endblock %}
