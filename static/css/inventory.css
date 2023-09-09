@@ -254,12 +254,12 @@
 
     .detail-page-frame {
         display: flex;
-        padding: 2rem;
+        padding: 5%;
         max-width: unset;
     }
 
     .detail-page-frame .book-details-box {
-        margin-left: 2rem;
+        margin-left: 3%;
     }
 
     .detail-page-frame .book-title {
@@ -269,7 +269,43 @@
 
 .stock-line {
     display: grid;
-    grid-template-columns: 1fr 1fr 1fr 1fr;
-    grid-template-rows: 1fr 1fr 1fr;
+    grid-template-columns:  15% 25% 30% 30%;
+    align-items: center;
+    line-height: 1.5rem;
+}
+
+.stockline-condition {
+    text-transform: capitalize;
+    font-size: .9rem;
+}
+
+.stockline-price {
+    color:#160f69;
+    font-size: 1.1rem;
+    font-weight: bold;
+}
+
+.stockline-in-stock {
+    font-size: .8rem;
+    color:#00ad26;
+}
+
+.stockline-out-of-stock {
+    display: flex;
+    font-size: .8rem;
+    color:#b7000c;
+    grid-column-start: 3;
+    grid-column-end: span2;
+    margin: 0.3rem 0;
+}
+
+.stockline-button {
+    border: 1px solid #160f69;
+    padding: .3rem;
+    font-weight: bold;
+    color: #160f69;
+    border-radius: 1.6rem;
+    background-color: #1ED446;
+    cursor: pointer;
 
 }

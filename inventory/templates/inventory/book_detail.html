@@ -24,6 +24,7 @@
             <div class="book-details-box">
                 <h2 class="book-title">{{ book.title }}</h2>
                 
+                <div>
                 <p class="book-year-group">Year Group: <strong>{{ book.year_group }}</strong></p>
                 <p class="book-subject">Subject: <strong>{{ book.subject }}</strong></p>
                 {% if book.publisher %}
@@ -32,27 +33,28 @@
                 {% if book.exam_board %}
                 <p class="book-exam-board">Exam Board: <strong>{{ book.exam_board }}</strong></p>
                 {% endif %}
-                
-               
+                </div>
+                <a class="real-product-link" href="{{ book.product_url }}" target="_blank">{{ book.pk }} Link to real product</a>
+
                 {% if book.in_stock %}
                 
-                <div  class="stock-line">
+                
                     {% for item in stock %}
+                    <div class="stock-line">
                         <div class="stockline-condition">{{ item.condition }}</div>
-                        <div class="stockline-price">{{ item.price }}</div>
+                        <div class="stockline-price">£{{ item.price }}</div>
                         {% if item.quantity > 0 %}
-                        <div class="stockline-stock">&check; in stock</div><div class="stockline-button">Add</div>
+                        <div class="stockline-in-stock">&check; in stock</div>
+                        <button class="stockline-button">Add</button>
                         {% else %}
-                        <div class="out-of-stock-small">&cross; out of stock</div>
+                        <div class="stockline-out-of-stock">&cross; out of stock</div>
                         {% endif %}
+                    </div>
                     {% endfor %}
-                </div>
                 {% else %}
                 <p class="out-of-stock">X Out of stock</p>
                 
                 {% endif %}
-
-                <a class="real-product-link" href="{{ book.product_url }}">{{ book.pk }} Link to real product</a>
                 
                 
                 
