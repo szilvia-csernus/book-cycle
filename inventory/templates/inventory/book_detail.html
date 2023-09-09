@@ -47,13 +47,16 @@
                             >
                             &check; in stock
                         </div>
-                        <button 
-                            id="button-{{item.condition}}" 
-                            data-stock-id="{{ item.id }}" 
-                            data-stock-quantity="{{ item.quantity }}" 
-                            class="stockline-button">
-                            Add
-                        </button>
+                        <div>
+                            <button 
+                                id="add-button-{{item.condition}}"
+                                data-stock-id="{{ item.id }}" 
+                                data-stock-quantity="{{ item.quantity }}"
+                                data-stock-condition="{{ item.condition }}"
+                                class="stockline-button">
+                                Add
+                            </button>
+                        </div>
                         {% else %}
                         <div class="stockline-out-of-stock">&cross; out of stock</div>
                         {% endif %}
