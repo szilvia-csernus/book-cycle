@@ -1,5 +1,6 @@
 from django.test import TestCase
-from .models import YearGroup, Subject, Book
+from .models import YearGroup, Subject, Book, Stock
+from decimal import Decimal
 
 
 class TestModels(TestCase):
@@ -24,3 +25,33 @@ class TestModels(TestCase):
         book1 = Book.objects.create(title="Test Book Title")
         book2 = Book.objects.create(title="Test Book Title")
         self.assertFalse(book1.slug == book2.slug)
+
+    def test_get_book_stock(self):
+        book = Book.objects.create(title="Test Book Title")
+        stock = Stock.objects.create(
+            book=book,
+            condition="new",
+            price=Decimal("15.50"),
+            quantity=23)
+        stocks = book.get_book_stock()
+        self.assertEqual(stocks["new"], stock.price)
+
+    def test_cheapest_price(self):
+        book = Book.objects.create(title="Test Book Title")
+        stock1 = Stock.objects.create(
+            book=book,
+            condition="new",
+            price=Decimal("15.50"),
+            quantity=23)
+        stock2 = Stock.objects.create(
+            book=book,
+            condition="good",
+            price=Decimal("12"),
+            quantity=2)
+        stock3 = Stock.objects.create(
+            book=book,
+            condition="new",
+            price=Decimal("10"),
+            quantity=3)
+        cheapest_price = book.get_cheapest_price()
+        self.assertEqual(cheapest_price, stock3.price)
