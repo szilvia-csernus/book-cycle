@@ -15,7 +15,9 @@ def all_books(request):
 def book_detail(request, slug):
     """ A view to show book details. """
     book = get_object_or_404(Book, slug=slug)
+    stock = book.stock_set.all()
     context = {
-        'book': book
+        'book': book,
+        'stock': stock
     }
     return render(request, 'inventory/book_detail.html', context)

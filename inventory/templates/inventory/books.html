@@ -57,8 +57,8 @@
                         {% else %}
                             <div>
                             <p class="cheapest">Our cheapest price:</p>
-                            <p class="book-price">£{{ book.get_cheapest_stock_price }}</p>
-                            <p class="book-condition">(Condition: <strong>{{ book.get_cheapest_stock_condition }})</strong></p>
+                            <p class="book-price">£{{ book.get_cheapest_stock.price }}</p>
+                            <p class="book-condition">(Condition: <strong>{{ book.get_cheapest_stock.condition }})</strong></p>
                             </div>
                         {% endif %}
                         

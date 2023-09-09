@@ -23,21 +23,6 @@
             
             <div class="book-details-box">
                 <h2 class="book-title">{{ book.title }}</h2>
-                {% if False %}
-                <p class="out-of-stock">Out of stock X</p>
-                {% else %}
-                <p>from <span class="book-price">£15.00</span> (fair)</p>
-                {% endif %}
-                <!-- <p class="cheaper">Buy used book for less! See below:</p> -->
-                <p class="new-book">
-                    <span class="new-price">£28</span><span class="new-stock">&check; in stock</span><span class="new-add">Add</span>
-                </p>
-                <p class="good-book">
-                    <span class="good-price">£20</span><span class="good-stock">&check; in stock</span><span class="good-add">Add</span>
-                </p>
-                <p class="fair-book">
-                    <span class="fair-price">£15</span><span class="fair-stock">&check; in stock</span><span class="fair-add">Add</span>
-                </p>
                 
                 <p class="book-year-group">Year Group: <strong>{{ book.year_group }}</strong></p>
                 <p class="book-subject">Subject: <strong>{{ book.subject }}</strong></p>
@@ -47,8 +32,30 @@
                 {% if book.exam_board %}
                 <p class="book-exam-board">Exam Board: <strong>{{ book.exam_board }}</strong></p>
                 {% endif %}
+                
+               
+                {% if book.in_stock %}
+                
+                <div  class="stock-line">
+                    {% for item in stock %}
+                        <div class="stockline-condition">{{ item.condition }}</div>
+                        <div class="stockline-price">{{ item.price }}</div>
+                        {% if item.quantity > 0 %}
+                        <div class="stockline-stock">&check; in stock</div><div class="stockline-button">Add</div>
+                        {% else %}
+                        <div class="out-of-stock-small">&cross; out of stock</div>
+                        {% endif %}
+                    {% endfor %}
+                </div>
+                {% else %}
+                <p class="out-of-stock">X Out of stock</p>
+                
+                {% endif %}
+
                 <a class="real-product-link" href="{{ book.product_url }}">{{ book.pk }} Link to real product</a>
-                <button class="add-button">Add</button>
+                
+                
+                
             </div>
             
         </div>
