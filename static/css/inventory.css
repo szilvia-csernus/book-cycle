@@ -48,7 +48,7 @@
     flex-direction: column;
     justify-content: space-between;
     margin: .25rem;
-    height: 42rem;
+    height: 47rem;
     background-color: rgb(240, 243, 255);
     border-radius: .2rem;
     box-shadow: 2px 2px 5px #160f69;
@@ -160,6 +160,7 @@
     font-size: 1.2rem;
     color: #160f69;
     line-height: 1.3rem;
+    min-height: 5rem
 }
 
 .book-details-box {
@@ -189,12 +190,10 @@
 .book-price {
     margin-bottom: .2rem;
     font-weight: bold;
-    /* font-style: italic; */
-    font-size: 1.1rem;
-    color: #160f69;
+    font-size: 1.7rem;
+    color: #ce4b02;
 }
 
-.book-condition,
 .filter-sort-input {
     padding: 0.2rem;
     font-size: .9rem;
@@ -205,6 +204,17 @@
     text-transform: uppercase;
     color:#160f69;
     text-decoration: underline;
+}
+
+.cheapest {
+    color:#160f69;
+    font-size: .8rem;
+    font-weight: bold;
+}
+
+.book-condition {
+    color:#160f69;
+    font-size: .8rem;
 }
 
 

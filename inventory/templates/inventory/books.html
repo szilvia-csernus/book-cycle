@@ -52,20 +52,19 @@
                     </a>
                     <div class="book-details-box">
                         <h2 class="book-title">{{ book.title }}</h2>
-                        {% if True %}
-                        <p class="out-of-stock">Out of stock X</p>
+                        {% if not book.in_stock %}
+                        <p class="out-of-stock">X Out of stock</p>
                         {% else %}
-                            <p>from <span class="book-price">£15.00</span> (fair)</p>
+                            <div>
+                            <p class="cheapest">Our cheapest price:</p>
+                            <p class="book-price">£{{ book.get_cheapest_stock_price }}</p>
+                            <p class="book-condition">(Condition: <strong>{{ book.get_cheapest_stock_condition }})</strong></p>
+                            </div>
                         {% endif %}
-                        <!-- <p class="cheaper">Buy used book for less! See below:</p> -->
-                        <select name="book-condition" id="book-condition" class="book-condition">
-                            <option value="new">New £26 - in stock</option>
-                            <option value="good" disabled >Good £20 - out of stock</option>
-                            <option value="fair" selected>Fair £15 - in stock</option>
-                        </select>
+                        
                         <p class="book-year-group">Year Group: <strong>{{ book.year_group }}</strong></p>
                         <p class="book-subject">Subject: <strong>{{ book.subject }}</strong></p>
-                        <a class="more-details" href="{{ book.get_slug_url }}">More details and options</a>
+                        <a class="more-details" href="{{ book.get_slug_url }}">More Options and Details</a>
                         <button class="add-button">Add</button>
                     </div>
                 </article>

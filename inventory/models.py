@@ -53,16 +53,101 @@ class Book(models.Model):
         super().save(*args, **kwargs)
 
     def get_slug_url(self):
+        """ SEO friendly url """
         return reverse("book_detail", kwargs={"slug": self.slug})
+
+    def in_stock(self):
+        if len(self.stock_set.all()) == 0:
+            return False
+        in_stock = False
+        for stock_book in self.stock_set.all():
+            if stock_book.quantity > 0:
+                in_stock = True
+        return in_stock
+
+    def get_book_stock(self):
+        """ Returns book's stock in a convenient object format, like:
+        {
+          "new":
+            {"condition": "new", "price": Decimal("25.00"), "quantity": 34},
+          "good":
+            {"condition": "good", "price": Decimal("20.00"), "quantity": 3},
+          "fair":
+            {"condition": "fair", "price": Decimal("15.00"), "quantity": 12}
+        }
+        """
+        if not self.in_stock():
+            return False
+
+        stock = {
+            "new":
+                {"condition": "new", "price": "", "quantity": 0},
+            "good":
+                {"condition": "good", "price": "", "quantity": 0},
+            "fair":
+                {"condition": "fair", "price": "", "quantity": 0}
+            }
+
+        stock_set = self.stock_set.all()
+        for stock_book in stock_set:
+            details = {
+                "condition": stock_book.condition,
+                "price": stock_book.price,
+                "quantity": stock_book.quantity
+            }
+            stock[stock_book.condition] = details
+        return stock
+
+    def get_cheapest_stock(self):
+        """Returns the cheapest stock or False if there is no stock object
+        associated with the book."""
+        if not self.in_stock():
+            return False
+        stocks = self.get_book_stock()
+
+        cheapest_stock = None
+        cheapest_price = None
+
+        # Check each stock condition and update cheapest_stock and
+        # cheapest_price if any
+        for condition, stock_data in stocks.items():
+            if stock_data["quantity"] > 0:
+                price = stock_data["price"]
+                if cheapest_price is None or price < cheapest_price:
+                    cheapest_stock = stock_data
+                    cheapest_price = price
+
+        if cheapest_stock is not None:
+            return cheapest_stock
+        else:
+            return False
+
+    def get_cheapest_stock_condition(self):
+        """Returns the cheapest stock's condition."""
+        cheapest_stock = self.get_cheapest_stock()
+        if cheapest_stock:
+            return cheapest_stock["condition"]
+        return False
+
+    def get_cheapest_stock_price(self):
+        """Returns the cheapest stock's price."""
+        cheapest_stock = self.get_cheapest_stock()
+        if cheapest_stock:
+            return cheapest_stock["price"]
+        return False
+
+    def get_cheapest_stock_quantity(self):
+        """Returns the cheapest stock's quantity."""
+        cheapest_stock = self.get_cheapest_stock()
+        if cheapest_stock:
+            return cheapest_stock["quantity"]
+        return False
 
 
 class Stock(models.Model):
     book = models.ForeignKey(
         'Book',
-        null=True,
-        blank=True,
-        related_name='books',
         on_delete=models.CASCADE)
     price = models.DecimalField(max_digits=6, decimal_places=2)
     condition = models.CharField(max_length=30)
-    quantity = models.IntegerField(default=0)
+    quantity = models.PositiveIntegerField(default=0)

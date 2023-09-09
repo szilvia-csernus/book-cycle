@@ -5,6 +5,7 @@ from .models import Book
 def all_books(request):
     """ A view to show all books, including sorting and search queries. """
     books = Book.objects.all()
+
     context = {
         'books': books
     }
