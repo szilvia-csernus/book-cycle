@@ -1,6 +1,7 @@
 from django.test import TestCase
+from django.urls import reverse
 from django.contrib.auth.models import User
-from .models import Book, Stock
+from .models import Book, Stock, YearGroup, Subject
 
 
 def create_and_login_superuser(self):
@@ -20,12 +21,60 @@ def create_a_book():
     return book
 
 
-class TestViews(TestCase):
+def create_books_with_subject_and_yeargroup(self):
+    self.year_group1 = YearGroup.objects.create(name='gcse')
+    self.year_group2 = YearGroup.objects.create(name='a-level')
+    self.subject1 = Subject.objects.create(name='maths')
+    self.subject2 = Subject.objects.create(name='english')
+
+    self.book1 = Book.objects.create(
+        title='Test Book 1',
+        year_group=self.year_group1,
+        subject=self.subject1)
+    self.book2 = Book.objects.create(
+        title='Test Book 2',
+        year_group=self.year_group2,
+        subject=self.subject2)
+    self.book3 = Book.objects.create(
+        title='Test Book 3',
+        year_group=self.year_group1,
+        subject=self.subject1)
+
+
+class AllBooksViewTestCase(TestCase):
 
     def test_all_books(self):
         response = self.client.get('/inventory/books/')
         self.assertEqual(response.status_code, 200)
         self.assertTemplateUsed(response, 'inventory/books.html')
+
+    def test_search_books_with_valid_query(self):
+        create_books_with_subject_and_yeargroup(self)
+        # Test searching for books with a valid query
+        response = self.client.get(
+            reverse('books'), {'search': 'Test Book 1'})
+        self.assertEqual(response.status_code, 200)
+        self.assertQuerysetEqual(
+            response.context['books'], ['<Book: Test Book 1>'])
+
+    def test_search_books_with_empty_query(self):
+        create_books_with_subject_and_yeargroup(self)
+        # Test searching for books with an empty query
+        response = self.client.get(reverse('books'), {'search': ''})
+        self.assertEqual(response.status_code, 302)
+
+    def test_filter_books_by_year_group(self):
+        create_books_with_subject_and_yeargroup(self)
+        # Test filtering books by year group
+        response = self.client.get(
+            reverse('books'), {'year_group': 'a-level'})
+        self.assertEqual(response.status_code, 200)
+        self.assertQuerysetEqual(
+            response.context['books'],
+            ['<Book: Test Book 2>'])
+
+
+class TestBookDetailViews(TestCase):
 
     def test_book_detail(self):
         create_and_login_superuser(self)
