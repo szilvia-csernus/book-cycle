@@ -12,38 +12,58 @@
 <main>
     <div class="books-background">
         <div class="filter-sort-search-box">
-            <div class="searched-term-box active">
-                <div >Searched term:</div>
-                <div id="searched-term">"{{ query }}"</div>
-                <div class="searched-term-close">x</div>
-            </div>
-            <div class="filter-sort-input">
-                <label for="filter-subject">Filter by Subject:  </label>
-                <select name="filter-subject" id="filter-subject" class="filter-select filter-subject">
-                    <option value="" selected>-----</option>
-                    <option value="English">English</option>
-                    <option value="Mathematics">Mathematics</option>
-                </select>
-            </div>
-            <div class="filter-sort-input">
-                <label for="filter-yeargroup">Filter by Year Group:  </label>
-                <select name="filter-yeargroup" id="filter-yeargroup" class="filter-select filter-yeargroup">
-                    <option value="" selected>-----</option>
-                    <option value="yr_7-9">Year 7-9</option>
-                    <option value="gcse">GCSE</option>
-                    <option value="alevel">A Level</option>
-                </select>
-            </div>
-            <div class="filter-sort-input">
-                <label for="filter-subject">Sort by:  </label>
-                <select name="sort" id="sort" class="filter-select sort">
-                    <option value="title_a_z" selected>Title - A-Z</option>
-                    <option value="title_z_a">Title - Z-A</option>
-                    <option value="price">Price - Low-High</option>
-                    <option value="subject_a_z">Subject - A-Z</option>
-                </select>
-            </div>
+            <form id="search-form" method="GET" action="{% url 'books' %}">
+                <div class="filter-sort-input">
+                    <label for="search-input">Search term: </label>
+                    <input id="search-input" class="filter-select filter-search" type="text" name="search" placeholder="-----" 
+                    value="{{ search_term|default:'' }}"
+                    >
+                </div>
+                <div class="filter-sort-input">
+                    <label for="filter-subject">Filter by Subject:  </label>
+                    <select name="subject" id="filter-subject" class="filter-select filter-subject">
+                        <option value="None">-----</option>
+                        {% for s in all_subjects %}
+                            <option value="{{ s.name }}"
+                            {% if subject == s.name %}
+                            selected
+                            {% endif %}
+                            >{{ s.friendly_name }}
+                            </option>
+                        {% endfor %}
+                    </select>
+                </div>
+                <div class="filter-sort-input">
+                    <label for="filter-yeargroup">Filter by Year Group:  </label>
+                    <select name="year_group" id="filter-yeargroup" class="filter-select filter-yeargroup">
+                        <option value="None">-----</option>
+                        {% for yg in all_year_groups %}
+                        <option value="{{ yg.name }}"
+                        {% if year_group == yg.name %}
+                            selected
+                            {% endif %}
+                        >{{ yg.friendly_name }}</option>
+                        {% endfor %}
+                    </select>
+                </div>
+                <!-- <div class="filter-sort-input">
+                    <label for="filter-subject">Sort by:  </label>
+                    <select name="sort" id="sort" class="filter-select sort">
+                        <option value="title_a_z" selected>Title - A-Z</option>
+                        <option value="title_z_a">Title - Z-A</option>
+                        <option value="price">Price - Low-High</option>
+                        <option value="subject_a_z">Subject - A-Z</option>
+                    </select>
+                </div> -->
+                <div class="filter-sort-input">
+                    <button class="search-clear">Clear All</button>
+                    <button class="search-submit" type="submit">Search</button>
+                </div>
+            </form>
         </div>
+        {% if books.count == 0 %}
+            <h1 class="no-results">No results found.</h1>
+        {% endif %}
         <div class="gallery">
             {% for book in books %}
                 <article class="bookFrame">

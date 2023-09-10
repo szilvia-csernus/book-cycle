@@ -8,7 +8,10 @@ def all_books(request):
     """ A view to show all books, including sorting and search queries. """
     books = Book.objects.all()
     search_term = None
+    search_queries = None
     year_group = None
+    subject = None
+    query = Q()  # Initialize an empty Q object
 
     if request.GET:
         if 'search' in request.GET:
@@ -18,20 +21,32 @@ def all_books(request):
                     request, "You didn't enter any search criteria!")
                 return redirect(reverse('books'))
 
-            search_queries = Q(title__icontains=search_term) | \
-                Q(year_group__name__icontains=search_term) | \
-                Q(subject__name__icontains=search_term)
+            if search_term != 'None':
+                search_queries = (
+                    Q(title__icontains=search_term) |
+                    Q(year_group__name__icontains=search_term) |
+                    Q(subject__name__icontains=search_term)
+                )
 
-            books = books.filter(search_queries)
+                query &= search_queries  # Combine search queries with AND
 
         if 'year_group' in request.GET:
             year_group = request.GET['year_group']
-            books = books.filter(year_group__name=year_group)
+            if year_group != 'None':
+                query &= Q(year_group__name=year_group)
+
+        if 'subject' in request.GET:
+            subject = request.GET['subject']
+            if subject != 'None':
+                query &= Q(subject__name=subject)
+
+        books = books.filter(query)  # Apply the combined query
 
     context = {
         'books': books,
         'search_term': search_term,
-        'year_group': year_group
+        'year_group': year_group,
+        'subject': subject
     }
 
     return render(request, 'inventory/books.html', context)

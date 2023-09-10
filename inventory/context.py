@@ -7,8 +7,8 @@ def all_categories(request):
     year_groups = YearGroup.objects.all()
 
     context = {
-        'subjects': subjects,
-        'year_groups': year_groups
+        'all_subjects': subjects,
+        'all_year_groups': year_groups
     }
 
     return context

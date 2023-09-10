@@ -14,7 +14,7 @@
     font-weight: bold;
 }
 
-.searched-term-box {
+/* .search-term-box {
     display: none;
     justify-content: center;
     align-items: center;
@@ -29,7 +29,7 @@
     display: flex;
 }
 
-.searched-term-close {
+.search-term-close {
     border: 1px solid #160f69;
     border-radius: 1rem;
     padding: 0.1rem 0.3rem;
@@ -37,11 +37,11 @@
     margin-right: 0.4rem
 }
 
-.searched-term-close:hover {
+.search-term-close:hover {
     background-color: #160f69;
     color: white;
     cursor: pointer;
-}
+} */
 
 .filter-sort-input {
     display: flex;
@@ -61,6 +61,34 @@
     font-family: 'Montserrat', sans-serif;
 }
 
+.filter-search {
+    background: white;
+    border: 1px solid grey;
+    padding: 0.3rem;
+}
+
+.search-clear {
+    margin-top: .5rem;
+    margin-right: 1rem;
+    border: 1px solid #1ED446;
+    /* color: #160f69; */
+    font-weight: 200;
+    border-radius: 3rem;
+    padding: .2rem .7rem;
+    cursor: pointer;
+}
+
+.search-submit {
+    margin-top: .5rem;
+    border: 1px solid grey;
+    background-color: #1ED446;
+    /* color: #160f69; */
+    font-weight: 200;
+    border-radius: 3rem;
+    padding: .2rem .7rem;
+    cursor: pointer;
+}
+
 
 /* ------------------------------------------ Book gallery styles -------  */
 
@@ -70,6 +98,16 @@
     grid-template-rows: auto;
     font-size: .9rem;
     padding: .25rem;
+}
+
+.no-results {
+    text-align: center;
+    margin-top: 4rem;
+    font-family: 'Koulen';
+    font-size: 1.2rem;
+    color: #160f69;
+    line-height: 1.3rem;
+    min-height: 5rem
 }
 
 .bookFrame {
@@ -133,7 +171,7 @@
         padding: 1rem .25rem 0 .25rem;
 	}
     .filter-sort-input,
-    .searched-term-box {
+    .search-term-box {
         justify-content: flex-end;
     }
     .filter-select {
@@ -221,7 +259,7 @@
     margin-bottom: .2rem;
     font-weight: bold;
     font-size: 1.7rem;
-    color: #ce4b02;
+    color: #850083;
 }
 
 .filter-sort-input {
