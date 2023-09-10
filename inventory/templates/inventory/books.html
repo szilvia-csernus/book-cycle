@@ -11,7 +11,12 @@
 </div>
 <main>
     <div class="books-background">
-        <div class="filter-sort-input-box">
+        <div class="filter-sort-search-box">
+            <div class="searched-term-box active">
+                <div >Searched term:</div>
+                <div id="searched-term">"Tempest"</div>
+                <div class="searched-term-close">x</div>
+            </div>
             <div class="filter-sort-input">
                 <label for="filter-subject">Filter by Subject:  </label>
                 <select name="filter-subject" id="filter-subject" class="filter-select filter-subject">
@@ -36,7 +41,6 @@
                     <option value="title_z_a">Title - Z-A</option>
                     <option value="price">Price - Low-High</option>
                     <option value="subject_a_z">Subject - A-Z</option>
-                    <option value="year_group">Year Group</option>
                 </select>
             </div>
         </div>
@@ -72,4 +76,9 @@
         </div>
     </div>
 </main>
+{% endblock %}
+
+{% block postloadjs %}
+{{ block.super }}
+    <script src="{% static 'js/books.js' %}" type="module"></script>
 {% endblock %}

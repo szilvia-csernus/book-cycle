@@ -81,6 +81,19 @@
     </header>
     <div id="browse">
         <ul>
+            <li class="close-menu">
+                X
+            </li>
+            <li>
+                <form id="search-form" method="GET" action="">
+                    <div>
+                        <input id="search-input" type="text" name="q" placeholder="Search">
+                        <button id="search-button" type="submit" disabled>
+                            <img class="search" src="{% static 'svg/search-icon.svg' %}" alt="search icon" width="30" height="20">
+                        </button>
+                    </div>
+                </form>
+            </li>
             <li class="browse-category">
                 All Textbooks
             </li>
@@ -90,16 +103,7 @@
             <li class="browse-category">
                 Search by Yeargroup
             </li>
-            <li >
-                <form id="search-form" method="GET" action="">
-                    <div >
-                        <input id="search-input" type="text" name="q" placeholder="Search">
-                        <button id="search-button" type="submit" disabled>
-                            <img class="search" src="{% static 'svg/search-icon.svg' %}" alt="search icon" width="30" height="20">
-                        </button>
-                    </div>
-                </form>
-            </li>
+            
         </ul>
         <div>
             <img class="open-book" src="{% static 'svg/open-book-icon.svg' %}" alt="open book icon" width="159" height="98">

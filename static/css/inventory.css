@@ -6,12 +6,41 @@
 
 /* --------------------------------- Filter - Sort styles -----  */
 
-.filter-sort-input-box {
+.filter-sort-search-box {
     padding: 1rem .5rem 0;
     display: flex;
     flex-direction: column;
     font-family: 'Montserrat', sans-serif;
     font-weight: bold;
+}
+
+.searched-term-box {
+    display: none;
+    justify-content: center;
+    align-items: center;
+    color:#160f69;
+    font-size: .9rem;
+    text-transform: uppercase;
+    margin: 0.7rem 0;
+    column-gap: 0.7rem;
+}
+
+.active {
+    display: flex;
+}
+
+.searched-term-close {
+    border: 1px solid #160f69;
+    border-radius: 1rem;
+    padding: 0.1rem 0.3rem;
+    font-size: .8rem;
+    margin-right: 0.4rem
+}
+
+.searched-term-close:hover {
+    background-color: #160f69;
+    color: white;
+    cursor: pointer;
 }
 
 .filter-sort-input {
@@ -59,7 +88,7 @@
 	.gallery {
         padding: 1rem;
 	}
-    .filter-sort-input-box {
+    .filter-sort-search-box {
         padding: 1rem 1rem 0 1rem;
 	}
     .books-background {
@@ -72,7 +101,7 @@
 	.gallery {
         padding: 1rem 2rem 2rem 2rem;
 	}
-    .filter-sort-input-box {
+    .filter-sort-search-box {
         padding: 2rem 2rem 0 2rem;
 	}
 }
@@ -81,7 +110,7 @@
 	.gallery {
         padding: 1rem 3rem 3rem 3rem;
 	}
-    .filter-sort-input-box {
+    .filter-sort-search-box {
         padding: 2rem 3rem 0 3rem;
 	}
 }
@@ -90,7 +119,7 @@
 	.gallery {
         padding: 1rem 4rem 4rem 4rem;
 	}
-    .filter-sort-input-box {
+    .filter-sort-search-box {
         padding: 2rem 4rem 0 4rem;
 	}
 }
@@ -100,10 +129,11 @@
 		grid-template-columns: 50% 50%;
         padding: 1rem .25rem .25rem .25rem;
 	}
-    .filter-sort-input-box {
+    .filter-sort-search-box {
         padding: 1rem .25rem 0 .25rem;
 	}
-    .filter-sort-input {
+    .filter-sort-input,
+    .searched-term-box {
         justify-content: flex-end;
     }
     .filter-select {
@@ -122,7 +152,7 @@
 	.gallery {
 		grid-template-columns: 33.33% 33.33% 33.33%;
 	}
-    .filter-sort-input-box {
+    .filter-sort-search-box {
         margin-right: 33.33%;
     }
     .filter-select {

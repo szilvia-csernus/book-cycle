@@ -162,9 +162,9 @@ img.basket {
     top: 0;
     left: -17rem; /* Hidden off-screen initially */
     width: 15rem;
-    height: 25rem;
+    height: 80%;
     background-color: #bababa;
-    background: linear-gradient(to bottom, #bababa, #160f69);
+    background: linear-gradient(to bottom, #dbdbdb, #231c6f);
     transition: left 0.4s ease;
     color: #1d194b;
     padding: 1rem;
@@ -212,6 +212,14 @@ img.basket {
 .browse-category:active {
     transform: translateX(.3rem);
     color: #120791;
+}
+
+.close-menu {
+    text-align: right;
+    font-weight: bold;
+    font-family: 'Montserrat';
+    margin-bottom: 0.5rem;
+    cursor: pointer;
 }
 
 #browse input {
