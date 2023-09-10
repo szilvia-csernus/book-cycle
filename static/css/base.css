@@ -183,6 +183,25 @@ img.basket {
     left: 0; /* Slide the menu in */
 }
 
+.menu-filter {
+    display: none;
+    position: absolute;
+    left: 13rem;
+    top: 10rem;
+    background-color: #dbdbdb;
+    padding: 1rem;
+
+}
+
+.menu-filter-active {
+    display: block
+}
+
+.menu-filter-term {
+    font-size: 1rem;
+    line-height: 1.6rem;
+}
+
 @media screen and (min-width: 1442px) {
     #browse.browse-open {
         left: calc(50% - 721px);

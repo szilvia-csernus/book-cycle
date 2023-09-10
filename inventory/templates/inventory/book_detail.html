@@ -25,8 +25,8 @@
                 <h2 class="book-title">{{ book.title }}</h2>
                 
                 <div>
-                <p class="book-year-group">Year Group: <strong>{{ book.year_group }}</strong></p>
-                <p class="book-subject">Subject: <strong>{{ book.subject }}</strong></p>
+                <p class="book-year-group">Year Group: <strong>{{ book.year_group.friendly_name }}</strong></p>
+                <p class="book-subject">Subject: <strong>{{ book.subject.friendly_name }}</strong></p>
                 {% if book.publisher %}
                 <p class="book-publisher">Publisher: <strong>{{ book.publisher }}</strong></p>
                 {% endif %}

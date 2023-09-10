@@ -85,9 +85,9 @@
                 X
             </li>
             <li>
-                <form id="search-form" method="GET" action="">
+                <form id="search-form" method="GET" action="{% url 'books' %}">
                     <div>
-                        <input id="search-input" type="text" name="q" placeholder="Search">
+                        <input id="search-input" type="text" name="search" placeholder="Search">
                         <button id="search-button" type="submit" disabled>
                             <img class="search" src="{% static 'svg/search-icon.svg' %}" alt="search icon" width="30" height="20">
                         </button>
@@ -95,13 +95,16 @@
                 </form>
             </li>
             <li class="browse-category">
-                All Textbooks
+                <a href="{% url 'books' %}">All Textbooks</a> 
             </li>
             <li class="browse-category">
-                Search by Subject
+                <a href="{% url 'books' %}?year_group=year7-9">Year 7-9</a>
             </li>
             <li class="browse-category">
-                Search by Yeargroup
+                <a href="{% url 'books' %}?year_group=gcse">GCSE</a>
+            </li>
+            <li class="browse-category">
+                <a href="{% url 'books' %}?year_group=a-level">A Level</a>
             </li>
             
         </ul>

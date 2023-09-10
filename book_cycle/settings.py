@@ -81,6 +81,10 @@ TEMPLATES = [
 
                 # `allauth` needs this from django
                 'django.template.context_processors.request',
+
+                # context for all subjects and yeargroups to be available
+                # for the menu throughout the pages
+                'inventory.context.all_categories',
             ],
         },
     },

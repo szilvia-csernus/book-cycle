@@ -6,6 +6,7 @@ import uuid
 
 class YearGroup(models.Model):
     name = models.CharField(max_length=30)
+    friendly_name = models.CharField(max_length=30, null=True)
 
     def __str__(self):
         return self.name
@@ -13,6 +14,7 @@ class YearGroup(models.Model):
 
 class Subject(models.Model):
     name = models.CharField(max_length=100)
+    friendly_name = models.CharField(max_length=30, null=True)
 
     def __str__(self):
         return self.name
@@ -93,6 +95,7 @@ class Book(models.Model):
 class Stock(models.Model):
     book = models.ForeignKey(
         'Book',
+        null=True,
         on_delete=models.CASCADE)
     price = models.DecimalField(max_digits=6, decimal_places=2)
     condition = models.CharField(max_length=30)

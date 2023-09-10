@@ -24,7 +24,21 @@ class StockAdmin(admin.ModelAdmin):
     )
 
 
-admin.site.register(YearGroup)
-admin.site.register(Subject)
+class YearGroupAdmin(admin.ModelAdmin):
+    list_display = (
+        'name',
+        'friendly_name'
+    )
+
+
+class SubjectAdmin(admin.ModelAdmin):
+    list_display = (
+        'name',
+        'friendly_name'
+    )
+
+
+admin.site.register(YearGroup, YearGroupAdmin)
+admin.site.register(Subject, SubjectAdmin)
 admin.site.register(Book, BookAdmin)
 admin.site.register(Stock, StockAdmin)

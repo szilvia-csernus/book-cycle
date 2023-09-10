@@ -14,7 +14,7 @@
         <div class="filter-sort-search-box">
             <div class="searched-term-box active">
                 <div >Searched term:</div>
-                <div id="searched-term">"Tempest"</div>
+                <div id="searched-term">"{{ query }}"</div>
                 <div class="searched-term-close">x</div>
             </div>
             <div class="filter-sort-input">
@@ -60,14 +60,14 @@
                         <p class="out-of-stock">X Out of stock</p>
                         {% else %}
                             <div>
-                            <p class="cheapest">Our cheapest price:</p>
+                            <p class="cheapest">Our lowest price:</p>
                             <p class="book-price">£{{ book.get_cheapest_stock.price }}</p>
                             <p class="book-condition">(Condition: <strong>{{ book.get_cheapest_stock.condition }})</strong></p>
                             </div>
                         {% endif %}
                         
-                        <p class="book-year-group">Year Group: <strong>{{ book.year_group }}</strong></p>
-                        <p class="book-subject">Subject: <strong>{{ book.subject }}</strong></p>
+                        <p class="book-year-group">Year Group: <strong>{{ book.year_group.friendly_name }}</strong></p>
+                        <p class="book-subject">Subject: <strong>{{ book.subject.friendly_name }}</strong></p>
                         <a class="more-details" href="{{ book.get_slug_url }}">More Options and Details</a>
                         <button class="add-button">Add</button>
                     </div>
