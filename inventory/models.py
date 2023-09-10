@@ -86,10 +86,7 @@ class Book(models.Model):
                     cheapest_stock = stock
                     cheapest_price = price
 
-        if cheapest_stock is not None:
-            return cheapest_stock
-        else:
-            return False
+        return cheapest_stock
 
 
 class Stock(models.Model):

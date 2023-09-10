@@ -60,3 +60,29 @@ class TestModels(TestCase):
             quantity=3)
         cheapest_stock = book.get_cheapest_stock()
         self.assertEqual(cheapest_stock.quantity, 3)
+        Stock.objects.all().delete()
+
+    def test_cheapest_stock_when_no_stock(self):
+        book = Book.objects.create(title="Test Book Title")
+        cheapest_stock = book.get_cheapest_stock()
+        self.assertFalse(cheapest_stock)
+
+    def test_cheapest_stock_when_all_stock_zero(self):
+        book = Book.objects.create(title="Test Book Title")
+        Stock.objects.create(
+            book=book,
+            condition="new",
+            price=Decimal("15.50"),
+            quantity=0)
+        Stock.objects.create(
+            book=book,
+            condition="good",
+            price=Decimal("12"),
+            quantity=0)
+        Stock.objects.create(
+            book=book,
+            condition="fair",
+            price=Decimal("10"),
+            quantity=0)
+        cheapest_stock = book.get_cheapest_stock()
+        self.assertFalse(cheapest_stock)
