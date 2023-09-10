@@ -53,8 +53,8 @@ function removeBookFromBasket(id, key) {
 	const stockElement = document.getElementById(`stock-${id}`);
     const minusButton = document.getElementById(`minus-${id}`);
     const plusButton = document.getElementById(`plus-${id}`);
+    plusButton.disabled = false;
 	counter.textContent = Number(counter.textContent) - 1;
-    console.log(counter.textContent)
 	stock[key]++;
 	if (counter.textContent === "0") {
         const replaceElement = key === "new" ? buttonNew :
@@ -94,6 +94,7 @@ function createMinusButton(id, key) {
 
 function createCounter(id, key) {
     const counter = document.createElement('strong');
+    counter.classList.add('stockline-counter');
     counter.textContent = "1";
     counter.id = `counter-${id}`;
     stock[key]--;
@@ -102,7 +103,7 @@ function createCounter(id, key) {
 
 function replaceButtons(id, key) {
     const replaceElement = document.createElement('div');
-    replaceElement.classList.add("replace-element")
+    replaceElement.classList.add("stockline-replace-element")
     const minus = createMinusButton(id, key);
     replaceElement.append(minus);
     const counter = createCounter(id, key);
@@ -119,10 +120,11 @@ buttonNew?.addEventListener('click', event => {
     buttonNew.parentNode.append(replaceElement);
     buttonNew.style.display = "none"
     const stockElement = document.getElementById(`stock-${id}`);
+    const counterElement = document.getElementById(`counter-${id}`);
     stockElement.textContent = `${stock.new} more in stock`
     const plusButton = document.getElementById(`plus-${id}`);
     if (stock.new > 0) {
-			if (Number(counter.textContent) > 10) {
+			if (Number(counterElement.textContent) > 10) {
 				stockElement.textContent = '10+ in stock';
 			} else {
 				stockElement.textContent = `${stock.new} more in stock`;
@@ -142,10 +144,11 @@ buttonGood?.addEventListener('click', event => {
     buttonGood.parentNode.append(replaceElement);
     buttonGood.style.display = "none";
     const stockElement = document.getElementById(`stock-${id}`);
+    const counterElement = document.getElementById(`counter-${id}`);
     stockElement.textContent = `${stock.good} more in stock`
     const plusButton = document.getElementById(`plus-${id}`);
     if (stock.good > 0) {
-			if (Number(counter.textContent) > 10) {
+			if (Number(counterElement.textContent) > 10) {
 				stockElement.textContent = '10+ in stock';
 			} else {
 				stockElement.textContent = `${stock.good} more in stock`;
@@ -164,10 +167,11 @@ buttonFair?.addEventListener('click', event => {
     buttonFair.parentNode.append(replaceElement)
     buttonFair.style.display = "none";
     const stockElement = document.getElementById(`stock-${id}`);
+    const counterElement = document.getElementById(`counter-${id}`);
     stockElement.textContent = `${stock.fair} more in stock`;
     const plusButton = document.getElementById(`plus-${id}`);
     if (stock.fair > 0) {
-			if (Number(counter.textContent) > 10) {
+			if (Number(counterElement.textContent) > 10) {
 				stockElement.textContent = '10+ in stock';
 			} else {
 				stockElement.textContent = `${stock.fair} more in stock`;

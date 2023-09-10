@@ -254,7 +254,7 @@
 
     .detail-page-frame {
         display: flex;
-        padding: 5%;
+        padding: 4%;
         max-width: unset;
     }
 
@@ -267,7 +267,7 @@
     }
 }
 
-.stock-line {
+.stockline {
     display: grid;
     grid-template-columns:  15% 25% 30% 30%;
     align-items: center;
@@ -300,10 +300,17 @@
     margin: 0.3rem 0;
 }
 
+.stockline-button-container {
+    display: flex;
+    justify-content: flex-end;
+    margin-left: 0.5rem;
+}
+
 .stockline-button {
     border: 1px solid #160f69;
     padding: .2rem .7rem;
     font-weight: bold;
+    font-size: .9rem;
     color: #160f69;
     border-radius: 1.6rem;
     background-color: #1ED446;
@@ -311,8 +318,16 @@
 
 }
 
-.replace-element {
+.stockline-button:disabled {
+    opacity: 0.5;
+}
+
+.stockline-replace-element {
     display: flex;
     justify-content: space-between;
     align-items: center;
+}
+
+.stockline-counter {
+    padding: 0 .5rem;
 }

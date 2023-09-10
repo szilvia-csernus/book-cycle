@@ -38,7 +38,7 @@
 
                 {% if book.in_stock %}
                     {% for item in stock %}
-                    <div class="stock-line">
+                    <div class="stockline">
                         <div class="stockline-condition">{{ item.condition }}</div>
                         <div class="stockline-price">£{{ item.price }}</div>
                         {% if item.quantity > 0 %}
@@ -47,7 +47,7 @@
                             >
                             &check; in stock
                         </div>
-                        <div>
+                        <div class="stockline-button-container">
                             <button 
                                 id="add-button-{{item.condition}}"
                                 data-stock-id="{{ item.id }}" 
