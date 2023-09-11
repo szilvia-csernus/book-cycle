@@ -1,6 +1,6 @@
-from django.shortcuts import render, redirect, reverse, get_object_or_404
-from django.contrib import messages
+from django.shortcuts import render, get_object_or_404
 from django.db.models import Q
+from django.db.models.functions import Lower
 from .models import Book
 
 
@@ -11,15 +11,37 @@ def all_books(request):
     search_queries = None
     year_group = None
     subject = None
+    sort = None
+    direction = None
     query = Q()  # Initialize an empty Q object
 
     if request.GET:
+        if 'sort' in request.GET:
+            sort = request.GET['sort']
+            sortkey = sort
+
+            if sortkey == 'title':
+                sortkey = 'lower_title'
+                books = books.annotate(lower_title=Lower('title'))
+
+            if sortkey == 'subject':
+                sortkey = 'subject__name'
+
+            if 'direction' in request.GET:
+                direction = request.GET['direction']
+                if direction == 'desc':
+                    sortkey = f'-{sortkey}'
+
+        else:
+            sort = 'title'
+            sortkey = 'lower_title'
+            direction = 'asc'
+            books = books.annotate(lower_title=Lower('title'))
+
+        books = books.order_by(sortkey)
+
         if 'search' in request.GET:
             search_term = request.GET['search']
-            if not search_term:
-                messages.error(
-                    request, "You didn't enter any search criteria!")
-                return redirect(reverse('books'))
 
             if search_term != 'None':
                 search_queries = (
@@ -42,11 +64,14 @@ def all_books(request):
 
         books = books.filter(query)  # Apply the combined query
 
+    current_sorting = f'{sort}_{direction}'
+
     context = {
         'books': books,
         'search_term': search_term,
         'year_group': year_group,
-        'subject': subject
+        'subject': subject,
+        'current_sorting': current_sorting
     }
 
     return render(request, 'inventory/books.html', context)

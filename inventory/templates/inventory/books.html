@@ -12,12 +12,16 @@
 <main>
     <div class="books-background">
         <div class="filter-sort-search-box">
-            <form id="search-form" method="GET" action="{% url 'books' %}">
-                <div class="filter-sort-input">
+
+                <div class="filter-sort-input search-input">
                     <label for="search-input">Search term: </label>
-                    <input id="search-input" class="filter-select filter-search" type="text" name="search" placeholder="-----" 
-                    value="{{ search_term|default:'' }}"
-                    >
+                    <div class="search-input-box">
+                        <input id="search-input-nr2" class="filter-select filter-search" type="text" name="search" placeholder="-----" 
+                        value="{{ search_term|default:'' }}">
+                        <button id="search-button-nr2" type="button">
+                            <img class="search" src="{% static 'svg/search-icon.svg' %}" alt="search icon" width="30" height="20">
+                        </button>
+                    </div>
                 </div>
                 <div class="filter-sort-input">
                     <label for="filter-subject">Filter by Subject:  </label>
@@ -46,23 +50,23 @@
                         {% endfor %}
                     </select>
                 </div>
-                <!-- <div class="filter-sort-input">
+                <div class="filter-sort-input">
                     <label for="filter-subject">Sort by:  </label>
                     <select name="sort" id="sort" class="filter-select sort">
-                        <option value="title_a_z" selected>Title - A-Z</option>
-                        <option value="title_z_a">Title - Z-A</option>
-                        <option value="price">Price - Low-High</option>
-                        <option value="subject_a_z">Subject - A-Z</option>
+                        <!-- <option value="reset" {% if current_sorting == 'None_None' %} selected {% endif %}>---</option> -->
+                        <option value="title_asc" {% if current_sorting == 'title_asc' %} selected {% endif %}>Title - A-Z</option>
+                        <option value="title_desc" {% if current_sorting == 'title_desc' %} selected {% endif %}>Title - Z-A</option>
+                        <!-- <option value="price_desc" {% if current_sorting == 'price_desc' %} selected {% endif %}>Price - Low-High</option> -->
+                        <option value="subject_asc" {% if current_sorting == 'subject_asc' %} selected {% endif %}>Subject - A-Z</option>
+                        <option value="subject_desc" {% if current_sorting == 'subject_desc' %} selected {% endif %}>Subject - Z-A</option>
                     </select>
-                </div> -->
-                <div class="filter-sort-input">
-                    <button class="search-clear">Clear All</button>
-                    <button class="search-submit" type="submit">Search</button>
                 </div>
-            </form>
+
         </div>
         {% if books.count == 0 %}
             <h1 class="no-results">No results found.</h1>
+        {% else %}
+            <p class="book-count">{{ books|length }} Books found.</p>
         {% endif %}
         <div class="gallery">
             {% for book in books %}
@@ -94,6 +98,9 @@
                 </article>
             {% endfor %}
         </div>
+    </div>
+    <div class="back-to-top">
+        ▲
     </div>
 </main>
 {% endblock %}
