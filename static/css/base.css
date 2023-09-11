@@ -41,10 +41,16 @@ body {
     display: flex;
     flex-direction: column;
     margin: 0;
-    background-color: #160f69;
+    /* background-color: #160f69; */
+    background: linear-gradient(to top, rgb(240, 243, 255), #160f69);
+    /* background: linear-gradient(to top, rgb(240, 243, 255), #231c6f); */
     font-family: 'KoHo', sans-serif;
     font-size: 1rem;
     font-weight: 200;
+}
+
+html {
+    scroll-behavior: smooth;
 }
 
 /* --------------------------------------- HEADER -------------- */
@@ -230,7 +236,7 @@ img.basket {
 .browse-category:hover,
 .browse-category:active {
     transform: translateX(.3rem);
-    color: #120791;
+    color: #850083;
 }
 
 .close-menu {
