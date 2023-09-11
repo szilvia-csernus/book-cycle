@@ -1,0 +1,40 @@
+.shopping-bag-frame {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    background-color: rgb(240, 243, 255);
+    padding: 1rem;
+    border-radius: 0.2rem;
+    margin: 7rem 1rem 2rem;
+}
+
+@media screen and (min-width: 416px) {
+    .shopping-bag-frame {
+        margin-left: 1.5rem;
+        margin-right: 1.5rem;
+    }
+}
+
+.keep-shopping {
+    display: block;
+    font-size: 1.1rem;
+    font-weight: bold;
+    font-family: 'KoHo';
+    color: #160f69;
+    background-color: #1ED446;
+    border: 1px solid #160f69;
+    border-radius: 4rem;
+    padding: .3rem 1rem .6rem;
+    text-decoration: none;
+    margin: 2rem;
+}
+
+.title {
+    padding: 1rem;
+    border-bottom: 1px solid #850083;
+    margin-bottom: 2rem;
+}
+
+.empty-bag {
+    text-align: center;
+}

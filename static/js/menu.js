@@ -50,8 +50,5 @@ searchButton.addEventListener('click', event => {
 	searchForm.submit();
 });
 
-const backToTopBtn = document.querySelector(".back-to-top");
-backToTopBtn.addEventListener('click', () => {
-	window.scrollTo(0,0)
-})
+
 

@@ -1,0 +1,35 @@
+{% extends "base.html" %}
+{% load static %}
+
+{% block extra_css %}
+<link rel="stylesheet" href="{% static 'css/shopping_bag.css' %}">
+{% endblock %}
+
+{% block content %}
+<div class="small-logo">
+    <img class="logo" src={% static 'svg/book-cycle-logo.svg' %} alt="book cycle logo" width="10" height="6">
+</div>
+<main>
+    <div class="shopping-bag-frame">
+        <h1 class="title">Shopping bag</h1>
+        <hr>
+        <div class="detail-page-frame">
+            {% if bag_items %}
+                <div class="bag-items">
+
+                </div>
+            {% else %}
+            <p class="empty-bag">
+                Your bag is empty.
+            </p>
+            <a class="keep-shopping">Keep shopping</a>
+            {% endif %}
+        </div>
+    </div>
+</main>
+{% endblock %}
+
+{% block postloadjs %}
+{{ block.super }}
+
+{% endblock %}

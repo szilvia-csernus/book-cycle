@@ -68,3 +68,8 @@ sortBy.addEventListener('change', (event) => {
     currentUrl.searchParams.set('search', searchTermElement.value);
 	window.location.replace(currentUrl);
 });
+
+const backToTopBtn = document.querySelector('.back-to-top');
+backToTopBtn.addEventListener('click', () => {
+	window.scrollTo(0, 0);
+});

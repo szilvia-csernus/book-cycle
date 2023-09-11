@@ -47,10 +47,19 @@ body {
     font-family: 'KoHo', sans-serif;
     font-size: 1rem;
     font-weight: 200;
+    min-height: 100dvh;
 }
 
 html {
     scroll-behavior: smooth;
+}
+
+h1 {
+    font-size: 1.2rem;
+    text-transform: uppercase;
+    font-weight: bold;
+    text-align: center;
+    color:#160f69;
 }
 
 /* --------------------------------------- HEADER -------------- */
