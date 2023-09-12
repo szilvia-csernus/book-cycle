@@ -63,7 +63,7 @@ class Book(models.Model):
             return False
         in_stock = False
         for stock_book in self.stock_set.all():
-            if stock_book.quantity > 0:
+            if stock_book.get_available_quantity() > 0:
                 in_stock = True
         return in_stock
 
@@ -80,7 +80,7 @@ class Book(models.Model):
         # Check each stock condition and update cheapest_stock and
         # cheapest_price if any
         for stock in stocks:
-            if stock.quantity > 0:
+            if stock.get_available_quantity() > 0:
                 price = stock.price
                 if cheapest_price is None or price < cheapest_price:
                     cheapest_stock = stock
@@ -97,3 +97,26 @@ class Stock(models.Model):
     price = models.DecimalField(max_digits=6, decimal_places=2)
     condition = models.CharField(max_length=30)
     quantity = models.IntegerField(default=0)
+    blocked = models.IntegerField(default=0)
+
+    def get_available_quantity(self):
+        available_quantity = self.quantity - self.blocked
+        if available_quantity > 0:
+            return available_quantity
+        else:
+            return 0
+
+    def block_stock(self, amount):
+        if amount > self.get_available_quantity():
+            # Error handling!
+            raise ValueError
+        else:
+            self.blocked += amount
+
+    def reduce_stock(self, amount):
+        if amount > self.get_available_quantity():
+            # Error handling!
+            raise ValueError
+        else:
+            self.quantity -= amount
+            self.blocked -= amount
