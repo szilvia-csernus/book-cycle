@@ -86,6 +86,7 @@ TEMPLATES = [
                 # context for all subjects and yeargroups to be available
                 # for the menu throughout the pages
                 'inventory.context.all_categories',
+                'shopping_bag.context.bag_contents',
             ],
         },
     },
