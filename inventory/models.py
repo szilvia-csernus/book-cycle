@@ -106,18 +106,18 @@ class Stock(models.Model):
         else:
             return 0
 
-    def block_stock(self, amount):
-        if amount > self.get_available_quantity():
+    def block_1_stock(self):
+        if self.get_available_quantity() < 1:
             # Error handling!
             raise ValueError
         else:
-            self.blocked += amount
+            self.blocked += 1
 
-    def unblock_stock(self, amount):
-        if amount > self.blocked:
-            raise ValueError
+    def unblock_1_stock(self):
+        if self.blocked < 1:
+            self.blocked = 0
         else:
-            self.blocked -= amount
+            self.blocked -= 1
 
     def reduce_stock(self, amount):
         if amount > self.get_available_quantity():

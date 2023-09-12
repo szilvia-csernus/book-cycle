@@ -81,19 +81,24 @@ def book_detail(request, slug):
     """ A view to show book details. """
     book = get_object_or_404(Book, slug=slug)
 
-    stock = book.stock_set.all()
+    stock_set = book.stock_set.all()
     bag = request.session.get('bag', {})
-
     book_listing = {}
 
-    for s in stock:
-        book_listing[s.condition] = {
-            'id': s.id,
-            'in_bag': True if bag[s.id] > 0 else False,
-            'price': s.price,
-            'stock_available_quantity': s.get_available_quantity,
-            'bag_quantity': bag[s.id]
+    for stock in stock_set:
+        in_bag = str(stock.id) in list(bag.keys()) and bag[str(stock.id)] > 0
+
+        bag_quantity = int(bag[str(stock.id)]) if in_bag else 0
+
+        book_listing[stock.condition] = {
+            'id': stock.id,
+            'in_bag': in_bag,
+            'price': stock.price,
+            'stock_available_quantity': stock.get_available_quantity(),
+            'bag_quantity': bag_quantity
         }
+
+    print(book_listing)
 
     context = {
         'book': book,

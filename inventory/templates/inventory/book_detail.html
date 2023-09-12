@@ -1,5 +1,6 @@
 {% extends "base.html" %}
 {% load static %}
+{% load inventory_tools %}
 
 {% block extra_css %}
 <link rel="stylesheet" href="{% static 'css/inventory.css' %}">
@@ -37,28 +38,57 @@
                 <a class="real-product-link" href="{{ book.product_url }}" target="_blank">{{ book.pk }} Link to real product</a>
 
                 {% if book.in_stock %}
-                    {% for item in stock %}
+                    {% for condition in book_listing %}
                     <div class="stockline">
-                        <div class="stockline-condition">{{ item.condition }}</div>
-                        <div class="stockline-price">£{{ item.price }}</div>
-                        {% if item.quantity > 0 %}
-                        <div class="stockline-in-stock"
-                            id="stock-{{item.id}}"
-                            >
-                            &check; in stock
-                        </div>
-                        <div class="stockline-button-container">
-                            <button 
-                                id="add-button-{{item.condition}}"
-                                data-stock-id="{{ item.id }}" 
-                                data-stock-quantity="{{ item.quantity }}"
-                                data-stock-condition="{{ item.condition }}"
-                                class="stockline-button">
-                                Add
-                            </button>
-                        </div>
+                        <div class="stockline-condition">{{ condition }}</div>
+                        <div class="stockline-price">£{{ book_listing|get_item:condition|get_item:"price" }}</div>
+                        {% if book_listing|get_item:condition|get_item:"stock_available_quantity" > 0 %}
+                            <div class="stockline-in-stock">
+                                {% if book_listing|get_item:condition|get_item:"stock_available_quantity" > 10 %}
+                                &check; 10+ in stock
+                                {% else %}
+                                &check; {{ book_listing|get_item:condition|get_item:"stock_available_quantity" }} left in stock
+                                {% endif %}
+                            </div>
+                            <!-- If this item is not in the bag yet, display an 'Add' button  -->
+                            {% if book_listing|get_item:condition|get_item:"in_bag" is False %}
+                                <form class="stockline-button-container" 
+                                    action="{% url 'add_to_bag' book_listing|get_item:condition|get_item:"id" %}" 
+                                    method="POST">
+                                    {% csrf_token %}
+                                    <input type="hidden" name="amount" value="1"
+                                        data-stock-id="{{ book_listing|get_item:condition|get_item:"id"}}">
+                                    <input type="hidden" name="redirect_url" value="{{ request.path }}">
+                                    <button 
+                                        type="submit" 
+                                        class="add-button">
+                                        Add
+                                    </button>
+                                </form>
+                            <!-- If item already in bag, display the + and - icons  -->
+                            {% else %}
+                                <div class="stockline-replace-element">
+                                    <form class="" action="{% url 'remove_from_bag' book_listing|get_item:condition|get_item:"id" %}" method="POST">
+                                        {% csrf_token %}
+                                        <!-- <input type="hidden" name="amount" value="1" data-stock-id="{{ book_listing|get_item:condition|get_item:"id"}}"> -->
+                                        <input type="hidden" name="redirect_url" value="{{ request.path }}">
+                                        <button type="submit" class="stockline-button">
+                                            -
+                                        </button>
+                                    </form>
+                                    {{ book_listing|get_item:condition|get_item:"bag_quantity"}}
+                                    <form class="" action="{% url 'add_to_bag' book_listing|get_item:condition|get_item:"id" %}" method="POST">
+                                        {% csrf_token %}
+                                        <!-- <input type="hidden" name="amount" value="1" data-stock-id="{{ book_listing|get_item:condition|get_item:"id"}}"> -->
+                                        <input type="hidden" name="redirect_url" value="{{ request.path }}">
+                                        <button type="submit" class="stockline-button">
+                                            +
+                                        </button>
+                                    </form>
+                                </div>
+                            {% endif %}
                         {% else %}
-                        <div class="stockline-out-of-stock">&cross; out of stock</div>
+                            <div class="stockline-out-of-stock">&cross; out of stock</div>
                         {% endif %}
                     </div>
                     {% endfor %}

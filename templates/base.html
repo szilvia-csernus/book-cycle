@@ -75,7 +75,7 @@
             {% endif %}
             <a href="{% url 'view_bag' %}">
                 <img class="basket" src="{% static 'svg/shopping-bag-icon.svg' %}" alt="shopping bag icon" width="30" height="30">
-                <div class="book-nr">2</div>
+                <div class="book-nr">{{ book_count }}</div>
             </a>
         </div>
     </header>

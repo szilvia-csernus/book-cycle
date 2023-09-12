@@ -108,14 +108,20 @@ class TestStockModel(TestCase):
 
     def test_block_stock(self):
         # test blocking a certain amount of stock
-        self.stock.block_stock(20)
-        self.assertEqual(self.stock.blocked, 30)
+        self.stock.block_stock(1)
+        self.assertEqual(self.stock.blocked, 11)
 
     def test_block_stock_with_insufficient_available_quantity(self):
-        # test that attempting to block more than available
+        # test that attempting to block stock quantity is 0
+        self.stock_fair = Stock.objects.create(
+            book=self.book,
+            price=25.99,
+            condition="Fair",
+            quantity=0,
+            blocked=0)
         # quantity raises an error
         with self.assertRaises(ValueError):
-            self.stock.block_stock(200)
+            self.stock_fair.block_stock()
 
     def test_reduce_stock(self):
         # test reducing stock

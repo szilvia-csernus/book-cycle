@@ -253,7 +253,8 @@
     font-size: 1.2rem;
     color: #160f69;
     line-height: 1.3rem;
-    min-height: 5rem
+    min-height: 5rem;
+    min-width: 18rem;
 }
 
 .book-details-box {
