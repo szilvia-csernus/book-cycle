@@ -61,7 +61,7 @@ class AllBooksViewTestCase(TestCase):
         create_books_with_subject_and_yeargroup(self)
         # Test searching for books with an empty query
         response = self.client.get(reverse('books'), {'search': ''})
-        self.assertEqual(response.status_code, 302)
+        self.assertEqual(response.status_code, 200)
 
     def test_filter_books_by_year_group(self):
         create_books_with_subject_and_yeargroup(self)

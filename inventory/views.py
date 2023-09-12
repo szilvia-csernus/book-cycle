@@ -80,9 +80,24 @@ def all_books(request):
 def book_detail(request, slug):
     """ A view to show book details. """
     book = get_object_or_404(Book, slug=slug)
+
     stock = book.stock_set.all()
+    bag = request.session.get('bag', {})
+
+    book_listing = {}
+
+    for s in stock:
+        book_listing[s.condition] = {
+            'id': s.id,
+            'in_bag': True if bag[s.id] > 0 else False,
+            'price': s.price,
+            'stock_available_quantity': s.get_available_quantity,
+            'bag_quantity': bag[s.id]
+        }
+
     context = {
         'book': book,
-        'stock': stock
+        'book_listing': book_listing
     }
+
     return render(request, 'inventory/book_detail.html', context)
