@@ -62,7 +62,7 @@ h1 {
     color:#160f69;
 }
 
-/* --------------------------------------- HEADER -------------- */
+/* --------------------------------------- HEADER and FOOTER-------------- */
 
 .mobile {
     display: inline-block;
@@ -91,6 +91,19 @@ header {
     position: absolute;
     left: calc(50% - 3rem);
     top: 1.6rem;
+}
+
+footer {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+    align-items: center;
+    font-size: 1rem;
+    background-color: #160f69;
+    color: white;
+    padding: 1rem 1.5rem;
+    text-align: center;
+    line-height: 2rem;
 }
 
 @media screen and (min-width: 1442px) {

@@ -119,6 +119,15 @@
     {% block content %}
     {% endblock %}
 
+    <footer>
+        <div class="footer-copyright">
+            <div><strong>*This website was created for educational purposes only. No purchase will be processed.</strong></div>
+            <div>&copy; Szilvia Csernusne Berczes,
+                <script>const now = new Date().getFullYear(); document.write(now);</script>
+            </div>
+        </div>
+    </footer>
+
     {% block postloadjs %}
     <script src="{% static 'js/menu.js' %}" type="module"></script>
     {% endblock %}
