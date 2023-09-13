@@ -1,13 +1,15 @@
 from django.shortcuts import get_object_or_404
 from inventory.models import Stock, Book
+from decimal import Decimal
 
 
 def bag_contents(request):
     """ A view to return the shopping bag page """
 
-    total = 0
     book_count = 0
     bag = request.session.get('bag', {})
+    shipping_option = request.session.get('shipping_option', False)
+    total = 0
 
     # create a dictionary of books from the bag in session
     book_list = {}
@@ -45,12 +47,14 @@ def bag_contents(request):
 
         bag_items.append(book_array)
 
-    print('bag_items', bag_items)
+    grand_total = total + Decimal(3.50) if shipping_option else total
 
     context = {
         'book_list': book_list,
         'bag_items': bag_items,
-        'grand_total': total,
+        'shipping_option': shipping_option,
+        'total': total,
+        'grand_total': grand_total,
         'book_count': book_count,
     }
 

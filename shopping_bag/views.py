@@ -23,7 +23,6 @@ def add_to_bag(request, stock_id):
     stock_item.block_1_stock()
 
     request.session['bag'] = bag
-    print(request.session['bag'])
     return redirect(redirect_url)
 
 
@@ -42,5 +41,18 @@ def remove_from_bag(request, stock_id):
     stock_item.unblock_1_stock()
 
     request.session['bag'] = bag
-    print(request.session['bag'])
+    return redirect(redirect_url)
+
+
+def add_shipping(request):
+    """ Add shipping info to context """
+
+    request.session.get('bag', 0)
+    req_shipping = request.POST.get('shipping_option')
+    if req_shipping == 'True':
+        request.session['shipping_option'] = True
+    else:
+        request.session['shipping_option'] = False
+
+    redirect_url = request.POST.get('redirect_url')
     return redirect(redirect_url)

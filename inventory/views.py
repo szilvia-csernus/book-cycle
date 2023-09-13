@@ -43,7 +43,7 @@ def all_books(request):
         if 'search' in request.GET:
             search_term = request.GET['search']
 
-            if search_term != 'None':
+            if search_term != 'None':  # Combine search queries with OR
                 search_queries = (
                     Q(title__icontains=search_term) |
                     Q(year_group__name__icontains=search_term) |

@@ -110,9 +110,17 @@
     text-align: right;
 }
 
+.bag-total {
+    color:#160f69;
+    font-size: 1rem;
+    font-weight: bold;
+    text-align: right;
+    margin-top: 1rem;
+}
+
 .bag-grand-total {
     color:#160f69;
-    font-size: 1.rem;
+    font-size: 1.3rem;
     font-weight: bold;
     text-align: right;
 }
@@ -120,7 +128,8 @@
 .bag-shipping {
     font-size: .8rem;
     text-align: right;
-    margin-bottom: .5rem;
+    margin: .5rem 0;
+    line-height: 1.5rem;
 }
 
 .bag-buttons {
