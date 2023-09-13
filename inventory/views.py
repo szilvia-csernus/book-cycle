@@ -64,6 +64,14 @@ def all_books(request):
 
         books = books.filter(query)  # Apply the combined query
 
+    else:
+        sort = 'title'
+        sortkey = 'lower_title'
+        direction = 'asc'
+        books = books.annotate(lower_title=Lower('title'))
+
+        books = books.order_by(sortkey)
+
     current_sorting = f'{sort}_{direction}'
 
     context = {
@@ -83,22 +91,27 @@ def book_detail(request, slug):
 
     stock_set = book.stock_set.all()
     bag = request.session.get('bag', {})
-    book_listing = {}
+    book_listing = []
 
-    for stock in stock_set:
-        in_bag = str(stock.id) in list(bag.keys()) and bag[str(stock.id)] > 0
+    conditions = ["new", "good", "fair"]
 
-        bag_quantity = int(bag[str(stock.id)]) if in_bag else 0
+    for condition in conditions:
+        condition_data = {}
+        for stock in stock_set.filter(condition=condition):
+            in_bag = str(stock.id) in list(bag.keys()) and \
+                     bag[str(stock.id)] > 0
+            bag_quantity = int(bag[str(stock.id)]) if in_bag else 0
 
-        book_listing[stock.condition] = {
-            'id': stock.id,
-            'in_bag': in_bag,
-            'price': stock.price,
-            'stock_available_quantity': stock.get_available_quantity(),
-            'bag_quantity': bag_quantity
-        }
+            condition_data = {
+                'id': stock.id,
+                'in_bag': in_bag,
+                'condition': condition,
+                'price': stock.price,
+                'stock_available_quantity': stock.get_available_quantity(),
+                'bag_quantity': bag_quantity
+            }
 
-    print(book_listing)
+        book_listing.append(condition_data)
 
     context = {
         'book': book,

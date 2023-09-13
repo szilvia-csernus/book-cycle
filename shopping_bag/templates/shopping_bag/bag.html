@@ -45,15 +45,15 @@
                                     {% csrf_token %}
                                     <input type="hidden" name="redirect_url" value="{{ request.path }}">
                                     <button type="submit" class="bag-item-button">
-                                        -
+                                        &minus;
                                     </button>
                                 </form>
                                 <span class="bag-item-quantity">{{ properties.quantity }}</span>
                                 <form class="" action="{% url 'add_to_bag' properties.id %}" method="POST">
                                     {% csrf_token %}
                                     <input type="hidden" name="redirect_url" value="{{ request.path }}">
-                                    <button type="submit" class="bag-item-button button-plus">
-                                        +
+                                    <button type="submit" class="bag-item-button">
+                                        &plus;
                                     </button>
                                 </form>
                             </div>

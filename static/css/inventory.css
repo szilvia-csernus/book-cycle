@@ -265,6 +265,8 @@
     justify-content: space-between;
     font-family: 'Montserrat', sans-serif;
     line-height: 2rem;
+    font-size: .9rem;
+    min-height: 22.7rem;
 }
 
 .add-button {
@@ -276,6 +278,7 @@
     background-color: #1ED446;
     cursor: pointer;
     width: 100%;
+    margin-top: 0.5rem;
 }
 
 .out-of-stock {
@@ -403,17 +406,13 @@
 
 .stockline-button {
     border: 1px solid #160f69;
-    padding: 0 .6rem;
+    padding: 0 .5rem;
     font-weight: bold;
     font-size: .9rem;
     color: #160f69;
     border-radius: 1.6rem;
     background-color: #1ED446;
     cursor: pointer;
-}
-
-.stockline-button-plus {
-    padding: 0 .5rem;
 }
 
 .stockline-button:disabled {
