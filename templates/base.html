@@ -81,8 +81,8 @@
     </header>
     <div id="browse">
         <ul>
-            <li class="close-menu">
-                X
+            <li id="close-menu" class="close-button">
+                &#9747;
             </li>
             <li>
                 <form id="search-form" method="GET" action="{% url 'books' %}">
@@ -113,8 +113,14 @@
         </div>
     </div>
 
-    {% block page_header %}
-    {% endblock %}
+    
+    {% if messages %}
+    <div class="message-container message-active">
+        {% for message in messages %}
+            {% include 'includes/toasts/toast_success.html' %}
+        {% endfor%}
+    </div>
+    {% endif %}
 
     {% block content %}
     {% endblock %}

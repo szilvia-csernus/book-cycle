@@ -173,11 +173,10 @@
     }
 }
 
-@media screen and (min-width: 600px) {
+@media screen and (min-width: 620px) {
 	.gallery {
 		grid-template-columns: 50% 50%;
         padding: 1rem;
-        /* padding: 1rem .25rem .25rem .25rem; */
 	}
     .filter-sort-search-box {
         padding: 1rem 1rem 0 1rem;
@@ -205,7 +204,7 @@
 }
 
 
-@media screen and (min-width: 850px) {
+@media screen and (min-width: 880px) {
 	.gallery {
 		grid-template-columns: 33.33% 33.33% 33.33%;
 	}
@@ -253,7 +252,7 @@
     font-size: 1.2rem;
     color: #160f69;
     line-height: 1.3rem;
-    min-height: 5rem;
+    min-height: 7rem;
     border-bottom: 1px solid #850083;
     padding: 1rem 0;
     margin-bottom: 1rem;
@@ -266,7 +265,7 @@
     font-family: 'Montserrat', sans-serif;
     line-height: 2rem;
     font-size: .9rem;
-    min-height: 22.7rem;
+    min-height: 24.7rem;
 }
 
 .add-button {

@@ -69,7 +69,7 @@
 
 .bag-item-details-box {
     display: grid;
-    grid-template-columns: 2fr 1fr 2fr 1fr;
+    grid-template-columns: 2.2fr 1fr 2fr 1fr;
     align-items: center;
     margin: 0.1rem 0;
 }
@@ -189,5 +189,12 @@
 
     .checkout-button {
         padding: 0.5rem 2.02rem;
+    }
+}
+
+@media screen and (min-width: 750px) {
+    .shopping-bag-frame {
+        margin-left: calc(50% - 721px + 2rem);
+        margin-right: calc(50% - 721px + 2rem);
     }
 }

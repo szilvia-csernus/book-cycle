@@ -54,7 +54,7 @@ html {
 }
 
 main {
-        min-height: 85dvh;
+    min-height: 85dvh;
 }
 
 h1 {
@@ -78,20 +78,26 @@ h1 {
 }
 
 header {
-    position: absolute;
-    top: 2.5rem;
-    left: 1.5rem;
-    right: 1.5rem;
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    padding: 2rem 1.5rem;
     display: flex;
     justify-content: space-between;
     align-items: center;
     max-width: 1440px;
     font-size: 1.1rem;
+    background-color:#160f69
+}
+
+.logo {
+    width: 90%;
 }
 
 .small-logo {
     width: 6rem;
-    position: absolute;
+    position: fixed;
     left: calc(50% - 3rem);
     top: 1.6rem;
 }
@@ -109,13 +115,6 @@ footer {
     line-height: 2rem;
 }
 
-@media screen and (min-width: 1442px) {
-    header {
-        left: calc(50% - 721px + 2rem);
-        right: calc(50% - 721px + 2rem);
-    }
-}
-
 .header-left {
     display: inline-block;
     color: white;
@@ -124,7 +123,7 @@ footer {
 
 .burger-icon {
     position: relative;
-    top: 0.4rem;
+    top: 0.3rem;
 }
 
 .header-right {
@@ -143,26 +142,41 @@ img.basket {
     width: 31px;
     height: 39px;
     cursor: pointer;
+    position: relative;
+    top: 0.5rem;
 }
 
 .book-nr {
-    position: absolute;
-    bottom: 0.4rem;
-    right: 0.5rem;
+    position: relative;
+    top: -0.9rem;
     font-size: .7rem;
     background-color: #1ed446;
-    padding: 0.1rem 0.3rem;
-    border-radius: 0.5rem;
+    padding: 0.15rem 0.1rem;
+    border-radius: 0.7rem;
     color: #120791;
     font-weight: bold;
     font-family: system-ui;
+    text-align: center;
+    text-align: center;
+    width: 1.3rem;
+    margin: auto;
 }
 
 .email {
-    font-size: .9rem;
+    font-size: .8rem;
     position: absolute;
     right: 0;
     top: -2rem;
+}
+
+
+@media screen and (min-width: 500px) {
+    .logo {
+        width: 100%;
+    }
+    .email {
+        font-size: .9rem;
+    }
 }
 
 @media screen and (min-width: 600px) {
@@ -176,7 +190,6 @@ img.basket {
 
     img.basket {
         position: relative;
-        bottom: 0.4rem;
     }
 
     .book-nr {
@@ -185,6 +198,14 @@ img.basket {
 
     .header-right {
         column-gap: 1rem;
+    }
+}
+
+
+@media screen and (min-width: 1442px) {
+    header {
+        left: calc(50% - 721px + 2rem);
+        right: calc(50% - 721px + 2rem);
     }
 }
 
@@ -251,26 +272,27 @@ img.basket {
 }
 
 .browse-category {
-    padding: .6rem 0;
+    padding: .3rem 0;
     font-size: 1rem;
     text-transform: uppercase;
     font-weight: 500;
     cursor: pointer;
-    /* transition: transform 0.6s; */
     transition: color 0.6s;
 }
 
 .browse-category:hover,
 .browse-category:active {
-    /* transform: translateX(.3rem); */
     color: #850083;
 }
 
-.close-menu {
+.close-button {
     text-align: right;
     font-weight: bold;
     font-family: 'Montserrat';
     margin-bottom: 0.5rem;
+    font-size: 1.5rem;
+    line-height: 1rem;
+    color:#120791;
     cursor: pointer;
 }
 
@@ -306,4 +328,39 @@ img.basket {
 
 img.open-book {
     width: 10rem;
+}
+
+/* --------------------------------- Toasts ---------------------  */
+
+
+.message-container {
+    opacity: 0;
+    transition: opacity 1s linear;
+    position: fixed;
+    top: 5rem;
+    right: 1rem;
+    z-index: 10;
+    background: rgb(236 239 255);;
+    width: 16rem;
+    padding: 0.8rem;
+    border-radius: 0.2rem;
+    box-shadow: -1px 1px 3px #160f69;
+}
+
+.message-active {
+    opacity: 1;
+}
+
+.custom-toast {
+    overflow: visible;
+}
+
+.toast-capper {
+    height: 2px;
+}
+
+@media screen and (min-width: 1442px) {
+    .message-container {
+        right: calc(50% - 721px + 2rem);
+    }
 }

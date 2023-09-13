@@ -1,5 +1,7 @@
 from django.shortcuts import render, redirect, get_object_or_404
 from inventory.models import Stock
+from django.http import HttpResponse
+from django.contrib import messages
 
 
 def view_bag(request):
@@ -19,6 +21,7 @@ def add_to_bag(request, stock_id):
         bag[stock_id] += 1
     else:
         bag[stock_id] = 1
+    messages.success(request, f'{stock_item.book.title} was added to your bag')
 
     stock_item.block_1_stock()
 
@@ -27,21 +30,25 @@ def add_to_bag(request, stock_id):
 
 
 def remove_from_bag(request, stock_id):
-    """ Add one book to the shopping bag """
+    """ Remove one book from the shopping bag """
 
-    stock_item = get_object_or_404(Stock, id=stock_id)
-    bag = request.session.get('bag', {})
-    redirect_url = request.POST.get('redirect_url')
+    try:
+        stock_item = get_object_or_404(Stock, id=stock_id)
+        bag = request.session.get('bag', {})
+        redirect_url = request.POST.get('redirect_url')
 
-    if stock_id in list(bag.keys()) and bag[stock_id] > 0:
-        bag[stock_id] -= 1
-    else:
-        del (bag[stock_id])
+        if stock_id in list(bag.keys()) and bag[stock_id] > 0:
+            bag[stock_id] -= 1
+        else:
+            bag.pop(stock_id)
 
-    stock_item.unblock_1_stock()
+        stock_item.unblock_1_stock()
 
-    request.session['bag'] = bag
-    return redirect(redirect_url)
+        request.session['bag'] = bag
+        return redirect(redirect_url)
+    except Exception as e:
+        print(e)
+        return HttpResponse(status=500)
 
 
 def add_shipping(request):

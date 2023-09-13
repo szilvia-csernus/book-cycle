@@ -1,5 +1,5 @@
 const browseLink = document.querySelectorAll(".browse-link");
-const closeMenuBtn = document.querySelector(".close-menu")
+const closeMenuBtn = document.getElementById("close-menu")
 const browse = document.getElementById("browse");
 
 /** Opens the search browser menu */
