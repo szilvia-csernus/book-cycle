@@ -85,12 +85,16 @@
                 </div>
             
                 <div class="bag-grand-total">Grand Total: {{ grand_total }}</div>
+                <div class="bag-buttons">
+                    <div><a href="{% url 'books' %}" class="keep-shopping-button">Keep shopping</a></div>
+                    <div><a href="{% url 'books' %}" class="checkout-button">Checkout</a></div>
+                </div>
             {% else %}
             <p class="empty-bag">
                 Your bag is empty.
             </p>
             
-            <a class="keep-shopping">Keep shopping</a>
+            <a href="{% url 'books' %}" class="keep-shopping">Keep shopping</a>
             {% endif %}
         </div>
     </div>

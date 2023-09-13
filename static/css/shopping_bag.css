@@ -56,6 +56,7 @@
     font-family: 'Koulen';
     color:#160f69;
     line-height: 1rem;
+    max-width: 20rem;
 }
 
 .bag-item-rows {
@@ -122,12 +123,62 @@
     margin-bottom: .5rem;
 }
 
-@media screen and (min-width: 700px) {
+.bag-buttons {
+    display: flex;
+    flex-direction: column-reverse;
+    align-items: flex-end;
+    margin: 2rem 0 3rem;
+    font-size: .9rem;
+    line-height: 3rem;
+}
+
+.keep-shopping-button {
+    border: 1px solid #850083;
+    padding: 0.5rem .8rem;
+    color: #850083;
+    text-transform: uppercase;
+}
+
+.checkout-button {
+    border: 1px solid #850083;
+    padding: 0.5rem 1.87rem;
+    color: white;
+    background-color: #850083;
+    text-transform: uppercase;
+    margin-left: 0.5rem;
+}
+
+@media screen and (min-width: 400px) {
+    .bag-buttons {
+        flex-direction: row;
+        justify-content: flex-end;
+        margin: 2rem 0 3rem;
+        font-size: .9rem;
+        line-height: 3rem;
+    }
+    
+}
+
+@media screen and (min-width: 550px) {
     .bag-item-box {
-        
+        grid-template-rows: 3rem 1fr;
     }
 
     .bag-item-image-box {
-        
+        grid-row-start: 1;
+        grid-row-end: span2;
+    }
+
+    .bag-item-rows {
+        grid-column-start: 2;
+        font-size: .9rem;
+    }
+
+    .bag-buttons {
+        font-size: 1rem;
+    }
+
+    .checkout-button {
+        padding: 0.5rem 2.02rem;
     }
 }
