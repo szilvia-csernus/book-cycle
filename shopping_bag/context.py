@@ -16,6 +16,7 @@ def bag_contents(request):
     for item_id, quantity in bag.items():
         stock_item = get_object_or_404(Stock, id=item_id)
         book = get_object_or_404(Book, id=stock_item.book.id)
+        available_quantity = stock_item.get_available_quantity()
         line_total = quantity * stock_item.price
         total += line_total
         book_count += quantity
@@ -30,6 +31,7 @@ def bag_contents(request):
                         'price': stock_item.price,
                         'quantity': quantity,
                         'line_total': line_total,
+                        'available_quantity': available_quantity,
                     })
 
     # create an easily iterable list of books from the dictionary where "new",

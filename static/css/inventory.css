@@ -398,6 +398,12 @@
     margin: 0.3rem 0;
 }
 
+.stockline-no-more-stock {
+    font-size: .7rem;
+    color: #850083;
+    line-height: .7rem
+}
+
 .stockline-button-container {
     display: flex;
     justify-content: flex-end;

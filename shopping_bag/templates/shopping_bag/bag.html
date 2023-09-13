@@ -52,7 +52,11 @@
                                 <form class="" action="{% url 'add_to_bag' properties.id %}" method="POST">
                                     {% csrf_token %}
                                     <input type="hidden" name="redirect_url" value="{{ request.path }}">
-                                    <button type="submit" class="bag-item-button">
+                                    <button type="submit" class="bag-item-button"
+                                    {% if properties.available_quantity < 1 %} 
+                                        disabled
+                                    {% endif %}
+                                    >
                                         &plus;
                                     </button>
                                 </form>

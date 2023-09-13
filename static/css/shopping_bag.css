@@ -97,6 +97,10 @@
     color: white;
 }
 
+.bag-item-button:disabled {
+    opacity: 0.5;
+}
+
 .bag-item-quantity {
     min-width: 20px;
     text-align: center;

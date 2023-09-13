@@ -108,8 +108,7 @@ class Stock(models.Model):
 
     def block_1_stock(self):
         if self.get_available_quantity() < 1:
-            # Error handling!
-            raise ValueError
+            raise ValueError('Not enough stock available')
         else:
             self.blocked += 1
             self.save()
@@ -123,8 +122,7 @@ class Stock(models.Model):
 
     def reduce_stock(self, amount):
         if amount > self.get_available_quantity():
-            # Error handling!
-            raise ValueError
+            raise ValueError('Not enough stock available')
         else:
             self.quantity -= amount
             self.blocked -= amount
