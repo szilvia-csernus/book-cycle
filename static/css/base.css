@@ -46,11 +46,15 @@ body {
     font-family: 'KoHo', sans-serif;
     font-size: 1rem;
     font-weight: 300;
-    min-height: 100dvh;
+    justify-content: space-between;
 }
 
 html {
     scroll-behavior: smooth;
+}
+
+main {
+        min-height: 85dvh;
 }
 
 h1 {

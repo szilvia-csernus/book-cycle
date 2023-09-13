@@ -98,7 +98,7 @@
     flex-direction: column;
     justify-content: space-between;
     margin: .25rem;
-    height: 47rem;
+    height: 50rem;
     background-color: rgb(240, 243, 255);
     border-radius: .2rem;
     box-shadow: 2px 2px 5px #160f69;
@@ -254,31 +254,33 @@
     color: #160f69;
     line-height: 1.3rem;
     min-height: 5rem;
-    min-width: 18rem;
+    border-bottom: 1px solid #850083;
+    padding: 1rem 0;
+    margin-bottom: 1rem;
 }
 
 .book-details-box {
     display: flex;
     flex-direction: column;
-    height: 20rem;;
     justify-content: space-between;
     font-family: 'Montserrat', sans-serif;
+    line-height: 2rem;
 }
 
 .add-button {
     border: 1px solid #160f69;
-    margin-top: .5rem;
-    padding: 0.5rem;
+    padding: 0.2rem;
     font-weight: bold;
     color: #160f69;
     border-radius: 1.6rem;
     background-color: #1ED446;
     cursor: pointer;
+    width: 100%;
 }
 
 .out-of-stock {
     font-weight: bold;
-    color: #b7000c;
+    color: #850083;
 }
 
 .book-price {
@@ -335,11 +337,7 @@
     color:#160f69;
 }
 
-.detail-page-frame .book-details-box {
-    min-height: 20rem;
-}
-
-@media screen and (min-width: 700px) {
+@media screen and (min-width: 750px) {
     .detail-page {
         flex-direction: row;
         justify-content: center;
@@ -358,6 +356,8 @@
 
     .detail-page-frame .book-title {
         margin-top: 0;
+        width: 20rem;
+        border-top: 1px solid #850083;
     }
 }
 
@@ -366,6 +366,7 @@
     grid-template-columns:  15% 25% 30% 30%;
     align-items: center;
     line-height: 1.5rem;
+    margin: 0.3rem 0;
 }
 
 .stockline-condition {
@@ -388,7 +389,7 @@
 .stockline-out-of-stock {
     display: flex;
     font-size: .7rem;
-    color:#b7000c;
+    color:#850083;
     grid-column-start: 3;
     grid-column-end: span2;
     margin: 0.3rem 0;
@@ -402,14 +403,17 @@
 
 .stockline-button {
     border: 1px solid #160f69;
-    padding: .2rem .7rem;
+    padding: 0 .6rem;
     font-weight: bold;
     font-size: .9rem;
     color: #160f69;
     border-radius: 1.6rem;
     background-color: #1ED446;
     cursor: pointer;
+}
 
+.stockline-button-plus {
+    padding: 0 .5rem;
 }
 
 .stockline-button:disabled {
@@ -420,9 +424,64 @@
     display: flex;
     justify-content: space-between;
     align-items: center;
+    margin-left: 0.5rem
 }
 
 .stockline-counter {
     padding: 0 .5rem;
+}
+
+.book-detail-buttons {
+    display: flex;
+    flex-direction: column-reverse;
+    align-items: flex-end;
+    font-size: .8rem;
+    line-height: 2.5rem;
+    margin: 2rem 0;
+}
+
+.stockline-add-button {
+    border: 1px solid #160f69;
+    padding: 0 .2rem;
+    font-size: .8rem;
+    font-weight: bold;
+    color: #160f69;
+    border-radius: 1.6rem;
+    background-color: #1ED446;
+    cursor: pointer;
+    width: 100%;
+    text-transform: uppercase;
+}
+
+.back-to-books-button {
+    border: 1px solid #850083;
+    padding: 0.4rem 1.4rem;
+    color: #850083;
+    text-transform: uppercase;
+    margin: .5rem 0 3rem;
+}
+
+.shopping-bag-button {
+    border: 1px solid #850083;
+    padding: 0.4rem 1.6rem;
+    color: white;
+    background-color: #850083;
+    text-transform: uppercase;
+    margin: 2rem 0 .5rem;
+}
+
+@media screen and (min-width: 400px) {
+    .book-detail-buttons {
+        flex-direction: row;
+        justify-content: space-between;
+        margin: 2rem 0 3rem;
+        gap: 0.5rem;
+    }
+    .shopping-bag-button {
+        width: 48%;
+    }
+    .back-to-books-button {
+        width: 48%;
+    }
 }
 

@@ -26,8 +26,12 @@
                 <h2 class="book-title">{{ book.title }}</h2>
                 
                 <div>
+                {% if book.year_group %}
                 <p class="book-year-group">Year Group: <strong>{{ book.year_group.friendly_name }}</strong></p>
+                {% endif %}
+                {% if book.subject %}
                 <p class="book-subject">Subject: <strong>{{ book.subject.friendly_name }}</strong></p>
+                {% endif %}
                 {% if book.publisher %}
                 <p class="book-publisher">Publisher: <strong>{{ book.publisher }}</strong></p>
                 {% endif %}
@@ -61,7 +65,7 @@
                                     <input type="hidden" name="redirect_url" value="{{ request.path }}">
                                     <button 
                                         type="submit" 
-                                        class="add-button">
+                                        class="stockline-add-button">
                                         Add
                                     </button>
                                 </form>
@@ -81,7 +85,7 @@
                                         {% csrf_token %}
                                         <!-- <input type="hidden" name="amount" value="1" data-stock-id="{{ book_listing|get_item:condition|get_item:"id"}}"> -->
                                         <input type="hidden" name="redirect_url" value="{{ request.path }}">
-                                        <button type="submit" class="stockline-button">
+                                        <button type="submit" class="stockline-button stockline-button-plus">
                                             +
                                         </button>
                                     </form>
@@ -95,6 +99,10 @@
                 {% else %}
                     <p class="out-of-stock">X Out of stock</p>
                 {% endif %}
+                <div class="book-detail-buttons">
+                    <div><a href="{% url 'books' %}" class="back-to-books-button">Back to Books</a></div>
+                    <div><a href="{% url 'books' %}" class="shopping-bag-button">Shopping Bag</a></div>
+                </div>
                 
             </div>
             

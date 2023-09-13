@@ -19,7 +19,7 @@
                 {% for item in bag_items %}
                 <div class="bag-item-box">
                     <!-- item.0 holds the book object  -->
-                    <a href="{{ item.0.get_absolute_url}}" class="bag-item-image-box">
+                    <a href="{{ item.0.get_slug_url}}" class="bag-item-image-box">
                         {% if item.0.image %}
                         <img class="bag-item-image" src="/media/{{ item.0.image }}">
                         {% else %}
