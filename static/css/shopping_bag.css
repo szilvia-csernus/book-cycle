@@ -38,3 +38,96 @@
 .empty-bag {
     text-align: center;
 }
+
+.bag-page-frame {
+    display: flex;
+    flex-direction: column;
+}
+
+.bag-item-box {
+    display: grid;
+    grid-template-columns: 6rem 1fr;
+    grid-template-rows: 7.5rem 1fr;
+    margin-bottom: 3rem;
+    column-gap: .2rem;
+}
+
+.bag-item-title {
+    font-family: 'Koulen';
+    color:#160f69;
+    line-height: 1rem;
+}
+
+.bag-item-rows {
+    grid-column-start: 1;
+    grid-column-end: span2;
+    display: flex;
+    flex-direction: column;
+    font-size: .8rem;
+}
+
+.bag-item-details-box {
+    display: grid;
+    grid-template-columns: 2fr 1fr 2fr 1fr;
+    align-items: center;
+    margin: 0.1rem 0;
+}
+
+.bag-item-quantity-box {
+    display: flex;
+    justify-content: center;
+}
+
+.bag-item-image {
+    width: auto;
+    max-height: 7rem;
+}
+
+.bag-item-total {
+    color:#160f69;
+    font-weight: bold;
+}
+
+.bag-item-button {
+    background-color: #850083;
+    padding: 0 0.35rem .1rem;
+    margin: 0 0.2rem;
+    cursor: pointer;
+    color: white;
+}
+
+.button-plus {
+    padding: 0 0.3rem .1rem;
+}
+
+.bag-item-quantity {
+    min-width: 20px;
+    text-align: center;
+}
+
+.bag-item-total {
+    text-align: right;
+}
+
+.bag-grand-total {
+    color:#160f69;
+    font-size: 1.rem;
+    font-weight: bold;
+    text-align: right;
+}
+
+.bag-shipping {
+    font-size: .8rem;
+    text-align: right;
+    margin-bottom: .5rem;
+}
+
+@media screen and (min-width: 700px) {
+    .bag-item-box {
+        
+    }
+
+    .bag-item-image-box {
+        
+    }
+}

@@ -1,5 +1,6 @@
 {% extends "base.html" %}
 {% load static %}
+{% load inventory_tools %}
 
 {% block extra_css %}
 <link rel="stylesheet" href="{% static 'css/shopping_bag.css' %}">
@@ -13,15 +14,82 @@
     <div class="shopping-bag-frame">
         <h1 class="title">Shopping bag</h1>
         <hr>
-        <div class="detail-page-frame">
+        <div class="bag-page-frame">
             {% if bag_items %}
-                <div class="bag-items">
-                    {{ bag_items }}
+                {% for item in bag_items %}
+                <div class="bag-item-box">
+                    <!-- item.0 holds the book object  -->
+                    <a href="{{ item.0.get_absolute_url}}" class="bag-item-image-box">
+                        {% if item.0.image %}
+                        <img class="bag-item-image" src="/media/{{ item.0.image }}">
+                        {% else %}
+                        <img class="bag-item-image" src="/media/noimage.png">
+                        {% endif %}
+                    </a>
+                
+                    <h2 class="bag-item-title">{{ item.0.title }}</h2>
+                    <div class="bag-item-rows">
+                        
+                        <!-- item.1 holds three objects in the order of "new", "good" and "fair", each of which
+                            holds the properties of the stock item: ('condition', 'price', 'quantity' and 
+                            'line_total'). -->
+                        {% for properties in item.1 %}
+                        {% if properties %}
+                        
+                        <div class="bag-item-details-box">
+                            <div class="bag-item-condition">Condition: {{ properties.condition }}</div>
+                            <div class="bag-item-price">£{{ properties.price }}</div>
+                
+                            <div class="bag-item-quantity-box">
+                                <form class="" action="{% url 'remove_from_bag' properties.id %}" method="POST">
+                                    {% csrf_token %}
+                                    <input type="hidden" name="redirect_url" value="{{ request.path }}">
+                                    <button type="submit" class="bag-item-button">
+                                        -
+                                    </button>
+                                </form>
+                                <span class="bag-item-quantity">{{ properties.quantity }}</span>
+                                <form class="" action="{% url 'add_to_bag' properties.id %}" method="POST">
+                                    {% csrf_token %}
+                                    <input type="hidden" name="redirect_url" value="{{ request.path }}">
+                                    <button type="submit" class="bag-item-button button-plus">
+                                        +
+                                    </button>
+                                </form>
+                            </div>
+                            <div class="bag-item-total">£{{ properties.line_total }}</div>
+                        </div>
+                        
+                
+                        {% endif %}
+                        {% endfor %}
+                    </div>
                 </div>
+                {% endfor %}
+                <div class="bag-shipping">
+                    <form>
+                        <div>
+                        <label>
+                            I pick it up myself in school (free)
+                            <input type="radio" name="shipping_option" value="pickup" checked>
+                        </label>
+                        </div>
+                        <div>
+                        <label>
+                            UK shipping (£3.50)
+                            <input type="radio" name="shipping_option" value="uk_shipping">
+                        </label>
+                        </div>
+                        
+                    </form>
+                </div>
+            
+                <div class="bag-grand-total">Grand Total: {{ grand_total }}</div>
             {% else %}
             <p class="empty-bag">
                 Your bag is empty.
             </p>
+            
             <a class="keep-shopping">Keep shopping</a>
             {% endif %}
         </div>

@@ -37,7 +37,7 @@ def remove_from_bag(request, stock_id):
     if stock_id in list(bag.keys()) and bag[stock_id] > 0:
         bag[stock_id] -= 1
     else:
-        bag[stock_id] = 0
+        del (bag[stock_id])
 
     stock_item.unblock_1_stock()
 
