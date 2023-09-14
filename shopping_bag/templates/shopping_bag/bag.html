@@ -6,10 +6,14 @@
 <link rel="stylesheet" href="{% static 'css/shopping_bag.css' %}">
 {% endblock %}
 
+{% block logo %}
+{% include 'includes/logo.html' %}
+{% endblock %}
+
 {% block content %}
-<div class="small-logo">
+<a href="{% url 'home' %}" class="small-logo">
     <img class="logo" src={% static 'svg/book-cycle-logo.svg' %} alt="book cycle logo" width="10" height="6">
-</div>
+</a>
 <main>
     <div class="shopping-bag-frame">
         <h1 class="title">Shopping bag</h1>
@@ -76,7 +80,7 @@
                         {% csrf_token %}
                         <div>
                         <label>
-                            Shipping (UK)  -  (£3.50) 
+                            Shipping (UK)  -  £3.50 
                             <input type="radio" name="shipping_option" value="True"
                             {% if shipping_option %}
                             checked
@@ -86,7 +90,7 @@
                         </div>
                         <div>
                             <label>
-                                I pick it up from the school myself - (free)
+                                I pick it up from the school myself - free
                                 <input type="radio" name="shipping_option" value="False" {% if not shipping_option %} checked {% endif %}>
                             </label>
                         </div>
@@ -109,6 +113,10 @@
         </div>
     </div>
 </main>
+{% endblock %}
+
+{% block footer %}
+{% include 'includes/footer.html' %}
 {% endblock %}
 
 {% block postloadjs %}

@@ -79,8 +79,8 @@
     margin: 1rem .5rem 1rem .5rem;
     padding: 1rem 0;
     font-weight: bold;
-    color: #850083;
-    border-bottom: 1px solid #850083;
+    color: #500080;
+    border-bottom: 1px solid #500080;
 }
 
 .no-results {
@@ -282,14 +282,14 @@
 
 .out-of-stock {
     font-weight: bold;
-    color: #850083;
+    color: #6f0080;
 }
 
 .book-price {
     margin-bottom: .2rem;
     font-weight: bold;
     font-size: 1.7rem;
-    color: #850083;
+    color: #6f0080;
 }
 
 .filter-sort-input {
@@ -458,18 +458,18 @@
 }
 
 .back-to-books-button {
-    border: 1px solid #850083;
+    border: 1px solid #6f0080;
     padding: 0.4rem 1.4rem;
-    color: #850083;
+    color: #6f0080;
     text-transform: uppercase;
     margin: .5rem 0 3rem;
 }
 
 .shopping-bag-button {
-    border: 1px solid #850083;
+    border: 1px solid #6f0080;
     padding: 0.4rem 1.6rem;
     color: white;
-    background-color: #850083;
+    background-color: #6f0080;
     text-transform: uppercase;
     margin: 2rem 0 .5rem;
 }

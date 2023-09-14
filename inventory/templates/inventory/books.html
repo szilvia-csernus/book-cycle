@@ -5,10 +5,14 @@
 <link rel="stylesheet" href="{% static 'css/inventory.css' %}">
 {% endblock %}
 
+{% block logo %}
+{% include 'includes/logo.html' %}
+{% endblock %}
+
 {% block content %}
-<div class="small-logo">
+<a href="{% url 'home' %}" class="small-logo">
     <img class="logo" src={% static 'svg/book-cycle-logo.svg' %} alt="book cycle logo" width="10" height="6">
-</div>
+</a>
 <main>
     <div class="books-background">
         <div class="filter-sort-search-box">
@@ -66,7 +70,7 @@
         {% if books.count == 0 %}
             <h1 class="no-results">No results found.</h1>
         {% else %}
-            <p class="book-count">{{ books|length }} Books found.</p>
+            <p class="book-count">{{ books|length }} {% if books|length > 1 %} Books {% else %} Book {% endif %} found.</p>
         {% endif %}
         <div class="gallery">
             {% for book in books %}
@@ -111,6 +115,10 @@
         ▲
     </div>
 </main>
+{% endblock %}
+
+{% block footer %}
+{% include 'includes/footer.html' %}
 {% endblock %}
 
 {% block postloadjs %}

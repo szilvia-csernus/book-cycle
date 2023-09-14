@@ -5,10 +5,12 @@
 <link rel="stylesheet" href="{% static 'css/inventory.css' %}">
 {% endblock %}
 
+{% block logo %}
+{% include 'includes/logo.html' %}
+{% endblock %}
+
 {% block content %}
-<div class="small-logo">
-    <img class="logo" src={% static 'svg/book-cycle-logo.svg' %} alt="book cycle logo" width="10" height="6">
-</div>
+
 <main >
     <section class="books-background detail-page">
         <div class="detail-page-frame">
@@ -47,7 +49,7 @@
                         <div class="stockline-price">£{{ stock_item.price }}</div>
                         {% if stock_item.stock_available_quantity > 0 or stock_item.in_bag %}
                             {% if stock_item.stock_available_quantity < 1 %} 
-                            <div class="stockline-no-more-stock">&cross; No more left in stock</div>
+                            <div class="stockline-no-more-stock">&cross; no more left in stock</div>
                             {% else %}
                             <div class="stockline-in-stock">
                                 {% if stock_item.stock_available_quantity > 5 %}
@@ -109,6 +111,10 @@
         </div>
     </section>
 </main>
+{% endblock %}
+
+{% block footer %}
+{% include 'includes/footer.html' %}
 {% endblock %}
 
 {% block postloadjs %}

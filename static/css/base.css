@@ -42,7 +42,8 @@ body {
     flex-direction: column;
     margin: 0;
     background-color: #160f69;
-    background: linear-gradient(to top, rgb(240, 243, 255), #160f69);
+    background: linear-gradient(to bottom, #160f69, #500080, #160f69);
+    background-size: 100vw 100vh;
     font-family: 'KoHo', sans-serif;
     font-size: 1rem;
     font-weight: 300;
@@ -88,7 +89,10 @@ header {
     align-items: center;
     max-width: 1440px;
     font-size: 1.1rem;
-    background-color:#160f69
+    background-color:#160f69;
+    background: linear-gradient(to bottom, #160f69, #500080, #160f69);
+    background-size: 100vw 100vh;
+
 }
 
 .logo {
@@ -100,6 +104,7 @@ header {
     position: fixed;
     left: calc(50% - 3rem);
     top: 1.6rem;
+    z-index: 2;
 }
 
 footer {
@@ -109,6 +114,8 @@ footer {
     align-items: center;
     font-size: 1rem;
     background-color: #160f69;
+    background: linear-gradient(to bottom, #290174, #160f69);
+    /* background-size: 100vw 50vh; */
     color: white;
     padding: 1rem 1.5rem;
     text-align: center;
@@ -165,8 +172,8 @@ img.basket {
 .email {
     font-size: .8rem;
     position: absolute;
-    right: 0;
-    top: -2rem;
+    right: 1.5rem;
+    top: 0.5rem;
 }
 
 
