@@ -117,11 +117,14 @@
 
     
     {% if messages %}
-    <div class="message-container message-active">
+    <div id="message-container" class="message-container">
         {% for message in messages %}
-            {% include 'includes/toasts/toast_success.html' %}
+            {% with message.level as level %}
+                {% include 'includes/toast.html' with level=level %}
+            {% endwith %}
         {% endfor%}
     </div>
+    <script src="{% static 'js/toast.js' %}" type="module"></script>
     {% endif %}
 
     {% block content %}

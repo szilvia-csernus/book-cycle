@@ -49,6 +49,3 @@ inputElement.addEventListener('change', event => {
 searchButton.addEventListener('click', event => {
 	searchForm.submit();
 });
-
-
-

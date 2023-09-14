@@ -42,7 +42,7 @@ body {
     flex-direction: column;
     margin: 0;
     background-color: #160f69;
-    background: linear-gradient(to bottom, #160f69, #500080, #160f69);
+    background: linear-gradient(to bottom, #160f69, #500080, #160f69, #500080, #160f69);
     background-size: 100vw 100vh;
     font-family: 'KoHo', sans-serif;
     font-size: 1rem;
@@ -90,9 +90,8 @@ header {
     max-width: 1440px;
     font-size: 1.1rem;
     background-color:#160f69;
-    background: linear-gradient(to bottom, #160f69, #500080, #160f69);
+    background: linear-gradient(to bottom, #160f69, #500080, #160f69, #500080, #160f69);
     background-size: 100vw 100vh;
-
 }
 
 .logo {
@@ -114,8 +113,9 @@ footer {
     align-items: center;
     font-size: 1rem;
     background-color: #160f69;
-    background: linear-gradient(to bottom, #290174, #160f69);
-    /* background-size: 100vw 50vh; */
+    background: linear-gradient(to bottom, #160f69, #500080, #160f69, #500080, #160f69);
+    background-size: 100vw 100vh;
+    background-position: bottom;
     color: white;
     padding: 1rem 1.5rem;
     text-align: center;
@@ -158,8 +158,9 @@ img.basket {
     top: -0.9rem;
     font-size: .7rem;
     background-color: #1ed446;
-    padding: 0.15rem 0.1rem;
+    padding: 0.15rem 0;
     border-radius: 0.7rem;
+    border: 1px solid #120791;
     color: #120791;
     font-weight: bold;
     font-family: system-ui;
@@ -296,11 +297,11 @@ img.basket {
     text-align: right;
     font-weight: bold;
     font-family: 'Montserrat';
-    margin-bottom: 0.5rem;
-    font-size: 1.5rem;
+    font-size: 1.4rem;
     line-height: 1rem;
     color:#120791;
     cursor: pointer;
+    margin-right: 0.1rem;
 }
 
 #browse input {
@@ -342,12 +343,12 @@ img.open-book {
 
 .message-container {
     opacity: 0;
-    transition: opacity 1s linear;
+    transition: opacity .5s linear;
     position: fixed;
-    top: 5rem;
-    right: 1rem;
+    top: 5.7rem;
+    right: 1.1rem;
     z-index: 10;
-    background: rgb(236 239 255);;
+    background: rgb(236 239 255);
     width: 16rem;
     padding: 0.8rem;
     border-radius: 0.2rem;
@@ -358,9 +359,42 @@ img.open-book {
     opacity: 1;
 }
 
-.custom-toast {
-    overflow: visible;
+.toast .triangle {
+    width: 0.8rem;
+    height: 0.8rem;
+    transform: rotate(45deg);
+    background-color: rgb(236 239 255);
+    position: absolute;
+    top: -0.4rem;
+    right: 1rem;
+
 }
+
+.toast h2 {
+    text-transform: uppercase;
+    font-family: 'Koulen';
+    font-size: 1.1rem;
+    line-height: 2rem;
+    margin-bottom: 1rem;
+    color:#160f69;
+}
+
+.toast-success {
+    border-bottom: 1px solid #1ed446;
+}
+
+.toast-warning {
+    border-bottom: 1px solid #500080;
+}
+
+.toast-error {
+    border-bottom: 1px solid #ae0000;
+}
+
+.toast-info {
+    border-bottom: 1px solid #160f69;
+}
+
 
 .toast-capper {
     height: 2px;

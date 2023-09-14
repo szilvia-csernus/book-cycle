@@ -37,17 +37,23 @@ def remove_from_bag(request, stock_id):
         bag = request.session.get('bag', {})
         redirect_url = request.POST.get('redirect_url')
 
-        if stock_id in list(bag.keys()) and bag[stock_id] > 0:
+        if stock_id in list(bag.keys()) and bag[stock_id] > 1:
             bag[stock_id] -= 1
-        else:
+
+        if stock_id in list(bag.keys()) and bag[stock_id] == 1:
             bag.pop(stock_id)
+            messages.warning(request, f'{stock_item.book.title}\
+                             condition: {stock_item.condition} \
+                             was removed from your bag')
 
         stock_item.unblock_1_stock()
 
         request.session['bag'] = bag
         return redirect(redirect_url)
     except Exception as e:
-        print(e)
+        messages.error(
+            request, f'Error removing book: {stock_item.book.title} \
+            \n Error: {e}')
         return HttpResponse(status=500)
 
 
