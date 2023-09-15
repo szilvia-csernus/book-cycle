@@ -8,7 +8,7 @@ const stock = {
 	fair: buttonFair?.dataset.stockQuantity,
 };
 
-function addMoreBookToBasket(id, key) {
+function addMoreBookToBag(id, key) {
     const counter = document.getElementById(`counter-${id}`);
     const stockElement = document.getElementById(`stock-${id}`);
     const plusButton = document.getElementById(`plus-${id}`);
@@ -48,7 +48,7 @@ function addMoreBookToBasket(id, key) {
 //     return button
 // }
 
-function removeBookFromBasket(id, key) {
+function removeBookFromBag(id, key) {
 	const counter = document.getElementById(`counter-${id}`);
 	const stockElement = document.getElementById(`stock-${id}`);
     const minusButton = document.getElementById(`minus-${id}`);
@@ -79,7 +79,7 @@ function createPlusButton(id, key) {
     plusButton.classList.add('stockline-button');
     plusButton.textContent = '+';
     plusButton.id = `plus-${id}`;
-    plusButton.addEventListener('click', () => addMoreBookToBasket(id, key))
+    plusButton.addEventListener('click', () => addMoreBookToBag(id, key))
     return plusButton
 }
 
@@ -88,7 +88,7 @@ function createMinusButton(id, key) {
     minusButton.classList.add("stockline-button");
     minusButton.textContent = "-"
     minusButton.id = `minus-${id}`;
-    minusButton.addEventListener('click', () => removeBookFromBasket(id, key))
+    minusButton.addEventListener('click', () => removeBookFromBag(id, key))
     return minusButton
 }
 

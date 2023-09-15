@@ -42,7 +42,7 @@ def remove_from_bag(request, stock_id):
 
         if stock_id in list(bag.keys()) and bag[stock_id] == 1:
             bag.pop(stock_id)
-            messages.warning(request, f'{stock_item.book.title}\
+            messages.success(request, f'{stock_item.book.title}\
                              condition: {stock_item.condition} \
                              was removed from your bag')
 

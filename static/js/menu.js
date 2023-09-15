@@ -18,6 +18,7 @@ export function openBrowse() {
     })
 }
 
+// There are two links (desktop, mobile) that should open the menu
 browseLink.forEach(link => link.addEventListener('click', openBrowse));
 
 
@@ -46,6 +47,6 @@ inputElement.addEventListener('change', event => {
 	}
 });
 
-searchButton.addEventListener('click', event => {
+searchButton.addEventListener('click', () => {
 	searchForm.submit();
 });

@@ -75,49 +75,24 @@
                 Register
             </a>
             {% endif %}
-            <a href="{% url 'view_bag' %}">
-                <img class="basket" src="{% static 'svg/shopping-bag-icon.svg' %}" alt="shopping bag icon" width="30" height="30">
-                {% if book_count > 0 %}<div class="book-nr">{{ book_count }}</div>{% endif %}
-            </a>
+            <div id="bag-link" class="bag-link">
+
+                <img class="shopping-bag" src="{% static 'svg/shopping-bag-icon.svg' %}" alt="shopping bag icon" width="30" height="30">
+                
+                {% if book_count > 0 %}<span class="book-nr">{{ book_count }}</span>{% endif %}
+            </div>
         </div>
     </header>
-    <div id="browse">
-        <ul>
-            <li id="close-menu" class="close-button">
-                &#9747;
-            </li>
-            <li>
-                <form id="search-form" method="GET" action="{% url 'books' %}">
-                    <div>
-                        <input id="search-input" type="text" name="search" placeholder="Search">
-                        <button id="search-button" type="button" disabled>
-                            <img class="search" src="{% static 'svg/search-icon.svg' %}" alt="search icon" width="30" height="20">
-                        </button>
-                    </div>
-                </form>
-            </li>
-            <li class="browse-category">
-                <a href="{% url 'books' %}">All Textbooks</a> 
-            </li>
-            <li class="browse-category">
-                <a href="{% url 'books' %}?year_group=year7-9">Year 7-9</a>
-            </li>
-            <li class="browse-category">
-                <a href="{% url 'books' %}?year_group=gcse">GCSE</a>
-            </li>
-            <li class="browse-category">
-                <a href="{% url 'books' %}?year_group=a-level">A Level</a>
-            </li>
-            
-        </ul>
-        <div>
-            <img class="open-book" src="{% static 'svg/open-book-icon.svg' %}" alt="open book icon" width="159" height="98">
-        </div>
-    </div>
+
+    {% include 'includes/side_menu.html' %}
+    
+
+    <link rel="stylesheet" href="{% static 'css/shopping_bag.css' %}">
 
     
     {% if messages %}
-    <div id="message-container" class="message-container">
+    
+    <div id="toast-container" class="toast-container">
         {% for message in messages %}
             {% with message.level as level %}
                 {% include 'includes/toast.html' with level=level %}
@@ -132,9 +107,12 @@
 
     {% block footer %}
     {% endblock %}
+    
+    {% include 'includes/quick_bag.html' %}
 
     {% block postloadjs %}
     <script src="{% static 'js/menu.js' %}" type="module"></script>
+    <script src="{% static 'js/bag.js' %}" type="module"></script>
     {% endblock %}
 
 
