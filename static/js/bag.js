@@ -1,7 +1,11 @@
 // Get one 'Bag Total' value and (potentially 2) 'Grand Total' element(s)
 const bagTotalElement = document.querySelector('.bag-total-number');
 let bagTotal = bagTotalElement ? Number(bagTotalElement.textContent) : 0;
-const grandTotalElements = document.querySelectorAll('.grand-total-number')
+const grandTotalElements = document.querySelectorAll('.grand-total-number');
+// this input will get submitted with the form
+const shippingInputElement = document.querySelectorAll(
+	'input[type="hidden"][name="shipping"]'
+);
 
 // Get all the radio buttons with the name "shipping_option"
 // There are potentially 2 sets of buttons if the shopping bag page is also open
@@ -12,16 +16,19 @@ const radioButtons = document.querySelectorAll('input[type="radio"][name="shippi
 
 // Check localstorage for shipping preference
 let shippingPreference = window.localStorage.getItem('shipping')
-console.log(shippingPreference)
 
 // if shippingPreference is in localStorage, set the corresponding button to checked,
 // otherwise set the 'pickup' option to checked
 if (shippingPreference === 'post') {
     posts.forEach(post => post.checked = true);
     grandTotalElements.forEach(el=>el.textContent = (bagTotal + 3.5).toFixed(2))
+    shippingInputElement.forEach(
+			(el) => (el.value = 'post')
+		);
 } else {
     pickups.forEach(pickup => pickup.checked = true);
     grandTotalElements.forEach((el) => (el.textContent = bagTotal));
+    shippingInputElement.forEach((el) => (el.value = 'pickup'));
 }
 
 // handle state changes such that all elements get updated on both pages.
@@ -29,10 +36,12 @@ pickups.forEach(pickup => pickup.addEventListener('change', function() {
     if (this.checked) {
         grandTotalElements.forEach(el => el.textContent = bagTotal);
         pickups.forEach((pickup) => (pickup.checked = true));
+        shippingInputElement.forEach((el) => (el.value = 'post'));
     }
     else {
         grandTotalElements.forEach(el => el.textContent = (bagTotal + 3.5).toFixed(2));
         posts.forEach((post) => (post.checked = true));
+        shippingInputElement.forEach((el) => (el.value = 'post'));
     }
 }))
 
