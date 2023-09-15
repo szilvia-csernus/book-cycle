@@ -98,7 +98,7 @@
 }
 
 .bag-item-button:disabled {
-    opacity: 0.5;
+    background-color: #85008382;
 }
 
 .bag-item-quantity {
@@ -150,7 +150,7 @@
 
 .checkout-button {
     border: 1px solid #850083;
-    padding: 0.5rem 1.87rem;
+    padding: 0.5rem 2rem;
     color: white;
     background-color: #850083;
     text-transform: uppercase;
@@ -197,4 +197,68 @@
         margin-left: calc(50% - 721px + 2rem);
         margin-right: calc(50% - 721px + 2rem);
     }
+}
+
+.quick-bag {
+    position: fixed;
+    top: 0;
+    right: -22rem; /* Hidden off-screen initially */
+    width: 20rem;
+    background-color: #ffffff;
+    transition: right 0.4s ease;
+    padding: 1rem;
+    z-index: 3;
+    max-height: 100vh;
+    overflow: scroll;
+}
+
+
+/* When quick-bag is open */
+.quick-bag-open {
+    right: 0; /* Slide the menu in */
+}
+
+.quick-bag .bag-item-details-box {
+    grid-template-columns: 1fr 1fr 1fr 2fr 2fr;
+}
+
+.quick-bag .bag-item-rows {
+    justify-content: flex-end;
+}
+
+.quick-bag .bag-buttons {
+    font-size: .9rem;
+}
+
+@media screen and (min-width: 1442px) {
+    .quick-bag-open {
+        right: calc(50% - 721px);
+    }
+}
+
+.quick-bag > .close-button {
+    text-align: right;
+    font-weight: bold;
+    font-family: 'Montserrat';
+    font-size: 1.4rem;
+    line-height: 1rem;
+    color:#120791;
+    cursor: pointer;
+    margin-right: 0.1rem;
+    margin-bottom: 1rem;
+}
+
+.quick-bag .title {
+    padding: 0.5rem 0;
+    border-bottom: 1px solid #850083;
+    margin-bottom: 1.5rem;
+    text-align: left;
+    font-size: 1.1rem;
+}
+
+.edit-bag-button {
+    border: 1px solid #850083;
+    padding: 0.5rem 2.4rem;
+    color: #850083;
+    text-transform: uppercase;
 }
