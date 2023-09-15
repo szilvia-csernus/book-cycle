@@ -2,7 +2,7 @@ from django.test import TestCase
 from django.contrib.auth.models import User
 from django_countries.fields import Country
 from inventory.models import Stock
-from .models import Order, OrderLineItem
+from orders.models import Order, OrderLineItem
 
 
 class OrderModelTestCase(TestCase):
