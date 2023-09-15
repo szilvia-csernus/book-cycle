@@ -221,6 +221,10 @@ img.bag {
         left: calc(50% - 721px + 2.4rem);
         right: calc(50% - 721px + 1.5rem);
     }
+
+    .book-nr {
+        left: 0.35rem;
+    }
 }
 
 .browse {
@@ -437,8 +441,7 @@ img.open-book {
 }
 
 @media screen and (min-width: 1442px) {
-    .message-container {
-        right: calc(50% - 721px + 2rem);
+    .toast-container {
+        right: calc(50% - 721px + 2.5rem);
     }
 }
-
