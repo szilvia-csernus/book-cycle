@@ -1,7 +1,7 @@
 from django.test import TestCase
 from django.urls import reverse
 from django.contrib.auth.models import User
-from .models import Book, Stock, YearGroup, Subject
+from inventory.models import Book, Stock, YearGroup, Subject
 
 
 def create_and_login_superuser(self):

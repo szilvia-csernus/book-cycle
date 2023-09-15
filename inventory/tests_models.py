@@ -1,5 +1,5 @@
 from django.test import TestCase
-from .models import YearGroup, Subject, Book, Stock
+from inventory.models import YearGroup, Subject, Book, Stock
 from decimal import Decimal
 
 
