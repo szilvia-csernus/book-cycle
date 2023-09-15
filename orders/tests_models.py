@@ -4,6 +4,7 @@ from django_countries.fields import Country
 from inventory.models import Stock
 from .models import Order, OrderLineItem
 
+
 class OrderModelTestCase(TestCase):
     def setUp(self):
         # create a user for testing, if needed
