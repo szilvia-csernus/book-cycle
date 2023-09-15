@@ -15,13 +15,13 @@
     <section class="books-background detail-page">
         <div class="detail-page-frame">
 
-            <a href="{{ book.image.url}}" class="book-image-box">
+            <div class="book-image-box">
                 {% if book.image %}
                 <img class="book-image" src="/media/{{ book.image }}">
                 {% else %}
                 <img class="book-image" src="/media/noimage.png">
                 {% endif %}
-            </a>
+            </div>
             
             <div class="book-details-box">
                 <h2 class="book-title">{{ book.title }}</h2>

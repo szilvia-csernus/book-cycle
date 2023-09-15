@@ -106,9 +106,9 @@ class TestStockModel(TestCase):
         # test the available quantity is calculated correctly
         self.assertEqual(self.stock.get_available_quantity(), 90)
 
-    def test_block_stock(self):
+    def test_block_1_stock(self):
         # test blocking a certain amount of stock
-        self.stock.block_stock(1)
+        self.stock.block_1_stock()
         self.assertEqual(self.stock.blocked, 11)
 
     def test_block_stock_with_insufficient_available_quantity(self):
@@ -121,7 +121,7 @@ class TestStockModel(TestCase):
             blocked=0)
         # quantity raises an error
         with self.assertRaises(ValueError):
-            self.stock_fair.block_stock()
+            self.stock_fair.block_1_stock()
 
     def test_reduce_stock(self):
         # test reducing stock
