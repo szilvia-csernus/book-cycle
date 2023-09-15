@@ -1,0 +1,36 @@
+{% load static %}
+
+<div id="browse" class="browse">
+    <ul>
+        <li id="close-menu" class="close-button">
+            &#9747;
+        </li>
+        <li>
+            <form id="search-form" method="GET" action="{% url 'books' %}">
+                <div>
+                    <input id="search-input" type="text" name="search" placeholder="Search">
+                    <button id="search-button" type="button" disabled>
+                        <img class="search" src="{% static 'svg/search-icon.svg' %}" alt="search icon" width="30"
+                            height="20">
+                    </button>
+                </div>
+            </form>
+        </li>
+        <li class="browse-category">
+            <a href="{% url 'books' %}">All Textbooks</a>
+        </li>
+        <li class="browse-category">
+            <a href="{% url 'books' %}?year_group=year7-9">Year 7-9</a>
+        </li>
+        <li class="browse-category">
+            <a href="{% url 'books' %}?year_group=gcse">GCSE</a>
+        </li>
+        <li class="browse-category">
+            <a href="{% url 'books' %}?year_group=a-level">A Level</a>
+        </li>
+
+    </ul>
+    <div>
+        <img class="open-book" src="{% static 'svg/open-book-icon.svg' %}" alt="open book icon" width="159" height="98">
+    </div>
+</div>
