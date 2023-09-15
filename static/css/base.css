@@ -56,6 +56,7 @@ html {
 
 main {
     min-height: 85dvh;
+    width: 100vw;
 }
 
 h1 {
@@ -87,11 +88,12 @@ header {
     display: flex;
     justify-content: space-between;
     align-items: center;
-    max-width: 1440px;
+    max-width: 1443px;
     font-size: 1.1rem;
     background-color:#160f69;
     background: linear-gradient(to bottom, #160f69, #500080, #160f69, #500080, #160f69);
     background-size: 100vw 100vh;
+    z-index: 1;
 }
 
 .logo {
@@ -103,7 +105,7 @@ header {
     position: fixed;
     left: calc(50% - 3rem);
     top: 1.6rem;
-    z-index: 2;
+    z-index: 1;
 }
 
 footer {
@@ -145,7 +147,13 @@ img.user {
     height: 34px;
 }
 
-img.basket {
+.bag-link {
+    cursor: pointer;
+    position: relative;
+    /* top: .5rem; */
+}
+
+img.bag {
     width: 31px;
     height: 39px;
     cursor: pointer;
@@ -154,8 +162,10 @@ img.basket {
 }
 
 .book-nr {
-    position: relative;
-    top: -0.9rem;
+    display: inline-block;
+    position: absolute;
+    top: 1rem;
+    left: .3rem;
     font-size: .7rem;
     background-color: #1ed446;
     padding: 0.15rem 0;
@@ -196,12 +206,8 @@ img.basket {
         display: inline-block;
     }
 
-    img.basket {
+    img.bag {
         position: relative;
-    }
-
-    .book-nr {
-        bottom: 0.7rem;
     }
 
     .header-right {
@@ -212,12 +218,12 @@ img.basket {
 
 @media screen and (min-width: 1442px) {
     header {
-        left: calc(50% - 721px + 2rem);
-        right: calc(50% - 721px + 2rem);
+        left: calc(50% - 721px + 2.4rem);
+        right: calc(50% - 721px + 1.5rem);
     }
 }
 
-#browse {
+.browse {
     position: fixed;
     top: 0;
     left: -17rem; /* Hidden off-screen initially */
@@ -231,7 +237,7 @@ img.basket {
     z-index: 2;
 }
 
-#browse img.open-book {
+.browse img.open-book {
     position: absolute;
     bottom: 1rem;
     margin: auto;
@@ -239,7 +245,7 @@ img.basket {
 }
 
 /* When the browse menu is open */
-#browse.browse-open {
+.browse.browse-open {
     left: 0; /* Slide the menu in */
 }
 
@@ -263,7 +269,7 @@ img.basket {
 }
 
 @media screen and (min-width: 1442px) {
-    #browse.browse-open {
+    .browse.browse-open {
         left: calc(50% - 721px);
     }
 }
@@ -273,6 +279,7 @@ img.basket {
     width: 100dvw;
     height: 100dvh;
     background-color: #161528c7;
+    z-index: 2;
 }
 
 .overlay-active {
@@ -304,7 +311,7 @@ img.basket {
     margin-right: 0.1rem;
 }
 
-#browse input {
+.browse input {
     display: inline;
     border: 1px inset #160f69;
     border-radius: .2rem;
@@ -317,7 +324,7 @@ img.basket {
     width: 15rem;
 }
 
-#browse button {
+.browse button {
     display: inline;
     position: relative;
     left: 12.3rem;
@@ -325,7 +332,7 @@ img.basket {
     cursor: pointer;
 }
 
-#browse button img {
+.browse button img {
     display: inline;
     width: 2rem;
     display: inline;
@@ -341,22 +348,51 @@ img.open-book {
 /* --------------------------------- Toasts ---------------------  */
 
 
-.message-container {
-    opacity: 0;
-    transition: opacity .5s linear;
+.toast-container {
+    display: none;
     position: fixed;
     top: 5.7rem;
     right: 1.1rem;
-    z-index: 10;
+    z-index: 4;
+}
+
+.toast-container-active {
+    display: block;
+}
+
+.toast {
+    opacity: 0;
+    transition: opacity .5s linear;
     background: rgb(236 239 255);
     width: 16rem;
     padding: 0.8rem;
     border-radius: 0.2rem;
     box-shadow: -1px 1px 3px #160f69;
+    display: flex;
+    flex-direction: column;
+    animation: appear .5s linear .2s forwards;
 }
 
-.message-active {
-    opacity: 1;
+.toast-disappear {
+    animation: disappear .5s linear forwards;
+}
+
+@keyframes appear {
+    from {
+      opacity: 0;   
+    }
+    to {
+      opacity: 1;   
+    }
+} 
+
+@keyframes disappear {
+    from {
+      opacity: 1;   
+    }
+    to {
+      opacity: 0;   
+    }
 }
 
 .toast .triangle {
@@ -405,3 +441,4 @@ img.open-book {
         right: calc(50% - 721px + 2rem);
     }
 }
+

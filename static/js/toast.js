@@ -1,17 +1,32 @@
 // Close toast message
-const toastElement = document.getElementById('message-container');
+const toastContainer = document.getElementById('toast-container');
+const toastElement = document.getElementById('toast');
 const toastCloseButton = document.getElementById('toast-close-button');
 
-toastElement.classList.add("message-active");
+const activateToast = () => {
+    toastContainer.classList.add('toast-container-active')
+    setTimeout(closeToast, 5000);
+}
 
-const inactivateToastElement = () => {
-    if (toastElement.classList.contains('message-active')) {
-        toastElement.classList.remove('message-active');
+const closeToast = () => {
+    hideToast()
+    setTimeout(removeToastContainer, 500)
+}
+
+const hideToast = () => {
+    toastElement.classList.add("toast-disappear")
+}
+
+const removeToastContainer = () => {
+    if (toastContainer.classList.contains('toast-container-active')) {
+        toastContainer.classList.remove('toast-container-active');
     }
 }
 
-// setTimeout(inactivateToastElement, 5000)
+
 
 toastCloseButton.addEventListener('click', () => {
-    inactivateToastElement()
+    closeToast()
 });
+
+activateToast();
