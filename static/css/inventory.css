@@ -285,6 +285,11 @@
     color: #6f0080;
 }
 
+.in-your-bag {
+    font-weight: bold;
+    color: #00ad26;
+}
+
 .book-price {
     margin-bottom: .2rem;
     font-weight: bold;

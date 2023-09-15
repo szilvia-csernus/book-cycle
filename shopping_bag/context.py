@@ -52,7 +52,7 @@ def bag_contents(request):
     grand_total = total + Decimal(3.50) if shipping_option else total
 
     context = {
-        'book_list': book_list,
+        'book_list_in_bag': book_list,
         'bag_items': bag_items,
         'shipping_option': shipping_option,
         'total': total,

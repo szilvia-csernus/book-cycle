@@ -67,11 +67,14 @@
                 </div>
 
         </div>
+        <!-- Display search result counts  -->
         {% if books.count == 0 %}
             <h1 class="no-results">No results found.</h1>
         {% else %}
             <p class="book-count">{{ books|length }} {% if books|length > 1 %} Books {% else %} Book {% endif %} found.</p>
         {% endif %}
+
+        <!-- Dispay list of books  -->
         <div class="gallery">
             {% for book in books %}
                 <article class="bookFrame">
@@ -85,7 +88,8 @@
                     <div class="book-details-box">
                         <h2 class="book-title">{{ book.title }}</h2>
                         {% if not book.in_stock %}
-                        <p class="out-of-stock">&cross; Out of stock</p>
+                        {% if book.id in book_list_in_bag %} <a href="{{ book.get_slug_url}}" class="in-your-bag">&check; In your bag!</a>{% endif %}
+                        <p class="out-of-stock">&cross; {% if book.id in book_list_in_bag %} No more stock {% else %}Out of stock {% endif %}</p>
                         {% else %}
                             <div>
                             <p class="cheapest">Our lowest price:</p>

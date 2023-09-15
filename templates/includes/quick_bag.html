@@ -13,70 +13,70 @@
     <h1 class="title">Shopping bag</h1>
     <div class="quick-bag-frame">
         {% if bag_items %}
-        {% for item in bag_items %}
-        <div class="bag-item-box">
-            <!-- item.0 holds the book object  -->
-            <a href="{{ item.0.get_slug_url}}" class="bag-item-image-box">
-                {% if item.0.image %}
-                <img class="bag-item-image" src="/media/{{ item.0.image }}">
-                {% else %}
-                <img class="bag-item-image" src="/media/noimage.png">
-                {% endif %}
-            </a>
-    
-            <h2 class="bag-item-title">{{ item.0.title }}</h2>
-            <div class="bag-item-rows">
-    
-                <!-- item.1 holds three objects in the order of "new", "good" and "fair", each of which
-                                holds the properties of the stock item: ('condition', 'price', 'quantity' and 
-                                'line_total'). -->
-                {% for properties in item.1 %}
-                    {% if properties %}
-                    <div class="bag-item-details-box">
-                        <div class="bag-item-condition">{{ properties.condition }}</div>
-                        <div class="bag-item-quantity">{{ properties.quantity }}</div>x
-                        <div class="bag-item-price">£{{ properties.price }}</div>
-        
-                            
-                        <div class="bag-item-total">£{{ properties.line_total }}</div>
+            {% for item in bag_items %}
+                <div class="bag-item-box">
+                    <!-- item.0 holds the book object  -->
+                    <a href="{{ item.0.get_slug_url}}" class="bag-item-image-box">
+                        {% if item.0.image %}
+                        <img class="bag-item-image" src="/media/{{ item.0.image }}">
+                        {% else %}
+                        <img class="bag-item-image" src="/media/noimage.png">
+                        {% endif %}
+                    </a>
+            
+                    <h2 class="bag-item-title">{{ item.0.title }}</h2>
+                    <div class="bag-item-rows">
+            
+                        <!-- item.1 holds three objects in the order of "new", "good" and "fair", each of which
+                                        holds the properties of the stock item: ('condition', 'price', 'quantity' and 
+                                        'line_total'). -->
+                        {% for properties in item.1 %}
+                            {% if properties %}
+                            <div class="bag-item-details-box">
+                                <div class="bag-item-condition">{{ properties.condition }}</div>
+                                <div class="bag-item-quantity">{{ properties.quantity }}</div>x
+                                <div class="bag-item-price">£{{ properties.price }}</div>
+                
+                                    
+                                <div class="bag-item-total">£{{ properties.line_total }}</div>
+                            </div>
+                            {% endif %}
+                        {% endfor %}
                     </div>
-                    {% endif %}
-                {% endfor %}
+                </div>
+            {% endfor %}
+            <div class="bag-total">Bag Total: <span class="bag-total-number">{{ total }}</span></div>
+            <div class="bag-shipping">
+                <form id="shipping-option-form" action="{% url 'add_shipping' %}" method="POST">
+                    {% csrf_token %}
+                    <div>
+                        <label>
+                            Shipping (UK) - £3.50
+                            <input type="radio" name="shipping_option" value="post" {% if shipping_option %} checked {% endif %}>
+                        </label>
+                    </div>
+                    <div>
+                        <label>
+                            Pickup in school - free
+                            <input type="radio" name="shipping_option" value="pickup" {% if not shipping_option %} checked 
+                            {% endif %}>
+                        </label>
+                    </div>
+                    <input type="hidden" name="redirect_url" value="{{ request.path }}">
+                </form>
             </div>
-        </div>
-        {% endfor %}
-        <div class="bag-total">Bag Total: <span class="bag-total-number">{{ total }}</span></div>
-        <div class="bag-shipping">
-            <form id="shipping-option-form" action="{% url 'add_shipping' %}" method="POST">
-                {% csrf_token %}
-                <div>
-                    <label>
-                        Shipping (UK) - £3.50
-                        <input type="radio" name="shipping_option" value="post" {% if shipping_option %} checked {% endif %}>
-                    </label>
-                </div>
-                <div>
-                    <label>
-                        Pickup in school - free
-                        <input type="radio" name="shipping_option" value="pickup" {% if not shipping_option %} checked 
-                        {% endif %}>
-                    </label>
-                </div>
-                <input type="hidden" name="redirect_url" value="{{ request.path }}">
-            </form>
-        </div>
     
-        <div class="bag-grand-total">Grand Total: <span class="grand-total-number"></span></div>
-        <div class="bag-buttons">
-            <div><a href="{% url 'view_bag' %}" class="edit-bag-button">Edit Bag</a></div>
-            <div><a href="{% url 'books' %}" class="checkout-button">Checkout</a></div>
-        </div>
+            <div class="bag-grand-total">Grand Total: <span class="grand-total-number"></span></div>
+            <div class="bag-buttons">
+                <div><a href="{% url 'view_bag' %}" class="edit-bag-button">Edit Bag</a></div>
+                <div><a href="{% url 'books' %}" class="checkout-button">Checkout</a></div>
+            </div>
         {% else %}
-        <p class="empty-bag">
+        <div class="empty-bag">
             Your bag is empty.
-        </p>
+        </div>
     
-        <div><a href="{% url 'books' %}" class="keep-shopping-button">Keep shopping</a></div>
+        <div class="keep-shopping-button-box"><a href="{% url 'books' %}" class="keep-shopping-button">Keep shopping</a></div>
         {% endif %}
     </div>
     </div>

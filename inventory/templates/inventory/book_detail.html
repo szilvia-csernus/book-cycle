@@ -15,7 +15,7 @@
     <section class="books-background detail-page">
         <div class="detail-page-frame">
 
-            <a href="{{ book.get_absolute_url}}" class="book-image-box">
+            <a href="{{ book.image.url}}" class="book-image-box">
                 {% if book.image %}
                 <img class="book-image" src="/media/{{ book.image }}">
                 {% else %}
@@ -42,7 +42,7 @@
                 </div>
                 <a class="real-product-link" href="{{ book.product_url }}" target="_blank">{{ book.pk }} Link to real product</a>
                 
-                {% if book.in_stock %}
+                {% if book.id in book_list_in_bag or book.in_stock%}
                     {% for stock_item in book_listing %}
                     <div class="stockline">
                         <div class="stockline-condition">{{ stock_item.condition }}</div>
