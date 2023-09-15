@@ -98,7 +98,7 @@
     flex-direction: column;
     justify-content: space-between;
     margin: .25rem;
-    height: 50rem;
+    height: 51rem;
     background-color: rgb(240, 243, 255);
     border-radius: .2rem;
     box-shadow: 2px 2px 5px #160f69;
@@ -265,7 +265,7 @@
     font-family: 'Montserrat', sans-serif;
     line-height: 2rem;
     font-size: .9rem;
-    min-height: 24.7rem;
+    min-height: 26.7rem;
 }
 
 .add-button {
@@ -291,7 +291,6 @@
 }
 
 .book-price {
-    margin-bottom: .2rem;
     font-weight: bold;
     font-size: 1.7rem;
     color: #6f0080;
