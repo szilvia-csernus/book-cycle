@@ -225,7 +225,7 @@
 }
 
 .quick-bag .bag-item-details-box {
-    grid-template-columns: 1fr 1fr 1fr 2fr 2fr;
+    grid-template-columns: 3fr 3fr 2fr 5fr 4fr;
 }
 
 .quick-bag .bag-item-rows {

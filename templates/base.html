@@ -78,7 +78,6 @@
             <div id="bag-link" class="bag-link">
 
                 <img class="shopping-bag" src="{% static 'svg/shopping-bag-icon.svg' %}" alt="shopping bag icon" width="30" height="30">
-                
                 {% if book_count > 0 %}<span class="book-nr">{{ book_count }}</span>{% endif %}
             </div>
         </div>
@@ -91,7 +90,6 @@
 
     
     {% if messages %}
-    
     <div id="toast-container" class="toast-container">
         {% for message in messages %}
             {% with message.level as level %}
@@ -108,7 +106,7 @@
     {% block footer %}
     {% endblock %}
     
-    {% include 'includes/quick_bag.html' %}
+    {% include 'shopping_bag/quick_bag.html' %}
 
     {% block postloadjs %}
     <script src="{% static 'js/menu.js' %}" type="module"></script>
