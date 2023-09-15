@@ -42,9 +42,12 @@ class Order(models.Model):
 
     def update_total(self):
         """
-        Update grand total each time a line item is added,
-        accounting for delivery costs.
+        Update grand total each time a line item is added, accounting for
+        delivery costs as well.
         """
+        # This method sums up the lineitem_total field of all related
+        # OrderLineItem objects using the lineitems reverse relationship. The
+        # aggregate() method adds a default key called 'lineitem_total__sum'
         self.order_total = self.lineitems.aggregate(
             Sum('lineitem_total'))['lineitem_total__sum'] or 0
 
