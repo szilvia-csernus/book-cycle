@@ -2,10 +2,6 @@
 {% load static %}
 {% load inventory_tools %}
 
-{% block extra_css %}
-<link rel="stylesheet" href="{% static 'css/shopping_bag.css' %}">
-{% endblock %}
-
 {% block logo %}
 {% include 'includes/logo.html' %}
 {% endblock %}
@@ -74,31 +70,29 @@
                     </div>
                 </div>
                 {% endfor %}
-                <div class="bag-total">Bag Total: {{ total }}</div>
+                <div  class="bag-total">Bag Total: <span class="bag-total-number">{{ total }}</span></div>
                 <div class="bag-shipping">
                     <form id="shipping-option-form" action="{% url 'add_shipping' %}" method="POST">
                         {% csrf_token %}
                         <div>
                         <label>
                             Shipping (UK)  -  £3.50 
-                            <input type="radio" name="shipping_option" value="True"
-                            {% if shipping_option %}
-                            checked
-                            {% endif %}
+                            <input type="radio" name="shipping_option" value="post"
+                            
                             >
                         </label>
                         </div>
                         <div>
                             <label>
-                                I pick it up from the school myself - free
-                                <input type="radio" name="shipping_option" value="False" {% if not shipping_option %} checked {% endif %}>
+                                Pickup in school - free
+                                <input type="radio" name="shipping_option" value="pickup" {% if not shipping_option %} checked {% endif %}>
                             </label>
                         </div>
                         <input type="hidden" name="redirect_url" value="{{ request.path }}">
                     </form>
                 </div>
             
-                <div class="bag-grand-total">Grand Total: {{ grand_total }}</div>
+                <div class="bag-grand-total">Grand Total: <span class="grand-total-number"></span></div>
                 <div class="bag-buttons">
                     <div><a href="{% url 'books' %}" class="keep-shopping-button">Keep shopping</a></div>
                     <div><a href="{% url 'books' %}" class="checkout-button">Checkout</a></div>
