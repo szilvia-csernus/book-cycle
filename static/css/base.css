@@ -56,7 +56,7 @@ html {
 
 main {
     min-height: 85dvh;
-    width: 100vw;
+    width: 100%;
 }
 
 h1 {
@@ -84,11 +84,11 @@ header {
     top: 0;
     left: 0;
     right: 0;
-    padding: 2rem 1.5rem;
+    padding: 2.7rem 1.5rem;
     display: flex;
     justify-content: space-between;
     align-items: center;
-    max-width: 1443px;
+    max-width: 1442px;
     font-size: 1.1rem;
     background-color:#160f69;
     background: linear-gradient(to bottom, #160f69, #500080, #160f69, #500080, #160f69);
@@ -104,7 +104,7 @@ header {
     width: 6rem;
     position: fixed;
     left: calc(50% - 3rem);
-    top: 1.6rem;
+    top: 1.7rem;
     z-index: 2;
 }
 
@@ -150,7 +150,6 @@ img.user {
 .bag-link {
     cursor: pointer;
     position: relative;
-    /* top: .5rem; */
 }
 
 img.bag {
@@ -184,7 +183,7 @@ img.bag {
     font-size: .8rem;
     position: absolute;
     right: 1.5rem;
-    top: 0.5rem;
+    top: 1rem;
 }
 
 
@@ -218,12 +217,16 @@ img.bag {
 
 @media screen and (min-width: 1442px) {
     header {
-        left: calc(50% - 721px + 2.4rem);
-        right: calc(50% - 721px + 1.5rem);
+        left: calc(50% - 721px + 2rem);
+        right: calc(50% - 721px + 2rem);
+        padding-left: 1.25rem;
+        padding-right: 1.25rem;
     }
-
     .book-nr {
         left: 0.35rem;
+    }
+    .email {
+        right: 1.25rem;
     }
 }
 

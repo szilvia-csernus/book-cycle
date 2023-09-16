@@ -90,6 +90,10 @@
     font-weight: bold;
 }
 
+.radio-button {
+    cursor: pointer;
+}
+
 .bag-item-button {
     background-color: #850083;
     padding: 0 0.35rem .1rem;
@@ -233,6 +237,7 @@
 }
 
 .quick-bag .bag-buttons {
+    justify-content: space-between;
     font-size: .9rem;
 }
 
@@ -264,7 +269,12 @@
 
 .edit-bag-button {
     border: 1px solid #850083;
-    padding: 0.5rem 2.4rem;
+    padding: 0.5rem 2.6rem;
     color: #850083;
     text-transform: uppercase;
+}
+
+.quick-bag .checkout-button {
+    margin-left: 0;
+    padding: 0.5rem 2.2rem;
 }
