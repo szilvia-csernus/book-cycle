@@ -1,0 +1,127 @@
+{% extends "base.html" %}
+{% load static %}
+{% load inventory_tools %}
+
+{% block extra_css %}
+    <link rel="stylesheet" href="{% static 'css/checkout.css' %}">
+{% endblock %}
+
+{% block logo %}
+{% include 'includes/logo.html' %}
+{% endblock %}
+
+{% block content %}
+<a href="{% url 'home' %}" class="small-logo">
+    <img class="logo" src={% static 'svg/book-cycle-logo.svg' %} alt="book cycle logo" width="10" height="6">
+</a>
+<main>
+    <div class="checkout-background">
+        <h1 class="title">Checkout</h1>
+        <div class="checkout-page-frame">
+            <div class="checkout-details-frame">
+                <h2 class="checkout-details-title">Order Summary ({{ book_count }})</h2>
+                {% for item in bag_items %}
+                <div class="bag-item-box">
+                    <!-- item.0 holds the book object  -->
+                    <a href="{{ item.0.get_slug_url}}" class="bag-item-image-box">
+                        {% if item.0.image %}
+                        <img class="bag-item-image" src="/media/{{ item.0.image }}">
+                        {% else %}
+                        <img class="bag-item-image" src="/media/noimage.png">
+                        {% endif %}
+                    </a>
+            
+                    <h3 class="bag-item-title">{{ item.0.title }}</h3>
+                    <div class="bag-item-rows">
+            
+                        <!-- item.1 holds three objects in the order of "new", "good" and "fair", each of which
+                        holds the properties of the stock item: ('condition', 'price', 'quantity' and 
+                        'line_total'). -->
+                        {% for properties in item.1 %}
+                        {% if properties %}
+                        <div class="bag-item-details-box">
+                            <div class="bag-item-condition">Condition: {{ properties.condition }}</div>
+                            <div class="bag-item-quantity">{{ properties.quantity }}</div>x
+                            <div class="bag-item-price">£{{ properties.price }}</div>
+            
+            
+                            <div class="bag-item-total">£{{ properties.line_total }}</div>
+                        </div>
+                        {% endif %}
+                        {% endfor %}
+                    </div>
+                </div>
+                {% endfor %}
+            </div>
+            <div class="checkout-form-frame">
+                <form action="{% url 'checkout'%}" method="POST" id="payment-form" >
+                    {% csrf_token %}
+                    <fieldset class="checkout-fieldset">
+                        <legend class="checkout-fieldset-label">Details</legend>
+                        {{ order_form.full_name | as_crispy_field }}
+                        {{ order_form.email | as_crispy_field }}
+                    </fieldset>
+                    <fieldset class="checkout-fieldset">
+                        <legend class="checkout-fieldset-label">Delivery</legend>
+                        {{ order_form.phone_number | as_crispy_field }}
+                        {{ order_form.country | as_crispy_field }}
+                        {{ order_form.postcode | as_crispy_field }}
+                        {{ order_form.town_or_city | as_crispy_field }}
+                        {{ order_form.street_address1 | as_crispy_field }}
+                        {{ order_form.street_address2 | as_crispy_field }}
+                        {{ order_form.county | as_crispy_field }}
+                        <div class="checkout-save-info">
+                            {% if user.is_authenticated %}
+                                <label for="save-info">Save this delivery information to my profile</label>
+                                <input type="checkbox" id="save-info" name="save-info" checked>
+                            {% else %}
+                                <a href="{% url 'account_signup' %}">Create an account </a> or 
+                                <a href="{% url 'account_login' %}">login </a> to save this information. 
+                            {% endif %}
+                        </div>
+                    </fieldset>
+                    <fieldset class="checkout-fieldset">
+                        <legend class="fieldset-label small text-black px-2 w-auto">Payment</legend>
+                        <!-- A Stripe card element will go here -->
+                        <div class="mb-3" id="card-element"></div>
+                        <!-- Used to display form errors -->
+                        <div class="mb-3 text-danger" id="card-errors" role="alert"></div>
+                        <!-- Pass the client secret to the view so we can get the payment intent id -->
+                        <input type="hidden" value="{{ client_secret }}" name="client_secret">
+                    </fieldset>
+                    <div class="bag-buttons">
+                        <a href="{% url 'view_bag' %}" class="edit-bag-button">
+                            <span class="icon">
+                                <i class="fas fa-chevron-left"></i>
+                            </span>
+                            <span class="font-weight-bold">Adjust Bag</span>
+                        </a>
+                        <button id="submit-button" class="checkout-button">
+                            <span class="font-weight-bold">Complete Order</span>
+                            <span class="icon">
+                                <i class="fas fa-lock"></i>
+                            </span>
+                        </button>
+                    </div>
+                    <p class="small text-danger my-0">
+                        <span class="icon">
+                            <i class="fas fa-exclamation-circle"></i>
+                        </span>
+                        <span>Your card will be charged <strong>£{{ grand_total|floatformat:2 }}</strong></span>
+                    </p>
+                </form>
+            </div>
+            
+        </div>
+    </div>
+</main>
+{% endblock %}
+
+{% block footer %}
+{% include 'includes/footer.html' %}
+{% endblock %}
+
+{% block postloadjs %}
+{{ block.super }}
+
+{% endblock %}

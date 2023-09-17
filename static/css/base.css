@@ -114,10 +114,6 @@ footer {
     justify-content: space-around;
     align-items: center;
     font-size: 1rem;
-    background-color: #160f69;
-    background: linear-gradient(to bottom, #160f69, #500080, #160f69, #500080, #160f69);
-    background-size: 100vw 100vh;
-    background-position: bottom;
     color: white;
     padding: 1rem 1.5rem;
     text-align: center;
@@ -223,7 +219,7 @@ img.bag {
         padding-right: 1.25rem;
     }
     .book-nr {
-        left: 0.35rem;
+        left: 0.33rem;
     }
     .email {
         right: 1.25rem;

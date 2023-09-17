@@ -70,7 +70,7 @@
                     </div>
                 </div>
                 {% endfor %}
-                <div  class="bag-total">Bag Total: <span class="bag-total-number">{{ total }}</span></div>
+                <div  class="bag-total">Bag Total: £<span class="bag-total-number">{{ total }}</span></div>
                 <div class="bag-shipping">
                     <form id="shipping-option-form" action="{% url 'add_shipping' %}" method="POST">
                         {% csrf_token %}
@@ -92,10 +92,10 @@
                     </form>
                 </div>
                 <!-- Grand Total is calculated in javascript.  -->
-                <div class="bag-grand-total">Grand Total: <span class="grand-total-number"></span></div>
+                <div class="bag-grand-total">Grand Total: £<span class="grand-total-number"></span></div>
                 <div class="bag-buttons">
                     <div><a href="{% url 'books' %}" class="keep-shopping-button">Keep shopping</a></div>
-                    <div><a href="{% url 'books' %}" class="checkout-button">Checkout</a></div>
+                    <div><a href="{% url 'checkout' %}" class="checkout-button">Checkout</a></div>
                 </div>
             {% else %}
             <p class="empty-bag">

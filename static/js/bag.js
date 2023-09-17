@@ -17,29 +17,45 @@ const radioButtons = document.querySelectorAll('input[type="radio"][name="shippi
 // Check localstorage for shipping preference
 let shippingPreference = window.localStorage.getItem('shipping')
 
+// calculate grand total: add shipping cost and 'pad' the decimal places with
+// zeros if needed.
+const addShipping = () => {
+    grandTotalElements.forEach((el) => {
+         el.textContent = Number(bagTotal + 3.5).toFixed(2);
+    });
+}
+
+// calculate grand total without shipping cost and 'pad' the decimal places with
+// zeros if needed.
+const freeShipping = () => {
+	grandTotalElements.forEach((el) => {
+		el.textContent = Number(bagTotal).toFixed(2);
+	});
+}
+
 // if shippingPreference is in localStorage, set the corresponding button to checked,
 // otherwise set the 'pickup' option to checked
 if (shippingPreference === 'post') {
     posts.forEach(post => post.checked = true);
-    grandTotalElements.forEach(el=>el.textContent = (bagTotal + 3.5).toFixed(2))
+    addShipping();
     shippingInputElement.forEach(
 			(el) => (el.value = 'post')
 		);
 } else {
     pickups.forEach(pickup => pickup.checked = true);
-    grandTotalElements.forEach((el) => (el.textContent = bagTotal));
+    freeShipping()
     shippingInputElement.forEach((el) => (el.value = 'pickup'));
 }
 
 // handle state changes such that all elements get updated on both pages.
 pickups.forEach(pickup => pickup.addEventListener('change', function() {
     if (this.checked) {
-        grandTotalElements.forEach(el => el.textContent = bagTotal);
+        freeShipping()
         pickups.forEach((pickup) => (pickup.checked = true));
         shippingInputElement.forEach((el) => (el.value = 'post'));
     }
     else {
-        grandTotalElements.forEach(el => el.textContent = (bagTotal + 3.5).toFixed(2));
+        addShipping()
         posts.forEach((post) => (post.checked = true));
         shippingInputElement.forEach((el) => (el.value = 'post'));
     }
@@ -47,11 +63,11 @@ pickups.forEach(pickup => pickup.addEventListener('change', function() {
 
 posts.forEach(post=>post.addEventListener('change', function() {
     if (this.checked) {
-        grandTotalElements.forEach(el => (el.textContent = (bagTotal + 3.5).toFixed(2)));
+        addShipping();
         posts.forEach((post) => (post.checked = true));
     }
     else {
-        grandTotalElements.forEach(el => (el.textContent = bagTotal));
+        freeShipping();
         pickups.forEach((pickup) => (pickup.checked = true));
     }
 }))

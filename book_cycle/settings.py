@@ -53,6 +53,9 @@ INSTALLED_APPS = [
     'inventory',
     'shopping_bag',
     'orders',
+    
+    # other
+    'crispy_forms',
 ]
 
 MIDDLEWARE = [
@@ -66,6 +69,8 @@ MIDDLEWARE = [
 ]
 
 ROOT_URLCONF = 'book_cycle.urls'
+
+CRISPY_TEMPLATE_PACK = 'bootstrap4'
 
 TEMPLATES = [
     {
@@ -89,6 +94,10 @@ TEMPLATES = [
                 'inventory.context.all_categories',
                 'shopping_bag.context.bag_contents',
             ],
+            'builtins': [
+                'crispy_forms.templatetags.crispy_forms_tags',
+                'crispy_forms.templatetags.crispy_forms_field',
+            ]
         },
     },
 ]

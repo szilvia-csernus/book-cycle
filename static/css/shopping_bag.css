@@ -5,7 +5,7 @@
     background-color: rgb(240, 243, 255);
     padding: 1rem;
     border-radius: 0.2rem;
-    margin: 7rem 1rem 2rem;
+    margin: 8rem 1rem 2rem;
 }
 
 @media screen and (min-width: 416px) {
@@ -175,20 +175,24 @@
         font-size: .9rem;
         line-height: 3rem;
     }
+
+    .bag-item-rows {
+        font-size: .9rem;
+    }
     
 }
 
-@media screen and (min-width: 550px) {
-    .bag-item-box {
+@media screen and (min-width: 500px) {
+    .bag-page-frame .bag-item-box {
         grid-template-rows: 3rem 1fr;
     }
 
-    .bag-item-image-box {
+    .bag-page-frame .bag-item-image-box {
         grid-row-start: 1;
         grid-row-end: span2;
     }
 
-    .bag-item-rows {
+    .bag-page-frame .bag-item-rows {
         grid-column-start: 2;
         font-size: .9rem;
     }
@@ -229,7 +233,7 @@
 }
 
 .quick-bag .bag-item-details-box {
-    grid-template-columns: 3fr 3fr 2fr 5fr 4fr;
+    grid-template-columns: 5fr 2fr 1fr 4fr 4fr;
 }
 
 .quick-bag .bag-item-rows {

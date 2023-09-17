@@ -1,9 +1,5 @@
 {% load static %}
 
-{% block extra_css %}
-<link rel="stylesheet" href="{% static 'css/shopping_bag.css' %}">
-{% endblock %}
-
 
 <div id="quick-bag" class="quick-bag">
     <div class="quick-bag-frame">
@@ -33,7 +29,7 @@
                         {% for properties in item.1 %}
                             {% if properties %}
                             <div class="bag-item-details-box">
-                                <div class="bag-item-condition">{{ properties.condition }}</div>
+                                <div class="bag-item-condition">Condition: {{ properties.condition }}</div>
                                 <div class="bag-item-quantity">{{ properties.quantity }}</div>x
                                 <div class="bag-item-price">£{{ properties.price }}</div>
                 
@@ -69,7 +65,7 @@
             <div class="bag-grand-total">Grand Total: <span class="grand-total-number"></span></div>
             <div class="bag-buttons">
                 <div><a href="{% url 'view_bag' %}" class="edit-bag-button">Edit Bag</a></div>
-                <div><a href="{% url 'books' %}" class="checkout-button">Checkout</a></div>
+                <div><a href="{% url 'checkout' %}" class="checkout-button">Checkout</a></div>
             </div>
         {% else %}
         <div class="empty-bag">
