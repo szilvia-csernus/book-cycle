@@ -52,17 +52,47 @@
                     </div>
                 </div>
                 {% endfor %}
+                <div class="bag-total">Bag Total: £<span class="bag-total-number">{{ total }}</span></div>
+                <div class="bag-shipping">
+                    <form id="shipping-option-form" action="{% url 'add_shipping' %}" method="POST">
+                        {% csrf_token %}
+                        <div>
+                            <label class="radio-button">
+                                Shipping (UK) - £3.50
+                                <input class="radio-button" type="radio" name="shipping_option" value="post">
+                            </label>
+                        </div>
+                        <div>
+                            <label class="radio-button">
+                                Pickup in school - free
+                                <input class="radio-button" type="radio" name="shipping_option" value="pickup" 
+                                {% if not shipping_option %} checked {% endif %}>
+                            </label>
+                        </div>
+                        <input type="hidden" name="shipping">
+                    </form>
+                </div>
+                <!-- Grand Total is calculated in javascript.  -->
+                <div class="bag-grand-total">Grand Total: £<span class="grand-total-number"></span></div>
+                <div class="bag-buttons">
+                    <a href="{% url 'view_bag' %}" class="edit-bag-button">
+                        <span class="icon">
+                            <i class="fas fa-chevron-left"></i>
+                        </span>
+                        <span class="font-weight-bold">Adjust Bag</span>
+                    </a>
+                </div>
             </div>
             <div class="checkout-form-frame">
                 <form action="{% url 'checkout'%}" method="POST" id="payment-form" >
                     {% csrf_token %}
                     <fieldset class="checkout-fieldset">
-                        <legend class="checkout-fieldset-label">Details</legend>
+                        <legend class="checkout-fieldset-label">Your Details</legend>
                         {{ order_form.full_name | as_crispy_field }}
                         {{ order_form.email | as_crispy_field }}
                     </fieldset>
                     <fieldset class="checkout-fieldset">
-                        <legend class="checkout-fieldset-label">Delivery</legend>
+                        <legend class="checkout-fieldset-label">Shipping Info</legend>
                         {{ order_form.phone_number | as_crispy_field }}
                         {{ order_form.country | as_crispy_field }}
                         {{ order_form.postcode | as_crispy_field }}
@@ -70,10 +100,10 @@
                         {{ order_form.street_address1 | as_crispy_field }}
                         {{ order_form.street_address2 | as_crispy_field }}
                         {{ order_form.county | as_crispy_field }}
-                        <div class="checkout-save-info">
+                        <div class="checkout-form-info">
                             {% if user.is_authenticated %}
-                                <label for="save-info">Save this delivery information to my profile</label>
-                                <input type="checkbox" id="save-info" name="save-info" checked>
+                                <label  for="save-info">Save this delivery information to my profile</label>
+                                <input class="checkbox" type="checkbox" id="save-info" name="save-info" checked>
                             {% else %}
                                 <a href="{% url 'account_signup' %}">Create an account </a> or 
                                 <a href="{% url 'account_login' %}">login </a> to save this information. 
@@ -81,21 +111,18 @@
                         </div>
                     </fieldset>
                     <fieldset class="checkout-fieldset">
-                        <legend class="fieldset-label small text-black px-2 w-auto">Payment</legend>
+                        <legend class="checkout-fieldset-label">Payment</legend>
                         <!-- A Stripe card element will go here -->
-                        <div class="mb-3" id="card-element"></div>
+                        <div class="" id="card-element"></div>
                         <!-- Used to display form errors -->
-                        <div class="mb-3 text-danger" id="card-errors" role="alert"></div>
+                        <div class="" id="card-errors" role="alert"></div>
                         <!-- Pass the client secret to the view so we can get the payment intent id -->
                         <input type="hidden" value="{{ client_secret }}" name="client_secret">
                     </fieldset>
+                    <p class="checkout-form-info">
+                        &#9432; Your card will be charged <strong>£</strong><strong class="grand-total-number"></strong>
+                    </p>
                     <div class="bag-buttons">
-                        <a href="{% url 'view_bag' %}" class="edit-bag-button">
-                            <span class="icon">
-                                <i class="fas fa-chevron-left"></i>
-                            </span>
-                            <span class="font-weight-bold">Adjust Bag</span>
-                        </a>
                         <button id="submit-button" class="checkout-button">
                             <span class="font-weight-bold">Complete Order</span>
                             <span class="icon">
@@ -103,12 +130,6 @@
                             </span>
                         </button>
                     </div>
-                    <p class="small text-danger my-0">
-                        <span class="icon">
-                            <i class="fas fa-exclamation-circle"></i>
-                        </span>
-                        <span>Your card will be charged <strong>£{{ grand_total|floatformat:2 }}</strong></span>
-                    </p>
                 </form>
             </div>
             
@@ -122,6 +143,8 @@
 {% endblock %}
 
 {% block postloadjs %}
-{{ block.super }}
-
+    {{ block.super }}
+    {{ stripe_public_key|json_script:"id_stripe_public_key" }}
+    {{ client_secret|json_script:"id_client_secret" }}
+    <script src="{% static 'js/stripe_elements.js' %}"></script>
 {% endblock %}

@@ -31,8 +31,9 @@
 
 .title {
     padding: 1rem;
-    border-bottom: 1px solid #850083;
+    border-bottom: 1px solid lightgrey;
     margin-bottom: 2rem;
+    width: 100%;
 }
 
 .empty-bag {
@@ -153,7 +154,7 @@
 
 .keep-shopping-button {
     border: 1px solid #850083;
-    padding: 0.5rem .8rem;
+    padding: 0.5rem .9rem;
     color: #850083;
     text-transform: uppercase;
 }
@@ -276,6 +277,7 @@
     padding: 0.5rem 2.6rem;
     color: #850083;
     text-transform: uppercase;
+    background-color: white;
 }
 
 .quick-bag .checkout-button {

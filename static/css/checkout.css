@@ -1,7 +1,6 @@
 .checkout-background {
     background-color: rgb(240, 243, 255);
     padding: 1rem;
-    border-radius: 0.2rem;
     margin: 8rem 1rem 2rem;
 }
 
@@ -11,13 +10,19 @@
     align-items: center;
 }
 
-.checkout-form-frame {
-    line-height: 2rem;
+.checkout-fieldset {
+    border: transparent;
+    margin-bottom: 1.5rem;
+    padding: 0;
 }
 
-.checkout-fieldset {
-    border: 1px solid lightgray;
-    border-radius: 0.2rem;
+.checkout-fieldset-label {
+    margin-bottom: 1.5rem;
+    text-transform: uppercase;
+    border-top: 1px solid purple;
+    border-bottom: 1px solid purple;
+    padding: 1rem 0;
+    width: 100%;
 }
 
 .checkout-details-frame {
@@ -27,11 +32,18 @@
     max-width: 30rem;
 }
 
+.checkout-form-frame {
+    flex-grow: 1;
+    width: 100%;
+    max-width: 26.5rem;
+}
+
 .checkout-details-title {
     margin-bottom: 1.5rem;
     text-transform: uppercase;
-    border-bottom: 1px solid lightgray;
-    padding-bottom: 1rem;
+    border-top: 1px solid purple;
+    border-bottom: 1px solid purple;
+    padding: 1rem 0;
 }
 
 
@@ -47,13 +59,19 @@
     display: flex;
     flex-direction: column-reverse;
     align-items: flex-end;
-    font-size: .8rem;
+    font-size: .9rem;
     line-height: 1.5rem;
     gap: 0.5rem;
+    margin-inline-start: 2px;
+    margin-inline-end: 2px;
 }
 
 .checkout-page-frame .checkout-button {
     padding: 0.5rem 1.5rem;
+}
+
+.checkout-form-info {
+    text-align: right;
 }
 
 
@@ -67,9 +85,9 @@
 
 @media screen and (min-width: 455px) {
     .checkout-page-frame .bag-buttons {
-        font-size: .9rem;
+        /* font-size: .9rem; */
         flex-direction: row;
-        justify-content: space-between;
+        justify-content: flex-end;
         gap: 0.5rem;
     }
 }
@@ -97,3 +115,94 @@
     }
 }
 
+@media screen and (min-width: 1442px) {
+    .checkout-background {
+        margin-left: calc(50% - 721px + 2rem);
+        margin-right: calc(50% - 721px + 2rem);
+    }
+}
+
+.fade-in {
+  opacity: 0;
+  transition: opacity 100ms ease-in-out;
+}
+
+.fade-out {
+  opacity: 1;
+  transition: opacity 100ms ease-in-out;
+}
+
+.form-group .textinput,
+.form-group .emailinput,
+.form-group .lazyselect {
+    width: 100%;
+    margin-bottom: 1.4rem;
+    border-color: lightgray;
+}
+
+/* ---------------------------------------------Stripe checkout--------  */
+
+.StripeElement,
+.stripe-style-input {
+  box-sizing: border-box;
+  height: 40px;
+  padding: 10px 12px;
+  border: 1px solid transparent;
+  background-color: white;
+  box-shadow: 0 1px 3px 0 #e6ebf1;
+  -webkit-transition: box-shadow 150ms ease;
+  transition: box-shadow 150ms ease;
+}
+
+.StripeElement--focus,
+.stripe-style-input:focus,
+.stripe-style-input:active {
+  box-shadow: 0 1px 3px 0 #cfd7df;
+}
+
+.stripeElement--invalid {
+    border-color: #fa755a;
+}
+
+.StripeElement--webkit-autofill {
+  background-color: #fefde5 !important;
+}
+
+.stripe-style-input::placeholder {
+    color: #aab7c4;
+}
+
+#payment-form .form-control,
+#card-element {
+    color: #000;
+    border: 1px solid #7c7c7c;
+}
+
+select,
+select option {
+    color: #000000;
+}
+
+select:invalid,
+select option[value=""] {
+    color: #aab7c4 !important;
+}
+
+#loading-overlay {
+	display: none;
+	position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(23, 162, 184, .85);
+    z-index: 9999;
+}
+
+.loading-spinner {
+	display: flex;
+    align-items: center;
+    justify-content: center;
+    margin: 0;
+    height: 100%;
+}
