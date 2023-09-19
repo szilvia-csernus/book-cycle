@@ -2,17 +2,16 @@
 const bagTotalElement = document.querySelector('.bag-total-number');
 let bagTotal = bagTotalElement ? Number(bagTotalElement.textContent) : 0;
 const grandTotalElements = document.querySelectorAll('.grand-total-number');
-// this input will get submitted with the form
-const shippingInputElement = document.querySelectorAll(
-	'input[type="hidden"][name="shipping"]'
-);
+// these input elements are used to get shipping info over to the checkout form.
+const shippingInputElements = document.querySelectorAll('.shipping-info');
 
-// Get all the radio buttons with the name "shipping_option"
+// Get all the radio buttons with the name "shipping-info"
 // There are potentially 2 sets of buttons if the shopping bag page is also open
 // in the background as well as the small shopping bag on the side.
+// The checkout page also uses the same radiobutton elements.
 const pickups = document.querySelectorAll('input[type="radio"][value="pickup"]');
 const posts = document.querySelectorAll('input[type="radio"][value="post"]');
-const radioButtons = document.querySelectorAll('input[type="radio"][name="shipping_option"]')
+const radioButtons = document.querySelectorAll('input[type="radio"][name="shipping-info"]')
 
 // Check localstorage for shipping preference
 let shippingPreference = window.localStorage.getItem('shipping')
@@ -34,30 +33,29 @@ const freeShipping = () => {
 }
 
 // if shippingPreference is in localStorage, set the corresponding button to checked,
-// otherwise set the 'pickup' option to checked
+// otherwise set the 'pickup' option to checked.
+// In addition, set the hidden shippingInputElement too to be sent in the URL
+// when clicking the Checkout button.
 if (shippingPreference === 'post') {
     posts.forEach(post => post.checked = true);
     addShipping();
-    shippingInputElement.forEach(
-			(el) => (el.value = 'post')
-		);
+    shippingInputElements.forEach(el => el.value = 'post')
 } else {
     pickups.forEach(pickup => pickup.checked = true);
     freeShipping()
-    shippingInputElement.forEach((el) => (el.value = 'pickup'));
+    shippingInputElements.forEach(el => el.value = 'pickup')
 }
 
-// handle state changes such that all elements get updated on both pages.
+// handle state changes such that all elements get updated on all pages.
 pickups.forEach(pickup => pickup.addEventListener('change', function() {
     if (this.checked) {
         freeShipping()
         pickups.forEach((pickup) => (pickup.checked = true));
-        shippingInputElement.forEach((el) => (el.value = 'post'));
+        shippingInputElements.forEach(el => el.value = 'pickup')
     }
     else {
         addShipping()
         posts.forEach((post) => (post.checked = true));
-        shippingInputElement.forEach((el) => (el.value = 'post'));
     }
 }))
 
@@ -65,6 +63,7 @@ posts.forEach(post=>post.addEventListener('change', function() {
     if (this.checked) {
         addShipping();
         posts.forEach((post) => (post.checked = true));
+        shippingInputElements.forEach(el => el.value = 'post')
     }
     else {
         freeShipping();
@@ -83,6 +82,7 @@ radioButtons.forEach(function (radio) {
 	});
 });
 
+console.log(shippingInputElements)
 
 const bagLink = document.getElementById('bag-link');
 const bagElement = document.getElementById('quick-bag');

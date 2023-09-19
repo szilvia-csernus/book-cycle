@@ -12,7 +12,7 @@
 
 .checkout-fieldset {
     border: transparent;
-    margin-bottom: 1.5rem;
+    margin-bottom: 3rem;
     padding: 0;
 }
 
@@ -147,11 +147,13 @@
   box-sizing: border-box;
   height: 40px;
   padding: 10px 12px;
-  border: 1px solid transparent;
+  border: 1px solid #7c7c7c;
   background-color: white;
   box-shadow: 0 1px 3px 0 #e6ebf1;
   -webkit-transition: box-shadow 150ms ease;
   transition: box-shadow 150ms ease;
+  margin-bottom: 1rem;
+  width: 100%;
 }
 
 .StripeElement--focus,
@@ -172,11 +174,11 @@
     color: #aab7c4;
 }
 
-#payment-form .form-control,
+/* #payment-form .form-control,
 #card-element {
     color: #000;
     border: 1px solid #7c7c7c;
-}
+} */
 
 select,
 select option {

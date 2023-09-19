@@ -130,17 +130,9 @@ async function post(url, data) {
   })
   .then(function(response) {
     if (!response.ok) {
-      throw new Error('Network response was not ok');
+      throw new Error('There was an error while waiting for network response.');
     }
     return response.text();
-  });
-}
-
-// Function to confirm card payment
-function confirmCardPayment(clientSecret, cardData) {
-  return stripe.confirmCardPayment(clientSecret, {
-    payment_method: cardData.payment_method,
-    shipping: cardData.shipping
   });
 }
 
@@ -158,13 +150,11 @@ function handlePaymentResult(result) {
 	toggleElement(paymentForm);
 	toggleElement(loadingOverlay)
 
-
     // Enable card and submit button
     card.update({ disabled: false });
     submitButton.disabled = false;
   } else {
     if (result.paymentIntent.status === 'succeeded') {
-      // Assuming you have defined `form` variable earlier
       paymentForm.submit();
     }
   }
@@ -260,7 +250,7 @@ paymentForm.addEventListener('submit', function (ev) {
 	// Make the POST request and handle the card payment
 	post(url, postData)
 		.then(function () {
-			return confirmCardPayment(clientSecret, {
+			return stripe.confirmCardPayment(clientSecret, {
 				payment_method: {
 					card: card,
 					billing_details: {

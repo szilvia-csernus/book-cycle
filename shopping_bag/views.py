@@ -58,15 +58,15 @@ def remove_from_bag(request, stock_id):
         return HttpResponse(status=500)
 
 
-def add_shipping(request):
-    """ Add shipping info to context """
+# def add_shipping(request):
+#     """ Add shipping info to context """
 
-    request.session.get('bag', 0)
-    req_shipping = request.POST.get('shipping_option')
-    if req_shipping == 'True':
-        request.session['shipping_option'] = True
-    else:
-        request.session['shipping_option'] = False
+#     request.session.get('bag', 0)
+#     req_shipping = request.POST.get('shipping-ifo')
+#     if req_shipping == 'True':
+#         request.session['shipping-ifo'] = True
+#     else:
+#         request.session['shipping-ifo'] = False
 
-    redirect_url = request.POST.get('redirect_url')
-    return redirect(redirect_url)
+#     redirect_url = request.POST.get('redirect_url')
+#     return redirect(redirect_url)
