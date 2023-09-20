@@ -99,7 +99,7 @@
                     </div>
                     {% endfor %}
                 {% else %}
-                    <p class="out-of-stock">X Out of stock</p>
+                    <p class="out-of-stock">&cross; Out of stock</p>
                 {% endif %}
                 <div class="book-detail-buttons">
                     <div><a href="{% url 'books' %}" class="back-to-books-button">Back to Books</a></div>
@@ -117,7 +117,7 @@
 {% include 'includes/footer.html' %}
 {% endblock %}
 
-{% block postloadjs %}
+{% block postload %}
 {{ block.super }}
     <script src="{% static 'js/book_details.js' %}" type="module"></script>
 {% endblock %}

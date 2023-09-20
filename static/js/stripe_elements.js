@@ -7,19 +7,15 @@
 	https://stripe.com/docs/elements/appearance-api
 */
 
-// var stripePublicKey = $('#id_stripe_public_key').text().slice(1, -1);
 const stripePublicKeyEl = document.getElementById('id_stripe_public_key')
 const stripePublicKey = stripePublicKeyEl.textContent.slice(1, -1);
 
-// var clientSecret = $('#id_client_secret').text().slice(1, -1);
 const clientSecret = document
 	.getElementById('id_client_secret')
 	.textContent.slice(1, -1);
 
-// var stripe = Stripe(stripePublicKey);
 const stripe = Stripe(stripePublicKey);
 
-// var elements = stripe.elements();
 const elements = stripe.elements();
 
 var style = {
@@ -53,7 +49,6 @@ var style = {
 // };
 
 
-// var card = elements.create('card', { style: style });
 const card = elements.create(
 	'card',
 	// appearance,
@@ -75,45 +70,33 @@ card.addEventListener('change', function (event) {
             </span>
             <span>${event.error.message}</span>
         `;
-		// $(errorDiv).html(html);
 		errorDiv.innerHTML = html;
 	} else {
 		errorDiv.textContent = '';
 	}
 });
 
+// Toggle the visibility of the element with a fade effect
+const toggleElement = element => {
+	if (element.classList.contains('loading-overlay-active')) {
+		element.classList.remove('loading-overlay-active')
+	} else {
+		element.classList.add('loading-overlay-active')
+	}
+}
+
 // Handle form submit
-// var form = document.getElementById('payment-form');
 const paymentForm = document.getElementById('payment-form');
 
 const submitButton = document.getElementById('submit-button');
-// const loadingOverlay = document.getElementById('loading-overlay')
+const loadingOverlay = document.getElementById('loading-overlay')
+loadingOverlay.classList.add('loading-overlay');
 
 // Function to fade in an element
 function fadeIn(element) {
 	element.style.display = 'block';
 	element.classList.add('fade-in');
 	element.classList.remove('fade-out');
-}
-
-// Function to fade out an element
-function fadeOut(element) {
-	element.classList.add('fade-out');
-	element.classList.remove('fade-in');
-
-	// After the transition is complete, set display to 'none'
-	setTimeout(function () {
-		element.style.display = 'none';
-	}, 100); // 100ms should match the transition duration
-}
-
-// Toggle the visibility of the element with a fade effect
-const toggleElement = element => {
-	if (element.style.display === 'none' || element.style.display === '' ) {
-		fadeIn(element)
-	} else {
-		fadeOut(element)
-	}
 }
 
 // Function to make a POST request using fetch
@@ -145,8 +128,8 @@ function handlePaymentResult(result) {
       <span>${result.error.message}</span>`;
     errorDiv.innerHTML = html;
 
-	// toggleElement(paymentForm);
-	// toggleElement(loadingOverlay)
+	loadingOverlay.classList.remove('overlay');
+	toggleElement(loadingOverlay)
 
     // Enable card and submit button
     card.update({ disabled: false });
@@ -162,19 +145,15 @@ function handlePaymentResult(result) {
 paymentForm.addEventListener('submit', event => {
 	event.preventDefault();
 	card.update({ disabled: true });
-	// $('#submit-button').attr('disabled', true);
 	submitButton.disabled = true;
-	// $('#payment-form').fadeToggle(100);
-	// toggleElement(paymentForm);
-	// $('#loading-overlay').fadeToggle(100);
-	// toggleElement(loadingOverlay);
+	loadingOverlay.classList.add('overlay');
+	toggleElement(loadingOverlay);
+	paymentForm.style.display = 'none';
 
-	// var saveInfo = Boolean($('#id-save-info').attr('checked'));
 	const saveInfoElement = document.getElementById('save-info');
 	let saveInfo = Boolean(saveInfoElement.checked);
 	console.log('save-info: ', saveInfo);
 	// Form using {% csrf_token %} in the form
-	// var csrfToken = $('input[name="csrfmiddlewaretoken"]').val();
 	const csrfToken = document
 		.querySelector('input[name="csrfmiddlewaretoken"]')
 		.value;

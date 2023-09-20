@@ -3,6 +3,7 @@
 
 {% block extra_css %}
     <link rel="stylesheet" href="{% static 'css/checkout.css' %}">
+    
 {% endblock %}
 
 {% block logo %}
@@ -126,6 +127,18 @@
             
         </div>
     </div>
+    <div id="loading-overlay">
+        <div class="overlay-loader">
+            <div></div>
+            <div></div>
+            <div></div>
+            <div></div>
+            <div></div>
+            <div></div>
+            <div></div>
+            <div></div>
+        </div>
+    </div>
 </main>
 {% endblock %}
 
@@ -133,10 +146,11 @@
 {% include 'includes/footer.html' %}
 {% endblock %}
 
-{% block postloadjs %}
+{% block postload %}
     {{ block.super }}
     {{ stripe_public_key|json_script:"id_stripe_public_key" }}
     {{ client_secret|json_script:"id_client_secret" }}
     <script src="{% static 'js/checkout.js' %}"></script>
+    <link rel="stylesheet" href="{% static 'css/loader.css' %}">
     <script src="{% static 'js/stripe_elements.js' %}"></script>
 {% endblock %}

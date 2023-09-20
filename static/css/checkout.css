@@ -122,16 +122,6 @@
     }
 }
 
-.fade-in {
-  opacity: 0;
-  transition: opacity 100ms ease-in-out;
-}
-
-.fade-out {
-  opacity: 1;
-  transition: opacity 100ms ease-in-out;
-}
-
 .form-group .textinput,
 .form-group .emailinput,
 .form-group .lazyselect {
@@ -190,7 +180,7 @@ select option[value=""] {
     color: #aab7c4 !important;
 }
 
-#loading-overlay {
+/* #loading-overlay {
 	display: none;
 	position: fixed;
     top: 0;
@@ -207,7 +197,7 @@ select option[value=""] {
     justify-content: center;
     margin: 0;
     height: 100%;
-}
+} */
 
 
 /* --------------------------------- Checkout Success ------------  */

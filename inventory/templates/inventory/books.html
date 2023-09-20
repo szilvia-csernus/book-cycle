@@ -125,7 +125,7 @@
 {% include 'includes/footer.html' %}
 {% endblock %}
 
-{% block postloadjs %}
+{% block postload %}
 {{ block.super }}
     <script src="{% static 'js/books.js' %}" type="module"></script>
 {% endblock %}
