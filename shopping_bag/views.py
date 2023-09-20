@@ -41,7 +41,7 @@ def remove_from_bag(request, stock_id):
         if stock_id in list(bag.keys()) and bag[stock_id] > 1:
             bag[stock_id] -= 1
 
-        elif stock_id in list(bag.keys()) and bag[stock_id] == 1:
+        elif bag[stock_id] == 1:
             bag.pop(stock_id)
             messages.success(request, f'{stock_item.book.title}\
                              condition: {stock_item.condition} \
@@ -56,17 +56,3 @@ def remove_from_bag(request, stock_id):
             request, f'Error removing book: {stock_item.book.title} \
             \n Error: {e}')
         return HttpResponse(status=500)
-
-
-# def add_shipping(request):
-#     """ Add shipping info to context """
-
-#     request.session.get('bag', 0)
-#     req_shipping = request.POST.get('shipping-ifo')
-#     if req_shipping == 'True':
-#         request.session['shipping-ifo'] = True
-#     else:
-#         request.session['shipping-ifo'] = False
-
-#     redirect_url = request.POST.get('redirect_url')
-#     return redirect(redirect_url)

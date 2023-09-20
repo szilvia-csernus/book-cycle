@@ -6,7 +6,7 @@ class OrderLineItemAdminInline(admin.TabularInline):
     model = OrderLineItem
     readonly_fields = ('lineitem_total',)
 
-    fields = ('stock', 'quantity', 'lineitem_total',)
+    fields = ('stock_item', 'quantity', 'lineitem_total',)
 
 
 class OrderAdmin(admin.ModelAdmin):

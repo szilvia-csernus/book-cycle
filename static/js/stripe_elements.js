@@ -9,14 +9,12 @@
 
 // var stripePublicKey = $('#id_stripe_public_key').text().slice(1, -1);
 const stripePublicKeyEl = document.getElementById('id_stripe_public_key')
-console.log(stripePublicKeyEl)
 const stripePublicKey = stripePublicKeyEl.textContent.slice(1, -1);
 
 // var clientSecret = $('#id_client_secret').text().slice(1, -1);
 const clientSecret = document
 	.getElementById('id_client_secret')
 	.textContent.slice(1, -1);
-
 
 // var stripe = Stripe(stripePublicKey);
 const stripe = Stripe(stripePublicKey);
@@ -40,39 +38,38 @@ var style = {
 	},
 };
 
-const appearance = {
-	theme: 'stripe',
+// const appearance = {
+// 	theme: 'stripe',
 
-	variables: {
-		colorPrimary: '#0570de',
-		colorBackground: '#ffffff',
-		colorText: '#30313d',
-		colorDanger: '#df1b41',
-		fontFamily: 'Ideal Sans, system-ui, sans-serif',
-		spacingUnit: '2px',
-		borderRadius: '4px',
-		// See all possible variables below
-	},
-};
+// 	variables: {
+// 		colorPrimary: '#0570de',
+// 		colorBackground: '#ffffff',
+// 		colorText: '#30313d',
+// 		colorDanger: '#df1b41',
+// 		fontFamily: '"Montserrat", system-ui, sans-serif',
+// 		spacingUnit: '2px',
+// 		borderRadius: '.2rem',
+// 	},
+// };
 
 
 // var card = elements.create('card', { style: style });
 const card = elements.create(
 	'card',
-	appearance,
-	// { 
-		// style: style,
-	//   hidePostalCode: true
-	// }
+	// appearance,
+	{ 
+		style: style,
+	    // hidePostalCode: true
+	}
 	);
 
 card.mount('#card-element');
 
 // Handle realtime validation errors on the card element
 card.addEventListener('change', function (event) {
-	var errorDiv = document.getElementById('card-errors');
+	const errorDiv = document.getElementById('card-errors');
 	if (event.error) {
-		var html = `
+		const html = `
             <span class="icon" role="alert">
                 <i class="fas fa-times"></i>
             </span>
@@ -90,7 +87,7 @@ card.addEventListener('change', function (event) {
 const paymentForm = document.getElementById('payment-form');
 
 const submitButton = document.getElementById('submit-button');
-const loadingOverlay = document.getElementById('loading-overlay')
+// const loadingOverlay = document.getElementById('loading-overlay')
 
 // Function to fade in an element
 function fadeIn(element) {
@@ -138,17 +135,18 @@ async function post(url, data) {
 
 // Function to handle the result of the card payment confirmation
 function handlePaymentResult(result) {
+	console.log(result)
   if (result.error) {
-    var errorDiv = document.getElementById('card-errors');
-    var html = `
+    const errorDiv = document.getElementById('card-errors');
+    const html = `
       <span class="icon" role="alert">
       <i class="fas fa-times"></i>
       </span>
       <span>${result.error.message}</span>`;
     errorDiv.innerHTML = html;
 
-	toggleElement(paymentForm);
-	toggleElement(loadingOverlay)
+	// toggleElement(paymentForm);
+	// toggleElement(loadingOverlay)
 
     // Enable card and submit button
     card.update({ disabled: false });
@@ -161,31 +159,32 @@ function handlePaymentResult(result) {
 }
 
 
-paymentForm.addEventListener('submit', function (ev) {
-	ev.preventDefault();
+paymentForm.addEventListener('submit', event => {
+	event.preventDefault();
 	card.update({ disabled: true });
 	// $('#submit-button').attr('disabled', true);
 	submitButton.disabled = true;
 	// $('#payment-form').fadeToggle(100);
-	toggleElement(paymentForm);
+	// toggleElement(paymentForm);
 	// $('#loading-overlay').fadeToggle(100);
-	toggleElement(loadingOverlay);
+	// toggleElement(loadingOverlay);
 
 	// var saveInfo = Boolean($('#id-save-info').attr('checked'));
-	let saveInfo = Boolean(document.getElementById('id-save-info').checked);
-	console.log('id-save-info: ', saveInfo);
+	const saveInfoElement = document.getElementById('save-info');
+	let saveInfo = Boolean(saveInfoElement.checked);
+	console.log('save-info: ', saveInfo);
 	// Form using {% csrf_token %} in the form
 	// var csrfToken = $('input[name="csrfmiddlewaretoken"]').val();
 	const csrfToken = document
 		.querySelector('input[name="csrfmiddlewaretoken"]')
-		.value();
+		.value;
 
 	const postData = {
 		csrfmiddlewaretoken: csrfToken,
 		client_secret: clientSecret,
 		save_info: saveInfo,
 	};
-	const url = '/checkout/cache_checkout_data/';
+	const url = '/orders/checkout/';
 
 	// $.post(url, postData)
 	// 	.done(function () {
@@ -248,9 +247,10 @@ paymentForm.addEventListener('submit', function (ev) {
 	// 	});
 
 	// Make the POST request and handle the card payment
-	post(url, postData)
-		.then(function () {
-			return stripe.confirmCardPayment(clientSecret, {
+	// post(url, postData)
+	// 	.then( () => {
+	// 		return stripe.confirmCardPayment(clientSecret, {
+		stripe.confirmCardPayment(clientSecret, {
 				payment_method: {
 					card: card,
 					billing_details: {
@@ -272,14 +272,15 @@ paymentForm.addEventListener('submit', function (ev) {
 						state: paymentForm.county.value.trim(),
 					},
 				},
-			});
-		})
-		.then(function (result) {
+			})
+		// })
+		.then(result => {
+			console.log(result)
 			handlePaymentResult(result);
 		})
-		.catch(function () {
-			// Reload the page on failure
-			location.reload();
-		});
+		// .catch(() => {
+		// 	// Reload the page on failure
+		// 	location.reload();
+		// });
 });
 
