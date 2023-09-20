@@ -20,7 +20,8 @@ class StockAdmin(admin.ModelAdmin):
         'book',
         'condition',
         'price',
-        'quantity'
+        'quantity',
+        'blocked'
     )
 
 

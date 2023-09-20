@@ -99,6 +99,9 @@ class Stock(models.Model):
     quantity = models.IntegerField(default=0)
     blocked = models.IntegerField(default=0)
 
+    def __str__(self, *args, **kwargs):
+        return f'{self.book.title}, condition: {self.condition}'
+
     def get_available_quantity(self):
         available_quantity = self.quantity - self.blocked
         if available_quantity > 0:
