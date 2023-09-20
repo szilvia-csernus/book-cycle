@@ -1,7 +1,10 @@
 import uuid
+
+from django.conf import settings
 from django.db import models
 from django.db.models import Sum
 from django_countries.fields import CountryField
+
 from inventory.models import Stock
 
 
@@ -39,6 +42,14 @@ class Order(models.Model):
         if not self.order_number:
             self.order_number = self._generate_order_number()
         super().save(*args, **kwargs)
+
+    def update_delivery_cost(self):
+        """
+        Update delivery cost based on the shipping option selected.
+        """
+        if self.shipping_option:
+            self.delivery_cost = settings.SHIPPING_COST
+            self.save()
 
     def update_total(self):
         """

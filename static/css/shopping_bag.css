@@ -142,9 +142,10 @@
     display: flex;
     flex-direction: column-reverse;
     align-items: flex-end;
+    justify-content: center;
     margin: 2rem 0 3rem;
     font-size: .9rem;
-    line-height: 3rem;
+    gap: 1.5rem;
 }
 
 .keep-shopping-button-box {
@@ -166,15 +167,16 @@
     background-color: #850083;
     text-transform: uppercase;
     margin-left: 0.5rem;
+    cursor: pointer;
 }
 
 @media screen and (min-width: 400px) {
-    .bag-buttons {
+    .bag-page-frame .bag-buttons {
         flex-direction: row;
+        align-items: center;
         justify-content: flex-end;
         margin: 2rem 0 3rem;
         font-size: .9rem;
-        line-height: 3rem;
     }
 
     .bag-item-rows {

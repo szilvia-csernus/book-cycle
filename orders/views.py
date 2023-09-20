@@ -24,6 +24,8 @@ def checkout(request):
         return redirect(reverse('books'))
 
     if request.method == 'POST':
+        
+
         form_data = {
             'full_name': request.POST['full_name'],
             'email': request.POST['email'],
@@ -36,6 +38,8 @@ def checkout(request):
             'county': request.POST['county'],
         }
 
+        print(form_data)
+
         order_form = OrderFormPost(form_data)
         if order_form.is_valid():
 
@@ -44,6 +48,9 @@ def checkout(request):
             # info to the order. This is done by setting commit=False
             # order = order_form.save(commit=False)
             order = order_form.save()
+            if request.POST['shipping-info'] == 'post':
+                order.shipping_option = True
+                order.save()
             # pid = request.POST.get('client_secret').split('_secret')[0]
             # order.stripe_pid = pid
             # order.original_bag = json.dumps(bag)
@@ -76,10 +83,12 @@ def checkout(request):
     else:
         current_bag = bag_contents(request)
         total = current_bag['total']
+
+        # update grand total to include shipping cost
         if 'shipping-info' in request.GET:
             shipping = request.GET['shipping-info']
             if shipping == 'post':
-                total = total + Decimal(3.50)
+                total = total + Decimal(settings.SHIPPING_COST)
 
         stripe_total = round(total * 100)
         stripe.api_key = stripe_secret_key
@@ -87,8 +96,6 @@ def checkout(request):
             amount=stripe_total,
             currency=settings.STRIPE_CURRENCY,
         )
-
-        print(intent)
 
         order_form = OrderFormPost()
         template = 'orders/checkout.html'
@@ -108,10 +115,10 @@ def checkout_success(request, order_number):
     save_info = request.session.get('save_info')
     order = get_object_or_404(Order, order_number=order_number)
 
-    # for item in order.lineitems.all():
-    #     stock_item = item.stock_item
-    #     stock_item.reduce_stock(item.quantity)
-    #     stock_item.save()
+    for item in order.lineitems.all():
+        stock_item = item.stock_item
+        stock_item.reduce_stock(item.quantity)
+        stock_item.save()
 
     # if request.user.is_authenticated:
     #     profile = UserProfile.objects.get(user=request.user)

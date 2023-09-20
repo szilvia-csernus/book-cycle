@@ -56,7 +56,7 @@
                     <form id="shipping-option-form" action="{% url 'checkout' %}" method="GET">
                         <div>
                             <label class="radio-button">
-                                Shipping (UK) - £3.50
+                                Shipping (UK) - £{{ shipping_cost|floatformat:2 }}
                                 <input class="radio-button" type="radio" name="shipping-info" value="post">
                             </label>
                         </div>
@@ -72,10 +72,7 @@
                 <div class="bag-grand-total">Grand Total: £<span class="grand-total-number"></span></div>
                 <div class="bag-buttons">
                     <a href="{% url 'view_bag' %}" class="edit-bag-button">
-                        <span class="icon">
-                            <i class="fas fa-chevron-left"></i>
-                        </span>
-                        <span class="font-weight-bold">Adjust Bag</span>
+                        Edit Bag
                     </a>
                 </div>
             </div>
@@ -115,7 +112,7 @@
                         <!-- Pass the client secret to the view so we can get the payment intent id -->
                         <input type="hidden" value="{{ client_secret }}" name="client_secret">
                     </fieldset>
-                    <input type="hidden" class="shipping-info">
+                    <input type="hidden" class="shipping-info" name="shipping-info">
                     <p class="checkout-form-info">
                         &#9432; Your card will be charged <strong>£</strong><strong class="grand-total-number"></strong>
                     </p>

@@ -25,10 +25,10 @@
                 <div>{{ item.quantity }} @ <strong>£{{ item.stock_item.price }}</strong></div>
                 {% endfor %}
 
-                <h2 class="success-details-title">Delivering to</h2>
-                <div><strong>Name</strong> <span>{{ order.full_name }}</span></div>
-                <div><strong>Email</strong> <span>{{ order.email }}</span></div>
-                <div><strong>Address</strong> <span>{{ order.street_address1 }}, 
+                <h2 class="success-details-title">Shipping Info</h2>
+                <div><strong>Name:</strong> <span>{{ order.full_name }}</span></div>
+                <div><strong>Email:</strong> <span>{{ order.email }}</span></div>
+                <div><strong>Address:</strong> <span>{{ order.street_address1 }}, 
                     {% if order.street_address2 %}{{ order.street_address2 }}, {% endif %} 
                     {{ order.town_or_city }}, 
                     {% if order.county %}{{ order.county }}, {% endif %} 
@@ -37,7 +37,7 @@
                 {% if  order.shipping_option %}
                 <div><strong>Delivery cost</strong> <span>£{{ order.delivery_cost }}</span></div>
                 {% endif %}
-                <div><strong>Total</strong> <span>{{ order.grand_total }}</span></div>
+                <div><strong>Total:</strong> <span>£{{ order.grand_total }}</span></div>
                 
                 
             </div>

@@ -1,4 +1,5 @@
 from django.shortcuts import get_object_or_404
+from django.conf import settings
 from inventory.models import Stock, Book
 
 
@@ -8,6 +9,7 @@ def bag_contents(request):
     book_count = 0
     bag = request.session.get('bag', {})
     total = 0
+    shipping_cost = settings.SHIPPING_COST
 
     # create a dictionary of books from the bag in session
     book_list = {}
@@ -52,6 +54,7 @@ def bag_contents(request):
         'bag_items': bag_items,
         'total': total,
         'book_count': book_count,
+        'shipping_cost': shipping_cost,
     }
 
     return context
