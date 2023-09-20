@@ -108,10 +108,10 @@ def checkout_success(request, order_number):
     save_info = request.session.get('save_info')
     order = get_object_or_404(Order, order_number=order_number)
 
-    for item in order.lineitems.all():
-        stock_item = item.stock_item
-        stock_item.reduce_stock(item.quantity)
-        stock_item.save()
+    # for item in order.lineitems.all():
+    #     stock_item = item.stock_item
+    #     stock_item.reduce_stock(item.quantity)
+    #     stock_item.save()
 
     # if request.user.is_authenticated:
     #     profile = UserProfile.objects.get(user=request.user)

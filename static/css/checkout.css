@@ -1,6 +1,6 @@
 .checkout-background {
     background-color: rgb(240, 243, 255);
-    padding: 1rem;
+    padding: 1rem 1rem 3rem;
     margin: 8rem 1rem 2rem;
 }
 
@@ -207,4 +207,30 @@ select option[value=""] {
     justify-content: center;
     margin: 0;
     height: 100%;
+}
+
+
+/* --------------------------------- Checkout Success ------------  */
+
+.success-confirmation-text {
+    text-align: center;
+    margin-bottom: 1rem;
+}
+
+.success-details-title {
+    margin: 1.5rem 0;
+    text-transform: uppercase;
+    border-top: 1px solid purple;
+    border-bottom: 1px solid purple;
+    padding: .7rem 0;
+}
+
+.success-details-frame {
+    display: flex;
+    flex-direction: column;
+}
+
+.success-item-title {
+    font-weight: bold;
+    line-height: 1rem;
 }

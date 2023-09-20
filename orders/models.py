@@ -79,5 +79,5 @@ class OrderLineItem(models.Model):
     def __str__(self):
         return f'{self.stock_item.book.title},\
             condition: {self.stock_item.condition},\
-            x {self.stock_item.quantity}\
+            x {self.quantity}\
             on order: {self.order.order_number}'

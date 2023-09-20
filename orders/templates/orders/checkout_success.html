@@ -16,10 +16,28 @@
 <main>
     <div class="checkout-background">
         <h1 class="title">Thank You</h1>
-        <p>Your order information is below. A confirmation email will be sent to <strong>{{ order.email }}</strong></p>
+        <p class="success-confirmation-text">Your order information is below. A confirmation email will be sent to <strong>{{ order.email }}</strong></p>
         <div class="checkout-page-frame">
-            <div class="checkout-details-frame">
-                <h2 class="checkout-details-title">Order Summary ({{ book_count }})</h2>
+            <div class="success-details-frame">
+                <h2 class="success-details-title">Order Summary </h2>
+                {% for item in order.lineitems.all %}
+                <h3 class="success-item-title">{{ item.stock_item.book.title }} - ({{ item.stock_item.condition }})</h3>
+                <div>{{ item.quantity }} @ <strong>£{{ item.stock_item.price }}</strong></div>
+                {% endfor %}
+
+                <h2 class="success-details-title">Delivering to</h2>
+                <div><strong>Name</strong> <span>{{ order.full_name }}</span></div>
+                <div><strong>Email</strong> <span>{{ order.email }}</span></div>
+                <div><strong>Address</strong> <span>{{ order.street_address1 }}, 
+                    {% if order.street_address2 %}{{ order.street_address2 }}, {% endif %} 
+                    {{ order.town_or_city }}, 
+                    {% if order.county %}{{ order.county }}, {% endif %} 
+                    {{ order.country }}, {{ order.postcode }} </span></div>
+                <h2 class="success-details-title">Billing Info</h2>
+                {% if  order.shipping_option %}
+                <div><strong>Delivery cost</strong> <span>£{{ order.delivery_cost }}</span></div>
+                {% endif %}
+                <div><strong>Total</strong> <span>{{ order.grand_total }}</span></div>
                 
                 
             </div>

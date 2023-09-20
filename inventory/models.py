@@ -124,7 +124,7 @@ class Stock(models.Model):
         self.save()
 
     def reduce_stock(self, amount):
-        if amount > self.get_available_quantity():
+        if amount > self.quantity:
             raise ValueError('Not enough stock available')
         else:
             self.quantity -= amount
