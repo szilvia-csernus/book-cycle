@@ -153,6 +153,7 @@
 }
 
 .stripeElement--invalid {
+    color: red;
     border-color: #fa755a;
 }
 
@@ -169,6 +170,13 @@
     color: #000;
     border: 1px solid #7c7c7c;
 } */
+
+.card-errors {
+    display: flex;
+    color: red;
+    font-size: .9rem;
+    gap: .5rem;
+}
 
 select,
 select option {

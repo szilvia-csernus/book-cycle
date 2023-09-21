@@ -54,7 +54,7 @@ INSTALLED_APPS = [
     'inventory',
     'shopping_bag',
     'orders',
-    
+
     # other
     'crispy_forms',
 ]
@@ -86,7 +86,7 @@ TEMPLATES = [
                 'django.template.context_processors.request',
                 'django.contrib.auth.context_processors.auth',
                 'django.contrib.messages.context_processors.messages',
-     
+
                 # for  {{ MEDIA_URL }}noimage.png format to work
                 'django.template.context_processors.media',
 
@@ -223,7 +223,7 @@ EMAIL_BACKEND = 'django.core.mail.backends.console.EmailBackend'
 
 TEST_RUNNER = "redgreenunittest.django.runner.RedGreenDiscoverRunner"
 
-STRIPE_CURRENCY = 'usd'
+STRIPE_CURRENCY = 'gbp'
 STRIPE_PUBLIC_KEY = os.getenv('STRIPE_PUBLIC_KEY', '')
 STRIPE_SECRET_KEY = os.getenv('STRIPE_SECRET_KEY', '')
 STRIPE_WH_SECRET = os.getenv('STRIPE_WH_SECRET', '')

@@ -3,6 +3,7 @@ from decimal import Decimal
 from django.shortcuts import render, redirect, reverse, get_object_or_404
 from django.contrib import messages
 from django.conf import settings
+from django import http
 
 from .forms import OrderFormPost
 from .models import OrderLineItem, Order
@@ -24,19 +25,27 @@ def checkout(request):
         return redirect(reverse('books'))
 
     if request.method == 'POST':
-        
 
-        form_data = {
-            'full_name': request.POST['full_name'],
-            'email': request.POST['email'],
-            'phone_number': request.POST['phone_number'],
-            'country': request.POST['country'],
-            'postcode': request.POST['postcode'],
-            'town_or_city': request.POST['town_or_city'],
-            'street_address1': request.POST['street_address1'],
-            'street_address2': request.POST['street_address2'],
-            'county': request.POST['county'],
-        }
+        shipping_info = request.POST['shipping-info']
+
+        if shipping_info == 'post':
+            form_data = {
+                'full_name': request.POST['full_name'],
+                'email': request.POST['email'],
+                'phone_number': request.POST['phone_number'],
+                'country': request.POST['country'],
+                'postcode': request.POST['postcode'],
+                'town_or_city': request.POST['town_or_city'],
+                'street_address1': request.POST['street_address1'],
+                'street_address2': request.POST['street_address2'],
+                'county': request.POST['county'],
+            }
+        else:
+            form_data = {
+                'full_name': request.POST['full_name'],
+                'email': request.POST['email'],
+                'phone_number': request.POST['phone_number'],
+            }
 
         print(form_data)
 
@@ -48,7 +57,7 @@ def checkout(request):
             # info to the order. This is done by setting commit=False
             # order = order_form.save(commit=False)
             order = order_form.save()
-            if request.POST['shipping-info'] == 'post':
+            if shipping_info == 'post':
                 order.shipping_option = True
                 order.save()
             # pid = request.POST.get('client_secret').split('_secret')[0]
@@ -80,15 +89,18 @@ def checkout(request):
         else:
             messages.error(request, ('There was an error with your form. '
                                      'Please double check your information.'))
+            return redirect(reverse('checkout'))
     else:
         current_bag = bag_contents(request)
         total = current_bag['total']
 
         # update grand total to include shipping cost
+        shipping_required = False
         if 'shipping-info' in request.GET:
             shipping = request.GET['shipping-info']
             if shipping == 'post':
                 total = total + Decimal(settings.SHIPPING_COST)
+                shipping_required = True
 
         stripe_total = round(total * 100)
         stripe.api_key = stripe_secret_key
@@ -103,6 +115,7 @@ def checkout(request):
             'order_form': order_form,
             'stripe_public_key': stripe_public_key,
             'client_secret': intent.client_secret,
+            'shipping_required': shipping_required,
         }
 
         return render(request, template, context)

@@ -21,9 +21,9 @@ const elements = stripe.elements();
 var style = {
 	base: {
 		color: '#000',
-		fontFamily: '"Helvetica Neue", Helvetica, sans-serif',
+		fontFamily: '"Montserrat", sans-serif',
 		fontSmoothing: 'antialiased',
-		fontSize: '16px',
+		fontSize: '1rem',
 		'::placeholder': {
 			color: '#aab7c4',
 		},
@@ -54,7 +54,7 @@ const card = elements.create(
 	// appearance,
 	{ 
 		style: style,
-	    // hidePostalCode: true
+	    hidePostalCode: true
 	}
 	);
 
@@ -65,10 +65,8 @@ card.addEventListener('change', function (event) {
 	const errorDiv = document.getElementById('card-errors');
 	if (event.error) {
 		const html = `
-            <span class="icon" role="alert">
-                <i class="fas fa-times"></i>
-            </span>
-            <span>${event.error.message}</span>
+            <div>%cross;</div>
+            <div>${event.error.message}</div>
         `;
 		errorDiv.innerHTML = html;
 	} else {
@@ -91,13 +89,6 @@ const paymentForm = document.getElementById('payment-form');
 const submitButton = document.getElementById('submit-button');
 const loadingOverlay = document.getElementById('loading-overlay')
 loadingOverlay.classList.add('loading-overlay');
-
-// Function to fade in an element
-function fadeIn(element) {
-	element.style.display = 'block';
-	element.classList.add('fade-in');
-	element.classList.remove('fade-out');
-}
 
 // Function to make a POST request using fetch
 async function post(url, data) {
@@ -122,14 +113,13 @@ function handlePaymentResult(result) {
   if (result.error) {
     const errorDiv = document.getElementById('card-errors');
     const html = `
-      <span class="icon" role="alert">
-      <i class="fas fa-times"></i>
-      </span>
-      <span>${result.error.message}</span>`;
+	  <div>&cross;</div>
+      <div> ${result.error.message}</div>`;
     errorDiv.innerHTML = html;
 
-	loadingOverlay.classList.remove('overlay');
 	toggleElement(loadingOverlay)
+	loadingOverlay.classList.remove('overlay');
+	paymentForm.style.display = 'block';
 
     // Enable card and submit button
     card.update({ disabled: false });
@@ -141,6 +131,7 @@ function handlePaymentResult(result) {
   }
 }
 
+const shippingInfo = localStorage.getItem('shipping') === 'post' ? true : false
 
 paymentForm.addEventListener('submit', event => {
 	event.preventDefault();
@@ -151,7 +142,8 @@ paymentForm.addEventListener('submit', event => {
 	paymentForm.style.display = 'none';
 
 	const saveInfoElement = document.getElementById('save-info');
-	let saveInfo = Boolean(saveInfoElement.checked);
+	let saveInfo = false;
+	saveInfo = saveInfoElement ? Boolean(saveInfoElement.checked) : false;
 	console.log('save-info: ', saveInfo);
 	// Form using {% csrf_token %} in the form
 	const csrfToken = document
@@ -228,6 +220,21 @@ paymentForm.addEventListener('submit', event => {
 	// Make the POST request and handle the card payment
 	// post(url, postData)
 	// 	.then( () => {
+		let shipping = null;
+		if (shippingInfo) {
+			shipping = {
+					name: paymentForm.full_name.value.trim(),
+					phone: paymentForm.phone_number.value.trim(),
+					address: {
+						line1: paymentForm.street_address1.value.trim(),
+						line2: paymentForm.street_address2.value.trim(),
+						city: paymentForm.town_or_city.value.trim(),
+						country: paymentForm.country.value.trim(),
+						postal_code: paymentForm.postcode.value.trim(),
+						state: paymentForm.county.value.trim(),
+					}
+				}
+			};
 	// 		return stripe.confirmCardPayment(clientSecret, {
 		stripe.confirmCardPayment(clientSecret, {
 				payment_method: {
@@ -239,18 +246,7 @@ paymentForm.addEventListener('submit', event => {
 
 					},
 				},
-				shipping: {
-					name: paymentForm.full_name.value.trim(),
-					phone: paymentForm.phone_number.value.trim(),
-					address: {
-						line1: paymentForm.street_address1.value.trim(),
-						line2: paymentForm.street_address2.value.trim(),
-						city: paymentForm.town_or_city.value.trim(),
-						country: paymentForm.country.value.trim(),
-						postal_code: paymentForm.postcode.value.trim(),
-						state: paymentForm.county.value.trim(),
-					},
-				},
+				shipping: shipping
 			})
 		// })
 		.then(result => {
