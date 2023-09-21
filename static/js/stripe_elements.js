@@ -236,23 +236,26 @@ paymentForm.addEventListener('submit', event => {
 				}
 			};
 	// 		return stripe.confirmCardPayment(clientSecret, {
-		stripe.confirmCardPayment(clientSecret, {
+		stripe
+			.confirmCardPayment(clientSecret, {
 				payment_method: {
 					card: card,
 					billing_details: {
 						name: paymentForm.full_name.value.trim(),
 						phone: paymentForm.phone_number.value.trim(),
 						email: paymentForm.email.value.trim(),
-
+						// there is no postal code in the form because it's coming from the billing address
+						// which is coming from the stripe payment and stripe would overwrite it anyway
+						// if we tried to add it
 					},
 				},
-				shipping: shipping
+				shipping: shipping,
 			})
-		// })
-		.then(result => {
-			console.log(result)
-			handlePaymentResult(result);
-		})
+			// })
+			.then((result) => {
+				console.log(result);
+				handlePaymentResult(result);
+			});
 		// .catch(() => {
 		// 	// Reload the page on failure
 		// 	location.reload();
