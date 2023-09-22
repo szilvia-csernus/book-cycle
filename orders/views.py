@@ -31,6 +31,7 @@ def cache_checkout_data(request):
         stripe.PaymentIntent.modify(pid, metadata={
             'bag': json.dumps(request.session.get('bag', {})),
             'save_info': post_data['save_info'],
+            'shipping_option': post_data['shipping_option'],
             # 'user_email': request.user.email,
         })
         return HttpResponse(status=200)
@@ -82,15 +83,13 @@ def checkout(request):
             # For optimazation, we prevent the first 'save' of the order from
             # being committed to the database until we have added the extra
             # info to the order. This is done by setting commit=False
-            # order = order_form.save(commit=False)
-            order = order_form.save()
+            order = order_form.save(commit=False)
             if shipping_info == 'post':
                 order.shipping_option = True
-                order.save()
-            # pid = request.POST.get('client_secret').split('_secret')[0]
-            # order.stripe_pid = pid
-            # order.original_bag = json.dumps(bag)
-            # order.save()
+            pid = request.POST.get('client_secret').split('_secret')[0]
+            order.stripe_pid = pid
+            order.original_bag = json.dumps(bag)
+            order.save()
             for item in bag.items():
                 stock_item = Stock.objects.get(id=item[0])
                 try:

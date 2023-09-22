@@ -25,6 +25,9 @@
 
 * How to use 'crispy_forms' without Bootstrap: https://levelup.gitconnected.com/how-to-make-your-django-forms-look-crispy-78a68000bc3f
 
+* How to access request.POST data sent using fetch request:
+https://stackoverflow.com/questions/61543829/django-taking-values-from-post-request-javascript-fetch-api
+
 ## Images
 
 * Background image: https://unsplash.com/photos/OQSCtabGkSY - Photo by [Jessica Ruscello]("https://unsplash.com/@jruscello?utm_source=unsplash&utm_medium=referral&utm_content=creditCopyText") on [Unsplash]("https://unsplash.com/photos/OQSCtabGkSY?utm_source=unsplash&utm_medium=referral&utm_content=creditCopyText")

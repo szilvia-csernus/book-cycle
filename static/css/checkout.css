@@ -135,7 +135,6 @@
 .StripeElement,
 .stripe-style-input {
   box-sizing: border-box;
-  height: 40px;
   padding: 10px 12px;
   border: 1px solid #7c7c7c;
   background-color: white;
@@ -144,6 +143,9 @@
   transition: box-shadow 150ms ease;
   margin-bottom: 1rem;
   width: 100%;
+  font-family: 'Montserrat';
+font-size: 1rem;
+font-weight: 200;
 }
 
 .StripeElement--focus,
@@ -153,7 +155,7 @@
 }
 
 .stripeElement--invalid {
-    color: red;
+    color: #dc3545;
     border-color: #fa755a;
 }
 

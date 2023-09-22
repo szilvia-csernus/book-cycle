@@ -82,8 +82,6 @@ radioButtons.forEach(function (radio) {
 	});
 });
 
-console.log(shippingInputElements)
-
 const bagLink = document.getElementById('bag-link');
 const bagElement = document.getElementById('quick-bag');
 const closeQuickBagBtn = document.getElementById('quick-bag-close-button');

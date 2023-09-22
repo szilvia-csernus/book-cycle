@@ -23,7 +23,7 @@ var style = {
 		color: '#000',
 		fontFamily: '"Montserrat", sans-serif',
 		fontSmoothing: 'antialiased',
-		fontSize: '1rem',
+		fontSize: '17px',
 		'::placeholder': {
 			color: '#aab7c4',
 		},
@@ -34,24 +34,8 @@ var style = {
 	},
 };
 
-// const appearance = {
-// 	theme: 'stripe',
-
-// 	variables: {
-// 		colorPrimary: '#0570de',
-// 		colorBackground: '#ffffff',
-// 		colorText: '#30313d',
-// 		colorDanger: '#df1b41',
-// 		fontFamily: '"Montserrat", system-ui, sans-serif',
-// 		spacingUnit: '2px',
-// 		borderRadius: '.2rem',
-// 	},
-// };
-
-
 const card = elements.create(
 	'card',
-	// appearance,
 	{ 
 		style: style,
 	    hidePostalCode: true
@@ -65,7 +49,7 @@ card.addEventListener('change', function (event) {
 	const errorDiv = document.getElementById('card-errors');
 	if (event.error) {
 		const html = `
-            <div>%cross;</div>
+            <div>&cross;</div>
             <div>${event.error.message}</div>
         `;
 		errorDiv.innerHTML = html;
@@ -90,26 +74,9 @@ const submitButton = document.getElementById('submit-button');
 const loadingOverlay = document.getElementById('loading-overlay')
 loadingOverlay.classList.add('loading-overlay');
 
-// Function to make a POST request using fetch
-async function post(url, data) {
-  return fetch(url, {
-    method: 'POST',
-    headers: {
-      'Content-Type': 'application/json;charset=UTF-8',
-    },
-    body: JSON.stringify(data),
-  })
-  .then(function(response) {
-    if (!response.ok) {
-      throw new Error('There was an error while waiting for network response.');
-    }
-    return response.text();
-  });
-}
 
 // Function to handle the result of the card payment confirmation
 function handlePaymentResult(result) {
-	console.log(result)
   if (result.error) {
     const errorDiv = document.getElementById('card-errors');
     const html = `
@@ -126,7 +93,7 @@ function handlePaymentResult(result) {
     submitButton.disabled = false;
   } else {
     if (result.paymentIntent.status === 'succeeded') {
-      paymentForm.submit();
+    //   paymentForm.submit();
     }
   }
 }
@@ -142,10 +109,9 @@ paymentForm.addEventListener('submit', event => {
 	paymentForm.style.display = 'none';
 
 	const saveInfoElement = document.getElementById('save-info');
-	let saveInfo = false;
-	saveInfo = saveInfoElement ? Boolean(saveInfoElement.checked) : false;
+	const saveInfo = saveInfoElement ? Boolean(saveInfoElement.checked) : false;
 	console.log('save-info: ', saveInfo);
-	// Form using {% csrf_token %} in the form
+	
 	const csrfToken = document
 		.querySelector('input[name="csrfmiddlewaretoken"]')
 		.value;
@@ -154,75 +120,30 @@ paymentForm.addEventListener('submit', event => {
 		csrfmiddlewaretoken: csrfToken,
 		client_secret: clientSecret,
 		save_info: saveInfo,
+		shipping_option: shippingInfo
 	};
-	const url = '/orders/checkout/';
 
-	// $.post(url, postData)
-	// 	.done(function () {
-	// 		stripe
-	// 			.confirmCardPayment(clientSecret, {
-	// 				payment_method: {
-	// 					card: card,
-	// 					billing_details: {
-	// 						name: $.trim(form.full_name.value),
-	// 						phone: $.trim(form.phone_number.value),
-	// 						email: $.trim(form.email.value),
-	// 						// there is no postal code in the form because it's coming from the billing address
-	// 						// which is coming from the stripe payment and stripe would overwrite it anyway
-	// 						// if we tried to add it
-	// 						address: {
-	// 							line1: $.trim(form.street_address1.value),
-	// 							line2: $.trim(form.street_address2.value),
-	// 							city: $.trim(form.town_or_city.value),
-	// 							country: $.trim(form.country.value),
-	// 							state: $.trim(form.county.value),
-	// 						},
-	// 					},
-	// 				},
-	// 				shipping: {
-	// 					name: $.trim(form.full_name.value),
-	// 					phone: $.trim(form.phone_number.value),
-	// 					address: {
-	// 						line1: $.trim(form.street_address1.value),
-	// 						line2: $.trim(form.street_address2.value),
-	// 						city: $.trim(form.town_or_city.value),
-	// 						country: $.trim(form.country.value),
-	// 						postal_code: $.trim(form.postcode.value),
-	// 						state: $.trim(form.county.value),
-	// 					},
-	// 				},
-	// 			})
-	// 			.then(function (result) {
-	// 				if (result.error) {
-	// 					var errorDiv = document.getElementById('card-errors');
-	// 					var html = `
-	// 						<span class="icon" role="alert">
-	// 						<i class="fas fa-times"></i>
-	// 						</span>
-	// 						<span>${result.error.message}</span>`;
-	// 					$(errorDiv).html(html);
-	// 					$('#payment-form').fadeToggle(100);
-	// 					$('#loading-overlay').fadeToggle(100);
-	// 					card.update({ disabled: false });
-	// 					$('#submit-button').attr('disabled', false);
-	// 				} else {
-	// 					if (result.paymentIntent.status === 'succeeded') {
-	// 						form.submit();
-	// 					}
-	// 				}
-	// 			});
-	// 	})
-	// 	.fail(function () {
-	// 		// just reload the page, the error will be in django messages
-	// 		location.reload();
-	// 	});
+	const url = '/orders/cache_checkout_data/';
+
 
 	// Make the POST request and handle the card payment
-	// post(url, postData)
-	// 	.then( () => {
-		let shipping = null;
-		if (shippingInfo) {
-			shipping = {
+	fetch(url, {
+		method: 'POST',
+		headers: {
+			'Content-Type': 'application/json',
+			'X-CSRFToken': csrfToken,
+		},
+		body: JSON.stringify(postData),
+	})
+		.then((response) => {
+			if (!response.ok) {
+				throw new Error(
+					'There was an error while waiting for network response.'
+				);
+			}
+			let shipping = null;
+			if (shippingInfo) {
+				shipping = {
 					name: paymentForm.full_name.value.trim(),
 					phone: paymentForm.phone_number.value.trim(),
 					address: {
@@ -232,33 +153,30 @@ paymentForm.addEventListener('submit', event => {
 						country: paymentForm.country.value.trim(),
 						postal_code: paymentForm.postcode.value.trim(),
 						state: paymentForm.county.value.trim(),
-					}
-				}
-			};
-	// 		return stripe.confirmCardPayment(clientSecret, {
-		stripe
-			.confirmCardPayment(clientSecret, {
+					},
+				};
+			}
+			return stripe.confirmCardPayment(clientSecret, {
 				payment_method: {
 					card: card,
 					billing_details: {
 						name: paymentForm.full_name.value.trim(),
 						phone: paymentForm.phone_number.value.trim(),
 						email: paymentForm.email.value.trim(),
-						// there is no postal code in the form because it's coming from the billing address
-						// which is coming from the stripe payment and stripe would overwrite it anyway
-						// if we tried to add it
+						// there is no postal code in the form because it's coming from stripe's card element
+						// and stripe would overwrite it anyway if we tried to add it
 					},
 				},
 				shipping: shipping,
-			})
-			// })
-			.then((result) => {
-				console.log(result);
-				handlePaymentResult(result);
 			});
-		// .catch(() => {
-		// 	// Reload the page on failure
-		// 	location.reload();
-		// });
+		})
+		.then((result) => {
+			console.log(result);
+			handlePaymentResult(result);
+		})
+		.catch(() => {
+			// Reload the page on failure
+			location.reload();
+		});
 });
 

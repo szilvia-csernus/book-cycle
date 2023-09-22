@@ -5,7 +5,7 @@ const toastCloseButton = document.getElementById('toast-close-button');
 
 const activateToast = () => {
     toastContainer.classList.add('toast-container-active')
-    setTimeout(closeToast, 5000);
+    // setTimeout(closeToast, 5000);
 }
 
 const closeToast = () => {
