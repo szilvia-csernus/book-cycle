@@ -18,6 +18,8 @@ from django.urls import path, include
 from django.conf import settings
 from django.conf.urls.static import static
 
+from orders.webhooks import webhook
+
 urlpatterns = [
     path('admin/', admin.site.urls),
     path('accounts/', include('allauth.urls')),
@@ -25,4 +27,5 @@ urlpatterns = [
     path('inventory/', include('inventory.urls')),
     path('shopping_bag/', include('shopping_bag.urls')),
     path('orders/', include('orders.urls')),
+    path('checkout/wh/', webhook, name='webhook')
 ] + static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
