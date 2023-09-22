@@ -1,9 +1,10 @@
 from decimal import Decimal
 
-from django.shortcuts import render, redirect, reverse, get_object_or_404
+from django.shortcuts import (render, redirect, reverse, get_object_or_404,
+                              HttpResponse)
+from django.views.decorators.http import require_POST
 from django.contrib import messages
 from django.conf import settings
-from django import http
 
 from .forms import OrderFormPost
 from .models import OrderLineItem, Order
@@ -11,6 +12,32 @@ from inventory.models import Stock
 from shopping_bag.context import bag_contents
 
 import stripe
+import json
+
+
+@require_POST
+def cache_checkout_data(request):
+    """ 
+    Cache the checkout data in order to modify the payment intent.
+    This only can be done on the backend, hence the need for this view.
+    """
+    try:
+        post_data = json.loads(request.body.decode("utf-8"))
+        print(post_data)
+        pid = post_data['client_secret'].split('_secret')[0]
+        stripe.api_key = settings.STRIPE_SECRET_KEY
+        # Add user's bag, save_info and user email to the 
+        # payment intent's metadata.
+        stripe.PaymentIntent.modify(pid, metadata={
+            'bag': json.dumps(request.session.get('bag', {})),
+            'save_info': post_data['save_info'],
+            # 'user_email': request.user.email,
+        })
+        return HttpResponse(status=200)
+    except Exception as e:
+        messages.error(request, 'Sorry, your payment cannot be \
+            processed right now. Please try again later.')
+        return HttpResponse(content=e, status=400)
 
 
 def checkout(request):
@@ -47,7 +74,7 @@ def checkout(request):
                 'phone_number': request.POST['phone_number'],
             }
 
-        print(form_data)
+        # print(form_data)
 
         order_form = OrderFormPost(form_data)
         if order_form.is_valid():
@@ -82,7 +109,7 @@ def checkout(request):
                     order.delete()
                     return redirect(reverse('view_bag'))
 
-            # Save the info to the user's profile if all is well
+            # Save the 'save_info' value to the user's session profile
             request.session['save_info'] = 'save-info' in request.POST
             return redirect(reverse('checkout_success',
                                     args=[order.order_number]))
