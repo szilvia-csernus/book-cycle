@@ -1,6 +1,5 @@
 .books-background {
     background-color: rgb(194, 207, 255);
-    border-radius: 0.2rem;
     margin: 8rem 1rem 2rem;
 }
 
@@ -28,7 +27,6 @@
     width: 50%;
     padding: 0.2rem;
     font-size: .9rem;
-    border-radius: .2rem;
     font-family: 'Montserrat', sans-serif;
 }
 
@@ -37,7 +35,6 @@
     border: 1px solid grey;
     padding: 0.3rem;
     width: 80%;
-    border-radius: 0.2rem 0 0 0.2rem;
     border-right: none;
 }
 
@@ -54,7 +51,6 @@
     background-color: white;
     border: 1px solid grey;
     border-left: none;
-    border-radius: 0 0.2rem 0.2rem 0;
 }
 
 .search-input button img {
@@ -100,7 +96,6 @@
     margin: .25rem;
     height: 52rem;
     background-color: rgb(240, 243, 255);
-    border-radius: .2rem;
     box-shadow: 2px 2px 5px #160f69;
     padding: 1rem;
 }
@@ -111,7 +106,6 @@
     right: 1rem;
     padding: .5rem .7rem;
     border: 1px solid #850083;
-    border-radius: .2rem .2rem 0 0;
     border-bottom: 0;
     cursor: pointer;
     color:#850083;
@@ -299,7 +293,6 @@
 .filter-sort-input {
     padding: 0.2rem;
     font-size: .9rem;
-    border-radius: .2rem;
 }
 
 .more-details {

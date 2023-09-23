@@ -324,7 +324,6 @@ img.bag {
 .browse input {
     display: inline;
     border: 1px inset #160f69;
-    border-radius: .2rem;
     background-color: #ededed;
     color: #1d194b;
     font-size: .9rem;
@@ -376,7 +375,6 @@ img.open-book {
     background: rgb(236 239 255);
     width: 16rem;
     padding: 0.8rem;
-    border-radius: 0.2rem;
     box-shadow: -1px 1px 3px #160f69;
     display: flex;
     flex-direction: column;

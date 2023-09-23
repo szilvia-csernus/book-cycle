@@ -96,6 +96,7 @@ const closeQuickBag = () => {
     }
     // release scrolling ban
     document.body.style.position = 'static';
+    document.body.style.width = '';
 } 
 
 /** Opens the quick bag window */
@@ -106,6 +107,7 @@ const openQuickBag = () => {
 	bagElement.classList.add('quick-bag-open');
     // prevent the background to scroll
     document.body.style.position = 'fixed';
+    document.body.style.width = '100%';
 	closeQuickBagBtn.addEventListener('click', () => {
 		closeQuickBag()
 	});
