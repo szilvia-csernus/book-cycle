@@ -6,10 +6,11 @@ from django.views.decorators.http import require_POST
 from django.contrib import messages
 from django.conf import settings
 
-from .forms import OrderFormPost
+from .forms import OrderForm
 from .models import OrderLineItem, Order
 from inventory.models import Stock
 from shopping_bag.context import bag_contents
+from shopping_bag.views import update_bag
 
 import stripe
 import json
@@ -79,7 +80,7 @@ def checkout(request):
 
         # print(form_data)
 
-        order_form = OrderFormPost(form_data)
+        order_form = OrderForm(form_data)
         if order_form.is_valid():
 
             # For optimazation, we prevent the first 'save' of the order from
@@ -112,13 +113,14 @@ def checkout(request):
 
             # Save the 'save_info' value to the user's session profile
             request.session['save_info'] = 'save-info' in request.POST
-            return redirect(reverse('checkout_success',
+            return redirect(reverse('check_stock_and_update_bag',
                                     args=[order.order_number]))
         else:
             messages.error(request, ('There was an error with your form. '
                                      'Please double check your information.'))
             return redirect(reverse('checkout'))
     else:
+        # (GET request)
         current_bag = bag_contents(request)
         total = current_bag['total']
 
@@ -137,7 +139,7 @@ def checkout(request):
             currency=settings.STRIPE_CURRENCY,
         )
 
-        order_form = OrderFormPost()
+        order_form = OrderForm()
         template = 'orders/checkout.html'
         context = {
             'order_form': order_form,
@@ -149,17 +151,79 @@ def checkout(request):
         return render(request, template, context)
 
 
+def check_stock_and_update_bag(request, order_number):
+    """
+    Check stock and update bag before payment
+    """
+    order = get_object_or_404(Order, order_number=order_number)
+    books_removed_from_bag = 0
+    for item in order.lineitems.all():
+        try:
+            stock_item = item.stock_item
+            difference = stock_item.quantity - item.quantity
+            if difference < 0:
+                # Call the remove_from_bag function with the quantity to remove
+                quantity = (difference * -1)
+                update_bag(request, stock_item.id, quantity_to_remove=quantity,
+                           redirect_url=reverse(
+                               'checkout_success', args=[order_number]))
+                books_removed_from_bag = books_removed_from_bag + quantity
+
+        except Stock.DoesNotExist:
+            messages.warning(request, (
+                "One or more of the textbooks in your order were not \
+                found in our database, we had to remove it from your bag.\n\
+                Apologies for the inconvenience!\n\
+                Please review your bag before proceeding to checkout."))
+
+        if books_removed_from_bag > 0:
+            messages.warning(request, (
+                f"One or more of the textbooks in your order were not \
+                available in the quantity you requested. \
+                We have removed {books_removed_from_bag} \
+                book(s) from your bag.\n\
+                Apologies for the inconvenience! \n\
+                Please review your bag before proceeding to checkout."))     
+
+            return redirect(reverse('view_bag'))
+
+    return HttpResponse(200)
+
+
+def update_stock(request, order_number):
+    """
+    Update stock when order is completed
+    """
+    order = get_object_or_404(Order, order_number=order_number)
+    try:
+        for item in order.lineitems.all():
+            try:
+                stock_item = item.stock_item
+                stock_item.reduce_stock(item.quantity)
+                stock_item.save()
+            except ValueError:
+                messages.error(request, (
+                    "One or more of the textbooks in your order were not "
+                    "found in our database, please call us for assistance!"))
+                return redirect(reverse('view_bag'))
+
+    except Stock.DoesNotExist:
+        messages.error(request, (
+            "One or more of the textbooks in your order were not "
+            "found in our database, please call us for assistance!"))
+
+        return redirect(reverse('view_bag'))
+
+    return redirect(reverse('checkout_success',
+                            args=[order.order_number]))
+
+
 def checkout_success(request, order_number):
     """
     Handle successful checkouts
     """
     save_info = request.session.get('save_info')
     order = get_object_or_404(Order, order_number=order_number)
-
-    for item in order.lineitems.all():
-        stock_item = item.stock_item
-        stock_item.reduce_stock(item.quantity)
-        stock_item.save()
 
     # if request.user.is_authenticated:
     #     profile = UserProfile.objects.get(user=request.user)

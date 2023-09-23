@@ -118,7 +118,7 @@ class StripeWH_Handler:
                     order.street_address1 = shipping_details.address.line1,
                     order.street_address2 = shipping_details.address.line2,
                     order.county = shipping_details.address.state,
-                    
+
                 for item in json.loads(bag).items():
                     stock_item = Stock.objects.get(id=item[0]) 
                     order_line_item = OrderLineItem(

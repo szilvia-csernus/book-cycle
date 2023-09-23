@@ -20,24 +20,28 @@
         <div class="checkout-page-frame">
             <div class="success-details-frame">
                 <h2 class="success-details-title">Order Summary </h2>
+                <div><strong>Order Number:</strong> <span>{{ order.order_number }}</span></div>
+                <div><strong>Order Date:</strong> <span id="order-date">{{ order.date|date:"d M, Y" }}
+                </span></div>
                 {% for item in order.lineitems.all %}
                 <h3 class="success-item-title">{{ item.stock_item.book.title }} - ({{ item.stock_item.condition }})</h3>
                 <div>{{ item.quantity }} @ <strong>£{{ item.stock_item.price }}</strong></div>
                 {% endfor %}
 
-                <h2 class="success-details-title">Shipping Info</h2>
+                <h2 class="success-details-title">Your Details</h2>
                 <div><strong>Name:</strong> <span>{{ order.full_name }}</span></div>
                 <div><strong>Email:</strong> <span>{{ order.email }}</span></div>
-                <div><strong>Address:</strong> <span>{{ order.street_address1 }}, 
+                <div><strong>Address:</strong> <span>
+                    {% if order.street_address1 %}{{ order.street_address1 }}, {% endif %}
                     {% if order.street_address2 %}{{ order.street_address2 }}, {% endif %} 
-                    {{ order.town_or_city }}, 
+                    {% if order.town_or_city %}{{ order.town_or_city }}, {% endif %}
                     {% if order.county %}{{ order.county }}, {% endif %} 
                     {{ order.country }}, {{ order.postcode }} </span></div>
-                <h2 class="success-details-title">Billing Info</h2>
+                <h2 class="success-details-title">Total</h2>
                 {% if  order.shipping_required %}
                 <div><strong>Delivery cost:</strong> <span>£{{ order.delivery_cost }}</span></div>
                 {% endif %}
-                <div><strong>Total:</strong> <span>£{{ order.grand_total }}</span></div>
+                <div><strong>Total Paid:</strong> <span>£{{ order.grand_total }}</span></div>
                 
                 
             </div>

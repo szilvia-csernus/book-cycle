@@ -116,11 +116,11 @@ class Stock(models.Model):
             self.blocked += 1
             self.save()
 
-    def unblock_1_stock(self):
-        if self.blocked < 1:
+    def unblock_stock(self, quantity=1):
+        if self.blocked < quantity:
             self.blocked = 0
         else:
-            self.blocked -= 1
+            self.blocked -= quantity
         self.save()
 
     def reduce_stock(self, amount):

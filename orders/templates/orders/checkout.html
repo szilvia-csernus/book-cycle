@@ -87,12 +87,8 @@
                         {{ order_form.phone_number | as_crispy_field }}
                         {{ order_form.country | as_crispy_field }}
                         {{ order_form.postcode | as_crispy_field }}
-                    </fieldset>
-                    {% if shipping_required %}
-                    <fieldset class="checkout-fieldset">
-                        <legend class="checkout-fieldset-label">Shipping Info</legend>
-                        
-                        
+                    
+                    {% if shipping_required %}   
                         {{ order_form.town_or_city | as_crispy_field }}
                         {{ order_form.street_address1 | as_crispy_field }}
                         {{ order_form.street_address2 | as_crispy_field }}
