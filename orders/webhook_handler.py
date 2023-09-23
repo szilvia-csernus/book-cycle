@@ -52,19 +52,13 @@ class StripeWH_Handler:
         pid = intent.id
         bag = intent.metadata.bag
         save_info = intent.metadata.save_info
-        shipping_option = intent.metadata.shipping_option
+        shipping_required = intent.metadata.shipping_required
         # Get the Charge object
         stripe_charge = stripe.Charge.retrieve(
             intent.latest_charge
         )
-        billing_details = stripe_charge.billing_details  # updated
+        billing_details = stripe_charge.billing_details
         shipping_details = intent.shipping
-        grand_total = round(stripe_charge.amount / 100, 2)  # updated
-
-        # Clean data in the shipping details
-        for field, value in shipping_details.address.items():
-            if value == "":
-                shipping_details.address[field] = None
 
 #         # Update profile information if save_info was checked
 #         profile = None
@@ -109,20 +103,22 @@ class StripeWH_Handler:
             order = None
             try:
                 order = Order.objects.create(
-                    full_name=shipping_details.name,
+                    full_name=billing_details.name,
                     # user_profile=profile,
                     email=billing_details.email,
-                    phone_number=shipping_details.phone,
+                    phone_number=billing_details.phone,
                     country=shipping_details.address.country,
                     postcode=shipping_details.address.postal_code,
-                    town_or_city=shipping_details.address.city,
-                    street_address1=shipping_details.address.line1,
-                    street_address2=shipping_details.address.line2,
-                    county=shipping_details.address.state,
-                    shipping_option=shipping_option,
+                    shipping_required=shipping_required,
                     original_bag=bag,
                     stripe_pid=pid,
                 )
+                if shipping_required:
+                    order.town_or_city = shipping_details.address.city,
+                    order.street_address1 = shipping_details.address.line1,
+                    order.street_address2 = shipping_details.address.line2,
+                    order.county = shipping_details.address.state,
+                    
                 for item in json.loads(bag).items():
                     stock_item = Stock.objects.get(id=item[0]) 
                     order_line_item = OrderLineItem(
@@ -140,7 +136,7 @@ class StripeWH_Handler:
 
             return HttpResponse(
                 content=(f'Webhook received: {event["type"]} | SUCCESS: '
-                        'Created order in webhook'),
+                         'Created order in webhook'),
                 status=200)
 
     def handle_payment_intent_payment_failed(self, event):

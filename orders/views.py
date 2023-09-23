@@ -31,7 +31,7 @@ def cache_checkout_data(request):
         stripe.PaymentIntent.modify(pid, metadata={
             'bag': json.dumps(request.session.get('bag', {})),
             'save_info': post_data['save_info'],
-            'shipping_option': post_data['shipping_option'],
+            'shipping_required': post_data['shipping_required'],
             # 'user_email': request.user.email,
         })
         return HttpResponse(status=200)
@@ -49,7 +49,7 @@ def checkout(request):
 
     bag = request.session.get('bag', {})
     if not bag:
-        messages.error(request, "There are no items in your bag yet")
+        messages.error(request, "There are no items in your bag.")
         return redirect(reverse('books'))
 
     if request.method == 'POST':
@@ -73,6 +73,8 @@ def checkout(request):
                 'full_name': request.POST['full_name'],
                 'email': request.POST['email'],
                 'phone_number': request.POST['phone_number'],
+                'country': request.POST['country'],
+                'postcode': request.POST['postcode'],
             }
 
         # print(form_data)
@@ -85,7 +87,7 @@ def checkout(request):
             # info to the order. This is done by setting commit=False
             order = order_form.save(commit=False)
             if shipping_info == 'post':
-                order.shipping_option = True
+                order.shipping_required = True
             pid = request.POST.get('client_secret').split('_secret')[0]
             order.stripe_pid = pid
             order.original_bag = json.dumps(bag)

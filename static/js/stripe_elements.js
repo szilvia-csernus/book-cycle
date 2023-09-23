@@ -93,7 +93,7 @@ function handlePaymentResult(result) {
     submitButton.disabled = false;
   } else {
     if (result.paymentIntent.status === 'succeeded') {
-    //   paymentForm.submit();
+      paymentForm.submit();
     }
   }
 }
@@ -120,11 +120,10 @@ paymentForm.addEventListener('submit', event => {
 		csrfmiddlewaretoken: csrfToken,
 		client_secret: clientSecret,
 		save_info: saveInfo,
-		shipping_option: shippingInfo
+		shipping_required: shippingInfo
 	};
 
 	const url = '/orders/cache_checkout_data/';
-
 
 	// Make the POST request and handle the card payment
 	fetch(url, {
@@ -141,7 +140,14 @@ paymentForm.addEventListener('submit', event => {
 					'There was an error while waiting for network response.'
 				);
 			}
-			let shipping = null;
+			let shipping = {
+					name: paymentForm.full_name.value.trim(),
+					phone: paymentForm.phone_number.value.trim(),
+					address: {
+						country: paymentForm.country.value.trim(),
+						postal_code: paymentForm.postcode.value.trim(),
+					},
+				}
 			if (shippingInfo) {
 				shipping = {
 					name: paymentForm.full_name.value.trim(),
@@ -167,7 +173,7 @@ paymentForm.addEventListener('submit', event => {
 						// and stripe would overwrite it anyway if we tried to add it
 					},
 				},
-				shipping: shipping,
+				shipping: shipping
 			});
 		})
 		.then((result) => {

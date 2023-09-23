@@ -20,7 +20,7 @@ class Order(models.Model):
     street_address2 = models.CharField(max_length=80, null=True, blank=True)
     county = models.CharField(max_length=80, null=True, blank=True)
     date = models.DateTimeField(auto_now_add=True)
-    shipping_option = models.BooleanField(default=False)
+    shipping_required = models.BooleanField(default=False)
     delivery_cost = models.DecimalField(max_digits=6, decimal_places=2,
                                         null=False, default=0)
     order_total = models.DecimalField(max_digits=10, decimal_places=2,
@@ -30,6 +30,7 @@ class Order(models.Model):
     # original bag is used when the webhook can't find the order in the db
     # and creates a new one
     original_bag = models.TextField(null=False, blank=False, default='')
+    # stripe_pid is the payment intent id
     stripe_pid = models.CharField(max_length=254, null=False, blank=False,
                                   default='')
 
@@ -52,7 +53,7 @@ class Order(models.Model):
         """
         Update delivery cost based on the shipping option selected.
         """
-        if self.shipping_option:
+        if self.shipping_required:
             self.delivery_cost = settings.SHIPPING_COST
             self.save()
 

@@ -7,7 +7,6 @@ const searchButton = document.getElementById('search-button-nr2');
 const filterSubject = document.getElementById('filter-subject');
 const filterYearGroup = document.getElementById('filter-yeargroup');
 const sortBy = document.getElementById('sort');
-console.log(sortBy.value)
 
 /** separate the 'subject_asc' etc. sort input format into sort= and direction= 
  * and set them as params in the current url.

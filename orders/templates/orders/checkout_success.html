@@ -34,7 +34,7 @@
                     {% if order.county %}{{ order.county }}, {% endif %} 
                     {{ order.country }}, {{ order.postcode }} </span></div>
                 <h2 class="success-details-title">Billing Info</h2>
-                {% if  order.shipping_option %}
+                {% if  order.shipping_required %}
                 <div><strong>Delivery cost:</strong> <span>£{{ order.delivery_cost }}</span></div>
                 {% endif %}
                 <div><strong>Total:</strong> <span>£{{ order.grand_total }}</span></div>

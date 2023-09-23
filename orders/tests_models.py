@@ -26,7 +26,7 @@ class OrderModelTestCase(TestCase):
             street_address1='123 Street',
             street_address2='Apt 456',
             county='County',
-            shipping_option=True
+            shipping_required=True
         )
 
     def test_generate_order_number(self):
@@ -60,7 +60,7 @@ class OrderLineItemModelTestCase(TestCase):
             street_address1='123 Street',
             street_address2='Apt 456',
             county='County',
-            shipping_option=True
+            shipping_required=True
         )
         self.order_line_item = OrderLineItem.objects.create(
             order=self.order,
