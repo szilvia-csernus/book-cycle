@@ -137,8 +137,12 @@ def checkout(request):
         if 'shipping-info' in request.GET:
             shipping = request.GET['shipping-info']
             if shipping == 'post':
-                total = total + Decimal(settings.SHIPPING_COST)
                 shipping_required = True
+        else:
+            shipping_required = request.session.get('shipping_required', False)
+
+        if shipping_required:
+            total = total + Decimal(settings.SHIPPING_COST)
 
         stripe_total = round(total * 100)
         stripe.api_key = stripe_secret_key
@@ -193,6 +197,11 @@ def check_stock_and_update_bag(request):
                 Please review your bag before proceeding to checkout."))     
 
             return redirect(reverse('view_bag'))
+
+    if 'shipping-info' in request.GET:
+        shipping = request.GET['shipping-info']
+        request.session['shipping_required'] = True if shipping == 'post' \
+            else False
 
     return redirect(reverse('checkout'))
 
