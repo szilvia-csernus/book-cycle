@@ -103,6 +103,10 @@ def checkout(request):
                     )
                     order_line_item.save()
                 except Stock.DoesNotExist:
+                    # This scenario would only happen if an admin deleted a
+                    # stock item from the database after a user added it to
+                    # their bag. This should never happen, as there are
+                    # other checks in place to prevent this from happening.
                     messages.error(request, (
                         "One or more of the textbooks in your bag were not "
                         "found in our database. "
@@ -111,11 +115,15 @@ def checkout(request):
                     order.delete()
                     return redirect(reverse('view_bag'))
 
-            # Save the 'save_info' value to the user's session profile
+            # Save all the info to the user's session profile
             request.session['save_info'] = 'save-info' in request.POST
-            return redirect(reverse('check_stock_and_update_bag',
+
+            return redirect(reverse('update_stock',
                                     args=[order.order_number]))
         else:
+            # This scenario would not happen if the user is using the
+            # front-end form, as the form would be validated before
+            # the user is allowed to submit the form.
             messages.error(request, ('There was an error with your form. '
                                      'Please double check your information.'))
             return redirect(reverse('checkout'))
@@ -151,22 +159,21 @@ def checkout(request):
         return render(request, template, context)
 
 
-def check_stock_and_update_bag(request, order_number):
+def check_stock_and_update_bag(request):
     """
-    Check stock and update bag before payment
+    Check stock and update bag before checkout
     """
-    order = get_object_or_404(Order, order_number=order_number)
+    bag = request.session.get('bag', {})
     books_removed_from_bag = 0
-    for item in order.lineitems.all():
+    for item in bag.items():
         try:
-            stock_item = item.stock_item
-            difference = stock_item.quantity - item.quantity
+            stock_item = Stock.objects.get(id=item[0])
+            difference = stock_item.quantity - item[1]
             if difference < 0:
-                # Call the remove_from_bag function with the quantity to remove
+                # Call the update_bag function with the quantity to remove
                 quantity = (difference * -1)
                 update_bag(request, stock_item.id, quantity_to_remove=quantity,
-                           redirect_url=reverse(
-                               'checkout_success', args=[order_number]))
+                           redirect_url=request.path)
                 books_removed_from_bag = books_removed_from_bag + quantity
 
         except Stock.DoesNotExist:
@@ -187,7 +194,7 @@ def check_stock_and_update_bag(request, order_number):
 
             return redirect(reverse('view_bag'))
 
-    return HttpResponse(200)
+    return redirect(reverse('checkout'))
 
 
 def update_stock(request, order_number):
@@ -202,17 +209,16 @@ def update_stock(request, order_number):
                 stock_item.reduce_stock(item.quantity)
                 stock_item.save()
             except ValueError:
+                # Log this error to the shop owner's issue tracker
                 messages.error(request, (
                     "One or more of the textbooks in your order were not "
                     "found in our database, please call us for assistance!"))
-                return redirect(reverse('view_bag'))
 
     except Stock.DoesNotExist:
+        # Log this error to the shop owner's issue tracker
         messages.error(request, (
             "One or more of the textbooks in your order were not "
             "found in our database, please call us for assistance!"))
-
-        return redirect(reverse('view_bag'))
 
     return redirect(reverse('checkout_success',
                             args=[order.order_number]))

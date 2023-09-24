@@ -95,7 +95,7 @@ def remove_from_bag(request, stock_id, quantity_to_remove=1):
 
 
 def update_bag(request, stock_id, quantity_to_remove, redirect_url):
-    """ GET request: Update shopping bag before payment """
+    """ GET request: Update shopping bag before checkout """
 
     try:
         stock_item = Stock.objects.get(id=stock_id)
@@ -105,9 +105,6 @@ def update_bag(request, stock_id, quantity_to_remove, redirect_url):
             quantity_to_remove = int(quantity_to_remove)
             if quantity_to_remove >= bag[str(stock_id)]:
                 bag.pop(str(stock_id))
-                messages.success(request, f'{stock_item.book.title}\
-                                 (condition: {stock_item.condition}) was\
-                                 removed from your bag')
             else:
                 bag[str(stock_id)] = bag[str(stock_id)] - quantity_to_remove
 
@@ -116,6 +113,7 @@ def update_bag(request, stock_id, quantity_to_remove, redirect_url):
 
     except Stock.DoesNotExist:
         bag.pop(str(stock_id))
+        return redirect(redirect_url)
 
     except Exception as e:
         pdb.set_trace()

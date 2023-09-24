@@ -93,7 +93,7 @@
                 <div class="bag-grand-total">Grand Total: £<span class="grand-total-number"></span></div>
                 <div class="bag-buttons">
                     <div><a href="{% url 'books' %}" class="keep-shopping-button">Keep shopping</a></div>
-                    <form action="{% url 'checkout' %}" method="GET">
+                    <form action="{% url 'check_stock_and_update_bag' %}" method="GET">
                         <input type="hidden" class="shipping-info" name="shipping-info">
                         <button class="checkout-button">Checkout</button>
                     </form>

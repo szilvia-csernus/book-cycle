@@ -87,7 +87,7 @@ class StripeWH_Handler:
 
             except Order.DoesNotExist:
                 print('order does not exist')
-                # if order is not found, the webhook will try again max 5 times 
+                # if order is not found, the webhook will try again max 5 times
                 # over 5 seconds before giving up and creating a new order
                 attempt += 1
                 time.sleep(1)
