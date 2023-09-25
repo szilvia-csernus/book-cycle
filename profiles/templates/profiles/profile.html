@@ -11,119 +11,13 @@
 {% endblock %}
 
 {% block content %}
-<a href="{% url 'home' %}" class="small-logo">
-    <img class="logo" src={% static 'svg/book-cycle-logo.svg' %} alt="book cycle logo" width="10" height="6">
-</a>
 <main>
     <div class="checkout-background">
-        <h1 class="title">Checkout</h1>
+        <h1 class="title">Your Account</h1>
         <div class="checkout-page-frame">
             <div class="checkout-details-frame">
-                <h2 class="checkout-details-title">Order Summary ({{ book_count }})</h2>
-                {% for item in bag_items %}
-                <div class="bag-item-box">
-                    <!-- item.0 holds the book object  -->
-                    <a href="{{ item.0.get_slug_url}}" class="bag-item-image-box">
-                        {% if item.0.image %}
-                        <img class="bag-item-image" src="/media/{{ item.0.image }}">
-                        {% else %}
-                        <img class="bag-item-image" src="/media/noimage.png">
-                        {% endif %}
-                    </a>
-
-                    <h3 class="bag-item-title">{{ item.0.title }}</h3>
-                    <div class="bag-item-rows">
-
-                        <!-- item.1 holds three objects in the order of "new", "good" and "fair", each of which
-                        holds the properties of the stock item: ('condition', 'price', 'quantity' and 
-                        'line_total'). -->
-                        {% for properties in item.1 %}
-                        {% if properties %}
-                        <div class="bag-item-details-box">
-                            <div class="bag-item-condition">Condition: {{ properties.condition }}</div>
-                            <div class="bag-item-quantity">{{ properties.quantity }}</div>x
-                            <div class="bag-item-price">£{{ properties.price }}</div>
-
-
-                            <div class="bag-item-total">£{{ properties.line_total }}</div>
-                        </div>
-                        {% endif %}
-                        {% endfor %}
-                    </div>
-                </div>
-                {% endfor %}
-                <div class="bag-total">Bag Total: £<span class="bag-total-number">{{ total }}</span></div>
-                <div class="bag-shipping">
-                    <form id="shipping-option-form" action="{% url 'checkout' %}" method="GET">
-                        <div>
-                            <label class="radio-button">
-                                Shipping (UK) - £{{ shipping_cost|floatformat:2 }}
-                                <input class="radio-button" type="radio" name="shipping-info" value="post">
-                            </label>
-                        </div>
-                        <div>
-                            <label class="radio-button">
-                                Pickup in school - free
-                                <input class="radio-button" type="radio" name="shipping-info" value="pickup">
-                            </label>
-                        </div>
-                    </form>
-                </div>
-                <!-- Grand Total is calculated in javascript.  -->
-                <div class="bag-grand-total">Grand Total: £<span class="grand-total-number"></span></div>
-                <div class="bag-buttons">
-                    <a href="{% url 'view_bag' %}" class="edit-bag-button">
-                        Edit Bag
-                    </a>
-                </div>
-            </div>
-            <div class="checkout-form-frame">
-                <form action="{% url 'checkout'%}" method="POST" id="payment-form">
-                    {% csrf_token %}
-                    <fieldset class="checkout-fieldset">
-                        <legend class="checkout-fieldset-label">Your Details</legend>
-                        {{ order_form.full_name | as_crispy_field }}
-                        {{ order_form.email | as_crispy_field }}
-                        {{ order_form.phone_number | as_crispy_field }}
-                        {{ order_form.country | as_crispy_field }}
-                        {{ order_form.postcode | as_crispy_field }}
-
-                        {% if shipping_required %}
-                        {{ order_form.town_or_city | as_crispy_field }}
-                        {{ order_form.street_address1 | as_crispy_field }}
-                        {{ order_form.street_address2 | as_crispy_field }}
-                        {{ order_form.county | as_crispy_field }}
-
-                        <div class="checkout-form-info">
-                            {% if user.is_authenticated %}
-                            <label for="save-info">Save this delivery information to my profile</label>
-                            <input class="checkbox" type="checkbox" id="save-info" name="save-info" checked>
-                            {% else %}
-                            <a href="{% url 'account_signup' %}">Create an account </a> or
-                            <a href="{% url 'account_login' %}">login </a> to save this information.
-                            {% endif %}
-                        </div>
-                    </fieldset>
-                    {% endif %}
-                    <fieldset class="checkout-fieldset">
-                        <legend class="checkout-fieldset-label">Payment</legend>
-                        <!-- A Stripe card element will go here -->
-                        <div class="" id="card-element"></div>
-                        <!-- Used to display form errors -->
-                        <div class="card-errors" id="card-errors" role="alert"></div>
-                        <!-- Pass the client secret to the view so we can get the payment intent id -->
-                        <input type="hidden" value="{{ client_secret }}" name="client_secret">
-                    </fieldset>
-                    <input type="hidden" class="shipping-info" name="shipping-info">
-                    <p class="checkout-form-info">
-                        &#9432; Your card will be charged <strong>£</strong><strong class="grand-total-number"></strong>
-                    </p>
-                    <div class="bag-buttons">
-                        <button id="submit-button" type="submit" class="checkout-button">
-                            Complete Order
-                        </button>
-                    </div>
-                </form>
+                <h2 class="checkout-details-title">Your Order History</h2>
+                {{ profile }}
             </div>
 
         </div>
@@ -135,11 +29,3 @@
 {% include 'includes/footer.html' %}
 {% endblock %}
 
-{% block postload %}
-{{ block.super }}
-{{ stripe_public_key|json_script:"id_stripe_public_key" }}
-{{ client_secret|json_script:"id_client_secret" }}
-<script src="{% static 'js/checkout.js' %}"></script>
-<link rel="stylesheet" href="{% static 'css/loader.css' %}">
-<script src="{% static 'js/stripe_elements.js' %}"></script>
-{% endblock %}
