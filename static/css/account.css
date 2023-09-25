@@ -22,9 +22,8 @@
     max-width: 26.5rem;
 }
 
-.account-form-frame label {
-    display: inline-block;
-    padding-top: 1rem;
+.account-form-frame label:not([for='id_remember']) {
+    display: none;
 }
 
 .account-form-frame input {
@@ -33,6 +32,7 @@
     font-family: 'Montserrat';
     padding: 0.4rem;
     font-size: .9rem;
+    margin-top: 1.5rem;
 }
 
 .account-details-frame a {
@@ -48,6 +48,7 @@
     margin: 2rem 0 1rem;
     cursor: pointer;
     font-size: .9rem;
+    
 }
 
 

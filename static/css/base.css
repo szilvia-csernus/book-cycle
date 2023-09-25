@@ -220,8 +220,8 @@ img.bag {
 
 @media screen and (min-width: 1442px) {
     header {
-        left: calc(50% - 721px + 2rem);
-        right: calc(50% - 721px + 2rem);
+        left: calc(50% - 721px);
+        right: calc(50% - 721px);
         padding-left: 1.25rem;
         padding-right: 1.25rem;
     }
