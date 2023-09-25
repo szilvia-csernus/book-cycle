@@ -18,7 +18,7 @@ import json
 
 @require_POST
 def cache_checkout_data(request):
-    """ 
+    """
     Cache the checkout data in order to modify the payment intent.
     This only can be done on the backend, hence the need for this view.
     """
@@ -27,7 +27,7 @@ def cache_checkout_data(request):
         print(post_data)
         pid = post_data['client_secret'].split('_secret')[0]
         stripe.api_key = settings.STRIPE_SECRET_KEY
-        # Add user's bag, save_info and user email to the 
+        # Add user's bag, save_info and user email to the
         # payment intent's metadata.
         stripe.PaymentIntent.modify(pid, metadata={
             'bag': json.dumps(request.session.get('bag', {})),
@@ -194,7 +194,7 @@ def check_stock_and_update_bag(request):
                 We have removed {books_removed_from_bag} \
                 book(s) from your bag.\n\
                 Apologies for the inconvenience! \n\
-                Please review your bag before proceeding to checkout."))     
+                Please review your bag before proceeding to checkout."))
 
             return redirect(reverse('view_bag'))
 

@@ -28,7 +28,7 @@
 .checkout-details-frame {
     display: flex;
     flex-direction: column;
-    min-width: 20rem;
+    width: 99%;
     max-width: 30rem;
 }
 
@@ -80,7 +80,6 @@
         margin-left: 1.5rem;
         margin-right: 1.5rem;
     }
-
 }
 
 @media screen and (min-width: 455px) {
@@ -100,10 +99,12 @@
         grid-row-start: 1;
         grid-row-end: span2;
     }
-
     .checkout-page-frame .bag-item-rows {
         grid-column-start: 2;
         font-size: .9rem;
+    }
+    .checkout-details-frame {
+        max-width: 26.4rem;
     }
 }
 
