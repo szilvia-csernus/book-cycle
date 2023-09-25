@@ -52,13 +52,13 @@
                 <a href="{% url 'account_login' %}" class="mobile">
                     <img class="user" src="{% static 'svg/user-icon.svg' %}" alt="user icon" width="22" height="26">
                 </a>
-                <a href="{% url 'account_logout' %}" class="desktop">
+                <a href="{% url 'profile' %}" class="desktop">
                     Account
                 </a>
                 <a href="{% url 'account_logout' %}" class="desktop">
                     Sign Out
                 </a>
-                <a href="{% url 'account_logout' %}" class="email">
+                <a href="{% url 'profile' %}" class="email">
                     {{ request.user.email }}
                 </a>
                 
@@ -102,9 +102,10 @@
     
     {% include 'shopping_bag/quick_bag.html' %}
 
-    {% block postload %}
     <script src="{% static 'js/menu.js' %}" type="module"></script>
     <script src="{% static 'js/bag.js' %}" type="module"></script>
+    
+    {% block postload %}
     {% endblock %}
 
 

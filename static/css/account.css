@@ -1,0 +1,81 @@
+.account-background {
+    background-color: rgb(240, 243, 255);
+    padding: 2rem;
+    margin: 8rem 1rem 2rem;
+}
+
+.account-details-frame {
+    margin: auto;
+}
+
+.account-details-title {
+    margin-bottom: 1.5rem;
+    text-transform: uppercase;
+    border-top: 1px solid purple;
+    border-bottom: 1px solid purple;
+    padding: 1rem 0;
+}
+
+.account-form-frame {
+    flex-grow: 1;
+    width: 100%;
+    max-width: 26.5rem;
+}
+
+.account-form-frame label {
+    display: inline-block;
+    padding-top: 1rem;
+}
+
+.account-form-frame input {
+    width: 100%;
+    border: 1px solid lightgray;
+    font-family: 'Montserrat';
+    padding: 0.4rem;
+    font-size: .9rem;
+}
+
+.account-details-frame a {
+    color: #160f69;
+}
+
+.account-button {
+    border: 1px solid #850083;
+    padding: 0.5rem 2rem;
+    color: white;
+    background-color: #850083;
+    text-transform: uppercase;
+    margin: 2rem 0 1rem;
+    cursor: pointer;
+    font-size: .9rem;
+}
+
+
+@media screen and (min-width: 416px) {
+    .account-background {
+        margin-left: 1.5rem;
+        margin-right: 1.5rem;
+    }
+}
+
+@media screen and (min-width: 500px) {
+    
+    .account-details-frame {
+        max-width: 26.4rem;
+    }
+}
+
+@media screen and (min-width: 1200px) {
+    .account-page-frame {
+        flex-direction: row;
+        justify-content: space-around;
+        align-items: flex-start;
+    }
+}
+
+@media screen and (min-width: 1442px) {
+    .account-background {
+        margin-left: calc(50% - 721px + 2rem);
+        margin-right: calc(50% - 721px + 2rem);
+    }
+}

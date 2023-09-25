@@ -27,5 +27,6 @@ urlpatterns = [
     path('inventory/', include('inventory.urls')),
     path('shopping_bag/', include('shopping_bag.urls')),
     path('orders/', include('orders.urls')),
+    path('profile/', include('profiles.urls')),
     path('checkout/wh/', webhook, name='webhook')
 ] + static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
