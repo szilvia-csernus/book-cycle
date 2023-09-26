@@ -69,6 +69,21 @@
     display: inline-block;
 }
 
+.order-history-details-box {
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr 1fr;
+    text-align: center;
+    gap: 0.2rem;
+}
+
+.order-number {
+    text-align: left;
+}
+
+.total-paid {
+    text-align: right;
+}
+
 .no-purchase {
     margin: 3rem 0;
     padding: 0 .4rem;

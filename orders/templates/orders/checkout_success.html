@@ -44,7 +44,11 @@
                 <div><strong>Total Paid:</strong> <span>£{{ order.grand_total }}</span></div>
                 
             </div>
+            {% if from_profile %}
+            <a href="{% url 'profile' %}" class="keep-shopping">Back to Profile</a>
+            {% else %}
             <a href="{% url 'books' %}" class="keep-shopping">Back to Books</a>
+            {% endif %}
         </div>
     </div>
 </main>

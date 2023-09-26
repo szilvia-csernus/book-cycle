@@ -35,14 +35,28 @@
             </div>
             <div class="account-form-frame">
                 <h2 class="account-details-title">Your Order History</h2>
-                {{ orders }}
-                {% if orders %}
+                {% if orders|length > 0 %}
+                <div class="order-history-details-box">
+                    <div class="order-number"><strong>Order Number</strong></div>
+                    <div><strong>Date</strong></div>
+                    <div><strong>Shipping required</strong></div>
+                    <div class="total-paid"><strong>Total Paid</strong></div>
                     {% for order in orders %}
-                    <div class="bag-item-box">
-                        {{ order.date }}
-                    
+                    <div class="order-number">
+                        <a href="{% url 'order_history' order.order_number %}" title="{{ order.order_number }}"> 
+                            {{ order.order_number|truncatechars:8 }}</a>
+                    </div>
+                    <div class="">
+                        {{ order.date|date:"d M, Y" }}
+                    </div>
+                    <div class="">
+                        {% if order.shipping_required %}&check;{% else %}&cross; {% endif %}
+                    </div>
+                    <div class="total-paid">
+                        <strong>£{{ order.grand_total }}</strong>
                     </div>
                     {% endfor %}
+                </div>
                 {% else %}
                 <div class="no-purchase">You haven't made a purchase with us yet.</div>
                 {% endif %}

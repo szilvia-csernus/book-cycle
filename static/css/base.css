@@ -318,7 +318,7 @@ img.bag {
     line-height: 1rem;
     color:#120791;
     cursor: pointer;
-    margin-right: 0.1rem;
+    margin-right: 0.4rem;
     margin-top: 0.2rem;
     z-index: 3;
 }
@@ -369,7 +369,7 @@ img.open-book {
 
 .toast-container-active {
     display: block;
-    width: 16rem;
+    width: 21rem;
     box-shadow: -1px 1px 3px #160f69;
 }
 

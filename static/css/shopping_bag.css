@@ -226,7 +226,7 @@
     padding: 1rem;
     z-index: 3;
     max-height: 100vh;
-    overflow: scroll;
+    overflow-y: scroll;
 }
 
 
