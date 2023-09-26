@@ -4,6 +4,12 @@
     margin: 8rem 1rem 2rem;
 }
 
+.account-page-frame {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
 .account-details-frame {
     margin: auto;
 }
@@ -13,7 +19,15 @@
     text-transform: uppercase;
     border-top: 1px solid purple;
     border-bottom: 1px solid purple;
-    padding: 1rem 0;
+    padding: 1rem 0.4rem;
+}
+
+.account-details-box {
+    display: flex;
+    flex-direction: column;
+    height: 8rem;
+    justify-content: center;
+    margin-left: 0.4rem;
 }
 
 .account-form-frame {
@@ -26,13 +40,17 @@
     display: none;
 }
 
-.account-form-frame input {
+.account-form-frame .textinput,
+.account-form-frame .emailinput,
+.account-form-frame .lazyselect {
     width: 100%;
     border: 1px solid lightgray;
     font-family: 'Montserrat';
+    background: white;
     padding: 0.4rem;
     font-size: .9rem;
     margin-top: 1.5rem;
+    font-weight: 300;
 }
 
 .account-details-frame a {
@@ -45,10 +63,15 @@
     color: white;
     background-color: #850083;
     text-transform: uppercase;
-    margin: 2rem 0 1rem;
+    margin: 1.5rem 0;
     cursor: pointer;
     font-size: .9rem;
-    
+    display: inline-block;
+}
+
+.no-purchase {
+    margin: 3rem 0;
+    padding: 0 .4rem;
 }
 
 
@@ -66,7 +89,7 @@
     }
 }
 
-@media screen and (min-width: 1200px) {
+@media screen and (min-width: 1000px) {
     .account-page-frame {
         flex-direction: row;
         justify-content: space-around;
