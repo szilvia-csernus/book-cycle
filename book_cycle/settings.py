@@ -37,14 +37,14 @@ ALLOWED_HOSTS = []
 
 INSTALLED_APPS = [
     'django.contrib.admin',
-    'django.contrib.auth',
+    'django.contrib.auth',  # also needed for allauth
     'django.contrib.contenttypes',
     'django.contrib.sessions',
-    'django.contrib.messages',
+    'django.contrib.messages',  # also needed for allauth
     'django.contrib.staticfiles',
+    'django.contrib.sites',
 
     # for allauth
-    'django.contrib.sites',
     'allauth',
     'allauth.account',
     'allauth.socialaccount',
@@ -183,6 +183,7 @@ AUTHENTICATION_BACKENDS = [
 # for allauth
 SITE_ID = 1
 ACCOUNT_AUTHENTICATION_METHOD = 'email'
+ACCOUNT_USERNAME_REQUIRED = False
 ACCOUNT_EMAIL_REQUIRED = True
 ACCOUNT_CONFIRM_EMAIL_ON_GET = True
 ACCOUNT_EMAIL_VERIFICATION = 'mandatory'
@@ -194,8 +195,13 @@ ACCOUNT_EMAIL_VERIFICATION = 'mandatory'
 # assuming users didn’t close their browser or used some sort of
 # private browsing mode.
 ACCOUNT_LOGIN_ON_EMAIL_CONFIRMATION = True
+ACCOUNT_LOGIN_ON_PASSWORD_CHANGE = True
+ACCOUNT_LOGIN_ON_PASSWORD_RESET = True
 ACCOUNT_SESSION_REMEMBER = True
 ACCOUNT_USERNAME_REQUIRED = False
+ACCOUNT_UNIQUE_EMAIL = True
+ACCOUNT_FORMS = {'signup': 'profiles.forms.CustomSignupForm'}
+ACCOUNT_SIGNUP_VIEW = 'yourapp.views.CustomSignupView'
 SOCIALACCOUNT_EMAIL_VERIFICATION = 'none'
 SOCIALACCOUNT_PROVIDERS = {
     "google": {

@@ -2,7 +2,7 @@
 {% load static %}
 
 {% block extra_css %}
-<link rel="stylesheet" href="{% static 'css/checkout.css' %}">
+<link rel="stylesheet" href="{% static 'css/account.css' %}">
 
 {% endblock %}
 
@@ -12,14 +12,41 @@
 
 {% block content %}
 <main>
-    <div class="checkout-background">
+    <div class="account-background">
         <h1 class="title">Your Account</h1>
-        <div class="checkout-page-frame">
-            <div class="checkout-details-frame">
-                <h2 class="checkout-details-title">Your Order History</h2>
-                {{ profile }}
+        <div class="account-page-frame">
+            <div class="account-form-frame">
+                <h2 class="account-details-title">Personal Information</h2>
+                <div class="account-details-box">
+                <p>Name: {{ full_name }}</p>
+                <p>Email: {{ user.email }}</p>
+                <p><a href="{% url 'account_change_password' %}" class="account-button">
+                    Change password
+                </a></p>
+                </div>
+                <h2 class="account-details-title">Default Delivery Information</h2>
+                <form action="{% url 'profile'%}" method="POST" id="profile-update-form">
+                    {% csrf_token %}
+                    {{ form|crispy}}
+                    <button id="submit-button" type="submit" class="account-button">
+                        Save Delivery Info
+                    </button>
+                </form>
             </div>
-
+            <div class="account-form-frame">
+                <h2 class="account-details-title">Your Order History</h2>
+                {{ orders }}
+                {% if orders %}
+                    {% for order in orders %}
+                    <div class="bag-item-box">
+                        {{ order.date }}
+                    
+                    </div>
+                    {% endfor %}
+                {% else %}
+                <div class="no-purchase">You haven't made a purchase with us yet.</div>
+                {% endif %}
+            </div>
         </div>
     </div>
 </main>
