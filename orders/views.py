@@ -29,9 +29,9 @@ def cache_checkout_data(request):
         print(post_data)
         pid = post_data['client_secret'].split('_secret')[0]
         stripe.api_key = settings.STRIPE_SECRET_KEY
-        # Add user's bag, save_info and user email to the
-        # payment intent's metadata.
+        # Add user info to the payment intent's metadata.
         stripe.PaymentIntent.modify(pid, metadata={
+            'username': request.user,
             'bag': json.dumps(request.session.get('bag', {})),
             'save_info': post_data['save_info'],
             'shipping_required': post_data['shipping_required'],

@@ -4,8 +4,8 @@ from django.template.loader import render_to_string
 from django.conf import settings
 
 from .models import Order, OrderLineItem
-from inventory.models import Book, Stock
-# from profiles.models import UserProfile
+from inventory.models import Stock
+from profiles.models import UserProfile
 
 import stripe
 import json
@@ -60,20 +60,22 @@ class StripeWH_Handler:
         billing_details = stripe_charge.billing_details
         shipping_details = intent.shipping
 
-#         # Update profile information if save_info was checked
-#         profile = None
-#         username = intent.metadata.username
-#         if username != 'AnonymousUser':
-#             profile = UserProfile.objects.get(user__username=username)
-#             if save_info:
-#                 profile.default_phone_number = shipping_details.phone
-#                 profile.default_country = shipping_details.address.country
-#                 profile.default_postcode = shipping_details.address.postal_code
-#                 profile.default_town_or_city = shipping_details.address.city
-#                 profile.default_street_address1 = shipping_details.address.line1
-#                 profile.default_street_address2 = shipping_details.address.line2
-#                 profile.default_county = shipping_details.address.state
-#                 profile.save()
+        # Update profile information if save_info was checked
+        profile = None
+        username = intent.metadata.username
+        if username != 'AnonymousUser':
+            profile = UserProfile.objects.get(user__username=username)
+            if save_info:
+                profile.default_phone_number = shipping_details.phone
+                profile.default_country = shipping_details.address.country
+                profile.default_postcode = shipping_details.address.postal_code
+                profile.default_town_or_city = shipping_details.address.city
+                profile.default_street_address1 =\
+                    shipping_details.address.line1
+                profile.default_street_address2 =\
+                    shipping_details.address.line2
+                profile.default_county = shipping_details.address.state
+                profile.save()
 
         order_exists = False
         attempt = 1
@@ -103,8 +105,8 @@ class StripeWH_Handler:
             order = None
             try:
                 order = Order.objects.create(
+                    user_profile=profile,
                     full_name=billing_details.name,
-                    # user_profile=profile,
                     email=billing_details.email,
                     phone_number=billing_details.phone,
                     country=shipping_details.address.country,
@@ -120,7 +122,7 @@ class StripeWH_Handler:
                     order.county = shipping_details.address.state,
 
                 for item in json.loads(bag).items():
-                    stock_item = Stock.objects.get(id=item[0]) 
+                    stock_item = Stock.objects.get(id=item[0])
                     order_line_item = OrderLineItem(
                         order=order,
                         stock_item=stock_item,
@@ -132,7 +134,7 @@ class StripeWH_Handler:
                     order.delete()
                 return HttpResponse(
                     content=f'Webhook received: {event["type"]} | ERROR: {e}',
-                    status=500)            
+                    status=500)
 
             return HttpResponse(
                 content=(f'Webhook received: {event["type"]} | SUCCESS: '
