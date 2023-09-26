@@ -23,8 +23,6 @@ const removeToastContainer = () => {
     }
 }
 
-
-
 toastCloseButton.addEventListener('click', () => {
     closeToast()
 });

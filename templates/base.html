@@ -85,11 +85,17 @@
     
     {% if messages %}
     <div id="toast-container" class="toast-container">
-        {% for message in messages %}
-            {% with message.level as level %}
-                {% include 'includes/toast.html' with level=level %}
-            {% endwith %}
-        {% endfor%}
+        <div id="toast" class="toast">
+            <div class="triangle"></div>
+            <div id="toast-close-button" class="close-button">
+                &#9747;
+            </div>
+            {% for message in messages %}
+                {% with message.level as level %}
+                    {% include 'includes/toast.html' with level=level %}
+                {% endwith %}
+            {% endfor%}
+        </div>
     </div>
     <script src="{% static 'js/toast.js' %}" type="module"></script>
     {% endif %}
@@ -104,7 +110,7 @@
 
     <script src="{% static 'js/menu.js' %}" type="module"></script>
     <script src="{% static 'js/bag.js' %}" type="module"></script>
-    
+
     {% block postload %}
     {% endblock %}
 

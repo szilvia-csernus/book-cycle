@@ -222,14 +222,14 @@ img.bag {
     header {
         left: calc(50% - 721px);
         right: calc(50% - 721px);
-        padding-left: 1.25rem;
-        padding-right: 1.25rem;
+        padding-left: 2rem;
+        padding-right: 2rem;
     }
     .book-nr {
         left: 0.33rem;
     }
     .email {
-        right: 1.25rem;
+        right: 2rem;
     }
 }
 
@@ -319,6 +319,8 @@ img.bag {
     color:#120791;
     cursor: pointer;
     margin-right: 0.1rem;
+    margin-top: 0.2rem;
+    z-index: 3;
 }
 
 .browse input {
@@ -367,15 +369,15 @@ img.open-book {
 
 .toast-container-active {
     display: block;
+    width: 16rem;
+    box-shadow: -1px 1px 3px #160f69;
 }
 
 .toast {
     opacity: 0;
+    padding: 0.2rem 0.5rem 1rem;
     transition: opacity .5s linear;
-    background: rgb(236 239 255);
-    width: 16rem;
-    padding: 0.8rem;
-    box-shadow: -1px 1px 3px #160f69;
+    background: white;
     display: flex;
     flex-direction: column;
     animation: appear .5s linear .2s forwards;
@@ -407,11 +409,10 @@ img.open-book {
     width: 0.8rem;
     height: 0.8rem;
     transform: rotate(45deg);
-    background-color: rgb(236 239 255);
+    background-color: white;
     position: absolute;
     top: -0.4rem;
     right: 1rem;
-
 }
 
 .toast h2 {
@@ -446,6 +447,6 @@ img.open-book {
 
 @media screen and (min-width: 1442px) {
     .toast-container {
-        right: calc(50% - 721px + 2.5rem);
+        right: calc(50% - 721px + 1.6rem);
     }
 }
