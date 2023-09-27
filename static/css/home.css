@@ -30,8 +30,7 @@ main img.logo {
     font-family: 'KoHo';
     color: #160f69;
     background-color: #1ED446;
-    border: 2px solid #160f69;
-    border-radius: 4rem;
+    border: 1px solid #160f69;
     display: inline;
     padding: .5rem 3rem 1rem;
     text-decoration: none;

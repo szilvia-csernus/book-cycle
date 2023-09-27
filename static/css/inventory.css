@@ -267,7 +267,6 @@
     padding: 0.2rem;
     font-weight: bold;
     color: #160f69;
-    border-radius: 1.6rem;
     background-color: #1ED446;
     cursor: pointer;
     width: 100%;
@@ -325,6 +324,10 @@
 
 .detail-page-frame {
     max-width: 20rem;
+}
+
+.detail-page-frame .book-title {
+    min-height: unset;
 }
 
 .detail-page-frame img {
@@ -412,7 +415,6 @@
     font-weight: bold;
     font-size: .9rem;
     color: #160f69;
-    border-radius: 1.6rem;
     background-color: #1ED446;
     cursor: pointer;
 }
@@ -447,7 +449,6 @@
     font-size: .8rem;
     font-weight: bold;
     color: #160f69;
-    border-radius: 1.6rem;
     background-color: #1ED446;
     cursor: pointer;
     width: 100%;
