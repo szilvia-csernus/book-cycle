@@ -55,7 +55,6 @@ html {
 }
 
 main {
-    min-height: 85dvh;
     width: 100%;
 }
 
@@ -95,7 +94,8 @@ header {
     justify-content: space-between;
     align-items: center;
     max-width: 1442px;
-    font-size: 1.1rem;
+    font-family: 'Montserrat';
+    font-size: 1rem;
     background-color:#160f69;
     background: linear-gradient(to bottom, #160f69, #500080, #160f69, #500080, #160f69);
     background-size: 100vw 100vh;
@@ -242,6 +242,7 @@ img.bag {
     background: linear-gradient(to bottom, #fcfafa, #332a8f);
     transition: left 0.4s ease;
     color: #1d194b;
+    font-family: 'Montserrat';
     padding: 1rem;
     z-index: 3;
 }
@@ -438,7 +439,6 @@ img.open-book {
 .toast-info {
     border-bottom: 1px solid #160f69;
 }
-
 
 .toast-capper {
     height: 2px;

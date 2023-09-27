@@ -5,18 +5,58 @@
 
 /* --------------------------------- Filter - Sort styles -----  */
 
-.filter-sort-search-box {
-    padding: 1rem .25rem 0;
+.filter-sort-search-frame {
     display: flex;
+    flex-direction: column;
+    padding: 2rem 0.5rem 0;
+    align-items: stretch;
+}
+
+.search-filter-buttons-box {
+    display: flex;
+    justify-content: center;
+    gap: .5rem;
+}
+
+.search-filter-button {
+    border: 1px solid #57008a;
+    background-color: white;
+    color: #57008a;
+    width: 4.5rem;
+    text-align: center;
+    font-size: .7rem;
+    font-family: 'Montserrat';
+    font-weight: bold;
+    padding: .1rem;
+    cursor: pointer;
+}
+
+.search-filter-button.active {
+    color: white;
+    background: linear-gradient(to bottom, #42218d, #590c87);
+}
+
+.filter-sort-search-box {
+    opacity: 0;
+    height: 0;
+    padding: 1rem 0;
     flex-direction: column;
     font-family: 'Montserrat', sans-serif;
     font-weight: bold;
+    transition: opacity .5s;
+}
+
+.filter-sort-search-box.active {
+    opacity: 1;
+    height: unset;
 }
 
 .filter-sort-input {
     display: flex;
     justify-content: space-between;
     padding-bottom: 0;
+    padding: 0.2rem 0;
+    font-size: .8rem;
 }
 
 .filter-sort-input label {
@@ -116,9 +156,6 @@
 	.gallery {
         padding: 1rem;
 	}
-    .filter-sort-search-box {
-        padding: 1rem 1rem 0 1rem;
-	}
     .books-background {
         margin-left: 1.5rem;
         margin-right: 1.5rem;
@@ -126,27 +163,38 @@
     .book-count {
         margin: 1.25rem 1.25rem 0 1.25rem;
     }
+
 }
 
 @media screen and (min-width: 450px) {
 	.gallery {
         padding: 1rem 2rem 2rem 2rem;
 	}
+    .search-filter-buttons-box {
+        gap: 0.2rem;
+    }
+    .filter-sort-search-frame {
+        align-items: center;
+    }
     .filter-sort-search-box {
-        padding: 2rem 2rem 0 2rem;
-	}
+        min-width: 22rem;
+    }
     .book-count {
         margin-left: 2.25rem;
         margin-right: 2.25rem;
+    }
+    .search-filter-button {
+        font-size: .8rem;
+        padding: .2rem .5rem;
+    }
+    .filter-sort-input {
+        font-size: .9rem;
     }
 }
 
 @media screen and (min-width: 500px) {
 	.gallery {
         padding: 1rem 3rem 3rem 3rem;
-	}
-    .filter-sort-search-box {
-        padding: 2rem 3rem 0 3rem;
 	}
     .book-count {
         margin-left: 3.25rem;
@@ -158,9 +206,9 @@
 	.gallery {
         padding: 1rem 4rem 4rem 4rem;
 	}
-    .filter-sort-search-box {
-        padding: 2rem 4rem 0 4rem;
-	}
+    .search-filter-buttons-box {
+        gap: 0.5rem;
+    }
     .book-count {
         margin-left: 4.25rem;
         margin-right: 4.25rem;
@@ -172,19 +220,13 @@
 		grid-template-columns: 50% 50%;
         padding: 1rem;
 	}
-    .filter-sort-search-box {
-        padding: 1rem 1rem 0 1rem;
-	}
-    .filter-sort-input,
     .search-term-box {
         justify-content: flex-end;
     }
     .filter-select {
-        width: 40%;
         margin-left: 1rem;
     }
     .search-input-box {
-        width: 40%;
         margin-left: 1rem;
     }
     .filter-search {
@@ -195,6 +237,10 @@
         margin-left: 1.25rem;
         margin-right: 1.25rem;
     }
+    .search-filter-button {
+        font-size: .9rem;
+        width: 6rem;
+    }
 }
 
 
@@ -202,9 +248,6 @@
 	.gallery {
 		grid-template-columns: 33.33% 33.33% 33.33%;
 	}
-    .filter-sort-search-box {
-        margin-right: 33.33%;
-    }
     .filter-select {
         margin-left: 1rem;
     }
@@ -287,11 +330,6 @@
     font-weight: bold;
     font-size: 1.7rem;
     color: #6f0080;
-}
-
-.filter-sort-input {
-    padding: 0.2rem;
-    font-size: .9rem;
 }
 
 .more-details {

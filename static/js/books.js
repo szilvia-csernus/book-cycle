@@ -1,5 +1,15 @@
 const currentUrl = new URL(window.location);
 const searchValue = currentUrl.searchParams.get('search');
+const subjectValue = currentUrl.searchParams.get('subject');
+const sortValue = currentUrl.searchParams.get('sort');
+const yearGroupValue = currentUrl.searchParams.get('year_group');
+
+const allBooksBtn = document.getElementById('all-books')
+const year7to9Btn = document.getElementById('year7-9')
+const gcseBtn = document.getElementById('gcse')
+const aLevelBtn = document.getElementById('a-level')
+const moreOptionsBtn = document.getElementById('more-options')
+const filterSortBox = document.getElementById('filter-sort-search-box')
 
 const searchTermElement = document.getElementById('search-input-nr2');
 searchTermElement.value = searchValue
@@ -7,6 +17,74 @@ const searchButton = document.getElementById('search-button-nr2');
 const filterSubject = document.getElementById('filter-subject');
 const filterYearGroup = document.getElementById('filter-yeargroup');
 const sortBy = document.getElementById('sort');
+
+if (searchValue || subjectValue || sortValue) {
+    moreOptionsBtn.classList.add('active');
+    filterSortBox.classList.add('active');
+    allBooksBtn.classList.remove('active');
+}
+else {
+    if (yearGroupValue) {
+        allBooksBtn.classList.remove('active');
+        if (yearGroupValue === 'year7-9') {
+            year7to9Btn.classList.add('active')
+            }
+        else if (yearGroupValue === 'gcse') {
+                gcseBtn.classList.add('active');
+            }
+        else if (yearGroupValue === 'a-level') {
+                aLevelBtn.classList.add('active');
+            }
+    }
+}
+
+year7to9Btn.addEventListener('click', () => {
+    currentUrl.search = '';
+    currentUrl.searchParams.set('year_group', 'year7-9')
+    window.location.replace(currentUrl);
+})
+
+gcseBtn.addEventListener('click', () => {
+    currentUrl.search = '';
+	currentUrl.searchParams.set('year_group', 'gcse');
+	window.location.replace(currentUrl);
+});
+
+aLevelBtn.addEventListener('click', () => {
+    currentUrl.search = '';
+	currentUrl.searchParams.set('year_group', 'a-level');
+	window.location.replace(currentUrl);
+});
+
+allBooksBtn.addEventListener('click', () => {
+	currentUrl.search = '';
+	window.location.replace(currentUrl);
+});
+
+function toggleActive(element) {
+    if (element.classList.contains('active')) {
+        element.classList.remove('active')
+        window.location.replace(currentUrl);
+    } else {
+        element.classList.add('active')
+    }
+}
+
+function removeActive(element) {
+    if (element.classList.contains('active')) {
+        element.classList.remove('active')
+    }
+}
+
+moreOptionsBtn.addEventListener('click', () => {
+    removeActive(allBooksBtn);
+    removeActive(year7to9Btn);
+    removeActive(gcseBtn);
+    removeActive(aLevelBtn);
+
+    toggleActive(moreOptionsBtn);
+    toggleActive(filterSortBox);
+})
 
 /** separate the 'subject_asc' etc. sort input format into sort= and direction= 
  * and set them as params in the current url.
@@ -29,7 +107,6 @@ searchTermElement.addEventListener('keydown', (event) => {
         currentUrl.searchParams.set('subject', filterSubject.value);
         currentUrl.searchParams.set('year_group', filterYearGroup.value);
         window.location.replace(currentUrl);
-		
 	}
 });
 

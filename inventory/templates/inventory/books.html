@@ -15,7 +15,15 @@
 </a>
 <main>
     <div class="books-background">
-        <div class="filter-sort-search-box">
+        <div class="filter-sort-search-frame">
+            <div class="search-filter-buttons-box">
+                <button id="all-books" class="search-filter-button active">All Books</button>
+                <button id="year7-9" class="search-filter-button">Year 7-9</button>
+                <button id="gcse" class="search-filter-button">GCSE</button>
+                <button id="a-level" class="search-filter-button">A Level</button>
+                <button id="more-options" class="search-filter-button">More Options</button>
+            </div>
+            <div id="filter-sort-search-box" class="filter-sort-search-box">
 
                 <div class="filter-sort-input search-input">
                     <label for="search-input">Search term: </label>
@@ -66,6 +74,7 @@
                     </select>
                 </div>
 
+            </div>
         </div>
         <!-- Display search result counts  -->
         {% if books.count == 0 %}
