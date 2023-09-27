@@ -1,7 +1,9 @@
-from django.shortcuts import render, get_object_or_404
+from django.shortcuts import render, get_object_or_404, redirect, reverse
 from django.db.models import Q
 from django.db.models.functions import Lower
+from django.contrib import messages
 from .models import Book
+from .forms import BookForm
 
 
 def all_books(request):
@@ -119,3 +121,24 @@ def book_detail(request, slug):
     }
 
     return render(request, 'inventory/book_detail.html', context)
+
+
+def add_book(request):
+    """ Add a book to the store """
+
+    if request.method == 'POST':
+        form = BookForm(request.POST, request.FILES)
+        if form.is_valid():
+            form.save()
+            messages.success(request, 'Successfully added book!')
+            return redirect(reverse('add_book'))
+        else:
+            messages.error(request, 'Failed to add book. \
+                Please ensure the form is valid.')
+    else:
+        form = BookForm()
+        template = 'inventory/add_book.html'
+        context = {
+            'form': form,
+        }
+    return render(request, template, context)
