@@ -39,7 +39,7 @@ class Book(models.Model):
     image = models.ImageField(null=True, blank=True)
     image_url = models.URLField(max_length=1024, null=True, blank=True)
     product_url = models.URLField(max_length=1024, null=True, blank=True)
-    slug = models.SlugField(null=False, unique=True)
+    slug = models.SlugField(max_length=254, null=False, unique=True)
 
     def __str__(self, *args, **kwargs):
         return self.title
