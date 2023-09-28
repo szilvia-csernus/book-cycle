@@ -2,8 +2,8 @@ from django.shortcuts import render, get_object_or_404, redirect, reverse
 from django.db.models import Q
 from django.db.models.functions import Lower
 from django.contrib import messages
-from .models import Book
-from .forms import BookForm, StockForm
+from .models import Book, Stock
+from .forms import BookForm
 
 
 def all_books(request):
@@ -129,7 +129,8 @@ def book_detail(request, slug):
         print('subject', query_string)
 
     if 'year_group' in request.GET:
-        query_string = query_string + '&year_group=' + request.GET['year_group']
+        query_string = query_string + '&year_group=' + \
+            request.GET['year_group']
         print('year_group', query_string)
 
     if 'sort' in request.GET:
@@ -150,23 +151,36 @@ def book_detail(request, slug):
 
 
 def add_book(request):
-    """ Add a book to the store """
+    """ 
+    Add a book to the store and create stock instances for each condition. 
+    """
 
     if request.method == 'POST':
         form = BookForm(request.POST, request.FILES)
         if form.is_valid():
-            form.save()
+            book = form.save()
+
+            # After saving book, we can refer to it when creating new stock
+            # instances
+            book.save()
+
+            # Create stock instances for 'new,' 'good,' and 'fair' conditions
+            Stock.objects.create(book=book, condition='new',
+                                 price=form.cleaned_data['stock_new_price'])
+            Stock.objects.create(book=book, condition='good',
+                                 price=form.cleaned_data['stock_good_price'])
+            Stock.objects.create(book=book, condition='fair',
+                                 price=form.cleaned_data['stock_fair_price'])
+
             messages.success(request, 'Successfully added book!')
             return redirect(reverse('add_book'))
         else:
-            messages.error(request, 'Failed to add book. \
-                Please ensure the form is valid.')
+            messages.error(request, 'Failed to add book. Please ensure the \
+                           form is valid.')
     else:
         bookform = BookForm()
-        # stockform = StockForm()
         template = 'inventory/add_book.html'
         context = {
             'bookform': bookform,
-            # 'stockform': stockform,
         }
     return render(request, template, context)

@@ -21,15 +21,9 @@
                     {% csrf_token %}
                     <fieldset class="checkout-fieldset">
                         <legend class="checkout-fieldset-label">Add a New Book</legend>
-                        
-                    
-                    {% for field in form %}
-                        {% if field.name != 'image' %}
-                        {{ field|as_crispy_field }}
-                        {% else %}
-                        {{ field }}
-                        {% endif %}
-                    {% endfor %}
+                        {% for field in bookform %}
+                            {{ field|as_crispy_field }} 
+                        {% endfor %}
                     </fieldset>
                     <div class="bag-buttons">
                         <button id="submit-button" type="submit" class="checkout-button">

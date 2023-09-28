@@ -72,6 +72,12 @@ input[type="radio"] {
   accent-color: #6f0080;
 }
 
+label {
+    display: inline-block;
+    margin-bottom: 0.3rem;
+    font-family: 'Montserrat';
+}
+
 /* --------------------------------------- HEADER and FOOTER-------------- */
 
 .mobile {

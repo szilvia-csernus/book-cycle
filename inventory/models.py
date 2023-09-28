@@ -25,13 +25,13 @@ class Book(models.Model):
     year_group = models.ForeignKey(
         'YearGroup',
         null=True,
-        blank=True,
+        blank=False,
         related_name='books',
         on_delete=models.SET_NULL)
     subject = models.ForeignKey(
         'Subject',
         null=True,
-        blank=True,
+        blank=False,
         related_name='books',
         on_delete=models.SET_NULL)
     exam_board = models.CharField(max_length=254, null=True, blank=True)
