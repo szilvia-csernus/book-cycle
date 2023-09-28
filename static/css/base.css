@@ -439,7 +439,7 @@ img.open-book {
 }
 
 .toast-error {
-    border-bottom: 1px solid #ae0000;
+    border-bottom: 1px solid #c70000;
 }
 
 .toast-info {
@@ -454,4 +454,34 @@ img.open-book {
     .toast-container {
         right: calc(50% - 721px + 1.6rem);
     }
+}
+
+
+/* ------------------------------ Crispy Form Styles ------------  */
+
+/* Increase the size of the field to get space for the error message. */
+.ctrlHolder.error {
+    height: 7rem;
+}
+
+/* Color the error message red and move it to below the field in question. 
+Crispy form renders the error message above the field, hence the need to move it.  */
+.errorField {
+    color: #c70000;
+    position: relative;
+    top: 4.5rem;
+}
+
+/* Color the error field and border red and move it up, alongside with the field's 
+label such, that it swaps places with the error message.  */
+.errorField ~ input {
+    color: #c70000;
+    border-color: #c70000;
+    position: relative;
+    bottom: 1rem;
+}
+
+.errorField ~ label {
+    position: relative;
+    bottom: 1rem;
 }
