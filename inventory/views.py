@@ -171,7 +171,7 @@ def add_book(request):
                                  price=form.cleaned_data['stock_fair_price'])
 
             messages.success(request, 'Successfully added book!')
-            return redirect(reverse('add_book'))
+            return redirect(reverse('book_detail', args=[book.slug]))
         else:
             messages.error(request, 'Failed to add book. Please ensure the \
                            form is valid.')
@@ -226,3 +226,16 @@ def edit_book(request, slug):
     }
 
     return render(request, template, context)
+
+
+def delete_book(request, slug):
+    """ Delete a book from the store. """
+    book = get_object_or_404(Book, slug=slug)
+    try:
+        book.delete()
+        messages.success(request, 'Book deleted!')
+        return redirect(reverse('books'))
+
+    except Exception as e:
+        messages.error(request, 'Failed to delete book.', e)
+        return redirect(reverse('book_detail', args=[book.slug]))

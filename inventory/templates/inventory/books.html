@@ -110,14 +110,22 @@
                         <p class="book-year-group">Year Group: <strong>{{ book.year_group.friendly_name }}</strong></p>
                         <p class="book-subject">Subject: <strong>{{ book.subject.friendly_name }}</strong></p>
                         <a class="more-details" href='{{ book.get_slug_url }}?{{query_string}}'>More Options and Details</a>
-                        <!-- Only add an "Add" button if the book is on stock  -->
-                        {% if book.in_stock%}
-                            <form action="{% url 'add_to_bag' book.get_cheapest_stock.id %}" method="POST" >
-                                {% csrf_token %}
-                                <!-- <input type="hidden" name="amount" value="1" data-stock-id="{{ book.get_cheapest_stock.id}}"> -->
+                        {% if user.is_staff %}
+                            <form action="{% url 'edit_book' book.slug %}" method="GET">
                                 <input type="hidden" name="redirect_url" value="{{ request.path }}">
-                                <button type="submit" class="add-button">Add</button>
+                                <button type="submit" class="add-button">Edit Book</button>
                             </form>
+                        {% else %}
+                        
+                            <!-- Only add an "Add" button if the book is on stock  -->
+                            {% if book.in_stock%}
+                                <form action="{% url 'add_to_bag' book.get_cheapest_stock.id %}" method="POST" >
+                                    {% csrf_token %}
+                                    
+                                    <input type="hidden" name="redirect_url" value="{{ request.path }}">
+                                    <button type="submit" class="add-button">Add</button>
+                                </form>
+                            {% endif %}
                         {% endif %}
                     </div>
                 </article>

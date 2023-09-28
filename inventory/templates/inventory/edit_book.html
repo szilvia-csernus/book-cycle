@@ -21,17 +21,32 @@
                     enctype="multipart/form-data">
                     {% csrf_token %}
                     <fieldset class="checkout-fieldset">
-                        <legend class="checkout-fieldset-label">Edit a Book</legend>
+                        <legend class="checkout-fieldset-label">Edit Book</legend>
                         {% for field in bookform %}
                         {{ field|as_crispy_field }}
                         {% endfor %}
                     </fieldset>
                     <div class="bag-buttons">
                         <button id="submit-button" type="submit" class="checkout-button">
-                            Update
+                            Save Changes
                         </button>
+                        
+                    </div>
+                    <p class="checkout-fieldset-label">Delete Book</p>
+                    <p>Deleting the book from the database is a destructive action hence 
+                        restricted. In order to keep the orders history intact, a book can 
+                        not be deleted from the database unless it has not been purchased 
+                        in the last year. Please note that during this period the stock 
+                        can still be set to zero quantity to prevent future sale of book.
+                    </p>
+                    <div class="bag-buttons">
+                        <a href="{% url 'delete_book' slug=book.slug %}" class="keep-shopping-button">
+                        Delete Book
+                    </a>
                     </div>
                 </form>
+                
+                
             </div>
 
         </div>

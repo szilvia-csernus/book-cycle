@@ -116,5 +116,5 @@ const openQuickBag = () => {
 	});
 }
 
-bagLink.addEventListener('click', openQuickBag);
+bagLink?.addEventListener('click', openQuickBag);
 

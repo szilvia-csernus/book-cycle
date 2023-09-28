@@ -28,6 +28,12 @@
         <li class="browse-category">
             <a href="{% url 'books' %}?year_group=a-level">A Level</a>
         </li>
+        <br><br>
+        {% if user.is_staff %}
+        <li class="browse-category admin">
+            <a href="{% url 'add_book' %}">Add New Book</a>
+        </li>
+        {% endif %}
 
     </ul>
     <div>

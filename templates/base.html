@@ -43,7 +43,11 @@
                 <img class="burger-icon" src="{% static 'svg/burger-icon.svg' %}" alt="burger icon" width="30" height="24">
             </div>
             <div class="desktop browse-link">
+                {% if user.is_staff %}
+                ADMIN 
+                {% else %}
                 BROWSE TEXTBOOKS
+                {% endif %}
             </div>
         </div>
         <div class="header-right">
@@ -59,7 +63,7 @@
                     Sign Out
                 </a>
                 <a href="{% url 'profile' %}" class="email">
-                    {{ request.user.email }}
+                    {{ request.user.get_full_name }}
                 </a>
                 
             {% else %}
@@ -73,11 +77,12 @@
                 Register
             </a>
             {% endif %}
+            {% if not user.is_staff %}
             <div id="bag-link" class="bag-link">
-
                 <img class="shopping-bag" src="{% static 'svg/shopping-bag-icon.svg' %}" alt="shopping bag icon" width="30" height="30">
                 {% if book_count > 0 %}<span class="book-nr">{{ book_count }}</span>{% endif %}
             </div>
+            {% endif %}
         </div>
     </header>
 
