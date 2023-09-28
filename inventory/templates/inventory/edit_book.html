@@ -1,0 +1,44 @@
+{% extends "base.html" %}
+{% load static %}
+
+{% block extra_css %}
+<link rel="stylesheet" href="{% static 'css/checkout.css' %}">
+
+{% endblock %}
+
+{% block logo %}
+{% include 'includes/logo.html' %}
+{% endblock %}
+
+{% block content %}
+<main>
+    <div class="checkout-background">
+        <h1 class="title">Inventory Management</h1>
+        <div class="checkout-page-frame">
+
+            <div class="checkout-form-frame">
+                <form action="{% url 'edit_book' slug=book.slug %}" method="POST" id="edit-book-form" class="add-book-form"
+                    enctype="multipart/form-data">
+                    {% csrf_token %}
+                    <fieldset class="checkout-fieldset">
+                        <legend class="checkout-fieldset-label">Edit a Book</legend>
+                        {% for field in bookform %}
+                        {{ field|as_crispy_field }}
+                        {% endfor %}
+                    </fieldset>
+                    <div class="bag-buttons">
+                        <button id="submit-button" type="submit" class="checkout-button">
+                            Update
+                        </button>
+                    </div>
+                </form>
+            </div>
+
+        </div>
+    </div>
+</main>
+{% endblock %}
+
+{% block footer %}
+{% include 'includes/footer.html' %}
+{% endblock %}

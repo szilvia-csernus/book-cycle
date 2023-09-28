@@ -151,18 +151,16 @@ def book_detail(request, slug):
 
 
 def add_book(request):
-    """ 
-    Add a book to the store and create stock instances for each condition. 
+    """
+    Add a book to the store and create stock instances for each condition.
     """
 
     if request.method == 'POST':
         form = BookForm(request.POST, request.FILES)
         if form.is_valid():
-            book = form.save()
-
             # After saving book, we can refer to it when creating new stock
             # instances
-            book.save()
+            book = form.save()
 
             # Create stock instances for 'new,' 'good,' and 'fair' conditions
             Stock.objects.create(book=book, condition='new',
@@ -183,4 +181,48 @@ def add_book(request):
         context = {
             'bookform': bookform,
         }
+    return render(request, template, context)
+
+
+def edit_book(request, slug):
+    """ Edit a book or its prices in the store. """
+    book = get_object_or_404(Book, slug=slug)
+
+    # get the book's current prices to pre-populate the form
+    initial_data = {
+        'stock_new_price':
+            book.stock_set.filter(condition='new').first().price,
+        'stock_good_price':
+            book.stock_set.filter(condition='good').first().price,
+        'stock_fair_price':
+            book.stock_set.filter(condition='fair').first().price,
+    }
+    if request.method == 'POST':
+        bookform = BookForm(request.POST, request.FILES, instance=book)
+        if bookform.is_valid():
+            bookform.save()
+            for stock in book.stock_set.all():
+                if stock.condition == 'new':
+                    stock.price = bookform.cleaned_data['stock_new_price']
+                elif stock.condition == 'good':
+                    stock.price = bookform.cleaned_data['stock_good_price']
+                elif stock.condition == 'fair':
+                    stock.price = bookform.cleaned_data['stock_fair_price']
+                stock.save()
+
+            messages.success(request, 'Successfully updated book!')
+            return redirect(reverse('book_detail', args=[book.slug]))
+        else:
+            messages.error(request, 'Failed to update book. Please ensure the \
+                           form is valid.')
+    else:
+        bookform = BookForm(instance=book, initial=initial_data)
+        messages.info(request, f'You are editing {book.title}')
+
+    template = 'inventory/edit_book.html'
+    context = {
+        'bookform': bookform,
+        'book': book,
+    }
+
     return render(request, template, context)
