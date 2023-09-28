@@ -3,7 +3,7 @@ from django.db.models import Q
 from django.db.models.functions import Lower
 from django.contrib import messages
 from .models import Book
-from .forms import BookForm
+from .forms import BookForm, StockForm
 
 
 def all_books(request):
@@ -75,13 +75,14 @@ def all_books(request):
         books = books.order_by(sortkey)
 
     current_sorting = f'{sort}_{direction}'
-
+    query_string = request.GET.urlencode()
     context = {
         'books': books,
         'search_term': search_term,
         'year_group': year_group,
         'subject': subject,
-        'current_sorting': current_sorting
+        'current_sorting': current_sorting,
+        'query_string': query_string,
     }
 
     return render(request, 'inventory/books.html', context)
@@ -115,9 +116,34 @@ def book_detail(request, slug):
 
         book_listing.append(condition_data)
 
+    # Re-build the query string to use for redirecting back to the books page
+    # with all the same filters applied.
+    query_string = ''
+
+    if 'search' in request.GET:
+        query_string = query_string + 'search=' + request.GET['search']
+        print('search', query_string)
+
+    if 'subject' in request.GET:
+        query_string = query_string + '&subject=' + request.GET['subject']
+        print('subject', query_string)
+
+    if 'year_group' in request.GET:
+        query_string = query_string + '&year_group=' + request.GET['year_group']
+        print('year_group', query_string)
+
+    if 'sort' in request.GET:
+        query_string = query_string + '&sort=' + request.GET['sort']
+        print('sort', query_string)
+
+    if 'direction' in request.GET:
+        query_string = query_string + '&direction=' + request.GET['direction']
+        print('direction', query_string)
+
     context = {
         'book': book,
-        'book_listing': book_listing
+        'book_listing': book_listing,
+        'redirect_query_string': query_string
     }
 
     return render(request, 'inventory/book_detail.html', context)
@@ -136,9 +162,11 @@ def add_book(request):
             messages.error(request, 'Failed to add book. \
                 Please ensure the form is valid.')
     else:
-        form = BookForm()
+        bookform = BookForm()
+        # stockform = StockForm()
         template = 'inventory/add_book.html'
         context = {
-            'form': form,
+            'bookform': bookform,
+            # 'stockform': stockform,
         }
     return render(request, template, context)

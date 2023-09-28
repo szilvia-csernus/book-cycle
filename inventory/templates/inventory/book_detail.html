@@ -40,8 +40,9 @@
                 <p class="book-exam-board">Exam Board: <strong>{{ book.exam_board }}</strong></p>
                 {% endif %}
                 </div>
+                {% if book.product_url %}
                 <a class="real-product-link" href="{{ book.product_url }}" target="_blank">{{ book.pk }} Link to real product</a>
-                
+                {% endif %}
                 {% if book.id in book_list_in_bag or book.in_stock%}
                     {% for stock_item in book_listing %}
                     <div class="stockline">
@@ -102,7 +103,7 @@
                     <p class="out-of-stock">&cross; Out of stock</p>
                 {% endif %}
                 <div class="book-detail-buttons">
-                    <div><a href="{% url 'books' %}" class="back-to-books-button">Back to Books</a></div>
+                    <div><a href="{% url 'books' %}?{{redirect_query_string}}" class="back-to-books-button">Back to Books</a></div>
                     <div><a href="{% url 'view_bag' %}" class="shopping-bag-button">Shopping Bag</a></div>
                 </div>
                 
