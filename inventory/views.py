@@ -2,6 +2,8 @@ from django.shortcuts import render, get_object_or_404, redirect, reverse
 from django.db.models import Q
 from django.db.models.functions import Lower
 from django.contrib import messages
+from django.contrib.auth.decorators import permission_required
+from django.views.decorators.http import require_POST
 from .models import Book, Stock
 from .forms import BookForm
 
@@ -150,6 +152,7 @@ def book_detail(request, slug):
     return render(request, 'inventory/book_detail.html', context)
 
 
+@permission_required('user.is_staff')
 def add_book(request):
     """
     Add a book to the store and create stock instances for each condition.
@@ -184,6 +187,7 @@ def add_book(request):
     return render(request, template, context)
 
 
+@permission_required('user.is_staff')
 def edit_book(request, slug):
     """ Edit a book or its prices in the store. """
     book = get_object_or_404(Book, slug=slug)
@@ -228,6 +232,7 @@ def edit_book(request, slug):
     return render(request, template, context)
 
 
+@permission_required('user.is_staff')
 def delete_book(request, slug):
     """ Delete a book from the store. """
     book = get_object_or_404(Book, slug=slug)
@@ -241,6 +246,7 @@ def delete_book(request, slug):
         return redirect(reverse('book_detail', args=[book.slug]))
 
 
+@permission_required('user.is_staff')
 def manage_stock(request, slug):
     """ A view to show book details. """
     book = get_object_or_404(Book, slug=slug)
@@ -298,42 +304,44 @@ def manage_stock(request, slug):
     return render(request, 'inventory/manage_stock.html', context)
 
 
+@require_POST
+@permission_required('user.is_staff')
 def add_stock(request, stock_id):
     """
     Increase stock of book of a certain condition.
     """
 
-    if request.method == 'POST':
-        stock = get_object_or_404(Stock, id=stock_id)
-        redirect_url = request.POST.get('redirect_url')
+    stock = get_object_or_404(Stock, id=stock_id)
+    redirect_url = request.POST.get('redirect_url')
 
-        try:
-            quantity = int(request.POST.get('quantity'))
-            stock.add_stock(quantity)
+    try:
+        quantity = int(request.POST.get('quantity'))
+        stock.add_stock(quantity)
 
-            messages.success(request, 'Successfully added stock!')
-            return redirect(redirect_url)
-        except Exception:
-            messages.error(request, 'Failed to add stock.')
-            return redirect(redirect_url)
+        messages.success(request, 'Successfully added stock!')
+        return redirect(redirect_url)
+    except Exception:
+        messages.error(request, 'Failed to add stock.')
+        return redirect(redirect_url)
 
 
+@require_POST
+@permission_required('user.is_staff')
 def reduce_stock(request, stock_id):
     """
     Reduce stock of book of a certain condition.
     """
 
-    if request.method == 'POST':
-        stock = get_object_or_404(Stock, id=stock_id)
-        redirect_url = request.POST.get('redirect_url')
+    stock = get_object_or_404(Stock, id=stock_id)
+    redirect_url = request.POST.get('redirect_url')
 
-        try:
-            quantity = int(request.POST.get('quantity'))
-            stock.reduce_stock(quantity)
+    try:
+        quantity = int(request.POST.get('quantity'))
+        stock.reduce_stock(quantity)
 
-            messages.success(request, 'Successfully reduced stock!')
-            return redirect(redirect_url)
+        messages.success(request, 'Successfully reduced stock!')
+        return redirect(redirect_url)
 
-        except Exception:
-            messages.error(request, 'Failed to remove stock.')
-            return redirect(redirect_url)
+    except Exception:
+        messages.error(request, 'Failed to remove stock.')
+        return redirect(redirect_url)

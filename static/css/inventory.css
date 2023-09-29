@@ -314,6 +314,7 @@
     cursor: pointer;
     width: 100%;
     margin-top: 0.5rem;
+    text-align: center;
 }
 
 .out-of-stock {

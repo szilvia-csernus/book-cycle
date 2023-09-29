@@ -82,7 +82,7 @@
                         </div>
                     </div>
                 {% endfor %}
-
+                {{redirect_query_string}}
             <div class="manage-book-detail-buttons">
                 <div><a href="{% url 'books' %}?{{redirect_query_string}}" class="manage-back-to-books-button">Back to
                         Books</a></div>

@@ -136,20 +136,18 @@
                         {% endif %}
 
                         {% if user.is_staff %}
-                            <form action="{% url 'edit_book' book.slug %}" method="GET">
-                                <input type="hidden" name="redirect_url" value="{{ request.path }}">
-                                <button type="submit" class="more-details">Edit Book Details</button>
-                            </form>
+                                <a href="{% url 'edit_book' book.slug %}?{{query_string}}&redirect_url={{request.path}}"
+                                 class="more-details">Edit Book Details
+                                </a>
                             
                         {% else %}
-                            <a class="more-details" href='{{ book.get_slug_url }}?{{query_string}}'>More Options and Details</a>
+                            <a class="more-details" href="{% url 'book_detail' book.slug %}?{{query_string}}">More Options and Details</a>
                         {% endif %}
 
                         {% if user.is_staff %}
-                            <form action="{% url 'manage_stock' book.slug %}" method="GET">
-                                <input type="hidden" name="redirect_url" value="{{ request.path }}">
-                                <button type="submit" class="add-button">Manage Stock</button>
-                            </form>
+                            <a href="{% url 'manage_stock' book.slug %}?{{query_string}}&redirect_url={{request.path}}"
+                                 class="add-button">Manage Stock
+                            </a>
                         {% else %}
                         
                             <!-- Only add an "Add" button if the book is on stock  -->
