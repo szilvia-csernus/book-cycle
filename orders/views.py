@@ -235,7 +235,7 @@ def update_stock(request, order_number):
         for item in order.lineitems.all():
             try:
                 stock_item = item.stock_item
-                stock_item.reduce_stock(item.quantity)
+                stock_item.reduce_stock_by_purchase(item.quantity)
                 stock_item.save()
             except ValueError:
                 # Log this error to the shop owner's issue tracker

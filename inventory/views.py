@@ -239,3 +239,101 @@ def delete_book(request, slug):
     except Exception as e:
         messages.error(request, 'Failed to delete book.', e)
         return redirect(reverse('book_detail', args=[book.slug]))
+
+
+def manage_stock(request, slug):
+    """ A view to show book details. """
+    book = get_object_or_404(Book, slug=slug)
+
+    stock_set = book.stock_set.all()
+    book_listing = []
+
+    conditions = ["new", "good", "fair"]
+
+    for condition in conditions:
+        condition_data = {}
+        for stock in stock_set.filter(condition=condition):
+            condition_data = {
+                'id': stock.id,
+                'condition': condition,
+                'price': stock.price,
+                'stock_quantity': stock.quantity,
+                'stock_blocked': stock.blocked,
+                'stock_available_quantity': stock.get_available_quantity(),
+            }
+
+        book_listing.append(condition_data)
+
+    # Re-build the query string to use for redirecting back to the books page
+    # with all the same filters applied.
+    query_string = ''
+
+    if 'search' in request.GET:
+        query_string = query_string + 'search=' + request.GET['search']
+        print('search', query_string)
+
+    if 'subject' in request.GET:
+        query_string = query_string + '&subject=' + request.GET['subject']
+        print('subject', query_string)
+
+    if 'year_group' in request.GET:
+        query_string = query_string + '&year_group=' + \
+            request.GET['year_group']
+        print('year_group', query_string)
+
+    if 'sort' in request.GET:
+        query_string = query_string + '&sort=' + request.GET['sort']
+        print('sort', query_string)
+
+    if 'direction' in request.GET:
+        query_string = query_string + '&direction=' + request.GET['direction']
+        print('direction', query_string)
+
+    context = {
+        'book': book,
+        'book_listing': book_listing,
+        'redirect_query_string': query_string
+    }
+
+    return render(request, 'inventory/manage_stock.html', context)
+
+
+def add_stock(request, stock_id):
+    """
+    Increase stock of book of a certain condition.
+    """
+
+    if request.method == 'POST':
+        stock = get_object_or_404(Stock, id=stock_id)
+        redirect_url = request.POST.get('redirect_url')
+
+        try:
+            quantity = int(request.POST.get('quantity'))
+            stock.add_stock(quantity)
+
+            messages.success(request, 'Successfully added stock!')
+            return redirect(redirect_url)
+        except Exception:
+            messages.error(request, 'Failed to add stock.')
+            return redirect(redirect_url)
+
+
+def reduce_stock(request, stock_id):
+    """
+    Reduce stock of book of a certain condition.
+    """
+
+    if request.method == 'POST':
+        stock = get_object_or_404(Stock, id=stock_id)
+        redirect_url = request.POST.get('redirect_url')
+
+        try:
+            quantity = int(request.POST.get('quantity'))
+            stock.reduce_stock(quantity)
+
+            messages.success(request, 'Successfully reduced stock!')
+            return redirect(redirect_url)
+
+        except Exception:
+            messages.error(request, 'Failed to remove stock.')
+            return redirect(redirect_url)

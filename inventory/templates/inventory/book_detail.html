@@ -41,7 +41,7 @@
                 {% endif %}
                 </div>
                 {% if book.product_url %}
-                <a class="real-product-link" href="{{ book.product_url }}" target="_blank">{{ book.pk }} Link to real product</a>
+                <a class="real-product-link" href="{{ book.product_url }}" target="_blank"> Link to original product</a>
                 {% endif %}
                 {% if book.id in book_list_in_bag or book.in_stock%}
                     {% for stock_item in book_listing %}

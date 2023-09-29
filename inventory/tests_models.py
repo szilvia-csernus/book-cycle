@@ -123,17 +123,17 @@ class TestStockModel(TestCase):
         with self.assertRaises(ValueError):
             self.stock_fair.block_1_stock()
 
-    def test_reduce_stock(self):
+    def test_reduce_stock_by_purchase(self):
         # test reducing stock
-        self.stock.reduce_stock(5)
+        self.stock.reduce_stock_by_purchase(5)
         self.assertEqual(self.stock.quantity, 95)
         self.assertEqual(self.stock.blocked, 5)
 
-    def test_reduce_stock_with_insufficient_available_quantity(self):
+    def test_reduce_stock_by_purchase_with_insufficient_available_quant(self):
         # Ensure that attempting to reduce more stock than available
         # quantity sets it to 0
 
         with self.assertRaises(ValueError):
-            self.stock.reduce_stock(105)
+            self.stock.reduce_stock_by_purchase(105)
         self.assertEqual(self.stock.quantity, 100)
         self.assertEqual(self.stock.blocked, 10)

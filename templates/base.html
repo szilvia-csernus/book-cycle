@@ -111,7 +111,9 @@
     {% block footer %}
     {% endblock %}
     
-    {% include 'shopping_bag/quick_bag.html' %}
+    {% if not user.is_staff %}
+        {% include 'shopping_bag/quick_bag.html' %}
+    {% endif %}
 
     <script src="{% static 'js/menu.js' %}" type="module"></script>
     <script src="{% static 'js/bag.js' %}" type="module"></script>

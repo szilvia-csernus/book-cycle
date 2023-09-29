@@ -1,0 +1,106 @@
+{% extends "base.html" %}
+{% load static %}
+
+{% block extra_css %}
+<link rel="stylesheet" href="{% static 'css/inventory.css' %}">
+{% endblock %}
+
+{% block logo %}
+{% include 'includes/logo.html' %}
+{% endblock %}
+
+{% block content %}
+
+<main>
+    <section class="books-background detail-page">
+        <div class="detail-page-frame">
+
+            <div class="book-image-box">
+                {% if book.image %}
+                <img class="book-image" src="/media/{{ book.image }}">
+                {% else %}
+                <img class="book-image" src="/media/noimage.png">
+                {% endif %}
+            </div>
+
+            <div class="book-details-box">
+                <h2 class="book-title">{{ book.title }}</h2>
+
+                <div>
+                    {% if book.year_group %}
+                    <p class="book-year-group">Year Group: <strong>{{ book.year_group.friendly_name }}</strong></p>
+                    {% endif %}
+                    {% if book.subject %}
+                    <p class="book-subject">Subject: <strong>{{ book.subject.friendly_name }}</strong></p>
+                    {% endif %}
+                    {% if book.publisher %}
+                    <p class="book-publisher">Publisher: <strong>{{ book.publisher }}</strong></p>
+                    {% endif %}
+                    {% if book.exam_board %}
+                    <p class="book-exam-board">Exam Board: <strong>{{ book.exam_board }}</strong></p>
+                    {% endif %}
+                </div>
+                {% if book.product_url %}
+                    <a class="real-product-link" href="{{ book.product_url }}" target="_blank">Original
+                        product link</a>
+                {% endif %}
+
+                {% for stock_item in book_listing %}
+                    <div class="manage-stockline">
+                        <div>
+                            <div class="manage-stockline-condition">{{ stock_item.condition }}</div>
+                            {% if stock_item.stock_available_quantity <= 0 %}
+                                <div class="manage-stockline-no-more-stock">Available: {{stock_item.stock_available_quantity}}
+                                </div>
+                            {% else %}
+                                <div class="manage-stockline-in-stock">
+                                    Available: {{stock_item.stock_available_quantity}}
+                                </div>
+                            {% endif %}
+                            <div class="small-print">Stock: {{ stock_item.stock_quantity }}</div>
+                            <div class="small-print">In someone's bag: {{ stock_item.stock_blocked }}</div>
+                        </div>
+
+                        <div class="manage-stockline-buttons-box">
+                            <form class="" action="{% url 'add_stock' stock_item.id %}" method="POST">
+                                {% csrf_token %}
+                                <input type="hidden" name="redirect_url" value="{{ request.path }}">
+                                <input type="number" name="quantity"  value="0" min="1" max="999">
+                                <button type="submit" class="stockline-button">
+                                    &plus; Increase
+                                </button>
+                            </form>
+
+                            <form class="" action="{% url 'reduce_stock' stock_item.id %}" method="POST">
+                                {% csrf_token %}
+                                <input type="hidden" name="redirect_url" value="{{ request.path }}">
+                                <input type="number" name="quantity" value="0" min="1" max="999">
+                                <button type="submit" class="stockline-button" {% if stock_item.quantity < 1 %} disabled {% endif %}>
+                                    &minus; Remove
+                                </button>
+                            </form>
+                        </div>
+                    </div>
+                {% endfor %}
+
+            <div class="manage-book-detail-buttons">
+                <div><a href="{% url 'books' %}?{{redirect_query_string}}" class="manage-back-to-books-button">Back to
+                        Books</a></div>
+                <div><a href="{% url 'edit_book' book.slug %}" class="manage-edit-book-button">Edit book details</a></div>
+            </div>
+
+        </div>
+
+        </div>
+    </section>
+</main>
+{% endblock %}
+
+{% block footer %}
+{% include 'includes/footer.html' %}
+{% endblock %}
+
+{% block postload %}
+{{ block.super }}
+<script src="{% static 'js/book_details.js' %}" type="module"></script>
+{% endblock %}

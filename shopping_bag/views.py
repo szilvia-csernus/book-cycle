@@ -32,34 +32,6 @@ def add_to_bag(request, stock_id):
     return redirect(redirect_url)
 
 
-# def remove_from_bag(request, stock_id):
-#     """ Remove one book from the shopping bag """
-
-#     try:
-#         stock_item = get_object_or_404(Stock, id=stock_id)
-#         bag = request.session.get('bag', {})
-#         redirect_url = request.POST.get('redirect_url')
-
-#         if stock_id in list(bag.keys()) and bag[str(stock_id)] > 1:
-#             bag[str(stock_id)] -= 1
-
-#         elif bag[str(stock_id)] == 1:
-#             bag.pop(stock_id)
-#             messages.success(request, f'{stock_item.book.title}\
-#                              condition: {stock_item.condition} \
-#                              was removed from your bag')
-
-#         stock_item.unblock_1_stock()
-
-#         request.session['bag'] = bag
-#         return redirect(redirect_url)
-#     except Exception as e:
-#         messages.error(
-#             request, f'Error removing book: {stock_item.book.title} \
-#             \n Error: {e}')
-#         return HttpResponse(status=500)
-
-
 def remove_from_bag(request, stock_id, quantity_to_remove=1):
     """ POST request: Remove stock items from the shopping bag """
 

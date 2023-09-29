@@ -55,7 +55,7 @@
                         <option value="None">-----</option>
                         {% for yg in all_year_groups %}
                         <option value="{{ yg.name }}"
-                        {% if year_group == yg.name %}
+                            {% if year_group == yg.name %}
                             selected
                             {% endif %}
                         >{{ yg.friendly_name }}</option>
@@ -65,10 +65,8 @@
                 <div class="filter-sort-input">
                     <label for="sort">Sort by:  </label>
                     <select name="sort" id="sort" class="filter-select sort">
-                        <!-- <option value="reset" {% if current_sorting == 'None_None' %} selected {% endif %}>---</option> -->
                         <option value="title_asc" {% if current_sorting == 'title_asc' %} selected {% endif %}>Title - A-Z</option>
                         <option value="title_desc" {% if current_sorting == 'title_desc' %} selected {% endif %}>Title - Z-A</option>
-                        <!-- <option value="price_desc" {% if current_sorting == 'price_desc' %} selected {% endif %}>Price - Low-High</option> -->
                         <option value="subject_asc" {% if current_sorting == 'subject_asc' %} selected {% endif %}>Subject - A-Z</option>
                         <option value="subject_desc" {% if current_sorting == 'subject_desc' %} selected {% endif %}>Subject - Z-A</option>
                     </select>
@@ -87,33 +85,70 @@
         <div class="gallery">
             {% for book in books %}
                 <article class="bookFrame">
-                    <a href="{{ book.get_slug_url}}?{{query_string}}" class="book-image-box">
-                        {% if book.image %}
+                    {% if user.is_staff %}
+                        <div>
+                            {% if book.image %}
                             <img class="book-image" src="/media/{{ book.image }}" alt="{{ book.title }}" width="386" height="500">
-                        {% else %}
+                            {% else %}
                             <img class="book-image" src="/media/noimage.png" alt="book with no image" width="386" height="500">
-                        {% endif %}
-                    </a>
+                            {% endif %}
+                        </div>
+                    {% else %}
+                        <a href="{{ book.get_slug_url}}?{{query_string}}" class="book-image-box">
+                            {% if book.image %}
+                                <img class="book-image" src="/media/{{ book.image }}" alt="{{ book.title }}" width="386" height="500">
+                            {% else %}
+                                <img class="book-image" src="/media/noimage.png" alt="book with no image" width="386" height="500">
+                            {% endif %}
+                        </a>
+                    {% endif %}
                     <div class="book-details-box">
                         <h2 class="book-title">{{ book.title }}</h2>
-                        {% if book.id in book_list_in_bag %} <a href="{{ book.get_slug_url}}" class="in-your-bag">&check; In your bag!</a>{% endif %}
-                        {% if not book.in_stock %}
-                        <p class="out-of-stock">&cross; {% if book.id in book_list_in_bag %} No more stock {% else %}Out of stock {% endif %}</p>
-                        {% else %}
-                            <div>
-                            <div class="cheapest">Our lowest price: </div>
-                            <p class="book-price">£{{ book.get_cheapest_stock.price }}</p>
-                            <p class="book-condition">(Condition: <strong>{{ book.get_cheapest_stock.condition }})</strong></p>
+                        {% if user.is_staff %}
+                            <div class="manage-stock-details-box">
+                                <div class="book-condition-title">Condition</div>
+                                <div class="book-price-title">Price</div>
+                                <div class="available-stock-title">Available Stock</div>
+                                <div class="book-condition">New</div>
+                                <div class="book-price">£{{ book.get_stock_new.price}}</div>
+                                <div class="available-stock">{{ book.get_stock_new.get_available_quantity }}</div>
+                                <div class="book-condition">Good</div>
+                                <div class="book-price">£{{ book.get_stock_good.price}}</div>
+                                <div class="available-stock">{{ book.get_stock_good.get_available_quantity }}</div>
+                                <div class="book-condition">Fair</div>
+                                <div class="book-price">£{{ book.get_stock_fair.price}}</div>
+                                <div class="available-stock">{{ book.get_stock_fair.get_available_quantity }}</div>
                             </div>
+                        {% else %}
+                            {% if book.id in book_list_in_bag %} <a href="{{ book.get_slug_url}}" class="in-your-bag">&check; In your bag!</a>{% endif %}
+                            {% if not book.in_stock %}
+                            <p class="out-of-stock">&cross; {% if book.id in book_list_in_bag %} No more stock {% else %}Out of stock {% endif %}</p>
+                            {% else %}
+                                <div>
+                                <div class="cheapest">Our lowest price: </div>
+                                <p class="book-price">£{{ book.get_cheapest_stock.price }}</p>
+                                <p class="book-condition">(Condition: <strong>{{ book.get_cheapest_stock.condition }})</strong></p>
+                                </div>
+                            {% endif %}
+                            
+                            <p class="book-year-group">Year Group: <strong>{{ book.year_group.friendly_name }}</strong></p>
+                            <p class="book-subject">Subject: <strong>{{ book.subject.friendly_name }}</strong></p>
                         {% endif %}
-                        
-                        <p class="book-year-group">Year Group: <strong>{{ book.year_group.friendly_name }}</strong></p>
-                        <p class="book-subject">Subject: <strong>{{ book.subject.friendly_name }}</strong></p>
-                        <a class="more-details" href='{{ book.get_slug_url }}?{{query_string}}'>More Options and Details</a>
+
                         {% if user.is_staff %}
                             <form action="{% url 'edit_book' book.slug %}" method="GET">
                                 <input type="hidden" name="redirect_url" value="{{ request.path }}">
-                                <button type="submit" class="add-button">Edit Book</button>
+                                <button type="submit" class="more-details">Edit Book Details</button>
+                            </form>
+                            
+                        {% else %}
+                            <a class="more-details" href='{{ book.get_slug_url }}?{{query_string}}'>More Options and Details</a>
+                        {% endif %}
+
+                        {% if user.is_staff %}
+                            <form action="{% url 'manage_stock' book.slug %}" method="GET">
+                                <input type="hidden" name="redirect_url" value="{{ request.path }}">
+                                <button type="submit" class="add-button">Manage Stock</button>
                             </form>
                         {% else %}
                         
@@ -121,7 +156,6 @@
                             {% if book.in_stock%}
                                 <form action="{% url 'add_to_bag' book.get_cheapest_stock.id %}" method="POST" >
                                     {% csrf_token %}
-                                    
                                     <input type="hidden" name="redirect_url" value="{{ request.path }}">
                                     <button type="submit" class="add-button">Add</button>
                                 </form>

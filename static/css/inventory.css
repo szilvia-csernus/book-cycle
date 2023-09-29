@@ -336,6 +336,7 @@
     text-transform: uppercase;
     color:#160f69;
     text-decoration: underline;
+    cursor: pointer;
 }
 
 .cheapest {
@@ -525,3 +526,117 @@
     }
 }
 
+
+/* ------------------------ Manage Stock styles -------  */
+
+.manage-stock-details-box {
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    grid-template-rows: 1.3fr 1fr 1fr 1fr;
+    align-items: flex-start;
+}
+
+.book-condition-title {
+    font-weight: bold;
+    color:#160f69;
+    line-height: 1rem;
+}
+
+.book-price-title {
+    text-align: center;
+    font-weight: bold;
+    color:#160f69;
+    line-height: 1rem;
+}
+
+.manage-stock-details-box .book-price {
+    text-align: right;
+}
+
+.available-stock-title {
+    text-align: center;
+    font-weight: bold;
+    color:#160f69;
+    line-height: 1rem;
+}
+
+.available-stock{
+    color:#160f69;
+    text-align: center;
+    font-weight: bold;
+}
+
+.manage-stockline {
+    display: flex;
+    justify-content: space-between;
+    margin: 1rem 0;
+    align-items: flex-end;
+    gap: .5rem;
+}
+
+.manage-stockline input[type="number"] {
+    border: 1px solid #160f69;
+    width: 4rem;
+    text-align: center;
+}
+
+.manage-stockline .stockline-button {
+    width: 7rem;
+}
+
+.manage-stockline-condition {
+    text-transform: uppercase;
+    color:#160f69;
+    font-weight: bold;
+    font-size: 1.1rem;
+    line-height: 1rem;
+}
+
+.manage-stockline-in-stock {
+    color:#00ad26;
+    font-weight: bold;
+    font-size: 1.1rem;
+}
+
+.manage-stockline-no-more-stock {
+    color: #6f0080;
+    font-weight: bold;
+    font-size: 1.1rem;
+}
+
+.manage-stockline-buttons-box {
+    display: flex;
+    flex-direction: column;
+    gap: 0.2rem;
+}
+.manage-stockline .small-print {
+    font-size: .8rem;
+    line-height: .9rem;
+}
+
+.manage-book-detail-buttons {
+    flex-direction: column;
+    margin: 2rem 0;
+    display: flex;
+    gap: .7rem;
+    align-items: flex-start;
+}
+
+.manage-back-to-books-button {
+    display: inline-block;
+    border: 1px solid #6f0080;
+    width: 12rem;
+    color: #6f0080;
+    text-transform: uppercase;
+    text-align: center;
+}
+
+.manage-edit-book-button {
+    display: inline-block;
+    border: 1px solid #6f0080;
+    background-color: #6f0080;
+    width: 12rem;
+    color: white;
+    text-transform: uppercase;
+    text-align: center;
+}

@@ -88,6 +88,33 @@ class Book(models.Model):
 
         return cheapest_stock
 
+    def get_stock_new(self):
+        """Returns the stock object with condition 'new' or False if there is
+        no stock object associated with the book."""
+        try:
+            stock = self.stock_set.get(condition='new')
+        except Stock.DoesNotExist:
+            return False
+        return stock
+
+    def get_stock_good(self):
+        """Returns the stock object with condition 'good' or False if there is
+        no stock object associated with the book."""
+        try:
+            stock = self.stock_set.get(condition='good')
+        except Stock.DoesNotExist:
+            return False
+        return stock
+
+    def get_stock_fair(self):
+        """Returns the stock object with condition 'fair' or False if there is
+        no stock object associated with the book."""
+        try:
+            stock = self.stock_set.get(condition='fair')
+        except Stock.DoesNotExist:
+            return False
+        return stock
+
 
 class Stock(models.Model):
     book = models.ForeignKey(
@@ -123,7 +150,7 @@ class Stock(models.Model):
             self.blocked -= quantity
         self.save()
 
-    def reduce_stock(self, amount):
+    def reduce_stock_by_purchase(self, amount):
         if amount > self.quantity:
             raise ValueError('Not enough stock available')
         else:
@@ -134,3 +161,10 @@ class Stock(models.Model):
     def add_stock(self, amount):
         self.quantity += amount
         self.save()
+
+    def reduce_stock(self, amount):
+        if amount > self.quantity:
+            raise ValueError('Not enough stock available')
+        else:
+            self.quantity -= amount
+            self.save()
