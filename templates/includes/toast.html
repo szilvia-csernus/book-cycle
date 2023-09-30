@@ -1,14 +1,11 @@
-<div id="toast" class="toast">
-    
-    {% if level == 25 %}
-    <h2 class="toast-success">Success</h2>
-    {% elif level == 30 %}
-    <h2 class="toast-warning">Warning</h2>
-    {% elif level == 40 %}
-    <h2 class="toast-error">Error</h2>
-    {% else %}
-    <h2 class="toast-info">Info</h2>
-    {% endif %}
+{% if level == 25 %}
+<h2 class="toast-success">Success</h2>
+{% elif level == 30 %}
+<h2 class="toast-warning">Warning</h2>
+{% elif level == 40 %}
+<h2 class="toast-error">Error</h2>
+{% else %}
+<h2 class="toast-info">Info</h2>
+{% endif %}
 
-    <p>{{ message }}</p>
-</div>
+<p>{{ message }}</p>
