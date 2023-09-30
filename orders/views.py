@@ -100,7 +100,7 @@ def checkout(request):
                 try:
                     order_line_item = OrderLineItem(
                         order=order,
-                        stock_item=stock_item,
+                        stock=stock_item,
                         quantity=item[1],
                     )
                     order_line_item.save()
@@ -234,7 +234,7 @@ def update_stock(request, order_number):
     try:
         for item in order.lineitems.all():
             try:
-                stock_item = item.stock_item
+                stock_item = item.stock
                 stock_item.reduce_stock_by_purchase(item.quantity)
                 stock_item.save()
             except ValueError:

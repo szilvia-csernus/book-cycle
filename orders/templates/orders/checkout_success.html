@@ -17,15 +17,15 @@
     <div class="checkout-background">
         <h1 class="title">Thank You</h1>
         <p class="success-confirmation-text">Your order information is below. A confirmation email will be sent to <strong>{{ order.email }}</strong></p>
-        <div class="checkout-page-frame">
+        <div class="checkout-success-page-frame">
             <div class="success-details-frame">
                 <h2 class="success-details-title">Order Summary </h2>
                 <div><strong>Order Number:</strong> <span>{{ order.order_number }}</span></div>
                 <div><strong>Order Date:</strong> <span id="order-date">{{ order.date|date:"d M, Y" }}
                 </span></div>
                 {% for item in order.lineitems.all %}
-                <h3 class="success-item-title">{{ item.stock_item.book.title }} - ({{ item.stock_item.condition }})</h3>
-                <div>{{ item.quantity }} @ <strong>£{{ item.stock_item.price }}</strong></div>
+                <h3 class="success-item-title">{{ item.stock.book.title }} - ({{ item.stock.condition }})</h3>
+                <div>{{ item.quantity }} @ <strong>£{{ item.stock.price }}</strong></div>
                 {% endfor %}
 
                 <h2 class="success-details-title">Your Details</h2>
@@ -44,11 +44,13 @@
                 <div><strong>Total Paid:</strong> <span>£{{ order.grand_total }}</span></div>
                 
             </div>
-            {% if from_profile %}
-            <a href="{% url 'profile' %}" class="keep-shopping">Back to Profile</a>
-            {% else %}
-            <a href="{% url 'books' %}" class="keep-shopping">Back to Books</a>
-            {% endif %}
+            <div>
+                {% if from_profile %}
+                <a href="{% url 'profile' %}" class="keep-shopping">Back to Profile</a>
+                {% else %}
+                <a href="{% url 'books' %}" class="keep-shopping">Back to Books</a>
+                {% endif %}
+            </div>
         </div>
     </div>
 </main>

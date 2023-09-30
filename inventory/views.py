@@ -1,3 +1,6 @@
+from datetime import timedelta
+from django.utils import timezone
+
 from django.shortcuts import render, get_object_or_404, redirect, reverse
 from django.db.models import Q
 from django.db.models.functions import Lower
@@ -6,6 +9,35 @@ from django.contrib.auth.decorators import permission_required
 from django.views.decorators.http import require_POST
 from .models import Book, Stock
 from .forms import BookForm
+
+
+def build_query_string(request):
+    # Re-build the query string to use for redirecting back to the books page
+    # with all the filters applied.
+    query_string = ''
+
+    if 'search' in request.GET:
+        query_string = query_string + 'search=' + request.GET['search']
+        print('search', query_string)
+
+    if 'subject' in request.GET:
+        query_string = query_string + '&subject=' + request.GET['subject']
+        print('subject', query_string)
+
+    if 'year_group' in request.GET:
+        query_string = query_string + '&year_group=' + \
+            request.GET['year_group']
+        print('year_group', query_string)
+
+    if 'sort' in request.GET:
+        query_string = query_string + '&sort=' + request.GET['sort']
+        print('sort', query_string)
+
+    if 'direction' in request.GET:
+        query_string = query_string + '&direction=' + request.GET['direction']
+        print('direction', query_string)
+
+    return query_string
 
 
 def all_books(request):
@@ -118,30 +150,7 @@ def book_detail(request, slug):
 
         book_listing.append(condition_data)
 
-    # Re-build the query string to use for redirecting back to the books page
-    # with all the same filters applied.
-    query_string = ''
-
-    if 'search' in request.GET:
-        query_string = query_string + 'search=' + request.GET['search']
-        print('search', query_string)
-
-    if 'subject' in request.GET:
-        query_string = query_string + '&subject=' + request.GET['subject']
-        print('subject', query_string)
-
-    if 'year_group' in request.GET:
-        query_string = query_string + '&year_group=' + \
-            request.GET['year_group']
-        print('year_group', query_string)
-
-    if 'sort' in request.GET:
-        query_string = query_string + '&sort=' + request.GET['sort']
-        print('sort', query_string)
-
-    if 'direction' in request.GET:
-        query_string = query_string + '&direction=' + request.GET['direction']
-        print('direction', query_string)
+    query_string = build_query_string(request)
 
     context = {
         'book': book,
@@ -174,7 +183,7 @@ def add_book(request):
                                  price=form.cleaned_data['stock_fair_price'])
 
             messages.success(request, 'Successfully added book!')
-            return redirect(reverse('book_detail', args=[book.slug]))
+            return redirect(reverse('manage_stock', args=[book.slug]))
         else:
             messages.error(request, 'Failed to add book. Please ensure the \
                            form is valid.')
@@ -215,7 +224,7 @@ def edit_book(request, slug):
                 stock.save()
 
             messages.success(request, 'Successfully updated book!')
-            return redirect(reverse('book_detail', args=[book.slug]))
+            return redirect(reverse('manage_stock', args=[book.slug]))
         else:
             messages.error(request, 'Failed to update book. Please ensure the \
                            form is valid.')
@@ -223,10 +232,13 @@ def edit_book(request, slug):
         bookform = BookForm(instance=book, initial=initial_data)
         messages.info(request, f'You are editing {book.title}')
 
+    query_string = build_query_string(request)
+
     template = 'inventory/edit_book.html'
     context = {
         'bookform': bookform,
         'book': book,
+        'redirect_query_string': query_string,
     }
 
     return render(request, template, context)
@@ -236,6 +248,18 @@ def edit_book(request, slug):
 def delete_book(request, slug):
     """ Delete a book from the store. """
     book = get_object_or_404(Book, slug=slug)
+
+    # Check if there are any orders for this book in the past year
+    stocks = book.stock_set.all()
+    for stock in stocks:
+        orderlines = stock.orderlineitems.all()
+        for orderline in orderlines:
+            order = orderline.order
+            if order.date + timedelta(days=365) > timezone.now():
+                messages.error(request, 'Cannot delete book with orders\
+                               in the past year.')
+                return redirect(reverse('edit_book', args=[book.slug]))
+
     try:
         book.delete()
         messages.success(request, 'Book deleted!')
@@ -270,30 +294,7 @@ def manage_stock(request, slug):
 
         book_listing.append(condition_data)
 
-    # Re-build the query string to use for redirecting back to the books page
-    # with all the same filters applied.
-    query_string = ''
-
-    if 'search' in request.GET:
-        query_string = query_string + 'search=' + request.GET['search']
-        print('search', query_string)
-
-    if 'subject' in request.GET:
-        query_string = query_string + '&subject=' + request.GET['subject']
-        print('subject', query_string)
-
-    if 'year_group' in request.GET:
-        query_string = query_string + '&year_group=' + \
-            request.GET['year_group']
-        print('year_group', query_string)
-
-    if 'sort' in request.GET:
-        query_string = query_string + '&sort=' + request.GET['sort']
-        print('sort', query_string)
-
-    if 'direction' in request.GET:
-        query_string = query_string + '&direction=' + request.GET['direction']
-        print('direction', query_string)
+    query_string = build_query_string(request)
 
     context = {
         'book': book,

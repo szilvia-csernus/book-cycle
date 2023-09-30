@@ -64,7 +64,7 @@ class OrderLineItemModelTestCase(TestCase):
         )
         self.order_line_item = OrderLineItem.objects.create(
             order=self.order,
-            stock_item=self.stock,
+            stock=self.stock,
             quantity=2,
             lineitem_total=59.98  # Should be updated by save() method
         )
