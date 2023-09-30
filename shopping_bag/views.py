@@ -52,6 +52,8 @@ def remove_from_bag(request, stock_id, quantity_to_remove=1):
             else:
                 bag[str(stock_id)] = bag[str(stock_id)] - quantity_to_remove
 
+            stock_item.unblock_stock(quantity_to_remove)
+
         request.session['bag'] = bag
         return redirect(redirect_url)
 
@@ -59,7 +61,6 @@ def remove_from_bag(request, stock_id, quantity_to_remove=1):
         bag.pop(str(stock_id))
 
     except Exception as e:
-        pdb.set_trace()
         messages.error(
             request, f'Error removing stock: {stock_item.book.title}\
             \n Error: {e}')

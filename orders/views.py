@@ -5,6 +5,7 @@ from django.shortcuts import (render, redirect, reverse, get_object_or_404,
 from django.views.decorators.http import require_POST
 from django.contrib import messages
 from django.conf import settings
+from django.db.models import Q
 
 from .forms import OrderForm
 from .models import OrderLineItem, Order
@@ -300,6 +301,25 @@ def checkout_success(request, order_number):
     template = 'orders/checkout_success.html'
     context = {
         'order': order,
+    }
+
+    return render(request, template, context)
+
+
+def all_orders(request):
+    """
+    Display all orders
+    """
+    orders = Order.objects.all().order_by('-date')
+    outstanding_orders = orders.filter(posted_on__isnull=True,
+                                       picked_up_on__isnull=True)
+    completed_orders = orders.filter(Q(posted_on__isnull=False) |
+                                     Q(picked_up_on__isnull=False))
+
+    template = 'orders/orders.html'
+    context = {
+        'outstanding_orders': outstanding_orders,
+        'completed_orders': completed_orders,
     }
 
     return render(request, template, context)

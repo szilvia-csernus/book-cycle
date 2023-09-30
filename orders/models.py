@@ -1,4 +1,5 @@
 import uuid
+from django.utils import timezone
 
 from django.conf import settings
 from django.db import models
@@ -7,6 +8,9 @@ from django_countries.fields import CountryField
 
 from inventory.models import Stock
 from profiles.models import UserProfile
+
+from django.contrib.auth import get_user_model
+User = get_user_model()
 
 
 class Order(models.Model):
@@ -37,6 +41,13 @@ class Order(models.Model):
     # the payment intent id
     stripe_pid = models.CharField(max_length=254, null=False, blank=False,
                                   default='')
+    posted_on = models.DateTimeField(default=None, null=True, blank=True)
+    posted_by = models.ForeignKey(User,
+                                  on_delete=models.SET_NULL,
+                                  null=True, blank=True,
+                                  related_name='orders_posted')
+    picked_up_on = models.DateTimeField(default=None, null=True, blank=True)
+    picked_up_by = models.CharField(max_length=50, null=True, blank=True)
 
     def _generate_order_number(self):
         """
@@ -72,6 +83,22 @@ class Order(models.Model):
             Sum('lineitem_total'))['lineitem_total__sum'] or 0
 
         self.grand_total = self.order_total + self.delivery_cost
+        self.save()
+
+    def update_posted(self, user):
+        """
+        Update posted_on and posted_by fields
+        """
+        self.posted_on = timezone.now()
+        self.posted_by = user
+        self.save()
+
+    def update_picked_up(self, user):
+        """
+        Update picked_up_on and picked_up_by fields
+        """
+        self.picked_up_on = timezone.now()
+        self.picked_up_by = user
         self.save()
 
     def __str__(self):

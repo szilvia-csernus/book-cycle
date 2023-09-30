@@ -125,7 +125,7 @@ class StripeWH_Handler:
                     stock_item = Stock.objects.get(id=item[0])
                     order_line_item = OrderLineItem(
                         order=order,
-                        stock_item=stock_item,
+                        stock=stock_item,
                         quantity=item[1],
                     )
                     order_line_item.save()
