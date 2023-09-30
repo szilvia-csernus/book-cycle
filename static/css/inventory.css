@@ -664,15 +664,44 @@
 }
 
 .custom-image-input {
+    display: inline-block;
     font-family: 'Montserrat';
+    border:1px solid #500080;
+    border-radius: 0;
+    background-color: white;
+    color:#500080;
+    padding: .5rem;
+    overflow: hidden;
+    cursor: pointer;
+    margin: .5rem 0 .8rem;
+    /* height: 4rem; */
+    position: relative;
 }
 
 .custom-image-input input[type="file"] {
+    position: absolute;
+    top: 0;
+    right: 0;
+    min-width: 100%;
+    min-height: 100%;
+    opacity: 0;
+    padding-top: 2rem;
     cursor: pointer;
 }
 
-.custom-image-checkbox-frame {
+.filename {
     color:#500080;
+    margin-bottom: .8rem;
+}
+
+.custom-image-checkbox-frame {
+    margin-top: .2rem;
+    color:#500080;
+}
+
+input[type="checkbox"].custom-image-checkbox {
+    border-radius: 0;
+    border:#500080 !important;
 }
 
 .uploaded-image {
