@@ -3,6 +3,7 @@
 
 {% block extra_css %}
 <link rel="stylesheet" href="{% static 'css/checkout.css' %}">
+<link rel="stylesheet" href="{% static 'css/inventory.css' %}">
 
 {% endblock %}
 
@@ -22,7 +23,11 @@
                     <fieldset class="checkout-fieldset">
                         <legend class="checkout-fieldset-label">Add a New Book</legend>
                         {% for field in bookform %}
-                            {{ field|as_crispy_field }} 
+                            {% if field.name != 'image' %}
+                                {{ field|as_crispy_field }}
+                            {% else %}
+                                {{ field }}
+                            {% endif %}
                         {% endfor %}
                     </fieldset>
                     <div class="bag-buttons">

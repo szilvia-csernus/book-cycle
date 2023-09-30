@@ -1,4 +1,5 @@
 from django import forms
+from .widgets import CustomClearableFileInput
 from .models import YearGroup, Subject, Book, Stock
 
 
@@ -15,6 +16,9 @@ class BookForm(forms.ModelForm):
     class Meta:
         model = Book
         exclude = ('image_url', 'product_url', 'slug',)
+
+    image = forms.ImageField(label='Image', required=False,
+                             widget=CustomClearableFileInput)
 
     def __init__(self, *args, **kwargs):
         super().__init__(*args, **kwargs)

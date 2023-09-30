@@ -3,6 +3,7 @@
 
 {% block extra_css %}
 <link rel="stylesheet" href="{% static 'css/checkout.css' %}">
+<link rel="stylesheet" href="{% static 'css/inventory.css' %}">
 
 {% endblock %}
 
@@ -23,10 +24,16 @@
                     <fieldset class="checkout-fieldset">
                         <legend class="checkout-fieldset-label">Edit Book</legend>
                         {% for field in bookform %}
-                        {{ field|as_crispy_field }}
+                            {% if field.name != 'image' %}
+                                {{ field|as_crispy_field }}
+                            {% else %}
+                                {{ field }}
+                            {% endif %}
                         {% endfor %}
                     </fieldset>
                     <div class="bag-buttons">
+                        <div><a href="{% url 'books' %}?{{redirect_query_string}}" class="edit-back-to-books-button">Back to
+                                Books</a></div>
                         <button id="submit-button" type="submit" class="checkout-button">
                             Save Changes
                         </button>
@@ -36,8 +43,10 @@
                     <p>Deleting the book from the database is a destructive action hence 
                         restricted. In order to keep the orders history intact, a book can 
                         not be deleted from the database unless it has not been purchased 
-                        in the last year. Please note that during this period the stock 
-                        can still be set to zero quantity to prevent future sale of book.
+                        in the last year. Please note that during this period the stock's 
+                        quantity can still be set to zero to prevent future sale of book.
+                        <a href="{% url 'manage_stock' slug=book.slug %}">Click here</a>
+                        to manage stock data.
                     </p>
                     <div class="bag-buttons">
                         <a href="{% url 'delete_book' slug=book.slug %}" class="keep-shopping-button">

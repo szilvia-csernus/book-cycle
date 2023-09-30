@@ -324,7 +324,6 @@ img.bag {
     line-height: 1rem;
     color:#120791;
     cursor: pointer;
-    margin-right: 0.4rem;
     margin-top: 0.2rem;
     z-index: 3;
 }
@@ -381,7 +380,7 @@ img.open-book {
 
 .toast {
     opacity: 0;
-    padding: 0.2rem 0.5rem 1rem;
+    padding: 0.2rem 1rem 1.3rem;
     transition: opacity .5s linear;
     background: white;
     display: flex;

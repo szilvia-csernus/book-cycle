@@ -73,6 +73,12 @@
     text-align: right;
 }
 
+.checkout-success-page-frame {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
 
 @media screen and (min-width: 416px) {
     .checkout-background {
@@ -83,7 +89,6 @@
 
 @media screen and (min-width: 455px) {
     .checkout-page-frame .bag-buttons {
-        /* font-size: .9rem; */
         flex-direction: row;
         justify-content: flex-end;
         gap: 0.5rem;
