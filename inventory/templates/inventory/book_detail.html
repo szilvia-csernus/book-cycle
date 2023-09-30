@@ -17,9 +17,9 @@
 
             <div class="book-image-box">
                 {% if book.image %}
-                <img class="book-image" src="/media/{{ book.image }}">
+                <img class="book-image" src="/media/{{ book.image }}" alt="{{ book.title }}">
                 {% else %}
-                <img class="book-image" src="/media/noimage.png">
+                <img class="book-image" src="/media/noimage.png" alt="no image for {{ book.title}}">
                 {% endif %}
             </div>
             

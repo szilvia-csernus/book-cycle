@@ -3,7 +3,7 @@
 {% if widget.is_initial %}
     <p>{{ widget.initial_text }}:</p>
     <a href="{{ widget.value.url }}">
-        <img width="386" height="500" class="uploaded-image" src="{{ widget.value.url }}">
+        <img width="386" height="500" class="uploaded-image" src="{{ widget.value.url }}" alt="{{ widget.name}}">
     </a>
     {% if not widget.required %}
         <div class="custom-image-checkbox-frame">
