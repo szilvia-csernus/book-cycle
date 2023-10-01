@@ -1,5 +1,10 @@
 # bookCYCLE
 
+---
+### [view the live project here](https://book-cycle-f6aff45df7ba.herokuapp.com/inventory/books/)
+
+---
+
 # User Stories
 
 # Data
@@ -14,7 +19,7 @@ https://lucid.app/lucidchart/8eb93ba8-43af-4939-9709-11dcc52da382/edit?viewport_
 
 # SEO
 
-* For Search Engine Optimization, I fulfilled all of Chrome's Lighthouse requirements and achieved 100% score throughout all pages.
+* Lighthouse scores for Search Engine Optimasation are 100% throughout all pages.
 
 * Furthermore, I created a `slug` for each book, based on their titles, that makes the book discoverable by search engines when someone is searching for the book's title. This approach will increase the site's traffic and increases potential revenue.
 
