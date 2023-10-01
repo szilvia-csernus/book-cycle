@@ -2,7 +2,11 @@
     <div class="footer-copyright">
         <div>*This website was created for educational purposes only. No purchase will be processed.</div>
         <div>&copy; Szilvia Csernusne Berczes,
-            <script>const now = new Date().getFullYear(); document.write(now);</script>
+            <span id="full-year"></span>
+            <script>
+                const fullYear = document.getElementById("full-year");
+                fullYear.innerText = new Date().getFullYear();
+            </script>
         </div>
     </div>
 </footer>
