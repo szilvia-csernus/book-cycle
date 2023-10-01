@@ -14,9 +14,9 @@
                     <!-- item.0 holds the book object  -->
                     <a href="{{ item.0.get_slug_url}}" class="bag-item-image-box">
                         {% if item.0.image %}
-                        <img class="bag-item-image" src="/media/{{ item.0.image }}">
+                        <img class="bag-item-image" src="{{ item.0.image.url }}" alt="{{ item.0.title}}" width="39" height="50">
                         {% else %}
-                        <img class="bag-item-image" src="/media/noimage.png">
+                        <img class="bag-item-image" src="{{ MEDIA_URL }}noimage.png" alt="no image for {{ item.0.title}}" width="39" height="50">
                         {% endif %}
                     </a>
             
