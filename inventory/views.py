@@ -166,6 +166,8 @@ def add_book(request):
     """
     Add a book to the store and create stock instances for each condition.
     """
+    template = 'inventory/add_book.html'
+    context = {}
 
     if request.method == 'POST':
         form = BookForm(request.POST, request.FILES)
@@ -187,12 +189,11 @@ def add_book(request):
         else:
             messages.error(request, 'Failed to add book. Please ensure the \
                            form is valid.')
+            context['bookform'] = form
     else:
-        bookform = BookForm()
-        template = 'inventory/add_book.html'
-        context = {
-            'bookform': bookform,
-        }
+        form = BookForm()
+        context['bookform'] = form
+
     return render(request, template, context)
 
 
@@ -212,6 +213,15 @@ def edit_book(request, slug):
     }
     if request.method == 'POST':
         bookform = BookForm(request.POST, request.FILES, instance=book)
+        # Check if the image has changed or if the user has removed the
+        # image
+        if 'image' in bookform.changed_data:
+            # Delete the old image file
+            if book.image:
+                storage, path = book.image.storage, book.image.path
+                if storage.exists(path):
+                    storage.delete(path)
+
         if bookform.is_valid():
             bookform.save()
             for stock in book.stock_set.all():

@@ -458,29 +458,14 @@ img.open-book {
 
 /* ------------------------------ Crispy Form Styles ------------  */
 
-/* Increase the size of the field to get space for the error message. */
-.ctrlHolder.error {
-    height: 7rem;
-}
 
-/* Color the error message red and move it to below the field in question. 
-Crispy form renders the error message above the field, hence the need to move it.  */
+/* Color the error message red.  */
 .errorField {
     color: #c70000;
-    position: relative;
-    top: 4.5rem;
 }
 
-/* Color the error field and border red and move it up, alongside with the field's 
-label such, that it swaps places with the error message.  */
+/* Color the error field and border red */
 .errorField ~ input {
     color: #c70000;
     border-color: #c70000;
-    position: relative;
-    bottom: 1rem;
-}
-
-.errorField ~ label {
-    position: relative;
-    bottom: 1rem;
 }
