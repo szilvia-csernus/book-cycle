@@ -69,6 +69,19 @@
     display: inline-block;
 }
 
+a.back-to-profile {
+    border: 1px solid #850083;
+    padding: 0.5rem 2rem;
+    background: white;
+    color: #850083;
+    text-transform: uppercase;
+    margin: 1.5rem 0;
+    cursor: pointer;
+    font-size: .9rem;
+    display: inline-block;
+    margin-left: 2rem;
+}
+
 .order-history-details-box {
     display: grid;
     grid-template-columns: 1fr 1fr 1fr 1fr;

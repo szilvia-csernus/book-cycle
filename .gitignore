@@ -1,5 +1,6 @@
 .vscode
 venv
+book-cycle-venv
 *.sqlite3
 *.pyc
 __pycache__
