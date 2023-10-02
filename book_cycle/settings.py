@@ -29,7 +29,7 @@ SECRET_KEY = os.environ.get("SECRET_KEY")
 
 # SECURITY WARNING: don't run with debug turned on in production!
 # DEBUG = True
-DEBUG = "DEVELOPMENT" in os.environ
+DEBUG = "DEBUG" in os.environ
 
 ALLOWED_HOSTS = ['book-cycle-f6aff45df7ba.herokuapp.com', 'localhost']
 
@@ -245,7 +245,7 @@ STRIPE_CURRENCY = 'gbp'
 STRIPE_PUBLIC_KEY = os.getenv('STRIPE_PUBLIC_KEY', '')
 STRIPE_SECRET_KEY = os.getenv('STRIPE_SECRET_KEY', '')
 STRIPE_WH_SECRET = os.getenv('STRIPE_WH_SECRET', '')
-DEFAULT_FROM_EMAIL = 'admin@book-cycle.com'
+DEFAULT_FROM_EMAIL = 'admin@book-cycle.co.uk'
 
 SHIPPING_COST = Decimal(3.50)
 
