@@ -208,7 +208,7 @@ ACCOUNT_SESSION_REMEMBER = True
 ACCOUNT_USERNAME_REQUIRED = False
 ACCOUNT_UNIQUE_EMAIL = True
 ACCOUNT_FORMS = {'signup': 'profiles.forms.CustomSignupForm'}
-ACCOUNT_SIGNUP_VIEW = 'yourapp.views.CustomSignupView'
+ACCOUNT_SIGNUP_VIEW = 'profiles.views.CustomSignupView'
 SOCIALACCOUNT_EMAIL_VERIFICATION = 'none'
 SOCIALACCOUNT_PROVIDERS = {
     "google": {
@@ -284,4 +284,4 @@ else:
     EMAIL_HOST_PASSWORD = os.environ.get('EMAIL_HOST_PASS')
     DEFAULT_FROM_EMAIL = os.environ.get('EMAIL_HOST_USER')
     EMAIL_PORT = 587
-    SERVER_EMAIL = os.environ.get("SERVER_EMAIL")
+    SERVER_EMAIL = os.environ.get("EMAIL_HOST_USER")
