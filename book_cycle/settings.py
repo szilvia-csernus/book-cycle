@@ -233,6 +233,12 @@ SOCIALACCOUNT_PROVIDERS = {
     }
 },
 LOGIN_REDIRECT_URL = '/'
+ACCOUNT_LOGOUT_REDIRECT_URL = '/'
+ACCOUNT_EMAIL_VERIFICATION_ANONYMOUS_REDIRECT_URL = '/'
+ACCOUNT_EMAIL_VERIFICATION_AUTHENTICATED_REDIRECT_URL = '/'
+ACCOUNT_EMAIL_CONFIRMATION_AUTHENTICATED_REDIRECT_URL = '/'
+ACCOUNT_CHANGE_PASSWORD_REDIRECT_URL = '/profiles/profile/'
+ACCOUNT_PASSWORD_RESET_REDIRECT_URL = '/profiles/profile/'
 
 EMAIL_BACKEND = 'django.core.mail.backends.console.EmailBackend'
 
@@ -272,7 +278,7 @@ if 'USE_AWS' in os.environ:
 
 if 'DEVELOPMENT' in os.environ:
     EMAIL_BACKEND = 'django.core.mail.backends.console.EmailBackend'
-    DEFAULT_FROM_EMAIL = 'boutiqueado@example.com'
+    DEFAULT_FROM_EMAIL = 'bookCYCLE@example.com'
 else:
     EMAIL_BACKEND = 'django.core.mail.backends.smtp.EmailBackend'
     EMAIL_USE_TLS = True
@@ -282,4 +288,3 @@ else:
     DEFAULT_FROM_EMAIL = os.environ.get('EMAIL_HOST_USER')
     EMAIL_PORT = 587
     SERVER_EMAIL = os.environ.get("SERVER_EMAIL")
-
