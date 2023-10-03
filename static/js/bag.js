@@ -1,11 +1,11 @@
-// Get one 'Bag Total' value and (potentially 2) 'Grand Total' element(s)
+// Grab one 'Bag Total' value and (potentially 2) 'Grand Total' element(s)
 const bagTotalElement = document.querySelector('.bag-total-number');
 let bagTotal = bagTotalElement ? Number(bagTotalElement.textContent) : 0;
 const grandTotalElements = document.querySelectorAll('.grand-total-number');
 // these input elements are used to get shipping info over to the checkout form.
 const shippingInputElements = document.querySelectorAll('.shipping-info');
 
-// Get all the radio buttons with the name "shipping-info"
+// Grab all the radio buttons with the name "shipping-info"
 // There are potentially 2 sets of buttons if the shopping bag page is also open
 // in the background as well as the small shopping bag on the side.
 // The checkout page also uses the same radiobutton elements.
@@ -16,7 +16,7 @@ const radioButtons = document.querySelectorAll('input[type="radio"][name="shippi
 // Check localstorage for shipping preference
 let shippingPreference = window.localStorage.getItem('shipping')
 
-// calculate grand total: add shipping cost and 'pad' the decimal places with
+// Calculate grand total: add shipping cost and 'pad' the decimal places with
 // zeros if needed.
 const addShipping = () => {
     grandTotalElements.forEach((el) => {
@@ -24,7 +24,7 @@ const addShipping = () => {
     });
 }
 
-// calculate grand total without shipping cost and 'pad' the decimal places with
+// Calculate grand total without shipping cost and 'pad' the decimal places with
 // zeros if needed.
 const freeShipping = () => {
 	grandTotalElements.forEach((el) => {
@@ -32,7 +32,7 @@ const freeShipping = () => {
 	});
 }
 
-// if shippingPreference is in localStorage, set the corresponding button to checked,
+// If shippingPreference is in localStorage, set the corresponding button to checked,
 // otherwise set the 'pickup' option to checked.
 // In addition, set the hidden shippingInputElement too to be sent in the URL
 // when clicking the Checkout button.
@@ -46,7 +46,7 @@ if (shippingPreference === 'post') {
     shippingInputElements.forEach(el => el.value = 'pickup')
 }
 
-// handle state changes such that all elements get updated on all pages.
+// Handle state changes such that all post/pickup elements get updated on all pages.
 pickups.forEach(pickup => pickup.addEventListener('change', function() {
     if (this.checked) {
         freeShipping()
@@ -82,11 +82,14 @@ radioButtons.forEach(function (radio) {
 	});
 });
 
+
+// Grab the elements related to the sopping bag
 const bagLink = document.getElementById('bag-link');
 const bagElement = document.getElementById('quick-bag');
 const closeQuickBagBtn = document.getElementById('quick-bag-close-button');
 let overlayEl;
 
+/** Close the shopping bag that opened from the side. */
 const closeQuickBag = () => {
     if (bagElement.classList.contains('quick-bag-open')) {
         bagElement.classList.remove('quick-bag-open');

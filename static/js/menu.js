@@ -1,3 +1,4 @@
+// Grab the DOM elements for the menu
 const browseLink = document.querySelectorAll(".browse-link");
 const closeMenuBtn = document.getElementById("close-menu")
 const browse = document.getElementById("browse");
@@ -18,10 +19,12 @@ export function openBrowse() {
     })
 }
 
-// There are two links (desktop, mobile) that should open the menu
+// There are two links (desktop, mobile) that should open the menu, so
+// we have to apply the click event listener to both.
 browseLink.forEach(link => link.addEventListener('click', openBrowse));
 
 
+// Grab the DOM elements related to the textbook search.
 const inputElement = document.getElementById('search-input');
 const searchForm = document.getElementById('search-form');
 const searchButton = document.getElementById('search-button');

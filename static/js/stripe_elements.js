@@ -7,6 +7,7 @@
 	https://stripe.com/docs/elements/appearance-api
 */
 
+// Grab stripe's public key and client secret that are present in hidden fields
 const stripePublicKeyEl = document.getElementById('id_stripe_public_key')
 const stripePublicKey = stripePublicKeyEl.textContent.slice(1, -1);
 
@@ -14,11 +15,13 @@ const clientSecret = document
 	.getElementById('id_client_secret')
 	.textContent.slice(1, -1);
 
+// Create a Stripe object instance
 const stripe = Stripe(stripePublicKey);
 
 const elements = stripe.elements();
 
-var style = {
+// Style the card
+const style = {
 	base: {
 		color: '#000',
 		fontFamily: '"Montserrat", sans-serif',
@@ -34,6 +37,7 @@ var style = {
 	},
 };
 
+// Create the card element and mount it to the DOM
 const card = elements.create(
 	'card',
 	{ 
@@ -41,7 +45,6 @@ const card = elements.create(
 	    hidePostalCode: true
 	}
 	);
-
 card.mount('#card-element');
 
 // Handle realtime validation errors on the card element
@@ -68,14 +71,17 @@ const toggleElement = element => {
 }
 
 // Handle form submit
-const paymentForm = document.getElementById('payment-form');
 
+// Grab form elements
+const paymentForm = document.getElementById('payment-form');
 const submitButton = document.getElementById('submit-button');
+
+// Grab loading overlay and apply the css class to it
 const loadingOverlay = document.getElementById('loading-overlay')
 loadingOverlay.classList.add('loading-overlay');
 
 
-// Function to handle the result of the card payment confirmation
+/** handle the result of the card payment confirmation */ 
 function handlePaymentResult(result) {
   if (result.error) {
     const errorDiv = document.getElementById('card-errors');
@@ -84,6 +90,7 @@ function handlePaymentResult(result) {
       <div> ${result.error.message}</div>`;
     errorDiv.innerHTML = html;
 
+	// Remove overlay and reveal the form
 	toggleElement(loadingOverlay)
 	loadingOverlay.classList.remove('overlay');
 	paymentForm.style.display = 'block';
@@ -102,20 +109,22 @@ const shippingInfo = localStorage.getItem('shipping') === 'post' ? true : false
 
 paymentForm.addEventListener('submit', event => {
 	event.preventDefault();
+
+	// Disable card and submit button and show loader
 	card.update({ disabled: true });
 	submitButton.disabled = true;
 	loadingOverlay.classList.add('overlay');
 	toggleElement(loadingOverlay);
 	paymentForm.style.display = 'none';
 
+	// Grab element indicating if user wants to save their info into their profile
 	const saveInfoElement = document.getElementById('save-info');
 	const saveInfo = saveInfoElement ? Boolean(saveInfoElement.checked) : false;
-	console.log('save-info: ', saveInfo);
 	
+	// Grab CSRF token and Form Data
 	const csrfToken = document
 		.querySelector('input[name="csrfmiddlewaretoken"]')
 		.value;
-
 	const postData = {
 		csrfmiddlewaretoken: csrfToken,
 		client_secret: clientSecret,
@@ -125,7 +134,8 @@ paymentForm.addEventListener('submit', event => {
 
 	const url = '/orders/cache_checkout_data/';
 
-	// Make the POST request and handle the card payment
+	// Make the POST request to cache_chackout_data view. If response is success,
+	// Confirm Card Payment and continue with handlePaymentResult.
 	fetch(url, {
 		method: 'POST',
 		headers: {
