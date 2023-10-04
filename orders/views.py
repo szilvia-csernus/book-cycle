@@ -27,7 +27,6 @@ def cache_checkout_data(request):
     """
     try:
         post_data = json.loads(request.body.decode("utf-8"))
-        print(post_data)
         pid = post_data['client_secret'].split('_secret')[0]
         stripe.api_key = settings.STRIPE_SECRET_KEY
         # Add user info to the payment intent's metadata.
@@ -35,8 +34,7 @@ def cache_checkout_data(request):
             'username': request.user,
             'bag': json.dumps(request.session.get('bag', {})),
             'save_info': post_data['save_info'],
-            'shipping_required': post_data['shipping_required'],
-            # 'user_email': request.user.email,
+            'shipping_required': post_data['shipping_required']
         })
         return HttpResponse(status=200)
     except Exception as e:
