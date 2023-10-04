@@ -3,6 +3,7 @@
 
 {% block extra_css %}
 <link rel="stylesheet" href="{% static 'css/account.css' %}">
+<link rel="stylesheet" href="{% static 'css/orders.css' %}">
 
 {% endblock %}
 
@@ -13,64 +14,35 @@
 {% block content %}
 <main>
     <div class="account-background">
-        <h1 class="title">Orders</h1>
+        <h1 class="title">{{ title }}</h1>
         <div class="account-page-frame">
-            <div class="account-form-frame">
-                <h2 class="account-details-title">Outstanding Orders</h2>
-                {% if outstanding_orders|length > 0 %}
-                <div class="order-history-details-box">
-                    <div class="order-number"><strong>Order Number</strong></div>
-                    <div><strong>Date</strong></div>
-                    <div><strong>Shipping required</strong></div>
-                    <div class="total-paid"><strong>Total Paid</strong></div>
-                    {% for order in outstanding_orders %}
+            {% if orders|length > 0 %}
+            <div class="orders-box">
+                <div class="order-number"><strong>Order Number</strong></div>
+                <div class="order-name"><strong>Name</strong></div>
+                <div><strong>Date</strong></div>
+                <div class="total-paid"><strong>Total Paid</strong></div>
+                {% for order in orders %}
+                <div class="">
+                    <a href="{% url 'order_history' order.order_number %}">
+                        {{ order.date|date:"d M, Y" }}</a>
+                </div>
                     <div class="order-number">
-                        <a href="{% url 'order_history' order.order_number %}" title="{{ order.order_number }}">
+                        <a href="{% url 'order_history' order.order_number %}">
                             {{ order.order_number|truncatechars:8 }}</a>
                     </div>
-                    <div class="">
-                        {{ order.date|date:"d M, Y" }}
-                    </div>
-                    <div class="">
-                        {% if order.shipping_required %}&check;{% else %}&cross; {% endif %}
+                    <div class="order-name">
+                        <a href="{% url 'order_history' order.order_number %}">
+                            {{ order.full_name|truncatechars:20 }}</a>
                     </div>
                     <div class="total-paid">
                         <strong>£{{ order.grand_total }}</strong>
                     </div>
-                    {% endfor %}
-                </div>
-                {% else %}
-                <div class="no-purchase">There are currently no outstanding orders.</div>
-                {% endif %}
+                {% endfor %}
             </div>
-            <div class="account-form-frame">
-                <h2 class="account-details-title">Completed Orders</h2>
-                {% if completed_orders|length > 0 %}
-                <div class="order-history-details-box">
-                    <div class="order-number"><strong>Order Number</strong></div>
-                    <div><strong>Date</strong></div>
-                    <div><strong>Shipping required</strong></div>
-                    <div class="total-paid"><strong>Total Paid</strong></div>
-                    {% for order in completed_orders %}
-                    <div class="order-number">
-                        <a href="{% url 'order_history' order.order_number %}" title="{{ order.order_number }}">
-                            {{ order.order_number|truncatechars:8 }}</a>
-                    </div>
-                    <div class="">
-                        {{ order.date|date:"d M, Y" }}
-                    </div>
-                    <div class="">
-                        {% if order.shipping_required %}&check;{% else %}&cross; {% endif %}
-                    </div>
-                    <div class="total-paid">
-                        <strong>£{{ order.grand_total }}</strong>
-                    </div>
-                    {% endfor %}
-                </div>
-                {% else %}
-                <div class="no-purchase">No completed orders found.</div>
-                {% endif %}
-            </div>
+            {% else %}
+                <div class="no-orders">No orders to display.</div>
+            {% endif %}
         </div>
     </div>
 </main>

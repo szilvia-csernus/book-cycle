@@ -15,5 +15,7 @@ urlpatterns = [
          name='checkout_success'),
     path('cache_checkout_data/', views.cache_checkout_data,
          name='cache_checkout_data'),
-    path('all_orders/', views.all_orders, name='all_orders'),
+    path('orders_post/', views.orders_post, name='orders_post'),
+    path('orders_pickup/', views.orders_pickup, name='orders_pickup'),
+    path('orders_completed/', views.orders_completed, name='orders_completed'),
 ]

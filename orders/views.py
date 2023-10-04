@@ -304,20 +304,55 @@ def checkout_success(request, order_number):
     return render(request, template, context)
 
 
-def all_orders(request):
+def orders_post(request):
+    """
+    Display all orders
+    """
+    orders_to_post = Order.objects.all() \
+                                  .filter(posted_on__isnull=True,
+                                          picked_up_on__isnull=True,
+                                          shipping_required=True) \
+                                  .order_by('-date')
+
+    template = 'orders/orders.html'
+    context = {
+        'title': 'Orders to Post',
+        'orders': orders_to_post
+    }
+
+    return render(request, template, context)
+
+
+def orders_pickup(request):
     """
     Display all orders
     """
     orders = Order.objects.all().order_by('-date')
-    outstanding_orders = orders.filter(posted_on__isnull=True,
-                                       picked_up_on__isnull=True)
+    orders_to_post = orders.filter(posted_on__isnull=True,
+                                   picked_up_on__isnull=True,
+                                   shipping_required=False)
+
+    template = 'orders/orders.html'
+    context = {
+        'title': 'Orders Awaiting Pickup',
+        'orders': orders_to_post
+    }
+
+    return render(request, template, context)
+
+
+def orders_completed(request):
+    """
+    Display all orders
+    """
+    orders = Order.objects.all().order_by('-date')
     completed_orders = orders.filter(Q(posted_on__isnull=False) |
                                      Q(picked_up_on__isnull=False))
 
     template = 'orders/orders.html'
     context = {
-        'outstanding_orders': outstanding_orders,
-        'completed_orders': completed_orders,
+        'title': 'Completed Orders',
+        'orders': completed_orders
     }
 
     return render(request, template, context)
