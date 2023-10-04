@@ -1,5 +1,9 @@
+/* ------------------------------ Account page custom styles -----------  */
+
+/* Main structure and title  */
+
 .account-background {
-    background-color: rgb(240, 243, 255);
+    background-color: var(--bg-detail);
     padding: 2rem;
     margin: 7.5rem 1rem 2rem;
 }
@@ -17,8 +21,8 @@
 .account-details-title {
     margin-bottom: 1.5rem;
     text-transform: uppercase;
-    border-top: 1px solid purple;
-    border-bottom: 1px solid purple;
+    border-top: 1px solid var(--bg-secondary);
+    border-bottom: 1px solid var(--bg-secondary);
     padding: 1rem 0.4rem;
 }
 
@@ -29,6 +33,9 @@
     justify-content: center;
     margin-left: 0.4rem;
 }
+
+
+/* Form styles  */
 
 .account-form-frame {
     flex-grow: 1;
@@ -44,9 +51,9 @@
 .account-form-frame .emailinput,
 .account-form-frame .lazyselect {
     width: 100%;
-    border: 1px solid lightgray;
+    border: 1px solid var(--input-border);
     font-family: 'Montserrat';
-    background: white;
+    background: var(--bg-detail);
     padding: 0.4rem;
     font-size: .9rem;
     margin-top: 1.5rem;
@@ -54,14 +61,14 @@
 }
 
 .account-details-frame a {
-    color: #160f69;
+    color: var(--text-primary);
 }
 
 .account-button {
-    border: 1px solid #850083;
+    border: 1px solid var(--bg-secondary);
     padding: 0.5rem 2rem;
-    color: white;
-    background-color: #850083;
+    color: var(--text-light);
+    background-color: var(--bg-secondary);
     text-transform: uppercase;
     margin: 1.5rem 0;
     cursor: pointer;
@@ -70,10 +77,10 @@
 }
 
 a.back-to-profile {
-    border: 1px solid #850083;
+    border: 1px solid var(--bg-secondary);
     padding: 0.5rem 2rem;
-    background: white;
-    color: #850083;
+    background: var(--bg-detail);
+    color: var(--text-secondary);
     text-transform: uppercase;
     margin: 1.5rem 0;
     cursor: pointer;
@@ -81,6 +88,9 @@ a.back-to-profile {
     display: inline-block;
     margin-left: 2rem;
 }
+
+
+/* Order history styles  */
 
 .order-history-details-box {
     display: grid;
@@ -102,6 +112,7 @@ a.back-to-profile {
     padding: 0 .4rem;
 }
 
+/* Media queries */
 
 @media screen and (min-width: 416px) {
     .account-background {

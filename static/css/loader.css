@@ -1,6 +1,6 @@
 .loading-overlay {
     position: fixed;
-    background-color: #070611e8;
+    background-color: var(--bg-overlay);
     opacity: 0;
     transition: opacity 1000ms;
     z-index: 5;
@@ -39,7 +39,7 @@
   width: 7px;
   height: 7px;
   border-radius: 50%;
-  background: purple;
+  background: var(--bg-secondary);
   margin: -4px 0 0 -4px;
 }
 

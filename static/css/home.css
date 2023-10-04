@@ -28,9 +28,9 @@ main img.logo {
     font-size: 1.8rem;
     font-weight: bold;
     font-family: 'KoHo';
-    color: #160f69;
-    background-color: #1ED446;
-    border: 1px solid #160f69;
+    color: var(--text-primary);
+    background-color: var(--accent);
+    border: 1px solid var(--bg-primary);
     display: inline;
     padding: .5rem 3rem 1rem;
     text-decoration: none;

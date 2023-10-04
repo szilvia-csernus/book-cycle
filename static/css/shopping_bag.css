@@ -2,7 +2,7 @@
     display: flex;
     flex-direction: column;
     align-items: center;
-    background-color: rgb(240, 243, 255);
+    background-color: var(--bg-detail);
     padding: 1rem;
     margin: 8rem 1rem 2rem;
 }
@@ -19,9 +19,9 @@
     font-size: 1.1rem;
     font-weight: bold;
     font-family: 'KoHo';
-    color: #160f69;
-    background-color: #1ED446;
-    border: 1px solid #160f69;
+    color: var(--text-primary);
+    background-color: var(--accent);
+    border: 1px solid var(--bg-primary);
     padding: .3rem 1rem .6rem;
     text-decoration: none;
     margin: 2rem;
@@ -29,7 +29,7 @@
 
 .title {
     padding: 1rem;
-    border-bottom: 1px solid lightgrey;
+    border-bottom: 1px solid var(--input-border);
     margin-bottom: 2rem;
     margin-top: 0.3rem;
     width: 100%;
@@ -55,7 +55,7 @@
 
 .bag-item-title {
     font-family: 'Koulen';
-    color:#160f69;
+    color:var(--text-primary);
     line-height: 1rem;
     max-width: 20rem;
 }
@@ -86,7 +86,7 @@
 }
 
 .bag-item-total {
-    color:#160f69;
+    color:var(--text-primary);
     font-weight: bold;
 }
 
@@ -95,15 +95,15 @@
 }
 
 .bag-item-button {
-    background-color: #850083;
+    background-color: var(--bg-secondary);
     padding: 0 0.35rem .1rem;
     margin: 0 0.2rem;
     cursor: pointer;
-    color: white;
+    color: var(--text-light);
 }
 
 .bag-item-button:disabled {
-    background-color: #85008382;
+    background-color: var(--bg-secondary)82;
 }
 
 .bag-item-quantity {
@@ -116,7 +116,7 @@
 }
 
 .bag-total {
-    color:#160f69;
+    color:var(--text-primary);
     font-size: 1rem;
     font-weight: bold;
     text-align: right;
@@ -124,7 +124,7 @@
 }
 
 .bag-grand-total {
-    color:#160f69;
+    color:var(--text-primary);
     font-size: 1.3rem;
     font-weight: bold;
     text-align: right;
@@ -153,17 +153,17 @@
 }
 
 .keep-shopping-button {
-    border: 1px solid #850083;
+    border: 1px solid var(--bg-secondary);
     padding: 0.5rem .9rem;
-    color: #850083;
+    color: var(--text-secondary);
     text-transform: uppercase;
 }
 
 .checkout-button {
-    border: 1px solid #850083;
+    border: 1px solid var(--bg-secondary);
     padding: 0.5rem 2rem;
-    color: white;
-    background-color: #850083;
+    color: var(--text-light);
+    background-color: var(--bg-secondary);
     text-transform: uppercase;
     margin-left: 0.5rem;
     cursor: pointer;
@@ -259,7 +259,7 @@
     font-family: 'Montserrat';
     font-size: 1.4rem;
     line-height: 1rem;
-    color:#120791;
+    color: var(--text-primary);
     cursor: pointer;
     margin-right: 0.1rem;
     margin-bottom: 1rem;
@@ -267,18 +267,18 @@
 
 .quick-bag .title {
     padding: 0.5rem 0;
-    border-bottom: 1px solid #850083;
+    border-bottom: 1px solid var(--bg-secondary);
     margin-bottom: 1.5rem;
     text-align: left;
     font-size: 1.1rem;
 }
 
 .edit-bag-button {
-    border: 1px solid #850083;
+    border: 1px solid var(--bg-secondary);
     padding: 0.5rem 2.6rem;
-    color: #850083;
+    color: var(--text-secondary);
     text-transform: uppercase;
-    background-color: white;
+    background-color: var(--bg-detail);
 }
 
 .quick-bag .checkout-button {

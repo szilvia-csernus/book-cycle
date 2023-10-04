@@ -1,22 +1,7 @@
 /* -------------------------------------- RESET ------------- */
 
-html, 
-body, 
-header, 
-footer, 
-section, 
-article, 
-h1, 
-h2, 
-h3, 
-p, 
-a, 
-button, 
-ul, 
-address, 
-svg,
-input,
-textarea {
+html, body, header, footer, section, article, h1, h2, h3, p, a, button, 
+ul, address, svg, input, textarea {
     margin: 0;
     border: 0;
     padding: 0;
@@ -26,6 +11,27 @@ textarea {
     text-decoration: none;
     box-sizing: border-box;
 }
+
+/* General colours */
+
+:root {
+    --bg-primary: #160f69;
+    --bg-secondary: #89009b;
+    --bg-gradient: radial-gradient(at 50% 50%, #89009b, #160f69);
+    --bg-gallery: rgb(194, 207, 255);
+    --bg-detail: rgb(240, 243, 255);
+    --bg-overlay: #161528c7;
+    --accent: #1ed446;
+    --text-primary: #160f69;
+    --text-secondary: #500080;
+    --text-accent: #00821b;
+    --text-light: white;
+    --text-error: #c70000;
+    --text-placeholder: #aab7c4;
+    --input-border: lightgray;
+}
+
+/* Main elements settings  */
 
 img {
     display: block;
@@ -41,8 +47,7 @@ body {
     display: flex;
     flex-direction: column;
     margin: 0;
-    background-color: #160f69;
-    background: linear-gradient(to bottom, #160f69, #500080, #160f69, #500080, #160f69);
+    background: var(--bg-gradient);
     background-size: 100vw 100vh;
     font-family: 'KoHo', sans-serif;
     font-size: 1rem;
@@ -63,13 +68,13 @@ h1 {
     text-transform: uppercase;
     font-weight: bold;
     text-align: center;
-    color:#160f69;
+    color: var(--text-primary);
 }
 
 
 input[type=checkbox],
 input[type="radio"] {
-  accent-color: #6f0080;
+  accent-color: var(--bg-secondary);
 }
 
 label {
@@ -102,8 +107,7 @@ header {
     max-width: 1442px;
     font-family: 'Montserrat';
     font-size: 1rem;
-    background-color:#160f69;
-    background: linear-gradient(to bottom, #160f69, #500080, #160f69, #500080, #160f69);
+    background: var(--bg-gradient);
     background-size: 100vw 100vh;
     z-index: 1;
 }
@@ -126,7 +130,7 @@ footer {
     justify-content: space-around;
     align-items: center;
     font-size: 1rem;
-    color: white;
+    color: var(--text-light);
     padding: 1rem 1.5rem;
     text-align: center;
     line-height: 2rem;
@@ -134,7 +138,7 @@ footer {
 
 .header-left {
     display: inline-block;
-    color: white;
+    color: var(--text-light);
     align-items: center;
 }
 
@@ -145,7 +149,7 @@ footer {
 
 .header-right {
     display: flex;
-    color: white;
+    color: var(--text-light);
     align-items: center;
     column-gap: 1.5rem;
 }
@@ -174,11 +178,11 @@ img.bag {
     top: 1rem;
     left: .3rem;
     font-size: .7rem;
-    background-color: #1ed446;
+    background-color: var(--accent);
     padding: 0.15rem 0;
     border-radius: 0.7rem;
-    border: 1px solid #120791;
-    color: #120791;
+    border: 1px solid var(--bg-primary);
+    color: var(--bg-primary);
     font-weight: bold;
     font-family: system-ui;
     text-align: center;
@@ -247,7 +251,7 @@ img.bag {
     background-color: #ffffff;
     background: linear-gradient(to bottom, #fcfafa, #332a8f);
     transition: left 0.4s ease;
-    color: #1d194b;
+    color: var(--text-primary);
     font-family: 'Montserrat';
     padding: 1rem;
     z-index: 3;
@@ -294,7 +298,7 @@ img.bag {
     position: fixed;
     width: 100dvw;
     height: 100dvh;
-    background-color: #161528c7;
+    background-color: var(--bg-overlay);
     z-index: 2;
 }
 
@@ -313,7 +317,7 @@ img.bag {
 
 .browse-category:hover,
 .browse-category:active {
-    color: #850083;
+    color: var(--text-secondary);
 }
 
 .close-button {
@@ -322,7 +326,7 @@ img.bag {
     font-family: 'Montserrat';
     font-size: 1.4rem;
     line-height: 1rem;
-    color:#120791;
+    color: var(--bg-primary);
     cursor: pointer;
     margin-top: 0.2rem;
     z-index: 3;
@@ -330,9 +334,9 @@ img.bag {
 
 .browse input {
     display: inline;
-    border: 1px inset #160f69;
-    background-color: #ededed;
-    color: #1d194b;
+    border: 1px inset var(--bg-primary);
+    background-color: var(--bg-detail);
+    color: var(--text-primary);
     font-size: .9rem;
     padding: .5rem 3rem .5rem .5rem;
     margin-top: .8rem;
@@ -375,14 +379,14 @@ img.open-book {
 .toast-container-active {
     display: block;
     width: 21rem;
-    box-shadow: -1px 1px 3px #160f69;
+    box-shadow: -1px 1px 3px var(--bg-primary);
 }
 
 .toast {
     opacity: 0;
     padding: 0.2rem 1rem 1.3rem;
     transition: opacity .5s linear;
-    background: white;
+    background: var(--bg-detail);
     display: flex;
     flex-direction: column;
     animation: appear .5s linear .2s forwards;
@@ -414,7 +418,7 @@ img.open-book {
     width: 0.8rem;
     height: 0.8rem;
     transform: rotate(45deg);
-    background-color: white;
+    background-color: var(--bg-detail);
     position: absolute;
     top: -0.4rem;
     right: 1rem;
@@ -426,23 +430,23 @@ img.open-book {
     font-size: 1.1rem;
     line-height: 2rem;
     margin-bottom: 1rem;
-    color:#160f69;
+    color:var(--text-primary);
 }
 
 .toast-success {
-    border-bottom: 1px solid #1ed446;
+    border-bottom: 1px solid var(--accent);
 }
 
 .toast-warning {
-    border-bottom: 1px solid #500080;
+    border-bottom: 1px solid var(--bg-secondary);
 }
 
 .toast-error {
-    border-bottom: 1px solid #c70000;
+    border-bottom: 1px solid var(--text-error);
 }
 
 .toast-info {
-    border-bottom: 1px solid #160f69;
+    border-bottom: 1px solid #0d009b;
 }
 
 .toast-capper {
@@ -461,11 +465,11 @@ img.open-book {
 
 /* Color the error message red.  */
 .errorField {
-    color: #c70000;
+    color: var(--text-error);
 }
 
 /* Color the error field and border red */
 .errorField ~ input {
-    color: #c70000;
-    border-color: #c70000;
+    color: var(--text-error);
+    border-color: var(--text-error);
 }

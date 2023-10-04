@@ -1,5 +1,5 @@
 .checkout-background {
-    background-color: rgb(240, 243, 255);
+    background-color: var(--bg-detail);
     padding: 1rem;
     margin: 7.5rem 1rem 2rem;
 }
@@ -19,8 +19,8 @@
 .checkout-fieldset-label {
     margin-bottom: 1.5rem;
     text-transform: uppercase;
-    border-top: 1px solid purple;
-    border-bottom: 1px solid purple;
+    border-top: 1px solid var(--bg-secondary);
+    border-bottom: 1px solid var(--bg-secondary);
     padding: 1rem 0;
     width: 100%;
 }
@@ -41,8 +41,8 @@
 .checkout-details-title {
     margin-bottom: 1.5rem;
     text-transform: uppercase;
-    border-top: 1px solid purple;
-    border-bottom: 1px solid purple;
+    border-top: 1px solid var(--bg-secondary);
+    border-bottom: 1px solid var(--bg-secondary);
     padding: 1rem 0;
 }
 
@@ -132,7 +132,7 @@
 .form-group .lazyselect {
     width: 100%;
     margin-bottom: 1.4rem;
-    border-color: lightgray;
+    border-color: var(--input-border);
 }
 
 /* ---------------------------------------------Stripe checkout--------  */
@@ -141,9 +141,9 @@
 .stripe-style-input {
   box-sizing: border-box;
   padding: 10px 12px;
-  border: 1px solid #7c7c7c;
-  background-color: white;
-  box-shadow: 0 1px 3px 0 #e6ebf1;
+  border: 1px solid var(--input-border);
+  background-color: var(--bg-detail);
+  box-shadow: 0 1px 3px 0 var(--input-border);
   -webkit-transition: box-shadow 150ms ease;
   transition: box-shadow 150ms ease;
   margin-bottom: 1rem;
@@ -156,12 +156,12 @@ font-weight: 200;
 .StripeElement--focus,
 .stripe-style-input:focus,
 .stripe-style-input:active {
-  box-shadow: 0 1px 3px 0 #cfd7df;
+  box-shadow: 0 1px 3px 0 var(--input-border);
 }
 
 .stripeElement--invalid {
-    color: #dc3545;
-    border-color: #fa755a;
+    color: var(--text-error);
+    border-color: var(--text-error);
 }
 
 .StripeElement--webkit-autofill {
@@ -169,24 +169,24 @@ font-weight: 200;
 }
 
 .stripe-style-input::placeholder {
-    color: #aab7c4;
+    color: var(--text-placeholder);
 }
 
 .card-errors {
     display: flex;
-    color: #dc3545;
+    color: var(--text-error);
     font-size: .9rem;
     gap: .5rem;
 }
 
 select,
 select option {
-    color: #000000;
+    color: var(--text-primary);
 }
 
 select:invalid,
 select option[value=""] {
-    color: #aab7c4 !important;
+    color: var(--text-placeholder);
 }
 
 /* --------------------------------- Checkout Success ------------  */
@@ -199,8 +199,8 @@ select option[value=""] {
 .success-details-title {
     margin: 1.5rem 0;
     text-transform: uppercase;
-    border-top: 1px solid purple;
-    border-bottom: 1px solid purple;
+    border-top: 1px solid var(--bg-secondary);
+    border-bottom: 1px solid var(--bg-secondary);
     padding: .7rem 0;
 }
 
