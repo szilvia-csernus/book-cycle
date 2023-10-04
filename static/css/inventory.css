@@ -34,6 +34,7 @@
 .search-filter-button.active {
     color: var(--text-light);
     background: linear-gradient(to bottom, #42218d, #590c87);
+    border: none;
 }
 
 .filter-sort-search-box {
@@ -364,7 +365,7 @@
 }
 
 .detail-page-frame {
-    max-width: 20rem;
+    max-width: 26rem;
 }
 
 .detail-page-frame .book-title {
@@ -621,7 +622,7 @@
     margin: 2rem 0;
     display: flex;
     gap: .7rem;
-    align-items: flex-start;
+    align-items: flex-end;
 }
 
 .manage-back-to-books-button {

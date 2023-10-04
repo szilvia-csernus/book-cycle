@@ -6,6 +6,7 @@
     background-color: var(--bg-detail);
     padding: 2rem;
     margin: 7.5rem 1rem 2rem;
+    min-height: 60vh;
 }
 
 .account-page-frame {
@@ -70,7 +71,7 @@
     color: var(--text-light);
     background-color: var(--bg-secondary);
     text-transform: uppercase;
-    margin: 1.5rem 0;
+    margin: 1.5rem 0 3rem;
     cursor: pointer;
     font-size: .9rem;
     display: inline-block;

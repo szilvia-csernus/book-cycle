@@ -17,18 +17,20 @@ ul, address, svg, input, textarea {
 :root {
     --bg-primary: #160f69;
     --bg-secondary: #89009b;
-    --bg-gradient: radial-gradient(at 50% 50%, #89009b, #160f69);
+    --bg-radial-gradient: radial-gradient(at 50% 50%, #89009b, #160f69);
+    --bg-linear-gradient: linear-gradient(to bottom, #fcfafa, #160f69);
+    --bg-staff: radial-gradient(at 50% 50%, #00821a, #160f69);
     --bg-gallery: rgb(194, 207, 255);
-    --bg-detail: rgb(240, 243, 255);
+    --bg-detail: rgb(246, 248, 255);
     --bg-overlay: #161528c7;
     --accent: #1ed446;
     --text-primary: #160f69;
-    --text-secondary: #500080;
+    --text-secondary: #7a008a;
     --text-accent: #00821b;
     --text-light: white;
     --text-error: #c70000;
     --text-placeholder: #aab7c4;
-    --input-border: lightgray;
+    --input-border: rgb(118, 118, 118);
 }
 
 /* Main elements settings  */
@@ -47,12 +49,17 @@ body {
     display: flex;
     flex-direction: column;
     margin: 0;
-    background: var(--bg-gradient);
+    background: var(--bg-radial-gradient);
     background-size: 100vw 100vh;
     font-family: 'KoHo', sans-serif;
     font-size: 1rem;
     font-weight: 300;
     justify-content: space-between;
+}
+
+.staff {
+    background: var(--bg-staff);
+    background-size: 100vw 100vh;
 }
 
 html {
@@ -107,7 +114,7 @@ header {
     max-width: 1442px;
     font-family: 'Montserrat';
     font-size: 1rem;
-    background: var(--bg-gradient);
+    background: var(--bg-radial-gradient);
     background-size: 100vw 100vh;
     z-index: 1;
 }
@@ -175,7 +182,7 @@ img.bag {
 .book-nr {
     display: inline-block;
     position: absolute;
-    top: 1rem;
+    top: .9rem;
     left: .3rem;
     font-size: .7rem;
     background-color: var(--accent);
@@ -247,9 +254,9 @@ img.bag {
     top: 0;
     left: -17rem; /* Hidden off-screen initially */
     width: 15rem;
-    height: 80%;
+    height: 90%;
     background-color: #ffffff;
-    background: linear-gradient(to bottom, #fcfafa, #332a8f);
+    background: var(--bg-linear-gradient);
     transition: left 0.4s ease;
     color: var(--text-primary);
     font-family: 'Montserrat';
@@ -261,7 +268,7 @@ img.bag {
     position: absolute;
     bottom: 1rem;
     margin: auto;
-    padding: 0 2.5rem;
+    padding: 1rem 4rem;
 }
 
 /* When the browse menu is open */
@@ -309,7 +316,6 @@ img.bag {
 .browse-category {
     padding: .3rem 0;
     font-size: 1rem;
-    text-transform: uppercase;
     font-weight: 500;
     cursor: pointer;
     transition: color 0.6s;
@@ -330,6 +336,33 @@ img.bag {
     cursor: pointer;
     margin-top: 0.2rem;
     z-index: 3;
+}
+
+.search-form {
+    height: 3.7rem;
+}
+
+.side-menu-title {
+    margin-bottom: 1.5rem;
+    margin-top: 1.5rem;
+    text-transform: uppercase;
+    border-bottom: 1px solid var(--bg-secondary);
+    padding: 1rem 0.4rem 0.5rem 0;
+    text-align: left;
+    font-family: 'Koulen';
+    font-size: 1.2rem;
+}
+
+.side-menu-orders {
+    color: var(--text-light);
+    font-size: .95rem;
+}
+
+.browse-category-order {
+    padding: 0.3rem 0;
+    font-size: .95rem;
+    font-weight: 300;
+    cursor: pointer;
 }
 
 .browse input {
@@ -362,7 +395,7 @@ img.bag {
 }
 
 img.open-book {
-    width: 10rem;
+    width: 7rem;
 }
 
 /* --------------------------------- Toasts ---------------------  */

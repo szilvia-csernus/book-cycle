@@ -34,10 +34,10 @@
     <title>bookCycle</title>
 </head>
 
-<body>
+<body class="{% if user.is_staff %} staff {% endif %}">
     {% block logo %}
     {% endblock %}
-    <header>
+    <header class="{% if user.is_staff %} staff {% endif %}">
         <div class="header-left">
             <div class="mobile browse-link">
                 <img class="burger-icon" src="{% static 'svg/burger-icon.svg' %}" alt="burger icon" width="30" height="24">
@@ -64,6 +64,7 @@
                 </a>
                 <a href="{% url 'profile' %}" class="email">
                     {{ request.user.get_full_name }}
+                    {% if user.is_staff%} (staff) {% endif %}
                 </a>
                 
             {% else %}
