@@ -24,7 +24,7 @@ class UserProfileForm(forms.ModelForm):
             'default_county': 'County',
         }
 
-        self.initial['country'] = 'GB'
+        self.initial['default_country'] = 'GB'
 
         for field in self.fields:
             if field != 'default_country':
@@ -40,7 +40,9 @@ class UserProfileForm(forms.ModelForm):
 class CustomSignupForm(SignupForm):
     first_name = forms.CharField(max_length=30, label='First Name',
                                  widget=forms.TextInput(attrs={'placeholder':
-                                                        'First name'}))
+                                                        'First name'})
+                                 )
     last_name = forms.CharField(max_length=30, label='Last Name',
                                 widget=forms.TextInput(attrs={'placeholder':
-                                                       'Last name'}))
+                                                       'Last name'})
+                                )

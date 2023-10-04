@@ -24,43 +24,47 @@
                     Change password
                 </a></p>
                 </div>
-                <h2 class="account-details-title">Default Delivery Information</h2>
-                <form action="{% url 'profile'%}" method="POST" id="profile-update-form">
-                    {% csrf_token %}
-                    {{ form|crispy}}
-                    <button id="submit-button" type="submit" class="account-button">
-                        Save Delivery Info
-                    </button>
-                </form>
-            </div>
-            <div class="account-form-frame">
-                <h2 class="account-details-title">Your Order History</h2>
-                {% if orders|length > 0 %}
-                <div class="order-history-details-box">
-                    <div class="order-number"><strong>Order Number</strong></div>
-                    <div><strong>Date</strong></div>
-                    <div><strong>Shipping required</strong></div>
-                    <div class="total-paid"><strong>Total Paid</strong></div>
-                    {% for order in orders %}
-                    <div class="order-number">
-                        <a href="{% url 'order_history' order.order_number %}" title="{{ order.order_number }}"> 
-                            {{ order.order_number|truncatechars:8 }}</a>
-                    </div>
-                    <div class="">
-                        {{ order.date|date:"d M, Y" }}
-                    </div>
-                    <div class="">
-                        {% if order.shipping_required %}&check;{% else %}&cross; {% endif %}
-                    </div>
-                    <div class="total-paid">
-                        <strong>£{{ order.grand_total }}</strong>
-                    </div>
-                    {% endfor %}
-                </div>
-                {% else %}
-                <div class="no-purchase">You haven't made a purchase with us yet.</div>
+                {% if not user.is_staff %}
+                    <h2 class="account-details-title">Default Delivery Information</h2>
+                    <form action="{% url 'profile'%}" method="POST" id="profile-update-form">
+                        {% csrf_token %}
+                        {{ form|crispy}}
+                        <button id="submit-button" type="submit" class="account-button">
+                            Save Delivery Info
+                        </button>
+                    </form>
                 {% endif %}
             </div>
+            {% if not user.is_staff %}
+                <div class="account-form-frame">
+                    <h2 class="account-details-title">Your Order History</h2>
+                    {% if orders|length > 0 %}
+                    <div class="order-history-details-box">
+                        <div class="order-number"><strong>Order Number</strong></div>
+                        <div><strong>Date</strong></div>
+                        <div><strong>Shipping required</strong></div>
+                        <div class="total-paid"><strong>Total Paid</strong></div>
+                        {% for order in orders %}
+                        <div class="order-number">
+                            <a href="{% url 'order_history' order.order_number %}" title="{{ order.order_number }}"> 
+                                {{ order.order_number|truncatechars:8 }}</a>
+                        </div>
+                        <div class="">
+                            {{ order.date|date:"d M, Y" }}
+                        </div>
+                        <div class="">
+                            {% if order.shipping_required %}&check;{% else %}&cross; {% endif %}
+                        </div>
+                        <div class="total-paid">
+                            <strong>£{{ order.grand_total }}</strong>
+                        </div>
+                        {% endfor %}
+                    </div>
+                    {% else %}
+                    <div class="no-purchase">You haven't made a purchase with us yet.</div>
+                    {% endif %}
+                </div>
+            {% endif %}
         </div>
     </div>
 </main>
