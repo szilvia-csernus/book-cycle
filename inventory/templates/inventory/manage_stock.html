@@ -82,7 +82,6 @@
                         </div>
                     </div>
                 {% endfor %}
-                {{redirect_query_string}}
             <div class="manage-book-detail-buttons">
                 <div><a href="{% url 'books' %}?{{redirect_query_string}}" class="manage-back-to-books-button">Back to
                         Books</a></div>
@@ -98,9 +97,4 @@
 
 {% block footer %}
 {% include 'includes/footer.html' %}
-{% endblock %}
-
-{% block postload %}
-{{ block.super }}
-<script src="{% static 'js/book_details.js' %}" type="module"></script>
 {% endblock %}

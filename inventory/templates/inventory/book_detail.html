@@ -117,8 +117,3 @@
 {% block footer %}
 {% include 'includes/footer.html' %}
 {% endblock %}
-
-{% block postload %}
-{{ block.super }}
-    <script src="{% static 'js/book_details.js' %}" type="module"></script>
-{% endblock %}
