@@ -7,9 +7,9 @@ Order Date: {{ order.date|date:"d M, Y" }}
 
 {% if order.shipping_required %}
 Order Total: ${{ order.order_total }}
-Delivery: ${{ order.delivery_cost }}
+Delivery: £{{ order.delivery_cost }}
 {% endif %}
-Grand Total: ${{ order.grand_total }}
+Grand Total: £{{ order.grand_total }}
 
 {% if order.shipping_required %}
 Your order will be shipped to {{ order.street_address1 }} in {{ order.town_or_city }}, {{ order.country }}.
