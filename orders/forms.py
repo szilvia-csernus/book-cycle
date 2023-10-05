@@ -38,3 +38,13 @@ class OrderForm(forms.ModelForm):
                 self.fields[field].widget.attrs['placeholder'] = placeholder
             self.fields[field].widget.attrs['class'] = 'stripe-style-input'
             self.fields[field].label = False
+
+
+class ShippingForm(forms.Form):
+    """ Form to add shipping data"""
+    tracking_number = forms.CharField(
+        max_length=80,
+        required=False,
+        label='Tracking Number (optional)',
+        widget=forms.TextInput(attrs={'class': 'stripe-style-input'})
+    )

@@ -46,6 +46,7 @@ class Order(models.Model):
                                   on_delete=models.SET_NULL,
                                   null=True, blank=True,
                                   related_name='orders_posted')
+    tracking_number = models.CharField(max_length=80, null=True, blank=True)
     picked_up_on = models.DateTimeField(default=None, null=True, blank=True)
     picked_up_by = models.CharField(max_length=50, null=True, blank=True)
 
@@ -85,12 +86,13 @@ class Order(models.Model):
         self.grand_total = self.order_total + self.delivery_cost
         self.save()
 
-    def update_posted(self, user):
+    def update_posted(self, user, tracking_number=None):
         """
         Update posted_on and posted_by fields
         """
         self.posted_on = timezone.now()
         self.posted_by = user
+        self.tracking_number = tracking_number
         self.save()
 
     def update_picked_up(self, user):
