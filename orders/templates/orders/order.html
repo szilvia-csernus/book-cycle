@@ -1,0 +1,99 @@
+{% extends "base.html" %}
+{% load static %}
+
+{% block extra_css %}
+<link rel="stylesheet" href="{% static 'css/orders.css' %}">
+{% endblock %}
+
+{% block logo %}
+{% include 'includes/logo.html' %}
+{% endblock %}
+
+{% block content %}
+<a href="{% url 'home' %}" class="small-logo">
+    <img class="logo" src={% static 'svg/book-cycle-logo.svg' %} alt="book cycle logo" width="10" height="6">
+</a>
+<main>
+    <div class="order-frame">
+        <h1 class="order-title">Order</h1>
+        <div class="order-subtitle">
+            <strong>Order Number: </strong> {{ order.order_number }}
+        </div>
+        <div class="order-date">
+            <strong>Date of Purchase: </strong> {{ order.date|date:"d M, Y" }}
+        </div>
+        <div class="order-name">
+            <strong>Phone Number: </strong> <a href="tel: {{ order.phone_number }}">{{ order.phone_number }}</a>
+        </div>
+        <div class="order-name">
+            <strong>Name: </strong> {{ order.full_name }}
+        </div>
+        <div class="order-name">
+            <strong>Email: </strong> {{ order.email }}
+        </div>
+        {% if order.shipping_required %}
+            <div class="order-name"><strong>Order Total:</strong> £{{ order.order_total }}</div>
+            <div class="order-namel"><strong>Postage:</strong> £{{ order.delivery_cost }}</div>
+        {% endif %}
+        <div class="order-name">
+            <strong>Total Paid: £{{ order.grand_total }}</strong>
+        </div>
+        <section class="order-list-section">
+            <h2 class="order-subtitle">Purchased Items</h2>
+            {% for lineitem in lineitems %}
+                <div class="order-item-box">
+                    {% if lineitem.stock.book.image.url %}
+                    <img class="order-item-image" src="{{ lineitem.stock.book.image.url }}" alt="{{ lineitem.stock.book.title}}" width="39"
+                        height="50">
+                    {% else %}
+                    <img class="order-item-image" src="{{ MEDIA_URL }}noimage.png" alt="no image for {{ lineitem.stock.book.title}}"
+                        width="39" height="50">
+                    {% endif %}
+                    <h2 class="order-item-title">{{ lineitem.stock.book.title }}</h2>
+                    <div class="order-item-condition"><span class="order-item-emphasized">{{ lineitem.stock.condition }}</span> x <span class="order-item-emphasized">{{ lineitem.quantity }}</span></div>
+                    <div class="order-item-price">Price each £{{ lineitem.stock.price }}</div>
+                </div>
+            {% endfor %}
+        </section>
+        {% if order.shipping_required %}
+        <section class="order-list-section">
+            <h2 class="order-subtitle">Shipping Address</h2>
+            <div>{{ order.full_name }}</div>
+            <div>{{ order.street_address1 }}</div>
+            {% if order.street_address2|length > 0 %}
+                <div>{{ order.street_address2 }}</div>
+            {% endif %}
+            <div>{{ order.town_or_city }}</div>
+            {% if order.county|length > 0 %}<div>{{ order.county }}</div>{% endif %}
+            <div>{{ order.postcode }}</div>
+            <div>{{ order.country }}</div>
+        </section>
+        {% endif %}
+        {{ completed }}
+
+        {% if not completed %}
+        <section class="order-list-section">
+            <h2 class="order-subtitle">Manage Order</h2>
+            {% if order.shipping_required %}
+                <form action="{% url "ship_item" order.order_number %}" method="POST">
+                    {% csrf_token %}
+                    {{ shipping_form|crispy }}
+                    <button type="submit">Mark Item as Shipped</button>
+                </form>
+            {% endif %}
+        </section>
+        {% endif %}
+        
+
+    </div>
+</main>
+{% endblock %}
+
+{% block footer %}
+{% include 'includes/footer.html' %}
+{% endblock %}
+
+{% block postload %}
+{{ block.super }}
+<script src="{% static 'js/bag.js' %}" type="module"></script>
+{% endblock %}

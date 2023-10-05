@@ -1,0 +1,107 @@
+{% extends "base.html" %}
+{% load static %}
+
+{% block extra_css %}
+<link rel="stylesheet" href="{% static 'css/account.css' %}">
+<link rel="stylesheet" href="{% static 'css/orders.css' %}">
+{% endblock %}
+
+{% block logo %}
+{% include 'includes/logo.html' %}
+{% endblock %}
+
+{% block content %}
+<main>
+    <div class="order-list-frame">
+        <h1 class="order-title">{{ title }}</h1>
+        <section class="order-list-section">
+            {% if posted_orders|length > 0 %}
+            <h2 class="order-subtitle">Posted Orders</h2>
+            <div class="completed-orders-box">
+                <div><strong>Order Date</strong></div>
+                <div><strong>Order Number</strong></div>
+                <div><strong>Name</strong></div>
+                <div><strong>Total Paid</strong></div>
+                <div><strong>Post Date</strong></div>
+                <div><strong>Posted by</strong></div>
+                
+                {% for order in posted_orders %}
+                <div class="order-item ">
+                    <a href="{% url 'order' order.order_number%}?completed={{completed}}">
+                        {{ order.date|date:"d/m/Y" }}</a>
+                </div>
+                <div class="order-item order-number">
+                    <a href="{% url 'order' order.order_number%}?completed={{completed}}">
+                        {{ order.order_number|truncatechars:25 }}</a>
+                </div>
+                <div class="order-item order-name">
+                    <a href="{% url 'order' order.order_number%}?completed={{completed}}">
+                        {{ order.full_name|truncatechars:25 }}</a>
+                </div>
+                <div class="order-item order-price">
+                    <a href="{% url 'order' order.order_number%}?completed={{completed}}">
+                        £{{ order.grand_total }}</a>
+                </div>
+                <div class="order-item order-name">
+                    <a href="{% url 'order' order.order_number%}?completed={{completed}}">
+                        {{ order.posted_on|date:"d/m/Y" }}</a>
+                </div>
+                <div class="order-item order-name">
+                    <a href="{% url 'order' order.order_number%}?completed={{completed}}">
+                        {{ order.posted_by.get_full_name|truncatechars:20 }}</a>
+                </div>
+                {% endfor %}
+            </div>
+            {% else %}
+            <div class="no-orders">No orders to display.</div>
+            {% endif %}
+        </section>
+        <section class="order-list-section">
+            <h2 class="order-subtitle">Collected Orders</h2>
+            {% if picked_up_orders|length > 0 %}
+            <div class="completed-orders-box">
+                <div><strong>Order Number</strong></div>
+                <div><strong>Order Date</strong></div>
+                <div><strong>Name</strong></div>
+                <div><strong>Total Paid</strong></div>
+                <div><strong>Collection Date</strong></div>
+                <div><strong>Collected by</strong></div>
+        
+                {% for order in picked_up_orders %}
+                <div class="order-item ">
+                    <a href="{% url 'order' order.order_number%}?completed={{completed}}">
+                        {{ order.date|date:"d M, Y" }}</a>
+                </div>
+                <div class="order-item order-number">
+                    <a href="{% url 'order' order.order_number%}?completed={{completed}}">
+                        {{ order.order_number|truncatechars:8 }}</a>
+                </div>
+                <div class="order-item order-name">
+                    <a href="{% url 'order' order.order_number%}?completed={{completed}}">
+                        {{ order.full_name|truncatechars:20 }}</a>
+                </div>
+                <div class="order-item order-name">
+                    <a href="{% url 'order' order.order_number%}?completed={{completed}}">
+                        {{ order.grand_total }}</a>
+                </div>
+                <div class="order-item order-name">
+                    <a href="{% url 'order' order.order_number%}?completed={{completed}}">
+                        {{ order.picked_up_on|date:"d M, Y" }}</a>
+                </div>
+                <div class="order-item order-name">
+                    <a href="{% url 'order' order.order_number%}?completed={{completed}}">
+                        {{ order.picked_up_by|truncatechars:20 }}</a>
+                </div>
+                {% endfor %}
+            </div>
+            {% else %}
+            <div class="no-orders">No orders to display.</div>
+            {% endif %}
+        </section>
+    </div>
+</main>
+{% endblock %}
+
+{% block footer %}
+{% include 'includes/footer.html' %}
+{% endblock %}

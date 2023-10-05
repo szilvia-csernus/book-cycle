@@ -1,6 +1,6 @@
 from django import forms
 from .widgets import CustomClearableFileInput
-from .models import YearGroup, Subject, Book, Stock
+from .models import YearGroup, Subject, Book
 
 
 class BookForm(forms.ModelForm):
@@ -33,10 +33,3 @@ class BookForm(forms.ModelForm):
             + friendly_names2
         for field_name, field in self.fields.items():
             field.widget.attrs['class'] = 'stripe-style-input'
-
-
-class StockForm(forms.ModelForm):
-    """ Form to add and edit stock"""
-    class Meta:
-        model = Stock
-        fields = ('price',)

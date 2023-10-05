@@ -1,0 +1,50 @@
+{% extends "base.html" %}
+{% load static %}
+
+{% block extra_css %}
+<link rel="stylesheet" href="{% static 'css/account.css' %}">
+<link rel="stylesheet" href="{% static 'css/orders.css' %}">
+{% endblock %}
+
+{% block logo %}
+{% include 'includes/logo.html' %}
+{% endblock %}
+
+{% block content %}
+<main>
+    <div class="order-list-frame">
+        <h1 class="title">{{ title }}</h1>
+        {% if orders|length > 0 %}
+        <div class="open-orders-box">
+            <div class="order-number"><strong>Date</strong></div>
+            <div class="order-name"><strong>Order Number</strong></div>
+            <div><strong>Name</strong></div>
+            <div class="total-paid"><strong>Total Paid</strong></div>
+            {% for order in orders %}
+                <div class="order-item">
+                    <a href="{% url 'order' order.order_number%}?completed={{completed}}">
+                        {{ order.date|date:"d M, Y" }}</a>
+                </div>
+                <div class="order-item order-number">
+                    <a href="{% url 'order' order.order_number%}?completed={{completed}}">
+                        {{ order.order_number|truncatechars:8 }}</a>
+                </div>
+                <div class="order-item order-name">
+                    <a href="{% url 'order' order.order_number%}?completed={{completed}}">
+                        {{ order.full_name|truncatechars:20 }}</a>
+                </div>
+                <div class="order-item total-paid">
+                    <strong>£{{ order.grand_total }}</strong>
+                </div>
+            {% endfor %}
+        </div>
+        {% else %}
+            <div class="no-orders">No orders to display.</div>
+        {% endif %}
+    </div>
+</main>
+{% endblock %}
+
+{% block footer %}
+{% include 'includes/footer.html' %}
+{% endblock %}
