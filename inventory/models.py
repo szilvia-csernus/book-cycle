@@ -45,6 +45,10 @@ class Book(models.Model):
         return self.title
 
     def save(self, *args, **kwargs):
+        """
+        Override the original save method to set the slug when first
+        creating a book istance.
+        """
         # Check if the book has no id (is now being created)
         if not self.id:
             # Create a new unique identifier,
@@ -55,10 +59,16 @@ class Book(models.Model):
         super().save(*args, **kwargs)
 
     def get_slug_url(self):
-        """ SEO friendly url """
+        """
+        SEO friendly url
+        """
         return reverse("book_detail", kwargs={"slug": self.slug})
 
     def in_stock(self):
+        """
+        Returns True if there is at least one stock object associated with
+        the book that has a quantity greater than 0.
+        """
         if len(self.stock_set.all()) == 0:
             return False
         in_stock = False
@@ -68,8 +78,10 @@ class Book(models.Model):
         return in_stock
 
     def get_cheapest_stock(self):
-        """Returns the cheapest stock or False if there is no stock object
-        associated with the book."""
+        """
+        Returns the cheapest stock object or False if there is no stock
+        associated with the book.
+        """
         if not self.in_stock():
             return False
         stocks = self.stock_set.all()
@@ -89,8 +101,10 @@ class Book(models.Model):
         return cheapest_stock
 
     def get_stock_new(self):
-        """Returns the stock object with condition 'new' or False if there is
-        no stock object associated with the book."""
+        """
+        Returns the stock object with condition 'new' or False if there is
+        no stock object associated with the book.
+        """
         try:
             stock = self.stock_set.get(condition='new')
         except Stock.DoesNotExist:
@@ -98,8 +112,10 @@ class Book(models.Model):
         return stock
 
     def get_stock_good(self):
-        """Returns the stock object with condition 'good' or False if there is
-        no stock object associated with the book."""
+        """
+        Returns the stock object with condition 'good' or False if there is
+        no stock object associated with the book.
+        """
         try:
             stock = self.stock_set.get(condition='good')
         except Stock.DoesNotExist:
@@ -107,8 +123,10 @@ class Book(models.Model):
         return stock
 
     def get_stock_fair(self):
-        """Returns the stock object with condition 'fair' or False if there is
-        no stock object associated with the book."""
+        """
+        Returns the stock object with condition 'fair' or False if there is
+        no stock object associated with the book.
+        """
         try:
             stock = self.stock_set.get(condition='fair')
         except Stock.DoesNotExist:
@@ -116,7 +134,10 @@ class Book(models.Model):
         return stock
 
     def delete(self, *args, **kwargs):
-        # Delete the associated image file in the storage(media) folder
+        """
+        Override the 'delete' method to erase the associated image file
+        in the storage(media) folder.
+        """
         if self.image:
             storage, path = self.image.storage, self.image.path
             if storage.exists(path):
@@ -139,6 +160,9 @@ class Stock(models.Model):
         return f'{self.book.title}, condition: {self.condition}'
 
     def get_available_quantity(self):
+        """
+        Available quantity is the quantity minus the blocked quantity.
+        """
         available_quantity = self.quantity - self.blocked
         if available_quantity > 0:
             return available_quantity
@@ -146,6 +170,10 @@ class Stock(models.Model):
             return 0
 
     def block_1_stock(self):
+        """
+        Reserve 1 stock item, meaning that it will not be available for
+        other users to purchase.
+        """
         if self.get_available_quantity() < 1:
             raise ValueError('Not enough stock available')
         else:
@@ -153,6 +181,10 @@ class Stock(models.Model):
             self.save()
 
     def unblock_stock(self, quantity=1):
+        """
+        Un-reserve the specified quantity of stock items, meaning that
+        they will be available for other users to purchase.
+        """
         if self.blocked < quantity:
             self.blocked = 0
         else:
@@ -160,6 +192,10 @@ class Stock(models.Model):
         self.save()
 
     def reduce_stock_by_purchase(self, amount):
+        """
+        Reduce the stock quantity by the specified amount as well as the
+        blocked quantity.
+        """
         if amount > self.quantity:
             raise ValueError('Not enough stock available')
         else:
@@ -168,10 +204,16 @@ class Stock(models.Model):
             self.save()
 
     def add_stock(self, amount):
+        """
+        Add the specified amount to the stock quantity.
+        """
         self.quantity += amount
         self.save()
 
     def reduce_stock(self, amount):
+        """
+        Reduce the stock quantity with the specified amount.
+        """
         if amount > self.quantity:
             raise ValueError('Not enough stock available')
         else:

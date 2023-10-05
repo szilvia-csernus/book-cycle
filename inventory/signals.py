@@ -8,7 +8,10 @@ from .models import Book
 
 
 @receiver(pre_save, sender=Book)
-def resize_image(sender, instance, **kwargs):
+def resize_and_convert_image(sender, instance, **kwargs):
+    """
+    Resize and convert the uploaded image to webp format.
+    """
     if instance.image:
         try:
             # Open the uploaded image using Pillow
