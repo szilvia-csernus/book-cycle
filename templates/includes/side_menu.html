@@ -1,7 +1,6 @@
 {% load static %}
 
-<div id="browse" class="browse">
-
+<div id="browse" class="browse {% if user.is_staff %} side-staff {% endif %}">
     <div id="close-menu" class="close-button">
         &#9747;
     </div>
@@ -45,6 +44,8 @@
         </ul>
     </div>
     {% if user.is_staff %}
+    <br>
+    <br>
     <div class="side-menu-orders">
         <h2 class="side-menu-title">Order management</h2>
         <ul>

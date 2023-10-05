@@ -52,8 +52,7 @@
         </div>
         <div class="header-right">
             {% if request.user.is_authenticated %}
-                
-                <a href="{% url 'account_login' %}" class="mobile">
+                <a href="{% url 'profile' %}" class="mobile">
                     <img class="user" src="{% static 'svg/user-icon.svg' %}" alt="user icon" width="22" height="26">
                 </a>
                 <a href="{% url 'profile' %}" class="desktop">
