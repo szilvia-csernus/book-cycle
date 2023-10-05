@@ -18,4 +18,6 @@ urlpatterns = [
     path('orders_post/', views.orders_post, name='orders_post'),
     path('orders_pickup/', views.orders_pickup, name='orders_pickup'),
     path('orders_completed/', views.orders_completed, name='orders_completed'),
+    path('order/<order_number>', views.order, name='order'),
+    path('ship_item/<order_number>', views.ship_item, name='ship_item'),
 ]

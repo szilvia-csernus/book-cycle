@@ -5,9 +5,10 @@ from django.shortcuts import (render, redirect, reverse, get_object_or_404,
 from django.views.decorators.http import require_POST
 from django.contrib import messages
 from django.conf import settings
-from django.db.models import Q
+from django.core.mail import send_mail
+from django.template.loader import render_to_string
 
-from .forms import OrderForm
+from .forms import OrderForm, ShippingForm
 from .models import OrderLineItem, Order
 from inventory.models import Stock
 from shopping_bag.context import bag_contents
@@ -314,10 +315,11 @@ def orders_post(request):
                                           shipping_required=True) \
                                   .order_by('-date')
 
-    template = 'orders/orders.html'
+    template = 'orders/open_orders.html'
     context = {
         'title': 'Orders to Post',
-        'orders': orders_to_post
+        'orders': orders_to_post,
+        'completed': False
     }
 
     return render(request, template, context)
@@ -332,10 +334,11 @@ def orders_pickup(request):
                                    picked_up_on__isnull=True,
                                    shipping_required=False)
 
-    template = 'orders/orders.html'
+    template = 'orders/open_orders.html'
     context = {
         'title': 'Orders Awaiting Pickup',
-        'orders': orders_to_post
+        'orders': orders_to_post,
+        'completed': False
     }
 
     return render(request, template, context)
@@ -346,13 +349,72 @@ def orders_completed(request):
     Display all orders
     """
     orders = Order.objects.all().order_by('-date')
-    completed_orders = orders.filter(Q(posted_on__isnull=False) |
-                                     Q(picked_up_on__isnull=False))
+    posted_orders = orders.filter(posted_on__isnull=False)
+    picked_up_orders = orders.filter(picked_up_on__isnull=False)
 
-    template = 'orders/orders.html'
+    template = 'orders/completed_orders.html'
     context = {
         'title': 'Completed Orders',
-        'orders': completed_orders
+        'posted_orders': posted_orders,
+        'picked_up_orders': picked_up_orders,
+        'completed': True
     }
 
     return render(request, template, context)
+
+
+def order(request, order_number):
+    """
+    Display a single order
+    """
+    order = get_object_or_404(Order, order_number=order_number)
+    completed = request.GET.get('completed', False) == 'True'
+    lineitems = order.lineitems.all()
+    shipping_form = None
+    if not completed:
+        shipping_form = ShippingForm()
+
+    template = 'orders/order.html'
+    context = {
+        'order': order,
+        'lineitems': lineitems,
+        'shipping_form': shipping_form,
+        'completed': bool(completed),
+    }
+
+    return render(request, template, context)
+
+
+@require_POST
+def ship_item(request, order_number):
+    """
+    Store postage info.
+    """
+    tracking_number = request.POST.get('tracking_number')
+    order = get_object_or_404(Order, order_number=order_number)
+    order.update_posted(request.user, tracking_number)
+
+    messages.success(request, 'Order has been marked as posted.')
+
+    try:
+        # Send the user a confirmation email"""
+        customer_email = order.email
+        subject = render_to_string(
+            'orders/confirmation_emails/shipping_notification_subject.txt',
+            {'order': order}),
+        body = render_to_string(
+            'orders/confirmation_emails/shipping_notification_body.txt',
+            {'order': order, 'contact_email': settings.DEFAULT_FROM_EMAIL})
+        send_mail(
+            subject,
+            body,
+            settings.DEFAULT_FROM_EMAIL,
+            [customer_email]
+        )
+
+        messages.success(request, 'Cofirmation email has been sent.')
+    except Exception as e:
+        messages.error(request, f'Confirmation email could not be sent. Error:\
+            {e}')
+
+    return redirect(reverse('orders_post'))
