@@ -31,7 +31,7 @@ class UserProfile(models.Model):
                                    null=True, blank=True)
 
     def __str__(self):
-        return self.user.username
+        return self.user.get_full_name()
 
 
 @receiver(post_save, sender=User)
