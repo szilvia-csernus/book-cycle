@@ -19,7 +19,8 @@ ul, address, svg, input, textarea {
     --bg-secondary: #89009b;
     --bg-radial-gradient: radial-gradient(at 50% 50%, #89009b, #160f69);
     --bg-linear-gradient: linear-gradient(to bottom, #fcfafa, #160f69);
-    --bg-staff: radial-gradient(at 50% 50%, #00821a, #160f69);
+    --bg-staff: radial-gradient(at 50% 50%, #007245, #160f69);
+    --bg-side-menu-staff: linear-gradient(to bottom, #fcfafa, #002f41);
     --bg-gallery: rgb(194, 207, 255);
     --bg-detail: rgb(246, 248, 255);
     --bg-overlay: #161528c7;
@@ -55,11 +56,6 @@ body {
     font-size: 1rem;
     font-weight: 300;
     justify-content: space-between;
-}
-
-.staff {
-    background: var(--bg-staff);
-    background-size: 100vw 100vh;
 }
 
 html {
@@ -505,4 +501,16 @@ img.open-book {
 .errorField ~ input {
     color: var(--text-error);
     border-color: var(--text-error);
+}
+
+
+/* -----------------------------------Staff styles ----------------- */
+
+.staff {
+    background: var(--bg-staff);
+    background-size: 100vw 100vh;
+}
+
+.side-staff {
+    background: var(--bg-side-menu-staff);
 }

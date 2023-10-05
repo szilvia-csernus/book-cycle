@@ -5,6 +5,7 @@
     background-color: var(--bg-detail);
     padding: 1rem;
     margin: 8rem 1rem 2rem;
+    min-height: 65vh;
 }
 
 @media screen and (min-width: 416px) {
