@@ -12,36 +12,35 @@ from .forms import BookForm
 
 
 def build_query_string(request):
-    # Re-build the query string to use for redirecting back to the books page
-    # with all the filters applied.
+    """
+    Re-build the query string to use for redirecting back to the books page
+    with all the filters applied.
+    """
     query_string = ''
 
     if 'search' in request.GET:
         query_string = query_string + 'search=' + request.GET['search']
-        print('search', query_string)
 
     if 'subject' in request.GET:
         query_string = query_string + '&subject=' + request.GET['subject']
-        print('subject', query_string)
 
     if 'year_group' in request.GET:
         query_string = query_string + '&year_group=' + \
             request.GET['year_group']
-        print('year_group', query_string)
 
     if 'sort' in request.GET:
         query_string = query_string + '&sort=' + request.GET['sort']
-        print('sort', query_string)
 
     if 'direction' in request.GET:
         query_string = query_string + '&direction=' + request.GET['direction']
-        print('direction', query_string)
 
     return query_string
 
 
 def all_books(request):
-    """ A view to show all books, including sorting and search queries. """
+    """
+    Show all books with all filters, sorting and search queries applied.
+    """
     books = Book.objects.all()
     search_term = None
     search_queries = None
@@ -79,7 +78,8 @@ def all_books(request):
         if 'search' in request.GET:
             search_term = request.GET['search']
 
-            if search_term != 'None':  # Combine search queries with OR
+            if search_term != 'None':
+                # Q is used to combine search queries with OR
                 search_queries = (
                     Q(title__icontains=search_term) |
                     Q(year_group__name__icontains=search_term) |
@@ -123,7 +123,8 @@ def all_books(request):
 
 
 def book_detail(request, slug):
-    """ A view to show book details. """
+    """ Show and individual book's details. """
+
     book = get_object_or_404(Book, slug=slug)
 
     stock_set = book.stock_set.all()
@@ -164,7 +165,9 @@ def book_detail(request, slug):
 @permission_required('user.is_staff')
 def add_book(request):
     """
-    Add a book to the store and create stock instances for each condition.
+    GET: Render form to add new book to the store.
+    POST: Add new book to the store and create stock instances for
+    each condition.
     """
     template = 'inventory/add_book.html'
     context = {}
@@ -199,7 +202,8 @@ def add_book(request):
 
 @permission_required('user.is_staff')
 def edit_book(request, slug):
-    """ Edit a book or its prices in the store. """
+    """ Edit the book's details or its prices. """
+
     book = get_object_or_404(Book, slug=slug)
 
     # get the book's current prices to pre-populate the form
@@ -256,7 +260,8 @@ def edit_book(request, slug):
 
 @permission_required('user.is_staff')
 def delete_book(request, slug):
-    """ Delete a book from the store. """
+    """ Delete the book from the database. """
+
     book = get_object_or_404(Book, slug=slug)
 
     # Check if there are any orders for this book in the past year
@@ -282,7 +287,7 @@ def delete_book(request, slug):
 
 @permission_required('user.is_staff')
 def manage_stock(request, slug):
-    """ A view to show book details. """
+    """ Show the book's details and stock data. """
     book = get_object_or_404(Book, slug=slug)
 
     stock_set = book.stock_set.all()
@@ -319,7 +324,7 @@ def manage_stock(request, slug):
 @permission_required('user.is_staff')
 def add_stock(request, stock_id):
     """
-    Increase stock of book of a certain condition.
+    Increase the stock item's quantity.
     """
 
     stock = get_object_or_404(Stock, id=stock_id)
@@ -340,7 +345,7 @@ def add_stock(request, stock_id):
 @permission_required('user.is_staff')
 def reduce_stock(request, stock_id):
     """
-    Reduce stock of book of a certain condition.
+    Reduce the stock item's quantity.
     """
 
     stock = get_object_or_404(Stock, id=stock_id)
