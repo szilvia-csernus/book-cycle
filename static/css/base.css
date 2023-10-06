@@ -17,9 +17,11 @@ ul, address, svg, input, textarea {
 :root {
     --bg-primary: #160f69;
     --bg-secondary: #89009b;
-    --bg-radial-gradient: radial-gradient(at 50% 50%, #89009b, #160f69);
+    --bg-radial-gradient: radial-gradient(at 50% 50%, #89009bee, #160f69ee);
+    --book-overlay: linear-gradient(to top, #89009b37, #170f69dd);
     --bg-linear-gradient: linear-gradient(to bottom, #fcfafa, #160f69);
-    --bg-staff: radial-gradient(at 50% 50%, #007245, #160f69);
+    --bg-staff: radial-gradient(at 50% 50%, #007244ee, #170f69ee);
+    --book-overlay-staff: linear-gradient(to top, #0072444d, #170f69dd);
     --bg-side-menu-staff: linear-gradient(to bottom, #fcfafa, #002f41);
     --bg-gallery: rgb(194, 207, 255);
     --bg-detail: rgb(246, 248, 255);
@@ -60,6 +62,7 @@ body {
 
 html {
     scroll-behavior: smooth;
+    background-color: var(--bg-primary);
 }
 
 main {
@@ -252,6 +255,7 @@ img.bag {
     left: -17rem; /* Hidden off-screen initially */
     width: 15rem;
     height: 90%;
+    max-height:700px;
     background-color: #ffffff;
     background: var(--bg-linear-gradient);
     transition: left 0.4s ease;
@@ -489,6 +493,12 @@ img.open-book {
     }
 }
 
+/* _----------------------------- Allauth Styles ----------------  */
+
+#errorMsg ol {
+    padding: 0;
+    color: var(--text-error);
+}
 
 /* ------------------------------ Crispy Form Styles ------------  */
 

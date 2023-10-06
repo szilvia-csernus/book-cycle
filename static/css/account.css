@@ -49,7 +49,7 @@
 }
 
 .account-form-frame label:not([for='id_remember']) {
-    display: none;
+    margin-top: .5rem;
 }
 
 .account-form-frame .textinput,
@@ -61,7 +61,6 @@
     background: var(--bg-detail);
     padding: 0.4rem;
     font-size: .9rem;
-    margin-top: 1.5rem;
     font-weight: 300;
 }
 
