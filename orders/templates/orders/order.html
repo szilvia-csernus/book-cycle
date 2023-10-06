@@ -71,15 +71,24 @@
         </section>
         {% endif %}
 
-        {% if not completed %}
+        {% if completed %}
+        <section class="order-list-section">
+            <h2 class="order-subtitle">Order Completion</h2>
+            {% if order.posted_by %}
+            <p>This order has been posted on <strong>{{ order.posted_on }}</strong> by <strong>{{ order.posted_by.get_full_name}}</strong>. </p>
+            {% else %}
+            <p>This order has been collected on <strong>{{ order.picked_up_on }}</strong> by <strong>{{ order.picked_up_by }}</strong>. </p>
+            {% endif %}
+        </section>
+        {% else %}
         <section class="order-list-section">
             <h2 class="order-subtitle">Manage Order</h2>
             {% if order.shipping_required %}
-                <form action="{% url "ship_item" order.order_number %}" method="POST">
-                    {% csrf_token %}
-                    {{ shipping_form|crispy }}
-                    <button type="submit" class="save-button">Mark Order as Shipped</button>
-                </form>
+            <form action="{% url "ship_item" order.order_number %}" method="POST">
+                {% csrf_token %}
+                {{ shipping_form|crispy }}
+                <button type="submit" class="save-button">Mark Order as Shipped</button>
+            </form>
             {% else %}
             <form action="{% url "collect_item" order.order_number %}" method="POST">
                 {% csrf_token %}
@@ -88,7 +97,6 @@
             </form>
             {% endif %}
         </section>
-        {% else %}
         {% endif %}
         
 

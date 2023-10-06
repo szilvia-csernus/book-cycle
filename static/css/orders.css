@@ -45,12 +45,12 @@
     .order-frame {
         margin-left: 1.5rem;
         margin-right: 1.5rem;
-        padding: 0 2rem;
+        padding: 0 2rem 7rem;
     }
     .order-list-frame {
         margin-left: 1.5rem;
         margin-right: 1.5rem;
-        padding: 0 1rem;
+        padding: 0 1rem 4rem;
     }
 }
 
@@ -160,6 +160,6 @@ and add "..." to the end. */
     color: var(--text-light);
     background-color: var(--bg-secondary);
     text-transform: uppercase;
-    margin: 2rem 0 3rem;
+    margin-top: 2rem;
     cursor: pointer;
 }

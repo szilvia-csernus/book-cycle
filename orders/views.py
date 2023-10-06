@@ -372,6 +372,7 @@ def order(request, order_number):
     completed = request.GET.get('completed', False) == 'True'
     lineitems = order.lineitems.all()
     shipping_form = None
+    collection_form = None
     if not completed:
         shipping_form = ShippingForm()
         collection_form = CollectionForm()
@@ -404,7 +405,7 @@ def ship_item(request, order_number):
         customer_email = order.email
         subject = render_to_string(
             'orders/confirmation_emails/shipping_notification_subject.txt',
-            {'order': order}),
+            {'order': order})
         body = render_to_string(
             'orders/confirmation_emails/shipping_notification_body.txt',
             {'order': order, 'contact_email': settings.DEFAULT_FROM_EMAIL})
@@ -439,7 +440,7 @@ def collect_item(request, order_number):
         customer_email = order.email
         subject = render_to_string(
             'orders/confirmation_emails/collection_notification_subject.txt',
-            {'order': order}),
+            {'order': order})
         body = render_to_string(
             'orders/confirmation_emails/collection_notification_body.txt',
             {'order': order, 'contact_email': settings.DEFAULT_FROM_EMAIL})
