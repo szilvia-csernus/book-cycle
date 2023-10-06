@@ -19,22 +19,26 @@
             <div class="order-number"><strong>Date</strong></div>
             <div class="order-name"><strong>Order Number</strong></div>
             <div><strong>Name</strong></div>
+            <div><strong>Nr of Books</strong></div>
             <div class="total-paid"><strong>Total Paid</strong></div>
             {% for order in orders %}
                 <div class="order-item">
                     <a href="{% url 'order' order.order_number%}?completed={{completed}}">
                         {{ order.date|date:"d M, Y" }}</a>
                 </div>
-                <div class="order-item order-number">
+                <div class="order-item">
                     <a href="{% url 'order' order.order_number%}?completed={{completed}}">
                         {{ order.order_number|truncatechars:8 }}</a>
                 </div>
-                <div class="order-item order-name">
+                <div class="order-item">
                     <a href="{% url 'order' order.order_number%}?completed={{completed}}">
                         {{ order.full_name|truncatechars:20 }}</a>
                 </div>
-                <div class="order-item total-paid">
-                    <strong>£{{ order.grand_total }}</strong>
+                <div class="order-item order-center">
+                    {{ order.get_book_count }}
+                </div>
+                <div class="order-item order-right">
+                    £{{ order.grand_total }}
                 </div>
             {% endfor %}
         </div>

@@ -45,7 +45,10 @@ def cache_checkout_data(request):
 
 
 def checkout(request):
-    """ A view to return the checkout page """
+    """
+    GET: Render the checkout page
+    POST: Submit the checkout form
+    """
 
     stripe_public_key = settings.STRIPE_PUBLIC_KEY
     stripe_secret_key = settings.STRIPE_SECRET_KEY
@@ -79,8 +82,6 @@ def checkout(request):
                 'country': request.POST['country'],
                 'postcode': request.POST['postcode'],
             }
-
-        # print(form_data)
 
         order_form = OrderForm(form_data)
         if order_form.is_valid():
@@ -307,7 +308,7 @@ def checkout_success(request, order_number):
 
 def orders_post(request):
     """
-    Display all orders
+    Display orders which require shipping
     """
     orders_to_post = Order.objects.all() \
                                   .filter(posted_on__isnull=True,
@@ -327,7 +328,7 @@ def orders_post(request):
 
 def orders_pickup(request):
     """
-    Display all orders
+    Display orders which don't require shipping
     """
     orders = Order.objects.all().order_by('-date')
     orders_to_post = orders.filter(posted_on__isnull=True,
@@ -336,7 +337,7 @@ def orders_pickup(request):
 
     template = 'orders/open_orders.html'
     context = {
-        'title': 'Orders Awaiting Pickup',
+        'title': 'Orders for Collection',
         'orders': orders_to_post,
         'completed': False
     }
@@ -346,7 +347,7 @@ def orders_pickup(request):
 
 def orders_completed(request):
     """
-    Display all orders
+    Display all orders that have either been shipped or collected.
     """
     orders = Order.objects.all().order_by('-date')
     posted_orders = orders.filter(posted_on__isnull=False)

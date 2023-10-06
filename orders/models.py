@@ -65,6 +65,12 @@ class Order(models.Model):
             self.order_number = self._generate_order_number()
         super().save(*args, **kwargs)
 
+    def get_book_count(self):
+        """
+        Get the total number of books in the order.
+        """
+        return sum(item.quantity for item in self.lineitems.all())
+
     def update_delivery_cost(self):
         """
         Update delivery cost based on the shipping option selected.
