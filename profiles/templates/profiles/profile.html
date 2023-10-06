@@ -1,5 +1,7 @@
 {% extends "base.html" %}
 {% load static %}
+{% load i18n %}
+{% load account socialaccount %}
 
 {% block extra_css %}
 <link rel="stylesheet" href="{% static 'css/account.css' %}">
@@ -35,8 +37,8 @@
                     </form>
                 {% endif %}
             </div>
-            {% if not user.is_staff %}
-                <div class="account-form-frame">
+            <div class="account-form-frame">
+                {% if not user.is_staff %}
                     <h2 class="account-details-title">Your Order History</h2>
                     {% if orders|length > 0 %}
                     <div class="order-history-details-box">
@@ -63,8 +65,20 @@
                     {% else %}
                     <div class="no-purchase">You haven't made a purchase with us yet.</div>
                     {% endif %}
+                {% endif %}
+                <div class="mobile">
+                <h2 class="account-details-title">Sign Out</h1>
+                <p>{% trans 'If you share your device with other people, it is advised to always sign out after you finished working.' %}</p>
+                
+                <form class="account-form-frame" method="post" action="{% url 'account_logout' %}">
+                    {% csrf_token %}
+                    {% if redirect_field_value %}
+                    <input type="hidden" name="{{ redirect_field_name }}" value="{{ redirect_field_value }}" />
+                    {% endif %}
+                    <button class="account-button" type="submit">{% trans 'Sign Out' %}</button>
+                </form>
                 </div>
-            {% endif %}
+            </div>  
         </div>
     </div>
 </main>
