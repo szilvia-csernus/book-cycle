@@ -101,12 +101,12 @@ class Order(models.Model):
         self.tracking_number = tracking_number
         self.save()
 
-    def update_picked_up(self, user):
+    def update_picked_up(self, collected_by):
         """
         Update picked_up_on and picked_up_by fields
         """
         self.picked_up_on = timezone.now()
-        self.picked_up_by = user
+        self.picked_up_by = collected_by
         self.save()
 
     def __str__(self):

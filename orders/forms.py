@@ -48,3 +48,13 @@ class ShippingForm(forms.Form):
         label='Tracking Number (optional)',
         widget=forms.TextInput(attrs={'class': 'stripe-style-input'})
     )
+
+
+class CollectionForm(forms.Form):
+    """ Form to add shipping data"""
+    collected_by = forms.CharField(
+        max_length=80,
+        required=True,
+        label='Name of person collecting',
+        widget=forms.TextInput(attrs={'class': 'stripe-style-input'})
+    )

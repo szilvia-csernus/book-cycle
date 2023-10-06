@@ -38,6 +38,10 @@
     max-width: 26.5rem;
 }
 
+.checkout-form-frame a {
+    color: var(--text-secondary);
+}
+
 .checkout-details-title {
     margin-bottom: 1.5rem;
     text-transform: uppercase;
@@ -139,24 +143,24 @@
 
 .StripeElement,
 .stripe-style-input {
-  box-sizing: border-box;
-  padding: 10px 12px;
-  border: 1px solid var(--input-border);
-  background-color: var(--bg-detail);
-  box-shadow: 0 1px 3px 0 var(--input-border);
-  -webkit-transition: box-shadow 150ms ease;
-  transition: box-shadow 150ms ease;
-  margin-bottom: 1rem;
-  width: 100%;
-  font-family: 'Montserrat';
-font-size: 1rem;
-font-weight: 200;
+    box-sizing: border-box;
+    padding: 10px 12px;
+    border: 1px solid var(--input-border);
+    background-color: var(--bg-detail);
+    box-shadow: 0 1px 3px 0 var(--input-border);
+    -webkit-transition: box-shadow 150ms ease;
+    transition: box-shadow 150ms ease;
+    margin-bottom: 1rem;
+    width: 100%;
+    font-family: 'Montserrat';
+    font-size: 1rem;
+    font-weight: 200;
 }
 
 .StripeElement--focus,
 .stripe-style-input:focus,
 .stripe-style-input:active {
-  box-shadow: 0 1px 3px 0 var(--input-border);
+    box-shadow: 0 1px 3px 0 var(--input-border);
 }
 
 .stripeElement--invalid {
@@ -165,7 +169,7 @@ font-weight: 200;
 }
 
 .StripeElement--webkit-autofill {
-  background-color: #fefde5 !important;
+    background-color: #fefde5 !important;
 }
 
 .stripe-style-input::placeholder {

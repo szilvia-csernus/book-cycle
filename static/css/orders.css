@@ -153,3 +153,13 @@ and add "..." to the end. */
     font-weight: normal;
     font-size: .9rem;
 }
+
+.save-button {
+    border: 1px solid var(--bg-secondary);
+    padding: 0.5rem 2rem;
+    color: var(--text-light);
+    background-color: var(--bg-secondary);
+    text-transform: uppercase;
+    margin: 2rem 0 3rem;
+    cursor: pointer;
+}

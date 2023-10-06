@@ -3,6 +3,7 @@
 
 {% block extra_css %}
 <link rel="stylesheet" href="{% static 'css/orders.css' %}">
+<link rel="stylesheet" href="{% static 'css/checkout.css' %}">
 {% endblock %}
 
 {% block logo %}
@@ -77,10 +78,17 @@
                 <form action="{% url "ship_item" order.order_number %}" method="POST">
                     {% csrf_token %}
                     {{ shipping_form|crispy }}
-                    <button type="submit">Mark Item as Shipped</button>
+                    <button type="submit" class="save-button">Mark Order as Shipped</button>
                 </form>
+            {% else %}
+            <form action="{% url "collect_item" order.order_number %}" method="POST">
+                {% csrf_token %}
+                {{ collection_form|crispy }}
+                <button type="submit" class="save-button">Mark Order as Collected</button>
+            </form>
             {% endif %}
         </section>
+        {% else %}
         {% endif %}
         
 

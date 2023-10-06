@@ -83,7 +83,7 @@ input[type="radio"] {
 label {
     display: inline-block;
     margin-bottom: 0.3rem;
-    font-family: 'Montserrat';
+    font-family: 'KoHo';
 }
 
 /* --------------------------------------- HEADER and FOOTER-------------- */
@@ -401,7 +401,7 @@ img.open-book {
 .toast-container {
     display: none;
     position: fixed;
-    top: 5.7rem;
+    top: 6rem;
     right: 1.1rem;
     z-index: 4;
 }
@@ -499,6 +499,7 @@ img.open-book {
 }
 
 /* Color the error field and border red */
+.errorField ~ label,
 .errorField ~ input {
     color: var(--text-error);
     border-color: var(--text-error);

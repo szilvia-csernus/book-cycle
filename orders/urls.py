@@ -20,4 +20,6 @@ urlpatterns = [
     path('orders_completed/', views.orders_completed, name='orders_completed'),
     path('order/<order_number>', views.order, name='order'),
     path('ship_item/<order_number>', views.ship_item, name='ship_item'),
+    path('collect_item/<order_number>', views.collect_item,
+         name='collect_item'),
 ]

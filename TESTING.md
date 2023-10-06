@@ -18,3 +18,8 @@ To view the report in the browser, run:
 `python -m http.server`
 
 Follow the link and click on `htmlcov`
+
+##
+
+Chrome warning about Same-Site Cookies flags up Stripe's cookies:
+https://support.stripe.com/questions/chrome-80-samesite-cookie-change?locale=en-GB

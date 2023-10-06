@@ -8,7 +8,7 @@ from django.conf import settings
 from django.core.mail import send_mail
 from django.template.loader import render_to_string
 
-from .forms import OrderForm, ShippingForm
+from .forms import OrderForm, ShippingForm, CollectionForm
 from .models import OrderLineItem, Order
 from inventory.models import Stock
 from shopping_bag.context import bag_contents
@@ -374,12 +374,14 @@ def order(request, order_number):
     shipping_form = None
     if not completed:
         shipping_form = ShippingForm()
+        collection_form = CollectionForm()
 
     template = 'orders/order.html'
     context = {
         'order': order,
         'lineitems': lineitems,
         'shipping_form': shipping_form,
+        'collection_form': collection_form,
         'completed': bool(completed),
     }
 
@@ -413,9 +415,44 @@ def ship_item(request, order_number):
             [customer_email]
         )
 
-        messages.success(request, 'Cofirmation email has been sent.')
+        messages.success(request, 'Confirmation email has been sent.')
     except Exception as e:
         messages.error(request, f'Confirmation email could not be sent. Error:\
             {e}')
 
     return redirect(reverse('orders_post'))
+
+
+@require_POST
+def collect_item(request, order_number):
+    """
+    Store collection info.
+    """
+    collected_by = request.POST.get('collected_by')
+    order = get_object_or_404(Order, order_number=order_number)
+    order.update_picked_up(collected_by)
+
+    messages.success(request, 'Order has been marked as collected.')
+
+    try:
+        # Send the user a confirmation email"""
+        customer_email = order.email
+        subject = render_to_string(
+            'orders/confirmation_emails/collection_notification_subject.txt',
+            {'order': order}),
+        body = render_to_string(
+            'orders/confirmation_emails/collection_notification_body.txt',
+            {'order': order, 'contact_email': settings.DEFAULT_FROM_EMAIL})
+        send_mail(
+            subject,
+            body,
+            settings.DEFAULT_FROM_EMAIL,
+            [customer_email]
+        )
+
+        messages.success(request, 'Confirmation email has been sent.')
+    except Exception as e:
+        messages.error(request, f'Confirmation email could not be sent. Error:\
+            {e}')
+
+    return redirect(reverse('orders_pickup'))

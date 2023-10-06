@@ -1,9 +1,7 @@
 Hello {{ order.full_name }}!
 
-Good News! Your order from bookCYCLE is on the way. You can expect to receive it in the next 2-5 working days.
-{% if order.tracking_number %}
-You can get real time updates by looking up your package with the tracking number: {{ order.tracking_number }}
-{% endif %}
+We would like to inform you that your recent order at bookCycle has been collected by {{ order.picked_up_by }}.
+In case you do not recognise this person, please contact us as soon as possible.
 
 Your order:
 
