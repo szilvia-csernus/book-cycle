@@ -14,11 +14,9 @@
 {% load account socialaccount %}
 
 {% block content %}
-
 <main>
   <div class="account-background">
     <div class="account-details-frame">
-      {% if process == "connect" %}
       <h1 class="account-details-title">
         {% blocktrans with provider.name as provider %}Connect {{ provider }}{% endblocktrans %}
       </h1>

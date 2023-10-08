@@ -49,6 +49,7 @@ INSTALLED_APPS = [
     'allauth.account',
     'allauth.socialaccount',
     'allauth.socialaccount.providers.google',
+    'allauth.socialaccount.providers.facebook',
 
     # my apps
     'home',
@@ -210,28 +211,50 @@ ACCOUNT_SESSION_REMEMBER = True
 ACCOUNT_FORMS = {'signup': 'profiles.forms.CustomSignupForm'}
 ACCOUNT_SIGNUP_VIEW = 'profiles.views.CustomSignupView'
 SOCIALACCOUNT_PROVIDERS = {
-    "google": {
+    'google': {
         # For each OAuth based provider, either add a ``SocialApp``
         # (``socialaccount`` app) containing the required client
         # credentials, or list them here:
-        "APP": {
-            "client_id": os.environ.get("GOOGLE_CLIENT_ID"),
-            "secret": os.environ.get("GOOGLE_SECRET"),
-            "key": ""
+        'APP': {
+            'client_id': os.environ.get('GOOGLE_CLIENT_ID'),
+            'secret': os.environ.get('GOOGLE_SECRET'),
+            'key': ''
         },
         # These are provider-specific settings that can only be
         # listed here:
-        "SCOPE": [
-            "profile",
-            "email"
+        'SCOPE': [
+            'profile',
+            'email'
         ],
-        "AUTH_PARAMS": {
-            "access_type": "online",
+        'AUTH_PARAMS': {
+            'access_type': 'online',
         }
+    },
+    'facebook': {
+        'APP': {
+            'client_id': os.environ.get('FACEBOOK_CLIENT_ID'),
+            'secret': os.environ.get('FACEBOOK_SECRET'),
+            'key': ''
+        },
+        'METHOD': 'js_sdk',
+        'SDK_URL': '//connect.facebook.net/{locale}/sdk.js',
+        'SCOPE': ['email', 'public_profile'],
+        'AUTH_PARAMS': {'auth_type': 'reauthenticate'},
+        'INIT_PARAMS': {'cookie': False},
+        'FIELDS': [
+            'id',
+            'first_name',
+            'last_name'
+        ],
+        'VERIFIED_EMAIL': True,
+        'VERSION': 'v18.0',
+        'GRAPH_API_URL': 'https://graph.facebook.com/v18.0',
     }
 }
 SOCIALACCOUNT_EMAIL_AUTHENTICATION = True
 SOCIALACCOUNT_LOGIN_ON_GET = True
+SOCIALACCOUNT_QUERY_EMAIL = True
+# SOCIALACCOUNT_ALLOW_REGISTRATION = True
 SOCIALACCOUNT_EMAIL_AUTHENTICATION_AUTO_CONNECT = True
 LOGIN_REDIRECT_URL = '/'
 LOGOUT_REDIRECT_URL = '/'
