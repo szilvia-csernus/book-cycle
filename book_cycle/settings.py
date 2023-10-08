@@ -28,7 +28,6 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 SECRET_KEY = os.environ.get("SECRET_KEY")
 
 # SECURITY WARNING: don't run with debug turned on in production!
-# DEBUG = True
 DEBUG = "DEBUG" in os.environ
 
 ALLOWED_HOSTS = ['book-cycle-f6aff45df7ba.herokuapp.com', 'localhost']
@@ -49,6 +48,7 @@ INSTALLED_APPS = [
     'allauth',
     'allauth.account',
     'allauth.socialaccount',
+    'allauth.socialaccount.providers.google',
 
     # my apps
     'home',
@@ -68,6 +68,7 @@ MIDDLEWARE = [
     'django.contrib.sessions.middleware.SessionMiddleware',
     'django.middleware.common.CommonMiddleware',
     'django.middleware.csrf.CsrfViewMiddleware',
+    'allauth.account.middleware.AccountMiddleware',
     'django.contrib.auth.middleware.AuthenticationMiddleware',
     'django.contrib.messages.middleware.MessageMiddleware',
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
@@ -181,10 +182,10 @@ DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 # for allauth
 AUTHENTICATION_BACKENDS = [
     # Needed to login by username in Django admin, regardless of `allauth`
-    # 'django.contrib.auth.backends.ModelBackend',
+    'django.contrib.auth.backends.ModelBackend',
 
     # `allauth` specific authentication methods, such as login by e-mail
-    'allauth.account.auth_backends.AuthenticationBackend',
+    'allauth.account.auth_backends.AuthenticationBackend'
 ]
 
 # for allauth
@@ -205,34 +206,35 @@ ACCOUNT_LOGIN_ON_EMAIL_CONFIRMATION = True
 ACCOUNT_LOGIN_ON_PASSWORD_CHANGE = True
 ACCOUNT_LOGIN_ON_PASSWORD_RESET = True
 ACCOUNT_SESSION_REMEMBER = True
-ACCOUNT_USERNAME_REQUIRED = False
-ACCOUNT_UNIQUE_EMAIL = True
+# ACCOUNT_UNIQUE_EMAIL = True
 ACCOUNT_FORMS = {'signup': 'profiles.forms.CustomSignupForm'}
 ACCOUNT_SIGNUP_VIEW = 'profiles.views.CustomSignupView'
-SOCIALACCOUNT_EMAIL_VERIFICATION = 'none'
 SOCIALACCOUNT_PROVIDERS = {
     "google": {
         # For each OAuth based provider, either add a ``SocialApp``
         # (``socialaccount`` app) containing the required client
         # credentials, or list them here:
         "APP": {
-            "client_id": "123",
-            "secret": "456",
+            "client_id": os.environ.get("GOOGLE_CLIENT_ID"),
+            "secret": os.environ.get("GOOGLE_SECRET"),
             "key": ""
         },
         # These are provider-specific settings that can only be
         # listed here:
         "SCOPE": [
             "profile",
-            "email",
+            "email"
         ],
         "AUTH_PARAMS": {
             "access_type": "online",
-        },
-        'OAUTH_PKCE_ENABLED': True,
+        }
     }
-},
+}
+SOCIALACCOUNT_EMAIL_AUTHENTICATION = True
+SOCIALACCOUNT_LOGIN_ON_GET = True
+SOCIALACCOUNT_EMAIL_AUTHENTICATION_AUTO_CONNECT = True
 LOGIN_REDIRECT_URL = '/'
+LOGOUT_REDIRECT_URL = '/'
 
 ACCOUNT_CHANGE_PASSWORD_REDIRECT_URL = '/profiles/profile/'
 ACCOUNT_PASSWORD_RESET_REDIRECT_URL = '/profiles/profile/'

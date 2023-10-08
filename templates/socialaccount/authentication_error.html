@@ -1,0 +1,26 @@
+{% extends "account/base.html" %}
+{% load static %}
+
+{% block extra_css %}
+<link rel="stylesheet" href="{% static 'css/account.css' %}">
+
+{% endblock %}
+
+{% block logo %}
+{% include 'includes/logo.html' %}
+{% endblock %}
+
+{% load i18n %}
+{% load account socialaccount %}
+
+{% block content %}
+<main>
+    <div class="account-background">
+        <div class="account-details-frame">
+            <h1 class="account-details-title">{% trans "Social Network Login Failure" %}</h1>
+
+            <p>{% trans "An error occurred while attempting to login via your social network account." %}</p>
+        </div>
+    </div>
+</main>
+{% endblock %}
