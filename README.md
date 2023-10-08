@@ -38,6 +38,7 @@ https://lucid.app/lucidchart/8eb93ba8-43af-4939-9709-11dcc52da382/edit?viewport_
 
 * Image converter: https://cloudconvert.com/jpg-to-webp
 * File converter (csv to json): https://csvjson.com/csv2json
+* Favicon generator: https://realfavicongenerator.net/
 
 ## Helpful ideas
 
@@ -52,9 +53,20 @@ https://lucid.app/lucidchart/8eb93ba8-43af-4939-9709-11dcc52da382/edit?viewport_
 * How to access request.POST data sent using fetch request:
 https://stackoverflow.com/questions/61543829/django-taking-values-from-post-request-javascript-fetch-api
 
+* Set up Google authentication with django-allauth:
+https://www.youtube.com/watch?v=yO6PP0vEOMc
+
+* Django Allauth documentation:
+https://django-allauth.readthedocs.io/en/latest/account/configuration.html
+
+* Django Crispy Forms documentation
+https://django-crispy-forms.readthedocs.io/en/latest/index.html
+
 ## Images
 
 * Background image: https://unsplash.com/photos/OQSCtabGkSY - Photo by [Jessica Ruscello]("https://unsplash.com/@jruscello?utm_source=unsplash&utm_medium=referral&utm_content=creditCopyText") on [Unsplash]("https://unsplash.com/photos/OQSCtabGkSY?utm_source=unsplash&utm_medium=referral&utm_content=creditCopyText")
+
+* Google logo: Vectors and icons by <a href="https://design.google/?ref=svgrepo.com" target="_blank">Google Design</a> in Logo License via <a href="https://www.svgrepo.com/" target="_blank">SVG Repo</a>
 
 * Exemption from Copyright law: https://www.gov.uk/guidance/exceptions-to-copyright#non-commercial-research-and-private-study
   
