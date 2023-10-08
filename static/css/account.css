@@ -39,6 +39,11 @@
     margin-left: 0.4rem;
 }
 
+.google-logo {
+    width: 60px;
+    margin: 1rem 0;
+}
+
 
 /* Form styles  */
 
@@ -74,7 +79,7 @@
     color: var(--text-light);
     background-color: var(--bg-secondary);
     text-transform: uppercase;
-    margin: 1.5rem 0 3rem;
+    margin: 1.5rem 0;
     cursor: pointer;
     font-size: .9rem;
     display: inline-block;
