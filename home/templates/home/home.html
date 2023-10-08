@@ -7,6 +7,7 @@
 
 {% block content %}
 <main>
+    <div class="colored-overlay {% if user.is_staff %}staff{% endif %}"></div>
     <img class="logo" src={% static 'svg/book-cycle-logo.svg' %} alt="book cycle logo" width="10" height="6">
     <a class="main-button" href="{% url 'books' %}">shop</a>
 </main>

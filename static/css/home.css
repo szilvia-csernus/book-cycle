@@ -26,7 +26,9 @@ main {
 
 main img.logo {
     width: 250px;
-    height: 130px;
+    margin-top: 1rem;
+    max-width: 200px;
+    max-height: 130px;
     z-index: 2;
 }
 
