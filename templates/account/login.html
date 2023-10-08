@@ -22,7 +22,7 @@
         <p>Sign in with your email or with your Google account.</p>
           
         <a href="{% provider_login_url 'google' %}">
-          <img src="{% static '/svg/google-logo.svg' %}" class="google-logo" alt="google-logo">
+          <img src="{% static 'svg/google-logo.svg' %}" class="google-logo" alt="google-logo">
         </a>
         <form class="account-form-frame" method="POST" action="{% url 'account_login' %}">
           {% csrf_token %}
