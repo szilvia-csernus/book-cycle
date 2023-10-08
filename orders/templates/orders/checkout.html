@@ -78,7 +78,7 @@
                 <form action="{% url 'checkout'%}" method="POST" id="payment-form" >
                     {% csrf_token %}
                     <fieldset class="checkout-fieldset">
-                        <legend class="checkout-fieldset-label">Your Details</legend>
+                        <legend class="checkout-fieldset-label">Billing/Shipping Details</legend>
                         {{ order_form.full_name|as_crispy_field }}
                         {{ order_form.email|as_crispy_field }}
                         {{ order_form.phone_number|as_crispy_field }}
