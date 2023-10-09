@@ -29,8 +29,18 @@ const removeToastContainer = () => {
 }
 
 // Add event listener to close the toast on clicking 'X'.
-toastCloseButton.addEventListener('click', () => {
-    closeToast()
+toastCloseButton.addEventListener('click', closeToast);
+
+
+// Grab shopping bag icon element and apply an event listener
+// that closes the toast this element gets clicked.
+const bagIcon = document.getElementById('bag-link');
+bagIcon.addEventListener('click', closeToast);
+
+
+document.addEventListener('scroll', () => {
+    setTimeout(closeToast, 1000)
 });
+
 
 activateToast();
