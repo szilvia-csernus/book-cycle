@@ -19,6 +19,7 @@ class OrderForm(forms.ModelForm):
             'full_name': 'Full Name',
             'email': 'Email Address',
             'phone_number': 'Phone Number',
+            'country': 'Country',
             'postcode': 'Postcode',
             'town_or_city': 'Town or City',
             'street_address1': '1st Line of Address',
@@ -44,7 +45,6 @@ class OrderForm(forms.ModelForm):
                 if self.fields[field].required:
                     placeholder = f'{placeholders[field]} *'
                 else:
-                    self.fields[field].widget.attrs['disabled'] = True
                     placeholder = placeholders[field]
                 self.fields[field].widget.attrs['placeholder'] = placeholder
             self.fields[field].widget.attrs['class'] = 'stripe-style-input'
