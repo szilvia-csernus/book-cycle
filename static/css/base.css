@@ -22,13 +22,14 @@ ul, address, svg, input, textarea {
     --bg-linear-gradient: linear-gradient(to bottom, #fcfafa, #160f69);
     --bg-staff: radial-gradient(at 50% 50%, #006c72ee, #170f69ee);
     --book-overlay-staff: linear-gradient(to top, #006c724d, #170f69dd);
-    --bg-side-menu-staff: linear-gradient(to bottom, #fcfafa, #002f41);
+    --bg-side-menu-staff: linear-gradient(to bottom, #fcfafa, #012f53);
     --bg-gallery: rgb(194, 207, 255);
     --bg-detail: rgb(246, 248, 255);
     --bg-overlay: #161528c7;
     --accent: #1ed446;
     --text-primary: #160f69;
     --text-secondary: #7a008a;
+    --text-secondary-light: #B529C8;
     --text-accent: #00821b;
     --text-light: white;
     --text-error: #c70000;
@@ -198,19 +199,27 @@ img.bag {
     margin: auto;
 }
 
-.email {
+.user-name {
     font-size: .8rem;
     position: absolute;
     right: 1.5rem;
     top: 1rem;
 }
 
+.user-title {
+    position: absolute;
+    top: 5.5rem;
+    right: 1.5rem;
+    color: var(--text-secondary-light);
+    text-transform: uppercase;
+    font-weight: bold;
+}
 
 @media screen and (min-width: 500px) {
     .logo {
         width: 100%;
     }
-    .email {
+    .user-name {
         font-size: .9rem;
     }
 }
@@ -244,7 +253,8 @@ img.bag {
     .book-nr {
         left: 0.33rem;
     }
-    .email {
+    .user-name,
+    .user-title {
         right: 2rem;
     }
 }

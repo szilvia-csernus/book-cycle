@@ -46,7 +46,7 @@
             </div>
             <div class="desktop browse-link">
                 {% if user.is_staff %}
-                ADMIN 
+                ADMIN MENU
                 {% else %}
                 BROWSE TEXTBOOKS
                 {% endif %}
@@ -63,10 +63,10 @@
                 <a href="{% url 'account_logout' %}" class="desktop">
                     Sign Out
                 </a>
-                <a href="{% url 'profile' %}" class="email">
+                <a href="{% url 'profile' %}" class="user-name">
                     {{ request.user.get_full_name }}
-                    {% if user.is_staff%} (staff) {% endif %}
                 </a>
+                <span class="user-title">{% if user.is_staff%}staff{% endif %}</span>
                 
             {% else %}
             <a href="{% url 'account_login' %}" class="mobile">

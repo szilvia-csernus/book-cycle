@@ -64,11 +64,11 @@ main img.logo {
 .staff-button {
     font-size: 1.1rem;
     border: 1px solid var(--bg-secondary);
-    background-color: rgba(255, 255, 255, 0.5);
+    background-color: rgba(255, 255, 255, 0.6);
     color: var(--bg-secondary);
     text-transform: uppercase;
     text-align: center;
-    padding: .4rem 1.5rem;
+    padding: .5rem 1.5rem;
     margin: .5rem;
     display: inline-block;
     width: 18rem;
