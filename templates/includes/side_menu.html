@@ -49,10 +49,18 @@
         <h2 class="side-menu-title">Order management</h2>
         <ul>
             <li class="browse-category-order">
-                <a href="{% url 'orders_post' %}">Orders to Post</a>
+                <a href="{% url 'orders_post' %}">Orders to Post
+                    {% if orders_to_post_count > 0 %}
+                    <span class="orders-count-side">{{ orders_to_post_count }}</span>
+                    {% endif %}
+                </a>
             </li>
             <li class="browse-category-order">
-                <a href="{% url 'orders_pickup' %}">Orders for Collection</a>
+                <a href="{% url 'orders_pickup' %}">Orders for Collection
+                    {% if orders_to_collect_count > 0 %}
+                    <span class="orders-count-side">{{ orders_to_collect_count }}</span>
+                    {% endif %}
+                </a>
             </li>
             <li class="browse-category-order">
                 <a href="{% url 'orders_completed' %}">Completed Orders</a>

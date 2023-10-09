@@ -208,7 +208,7 @@ img.bag {
 
 .user-title {
     position: absolute;
-    top: 5.5rem;
+    top: 5.2rem;
     right: 1.5rem;
     color: var(--text-secondary-light);
     text-transform: uppercase;
@@ -403,6 +403,15 @@ img.bag {
     width: 2rem;
     position: relative;
     top: 0.25rem
+}
+
+.orders-count-side {
+    border: 1px solid var(--text-light);
+    padding: 0.2rem 0.2rem;
+    border-radius: 20px;
+    color: var(--text-light);
+    font-size: .8rem;
+    margin-left: 0.5rem;
 }
 
 img.open-book {

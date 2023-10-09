@@ -11,9 +11,6 @@
 {% endblock %}
 
 {% block content %}
-<a href="{% url 'home' %}" class="small-logo">
-    <img class="logo" src={% static 'svg/book-cycle-logo.svg' %} alt="book cycle logo" width="10" height="6">
-</a>
 <main>
     <div class="order-frame">
         <h1 class="order-title">Order</h1>
@@ -75,7 +72,9 @@
         <section class="order-list-section">
             <h2 class="order-subtitle">Order Completion</h2>
             {% if order.posted_by %}
-            <p>This order has been posted on <strong>{{ order.posted_on }}</strong> by <strong>{{ order.posted_by.get_full_name}}</strong>. </p>
+            <p>This order has been posted on <strong>{{ order.posted_on }}</strong> 
+                by <strong>{{ order.posted_by.get_full_name}}</strong>. 
+                Tracking number: <strong>{{ order.tracking_number }}</strong> </p>
             {% else %}
             <p>This order has been collected on <strong>{{ order.picked_up_on }}</strong> by <strong>{{ order.picked_up_by }}</strong>. </p>
             {% endif %}

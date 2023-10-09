@@ -99,10 +99,11 @@ TEMPLATES = [
                 # `allauth` needs this from django
                 'django.template.context_processors.request',
 
-                # context for all subjects and yeargroups to be available
-                # for the menu throughout the pages
+                # context for subjects, yeargroups, shopping bag and order
+                # details to be available throughout the pages
                 'inventory.context.all_categories',
                 'shopping_bag.context.bag_contents',
+                'orders.context.manage_orders_details',
             ],
             'builtins': [
                 'crispy_forms.templatetags.crispy_forms_tags',

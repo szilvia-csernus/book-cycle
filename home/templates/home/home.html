@@ -15,9 +15,17 @@
     {% endif %}
     {% if user.is_staff %}
     <div class="staff-buttons-box">
-        <a class="staff-button" href="{% url 'orders_post' %}">Orders to Post</a>
-        <a class="staff-button" href="{% url 'orders_post' %}">Orders for Collection</a>
-        <a class="staff-button" href="{% url 'orders_post' %}">Completed Orders</a>
+        <a class="staff-button" href="{% url 'orders_post' %}">Orders to Post
+            {% if orders_to_post_count > 0 %}
+            <span class="orders-count">{{ orders_to_post_count }}</span>
+            {% endif %}
+        </a>
+        <a class="staff-button" href="{% url 'orders_pickup' %}">Orders for Collection
+            {% if orders_to_collect_count > 0 %}
+            <span class="orders-count">{{ orders_to_collect_count }}</span>
+            {% endif %}
+        </a>
+        <a class="staff-button" href="{% url 'orders_completed' %}">Completed Orders</a>
     </div>
     {% else %}
     <a class="main-button" href="{% url 'books' %}">shop</a>
