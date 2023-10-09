@@ -8,7 +8,19 @@
 {% block content %}
 <main>
     <div class="colored-overlay {% if user.is_staff %}staff{% endif %}"></div>
+    {% if user.is_staff %}
+    <img class="logo" src={% static 'svg/book-cycle-logo-accent.svg' %} alt="book cycle logo" width="10" height="6">
+    {% else %}
     <img class="logo" src={% static 'svg/book-cycle-logo.svg' %} alt="book cycle logo" width="10" height="6">
+    {% endif %}
+    {% if user.is_staff %}
+    <div class="staff-buttons-box">
+        <a class="staff-button" href="{% url 'orders_post' %}">Orders to Post</a>
+        <a class="staff-button" href="{% url 'orders_post' %}">Orders for Collection</a>
+        <a class="staff-button" href="{% url 'orders_post' %}">Completed Orders</a>
+    </div>
+    {% else %}
     <a class="main-button" href="{% url 'books' %}">shop</a>
+    {% endif %}
 </main>
 {% endblock %}

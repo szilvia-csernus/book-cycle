@@ -454,10 +454,9 @@
 .stockline-button {
     border: 1px solid var(--bg-primary);
     padding: 0 .5rem;
-    font-weight: bold;
+    font-family: 'KoHo';
     font-size: .9rem;
     color: var(--text-primary);
-    background-color: var(--accent);
     cursor: pointer;
 }
 

@@ -20,8 +20,8 @@ ul, address, svg, input, textarea {
     --bg-radial-gradient: radial-gradient(at 50% 50%, #89009bee, #160f69ee);
     --book-overlay: linear-gradient(to top, #89009b37, #170f69dd);
     --bg-linear-gradient: linear-gradient(to bottom, #fcfafa, #160f69);
-    --bg-staff: radial-gradient(at 50% 50%, #007244ee, #170f69ee);
-    --book-overlay-staff: linear-gradient(to top, #0072444d, #170f69dd);
+    --bg-staff: radial-gradient(at 50% 50%, #006c72ee, #170f69ee);
+    --book-overlay-staff: linear-gradient(to top, #006c724d, #170f69dd);
     --bg-side-menu-staff: linear-gradient(to bottom, #fcfafa, #002f41);
     --bg-gallery: rgb(194, 207, 255);
     --bg-detail: rgb(246, 248, 255);
