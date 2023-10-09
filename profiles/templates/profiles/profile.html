@@ -67,17 +67,37 @@
                     {% endif %}
                 {% endif %}
                 <div class="mobile">
-                <h2 class="account-details-title">Sign Out</h1>
-                <p>{% trans 'If you share your device with other people, it is advised to always sign out after you finished working.' %}</p>
-                
-                <form class="account-form-frame" method="post" action="{% url 'account_logout' %}">
-                    {% csrf_token %}
-                    {% if redirect_field_value %}
-                    <input type="hidden" name="{{ redirect_field_name }}" value="{{ redirect_field_value }}" />
-                    {% endif %}
-                    <button class="account-button" type="submit">{% trans 'Sign Out' %}</button>
-                </form>
+                    <div class="account-form-frame">
+                        <h2 class="account-details-title">Sign Out</h1>
+                        <p>If you share your device with other people, it is advised to always sign out after you finished working.</p>
+                        
+                        <form class="account-form-frame" method="post" action="{% url 'account_logout' %}">
+                            {% csrf_token %}
+                            {% if redirect_field_value %}
+                            <input type="hidden" name="{{ redirect_field_name }}" value="{{ redirect_field_value }}" />
+                            {% endif %}
+                            <div>
+                            <button class="account-button" type="submit">Sign Out</button>
+                            </div>
+                        </form>
+                    </div>
                 </div>
+
+                {% if not user.is_staff %}
+                <div class="account-form-frame">
+                    <h2 class="account-details-title">Delete Account</h1>
+                        <p>By deleting your account you will lose access to your order history 
+                            as well as your shipping details which would be pre-filled at checkout.
+                            You can re-register anytime.</p>
+                
+                        <form class="account-form-frame" method="post" action="{% url 'delete_profile' %}">
+                            {% csrf_token %}
+                            <div>
+                            <button class="account-button" type="submit">Delete My Account</button>
+                            </div>
+                        </form>
+                </div>
+                {% endif %}
             </div>  
         </div>
     </div>

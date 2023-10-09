@@ -1,14 +1,15 @@
-from django.shortcuts import render, get_object_or_404
+from django.shortcuts import render, get_object_or_404, redirect, reverse
 from django.contrib import messages
 from django.contrib.auth.decorators import login_required
+from django.views.decorators.http import require_POST
 
 
 from .models import UserProfile
-from .forms import UserProfileForm
+from .forms import UserProfileForm, CustomSignupForm
 from orders.models import Order
 
+from allauth.socialaccount.models import SocialAccount
 from allauth.account.views import SignupView
-from .forms import CustomSignupForm
 
 
 class CustomSignupView(SignupView):
@@ -61,3 +62,23 @@ def order_history(request, order_number):
     }
 
     return render(request, template, context)
+
+
+@login_required
+@require_POST
+def delete_profile(request):
+    """ Delete the user's profile. """
+    profile = get_object_or_404(UserProfile, user=request.user)
+    socialaccount = SocialAccount.objects.filter(user=profile.user)
+
+    if profile.user.is_staff:
+        messages.warning(request, 'Staff accounts cannot be deleted.')
+        return redirect(reverse('profile'))
+
+    if socialaccount.exists():
+        socialaccount.delete()
+        messages.success(request, 'Social account deleted successfully')
+
+    profile.user.delete()
+    messages.success(request, 'Profile deleted successfully')
+    return redirect(reverse('home'))

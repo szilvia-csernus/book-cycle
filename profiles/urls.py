@@ -8,4 +8,6 @@ urlpatterns = [
          name='account_signup'),
     path('order_history/<order_number>', views.order_history,
          name='order_history'),
+    path('delete_profile/', views.delete_profile,
+         name='delete_profile'),
 ]
