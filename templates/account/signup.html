@@ -19,7 +19,11 @@
     <div class="account-details-frame">
       <h1 class="account-details-title">Register</h1>
 
-      <p>{% blocktrans %}Already have an account? Then please <a href="{{ login_url }}">Sign In</a>.{% endblocktrans %}</p>
+      <p>You can register with your Google account or by providing your details.</p>
+      
+      <a href="{% provider_login_url 'google' %}">
+        <img src="{% static 'svg/google-logo.svg' %}" class="google-logo" alt="google-logo">
+      </a>
 
       <form class="account-form-frame" id="signup_form" method="post" action="{% url 'account_signup' %}">
         {% csrf_token %}
@@ -30,6 +34,7 @@
         <button class="account-button" type="submit">{% trans "Sign Up" %}</button>
       </form>
 
+      <p>{% blocktrans %}Already have an account? Then please <a href="{{ login_url }}">Sign In</a>.{% endblocktrans %}</p>
     </div>
   </div>
 </main>

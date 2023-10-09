@@ -15,12 +15,21 @@ class UserProfileForm(forms.ModelForm):
         labels and set autofocus on first field
         """
         super().__init__(*args, **kwargs)
+        labels = {
+            'default_phone_number': 'Phone Number',
+            'default_country': 'Country',
+            'default_postcode': 'Postcode',
+            'default_town_or_city': 'Town or City',
+            'default_street_address1': '1st Line of Address',
+            'default_street_address2': '2nd Line of Address',
+            'default_county': 'County',
+        }
         placeholders = {
             'default_phone_number': 'Phone Number',
             'default_postcode': 'Postcode',
             'default_town_or_city': 'Town or City',
-            'default_street_address1': 'Street Address 1',
-            'default_street_address2': 'Street Address 2',
+            'default_street_address1': '1st Line of Address',
+            'default_street_address2': '2nd Line of Address',
             'default_county': 'County',
         }
 
@@ -34,7 +43,7 @@ class UserProfileForm(forms.ModelForm):
                     placeholder = placeholders[field]
                 self.fields[field].widget.attrs['placeholder'] = placeholder
             self.fields[field].widget.attrs['class'] = 'account-form-input'
-            self.fields[field].label = False
+            self.fields[field].label = labels[field]
 
 
 class CustomSignupForm(SignupForm):

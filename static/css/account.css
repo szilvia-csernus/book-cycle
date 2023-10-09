@@ -29,6 +29,7 @@
     border-top: 1px solid var(--bg-secondary);
     border-bottom: 1px solid var(--bg-secondary);
     padding: 1rem 0.4rem;
+    text-align: center;
 }
 
 .account-details-box {
@@ -36,7 +37,6 @@
     flex-direction: column;
     height: 8rem;
     justify-content: center;
-    margin-left: 0.4rem;
 }
 
 .google-logo {
@@ -62,15 +62,24 @@
 .account-form-frame .lazyselect {
     width: 100%;
     border: 1px solid var(--input-border);
-    font-family: 'Montserrat';
     background: var(--bg-detail);
-    padding: 0.4rem;
-    font-size: .9rem;
-    font-weight: 300;
+    padding: .5rem 12px;
+    box-shadow: 0 1px 2px 0 var(--input-border);
+    -webkit-transition: box-shadow 150ms ease;
+    transition: box-shadow 150ms ease;
+    margin-bottom: 1rem;
+    width: 100%;
+    font-size: 1rem;
+    font-weight: 200;
+}
+
+select.account-form-input {
+    font-family: 'KoHo';
 }
 
 .account-details-frame a {
     color: var(--text-primary);
+    font-weight: bold;
 }
 
 .account-button {
