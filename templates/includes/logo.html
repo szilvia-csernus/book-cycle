@@ -1,5 +1,9 @@
 {% load static %}
 
 <a href="{% url 'home' %}" class="small-logo">
+    {% if user.is_staff %}
+    <img class="logo" src={% static 'svg/book-cycle-logo-accent.svg' %} alt="book cycle logo" width="10" height="6">
+    {% else %}
     <img class="logo" src={% static 'svg/book-cycle-logo.svg' %} alt="book cycle logo" width="10" height="6">
+    {% endif %}
 </a>
