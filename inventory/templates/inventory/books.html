@@ -28,7 +28,9 @@
                         <input id="search-input-nr2" class="filter-select filter-search" type="text" name="search" placeholder="-----" 
                         value="{{ search_term|default:'' }}">
                         <button id="search-button-nr2" type="button">
-                            <img class="search" src="{% static 'svg/search-icon.svg' %}" alt="search icon" width="30" height="20">
+                            <svg class="search-icon-nr2" width="32" height="20">
+                                <use xlink:href="{% static 'svg/search-icon.svg' %}#search-icon" alt="search icon"></use>
+                            </svg>
                         </button>
                     </div>
                 </div>

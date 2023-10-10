@@ -18,8 +18,10 @@
                     <div>
                         <input id="search-input" type="text" name="search" placeholder="Search">
                         <button id="search-button" type="button" disabled>
-                            <img class="search" src="{% static 'svg/search-icon.svg' %}" alt="search icon" width="30"
+                            <svg class="search-icon" width="32"
                                 height="20">
+                                <use xlink:href="{% static 'svg/search-icon.svg' %}#search-icon" alt="search icon" ></use>
+                            </svg>
                         </button>
                     </div>
                 </form>

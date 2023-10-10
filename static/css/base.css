@@ -40,19 +40,21 @@ ul, address, svg, input, textarea {
     --text-placeholder: #aab7c4;
     --input-border: rgb(118, 118, 118);
     --books-found-color: #89009b;
+    --shadow-color: #160f69
 }
 
 @media (prefers-color-scheme: dark) {
   :root {
+    --bg-secondary: #d573e2;
     --bg-gallery: #0e102ba6;
     --bg-detail: #2c2d3cd9;
     --bg-translucent: #0c122f99;
-    --text-primary: white;
     --bg-primary: white;
-    --bg-toast: #576081ab;
+    --bg-toast: #576081ed;
+    --text-primary: white;
     --text-contrast: rgb(20, 22, 34);
     --text-accent: #8efea5;
-    --bg-secondary: #d573e2;
+    --text-error: #ff6060;
     --text-secondary: #d573e2;
     --bg-radial-gradient: radial-gradient(at 50% 50%, #93c1cf, #270044f2);
     --bg-staff: radial-gradient(at 50% 50%, #60cefc, #0b0737f2);
@@ -60,9 +62,12 @@ ul, address, svg, input, textarea {
     --bg-side-menu-staff: linear-gradient(to bottom, #11112c, #4d7095fe);
     --book-overlay-staff: linear-gradient(to top, #0042724d, #0b0737dd);
     --books-found-color: #d573e2;
+    --shadow-color: rgba(128, 128, 128, 0.689);
   }
+
   body, 
-  select {
+  select,
+  input:placeholder-shown {
     color: white;
     background: var(--bg-gallery);
   }
@@ -214,14 +219,15 @@ img.bag {
 .book-nr {
     display: inline-block;
     position: absolute;
-    top: .9rem;
-    left: .3rem;
+    top: 0.9rem;
+    left: 0.3rem;
     font-size: .7rem;
     background-color: var(--accent);
     padding: 0.15rem 0;
     border-radius: 0.7rem;
-    border: 1px solid var(--primary);
-    color: var(--primary);
+    border: 1px solid #3d2b5c;
+    color: var(--text-light);
+    text-shadow: 0 1px 5px black;
     font-weight: bold;
     font-family: system-ui;
     text-align: center;
@@ -305,6 +311,13 @@ img.bag {
     font-family: 'Montserrat';
     padding: 1rem;
     z-index: 3;
+}
+
+.search-icon {
+    position: relative;
+    top: 0.3rem;
+    right: -0.3rem;
+    stroke: var(--bg-primary);
 }
 
 .browse img.open-book {
@@ -471,7 +484,7 @@ img.open-book {
     padding: 0.2rem 1rem 1.3rem;
     transition: opacity .5s linear;
     background: var(--bg-toast);
-    box-shadow: -1px 1px 5px var(--bg-primary);
+    box-shadow: 0 1px 5px var(--bg-primary);
     display: flex;
     flex-direction: column;
     animation: appear .5s linear .2s forwards;

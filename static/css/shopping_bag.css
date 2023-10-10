@@ -215,7 +215,7 @@
     top: 0;
     right: -22rem; /* Hidden off-screen initially */
     width: 20rem;
-    background-color: var(--bg-gallery);
+    background-color: var(--bg-detail);
     transition: right 0.4s ease;
     padding: 1rem;
     z-index: 3;
