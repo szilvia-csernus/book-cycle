@@ -3,10 +3,10 @@
 /* Main structure and title  */
 
 .account-background {
-    background-color: var(--bg-detail);
+    background-color: var(--bg-gallery);
     padding: 2rem;
-    margin: 7.5rem 1rem 2rem;
-    min-height: 65vh;
+    margin: 7rem 1rem 2rem;
+    min-height: 68.2vh;
 }
 
 .account-page-frame {
@@ -63,7 +63,7 @@
 .account-form-frame .lazyselect {
     width: 100%;
     border: 1px solid var(--input-border);
-    background: var(--bg-detail);
+    background: var(--bg-gallery);
     padding: .5rem 12px;
     box-shadow: 0 1px 2px 0 var(--input-border);
     -webkit-transition: box-shadow 150ms ease;
@@ -86,7 +86,7 @@ select.account-form-input {
 .account-button {
     border: 1px solid var(--bg-secondary);
     padding: 0.5rem 2rem;
-    color: var(--text-light);
+    color: var(--text-contrast);
     background-color: var(--bg-secondary);
     text-transform: uppercase;
     margin: 1.5rem 0;
@@ -98,7 +98,7 @@ select.account-form-input {
 a.back-to-profile {
     border: 1px solid var(--bg-secondary);
     padding: 0.5rem 2rem;
-    background: var(--bg-detail);
+    background: var(--bg-gallery);
     color: var(--text-secondary);
     text-transform: uppercase;
     margin: 1.5rem 0;

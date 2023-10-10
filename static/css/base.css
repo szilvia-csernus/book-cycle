@@ -15,26 +15,57 @@ ul, address, svg, input, textarea {
 /* General colours */
 
 :root {
+    --primary: #160f69;
     --bg-primary: #160f69;
     --bg-secondary: #89009b;
-    --bg-radial-gradient: radial-gradient(at 50% 50%, #89009bee, #160f69ee);
-    --book-overlay: linear-gradient(to top, #89009b37, #170f69dd);
-    --bg-linear-gradient: linear-gradient(to bottom, #fcfafa, #160f69);
-    --bg-staff: radial-gradient(at 50% 50%, #006c72ee, #170f69ee);
-    --book-overlay-staff: linear-gradient(to top, #006c724d, #170f69dd);
+    --bg-toast: #f6f8ff;
+    --bg-radial-gradient: radial-gradient(at 50% 50%, #89009bee, #3c4b82ee);
+    --book-overlay: linear-gradient(to top, #ffffff00, #170f6996);
+    --bg-side-menu: linear-gradient(to bottom, #fcfafa, #563c82);
+    --bg-staff: radial-gradient(at 50% 50%, #00889c, #1a126bc4);
+    --book-overlay-staff: linear-gradient(to top, #006c7200, #0f2d69dd);
     --bg-side-menu-staff: linear-gradient(to bottom, #fcfafa, #012f53);
-    --bg-gallery: rgb(194, 207, 255);
-    --bg-detail: rgb(246, 248, 255);
+    --bg-gallery: #e8e8e8ed;
+    --bg-detail: #f6f8ff;
     --bg-overlay: #161528c7;
+    --bg-translucent: #ffffff99;
     --accent: #1ed446;
     --text-primary: #160f69;
     --text-secondary: #7a008a;
-    --text-secondary-light: #B529C8;
+    --text-secondary-light: #c259d0;
     --text-accent: #00821b;
     --text-light: white;
+    --text-contrast: white;
     --text-error: #c70000;
     --text-placeholder: #aab7c4;
     --input-border: rgb(118, 118, 118);
+    --books-found-color: #89009b;
+}
+
+@media (prefers-color-scheme: dark) {
+  :root {
+    --bg-gallery: #0e102ba6;
+    --bg-detail: #2c2d3cd9;
+    --bg-translucent: #0c122f99;
+    --text-primary: white;
+    --bg-primary: white;
+    --bg-toast: #576081ab;
+    --text-contrast: rgb(20, 22, 34);
+    --text-accent: #8efea5;
+    --bg-secondary: #d573e2;
+    --text-secondary: #d573e2;
+    --bg-radial-gradient: radial-gradient(at 50% 50%, #93c1cf, #270044f2);
+    --bg-staff: radial-gradient(at 50% 50%, #60cefc, #0b0737f2);
+    --bg-side-menu: linear-gradient(to bottom, #0d0d18, #846daa);
+    --bg-side-menu-staff: linear-gradient(to bottom, #11112c, #4d7095fe);
+    --book-overlay-staff: linear-gradient(to top, #0042724d, #0b0737dd);
+    --books-found-color: #d573e2;
+  }
+  body, 
+  select {
+    color: white;
+    background: var(--bg-gallery);
+  }
 }
 
 /* Main elements settings  */
@@ -189,8 +220,8 @@ img.bag {
     background-color: var(--accent);
     padding: 0.15rem 0;
     border-radius: 0.7rem;
-    border: 1px solid var(--bg-primary);
-    color: var(--bg-primary);
+    border: 1px solid var(--primary);
+    color: var(--primary);
     font-weight: bold;
     font-family: system-ui;
     text-align: center;
@@ -262,12 +293,13 @@ img.bag {
 .browse {
     position: fixed;
     top: 0;
-    left: -17rem; /* Hidden off-screen initially */
+    left: -19rem; /* Hidden off-screen initially */
     width: 15rem;
     height: 90%;
     max-height:700px;
     background-color: #ffffff;
-    background: var(--bg-linear-gradient);
+    background: var(--bg-side-menu);
+    box-shadow: 1px 1px 5px;
     transition: left 0.4s ease;
     color: var(--text-primary);
     font-family: 'Montserrat';
@@ -379,7 +411,7 @@ img.bag {
 .browse input {
     display: inline;
     border: 1px inset var(--bg-primary);
-    background-color: var(--bg-detail);
+    background-color: var(--bg-gallery);
     color: var(--text-primary);
     font-size: .9rem;
     padding: .5rem 3rem .5rem .5rem;
@@ -424,7 +456,7 @@ img.open-book {
 .toast-container {
     display: none;
     position: fixed;
-    top: 6rem;
+    top: 7.5rem;
     right: 1.1rem;
     z-index: 4;
 }
@@ -432,14 +464,14 @@ img.open-book {
 .toast-container-active {
     display: block;
     width: 21rem;
-    box-shadow: -1px 1px 3px var(--bg-primary);
 }
 
 .toast {
     opacity: 0;
     padding: 0.2rem 1rem 1.3rem;
     transition: opacity .5s linear;
-    background: var(--bg-detail);
+    background: var(--bg-toast);
+    box-shadow: -1px 1px 5px var(--bg-primary);
     display: flex;
     flex-direction: column;
     animation: appear .5s linear .2s forwards;
@@ -468,13 +500,18 @@ img.open-book {
 }
 
 .toast .triangle {
-    width: 0.8rem;
-    height: 0.8rem;
-    transform: rotate(45deg);
-    background-color: var(--bg-detail);
+    width: 0.5rem;
+    height: 1.5rem;
     position: absolute;
-    top: -0.4rem;
-    right: 1rem;
+    top: -1.5rem;
+    right: 1.2rem;
+    box-sizing: border-box;
+    border-bottom-color: var(--bg-toast);
+    border-top: transparent;
+    border-left: transparent;
+    border-right: transparent;
+    border-bottom: 1rem solid var(--bg-toast);
+    border-style: solid;
 }
 
 .toast h2 {
@@ -499,7 +536,7 @@ img.open-book {
 }
 
 .toast-info {
-    border-bottom: 1px solid #0d009b;
+    border-bottom: 1px solid var(--text-primary);
 }
 
 .toast-capper {

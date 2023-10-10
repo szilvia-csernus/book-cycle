@@ -40,10 +40,4 @@ bagIcon?.addEventListener('click', () => {
         closeToast()}
     });
 
-
-document.addEventListener('scroll', () => {
-    setTimeout(closeToast, 1000)
-});
-
-
 activateToast();

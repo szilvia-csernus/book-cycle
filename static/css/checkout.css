@@ -1,7 +1,7 @@
 .checkout-background {
-    background-color: var(--bg-detail);
+    background-color: var(--bg-gallery);
     padding: 1rem;
-    margin: 7.5rem 1rem 2rem;
+    margin: 7rem 1rem 2rem;
 }
 
 .checkout-page-frame {
@@ -146,7 +146,7 @@
     box-sizing: border-box;
     padding: .5rem 12px;
     border: 1px solid var(--input-border);
-    background-color: var(--bg-detail);
+    background-color: var(--bg-gallery);
     box-shadow: 0 1px 2px 0 var(--input-border);
     -webkit-transition: box-shadow 150ms ease;
     transition: box-shadow 150ms ease;

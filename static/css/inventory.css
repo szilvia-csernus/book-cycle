@@ -1,6 +1,6 @@
 .books-background {
     background-color: var(--bg-gallery);
-    margin: 7.5rem 1rem 2rem;
+    margin: 7rem 1rem 2rem;
 }
 
 /* --------------------------------- Filter - Sort styles -----  */
@@ -19,8 +19,7 @@
 }
 
 .search-filter-button {
-    border: 1px solid var(--bg-secondary);
-    background-color: var(--bg-detail);
+    background-color: var(--bg-gallery);
     color: var(--bg-secondary);
     width: 4.5rem;
     text-align: center;
@@ -32,9 +31,8 @@
 }
 
 .search-filter-button.active {
-    color: var(--text-light);
-    background: linear-gradient(to bottom, #42218d, #590c87);
-    border: none;
+    color: var(--bg-secondary);
+    border: 1px solid var(--bg-secondary);
 }
 
 .filter-sort-search-box {
@@ -72,7 +70,7 @@
 }
 
 .filter-search {
-    background: var(--bg-detail);
+    background: var(--bg-gallery);
     border: 1px solid var(--input-border);
     padding: 0.3rem;
     width: 80%;
@@ -89,7 +87,7 @@
     display: inline;
     cursor: pointer;
     width: 2.5rem;
-    background-color: var(--bg-detail);
+    background-color: var(--bg-gallery);
     border: 1px solid var(--input-border);
     border-left: none;
 }
@@ -110,14 +108,15 @@
     grid-template-rows: auto;
     font-size: .9rem;
     padding: .25rem;
+    row-gap: 1rem;
 }
 
 .book-count {
     margin: 1rem .5rem 1rem .5rem;
     padding: 1rem 0;
     font-weight: bold;
-    color: var(--text-secondary);
-    border-bottom: 1px solid var(--bg-secondary);
+    color: var(--books-found-color);
+    border-bottom: 1px solid var(--books-found-color);
 }
 
 .no-results {
@@ -136,8 +135,8 @@
     justify-content: space-between;
     margin: .25rem;
     height: 52rem;
-    background-color: var(--bg-detail);
-    box-shadow: 2px 2px 5px var(--bg-primary);
+    background-color: var(--bg-gallery);
+    box-shadow: 2px 2px 5px var(--text-primary);
     padding: 1rem;
 }
 
@@ -150,7 +149,7 @@
     border-bottom: 0;
     cursor: pointer;
     color:var(--text-secondary);
-    background-color: var(--bg-detail);
+    background-color: var(--bg-gallery);
 }
 
 @media screen and (min-width: 416px) {
@@ -308,11 +307,11 @@
 }
 
 .add-button {
-    border: 1px solid var(--bg-primary);
+    border: 1px solid var(--bg-secondary);
     padding: 0.2rem;
     font-weight: bold;
-    color: var(--text-primary);
-    background-color: var(--accent);
+    color: var(--text-contrast);
+    background-color: var(--bg-secondary);
     cursor: pointer;
     width: 100%;
     margin-top: 0.5rem;
@@ -360,8 +359,9 @@
     display: flex;
     flex-direction: column;
     align-items: center;
-    background-color: var(--bg-detail);
+    background-color: var(--bg-gallery);
     padding: 1rem;
+    min-height: 72vh;
 }
 
 .detail-page-frame {
@@ -490,7 +490,6 @@
     font-size: .8rem;
     font-weight: bold;
     color: var(--text-primary);
-    background-color: var(--accent);
     cursor: pointer;
     width: 100%;
     text-transform: uppercase;
@@ -507,7 +506,7 @@
 .shopping-bag-button {
     border: 1px solid var(--bg-secondary);
     padding: 0.5rem 1.6rem;
-    color: var(--text-light);
+    color: var(--text-contrast);
     background-color: var(--bg-secondary);
     text-transform: uppercase;
     margin: 2rem 0 .5rem;
@@ -638,7 +637,7 @@
     border: 1px solid var(--bg-secondary);
     background-color: var(--bg-secondary);
     width: 12rem;
-    color: var(--text-light);
+    color: var(--text-contrast);
     text-transform: uppercase;
     text-align: center;
 }
@@ -668,7 +667,7 @@
     font-family: 'Montserrat';
     border:1px solid var(--bg-secondary);
     border-radius: 0;
-    background-color: var(--bg-detail);
+    background-color: var(--bg-gallery);
     color:var(--text-secondary);
     padding: .5rem;
     overflow: hidden;

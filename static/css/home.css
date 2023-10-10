@@ -47,9 +47,9 @@ main img.logo {
     font-size: 1.8rem;
     font-weight: bold;
     font-family: 'KoHo';
-    color: var(--text-primary);
+    color: var(--primary);
     background-color: var(--accent);
-    border: 1px solid var(--bg-primary);
+    border: 1px solid var(--primary);
     display: inline;
     padding: .5rem 3rem 1rem;
     text-decoration: none;
@@ -64,30 +64,29 @@ main img.logo {
 
 .staff-button {
     font-size: 1rem;
-    border: 1px solid var(--bg-secondary);
-    background-color: rgba(255, 255, 255, 0.6);
-    color: var(--bg-secondary);
+    background-color: var(--bg-translucent);
+    color: var(--text-primary);
+    font-weight: bold;
     text-transform: uppercase;
     text-align: center;
-    padding: .5rem 1.5rem;
+    padding: 1rem 1.5rem;
     margin: .5rem 1.5rem;
     display: inline-block;
-    width: 18rem;
+    width: 19rem;
     cursor: pointer;
     position: relative;
     z-index: 2;
 }
 
 .orders-count {
-    background: white;
     border: 1px solid var(--bg-secondary);
     padding: 0.2rem 0.3rem;
     border-radius: 20px;
-    color: var(--bg-secondary);
+    color: var(--text-primary);
     font-size: .9rem;
     position: absolute;
-    right: 0.2rem;
-    bottom: 0.3rem;
+    right: 0.4rem;
+    bottom: 0.8rem;
 }
 
 @media screen and (min-width: 1000px) {
