@@ -31,5 +31,6 @@ class BookForm(forms.ModelForm):
             + friendly_names
         self.fields['subject'].choices = [('', 'Select Subject')]\
             + friendly_names2
+        self.fields['image'].widget.attrs['aria-label'] = 'select image'
         for field_name, field in self.fields.items():
             field.widget.attrs['class'] = 'stripe-style-input'
