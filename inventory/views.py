@@ -5,7 +5,7 @@ from django.shortcuts import render, get_object_or_404, redirect, reverse
 from django.db.models import Q
 from django.db.models.functions import Lower
 from django.contrib import messages
-from django.contrib.auth.decorators import permission_required
+from django.contrib.auth.decorators import user_passes_test
 from django.views.decorators.http import require_POST
 from .models import Book, Stock
 from .forms import BookForm
@@ -162,7 +162,7 @@ def book_detail(request, slug):
     return render(request, 'inventory/book_detail.html', context)
 
 
-@permission_required('user.is_staff')
+@user_passes_test(lambda user: user.is_staff)
 def add_book(request):
     """
     GET: Render form to add new book to the store.
@@ -200,7 +200,7 @@ def add_book(request):
     return render(request, template, context)
 
 
-@permission_required('user.is_staff')
+@user_passes_test(lambda user: user.is_staff)
 def edit_book(request, slug):
     """ Edit the book's details or its prices. """
 
@@ -258,7 +258,7 @@ def edit_book(request, slug):
     return render(request, template, context)
 
 
-@permission_required('user.is_staff')
+@user_passes_test(lambda user: user.is_staff)
 def delete_book(request, slug):
     """ Delete the book from the database. """
 
@@ -285,7 +285,7 @@ def delete_book(request, slug):
         return redirect(reverse('book_detail', args=[book.slug]))
 
 
-@permission_required('user.is_staff')
+@user_passes_test(lambda user: user.is_staff)
 def manage_stock(request, slug):
     """ Show the book's details and stock data. """
     book = get_object_or_404(Book, slug=slug)
@@ -321,7 +321,7 @@ def manage_stock(request, slug):
 
 
 @require_POST
-@permission_required('user.is_staff')
+@user_passes_test(lambda user: user.is_staff)
 def add_stock(request, stock_id):
     """
     Increase the stock item's quantity.
@@ -342,7 +342,7 @@ def add_stock(request, stock_id):
 
 
 @require_POST
-@permission_required('user.is_staff')
+@user_passes_test(lambda user: user.is_staff)
 def reduce_stock(request, stock_id):
     """
     Reduce the stock item's quantity.
