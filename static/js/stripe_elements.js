@@ -23,7 +23,7 @@ const elements = stripe.elements();
 // Style the card
 const style = {
 	base: {
-		color: '#000',
+		color: '#747a80',
 		fontFamily: '"KoHo", sans-serif',
 		fontSmoothing: 'antialiased',
 		fontSize: '17px',
