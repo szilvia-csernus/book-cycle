@@ -154,14 +154,9 @@
     text-transform: uppercase;
 }
 
-.checkout-button {
-    border: 1px solid var(--bg-secondary);
+.checkout-btn {
     padding: 0.5rem 2rem;
-    color: var(--text-contrast);
-    background-color: var(--bg-secondary);
-    text-transform: uppercase;
     margin-left: 0.5rem;
-    cursor: pointer;
 }
 
 @media screen and (min-width: 400px) {
@@ -198,7 +193,7 @@
         font-size: 1rem;
     }
 
-    .checkout-button {
+    .checkout-btn {
         padding: 0.5rem 2.02rem;
     }
 }
@@ -268,15 +263,11 @@
     font-size: 1.1rem;
 }
 
-.edit-bag-button {
-    border: 1px solid var(--bg-secondary);
+.edit-bag-btn {
     padding: 0.5rem 2.6rem;
-    color: var(--text-secondary);
-    text-transform: uppercase;
-    background-color: var(--bg-gallery);
 }
 
-.quick-bag .checkout-button {
+.quick-bag .checkout-btn {
     margin-left: 0;
     padding: 0.5rem 2.2rem;
 }

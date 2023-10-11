@@ -27,8 +27,9 @@ ul, address, svg, input, textarea {
     --bg-side-menu-staff: linear-gradient(to bottom, #fcfafa, #012f53);
     --bg-gallery: #e8e8e8ed;
     --bg-detail: #f6f8ff;
-    --bg-overlay: #161528c7;
+    --bg-overlay: #5f5d7dd9;
     --bg-translucent: #ffffff99;
+    --bg-modal-body: #f6f8ff;
     --accent: #1ed446;
     --text-primary: #160f69;
     --text-secondary: #7a008a;
@@ -51,6 +52,7 @@ ul, address, svg, input, textarea {
     --bg-translucent: #0c122f99;
     --bg-primary: white;
     --bg-toast: #576081ed;
+    --bg-modal-body: #2d2f44fa;
     --text-primary: white;
     --text-contrast: rgb(20, 22, 34);
     --text-accent: #8efea5;
@@ -66,8 +68,7 @@ ul, address, svg, input, textarea {
   }
 
   body, 
-  select,
-  input:placeholder-shown {
+  select {
     color: white;
     background: var(--bg-gallery);
   }
@@ -124,6 +125,35 @@ label {
     display: inline-block;
     margin-bottom: 0.3rem;
     font-family: 'KoHo';
+}
+
+/* --------------------------------- General Buttons --------------------- */
+
+.primary-btn {
+    display: inline-block;
+    text-transform: uppercase;
+    text-align: center;
+    padding: .4rem 1rem;
+    background-color: var(--bg-secondary);
+    border: 1px solid var(--bg-secondary);
+    color: var(--text-contrast);
+    font-size: .9rem;
+    margin: .5rem 0;
+    min-width: 7rem;
+    cursor: pointer;
+}
+
+.secondary-btn {
+    display: inline-block;
+    text-transform: uppercase;
+    text-align: center;
+    padding: .4rem 1rem;
+    border: 1px solid var(--bg-secondary);
+    color: var(--bg-secondary);
+    font-size: .9rem;
+    margin: .5rem 0;
+    min-width: 7rem;
+    cursor: pointer;
 }
 
 /* --------------------------------------- HEADER and FOOTER-------------- */
@@ -305,10 +335,8 @@ img.bag {
     max-height:700px;
     background-color: #ffffff;
     background: var(--bg-side-menu);
-    box-shadow: 1px 1px 5px;
     transition: left 0.4s ease;
     color: var(--text-primary);
-    font-family: 'Montserrat';
     padding: 1rem;
     z-index: 3;
 }
@@ -411,12 +439,10 @@ img.bag {
 
 .side-menu-orders {
     color: var(--text-light);
-    font-size: .95rem;
 }
 
 .browse-category-order {
     padding: 0.3rem 0;
-    font-size: .95rem;
     font-weight: 300;
     cursor: pointer;
 }

@@ -63,10 +63,10 @@
             <!-- Grand Total is calculated in javascript.  -->
             <div class="bag-grand-total">Grand Total: <span class="grand-total-number"></span></div>
             <div class="bag-buttons">
-                <div><a href="{% url 'view_bag' %}" class="edit-bag-button">Edit Bag</a></div>
+                <div><a href="{% url 'view_bag' %}" class="secondary-btn edit-bag-btn">Edit Bag</a></div>
                 <form action="{% url 'check_stock_and_update_bag' %}" method="GET">
                     <input type="hidden" class="shipping-info" name="shipping-info">
-                    <button class="checkout-button">Checkout</button>
+                    <button class="primary-btn checkout-btn">Checkout</button>
                 </form>
             </div>
         {% else %}

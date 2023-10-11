@@ -187,7 +187,6 @@ paymentForm.addEventListener('submit', event => {
 			});
 		})
 		.then((result) => {
-			console.log(result);
 			handlePaymentResult(result);
 		})
 		.catch(() => {
