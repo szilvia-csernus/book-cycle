@@ -24,7 +24,7 @@ const elements = stripe.elements();
 const style = {
 	base: {
 		color: '#000',
-		fontFamily: '"Montserrat", sans-serif',
+		fontFamily: '"KoHo", sans-serif',
 		fontSmoothing: 'antialiased',
 		fontSize: '17px',
 		'::placeholder': {
