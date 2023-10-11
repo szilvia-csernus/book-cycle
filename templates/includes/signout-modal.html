@@ -1,0 +1,28 @@
+{% load static %}
+
+<link rel="stylesheet" href="{% static 'css/modal.css' %}">
+
+<div id="signout-modal" class="modal-background">
+    <div class="modal-body">
+
+        <!-- Confirmation text  -->
+        <div class="row">
+            <div class="col s12 center-align">
+                <h2 class="modal-title">Are you sure you want to sign out?</h2>
+            </div>
+        </div>
+        <!-- Cancel & Delete Buttons  -->
+        <div class="row">
+            <button id="signout-cancel" class="secondary-btn">Cancel</button>
+        </div>
+        <form method="post" action="{% url 'account_logout' %}">
+            {% csrf_token %}
+            {% if redirect_field_value %}
+            <input type="hidden" name="{{ redirect_field_name }}" value="{{ redirect_field_value }}" />
+            {% endif %}
+            <button class="primary-btn" type="submit">Sign Out</button>
+        </form>
+    </div>
+</div>
+
+<script src="{% static 'js/modal.js' %}"></script>

@@ -4,7 +4,6 @@
 <html lang="en">
 
 <head>
-
     {% block meta %}
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <meta charset="utf-8">
@@ -60,9 +59,9 @@
                 <a href="{% url 'profile' %}" class="desktop">
                     Account
                 </a>
-                <a href="{% url 'account_logout' %}" class="desktop">
+                <span class="signout-link desktop">
                     Sign Out
-                </a>
+                </span>
                 <a href="{% url 'profile' %}" class="user-name">
                     {{ request.user.get_full_name }}
                 </a>
@@ -115,6 +114,10 @@
     
     {% if not user.is_staff %}
         {% include 'shopping_bag/quick_bag.html' %}
+    {% endif %}
+
+    {% if user.is_authenticated %}
+        {% include 'includes/signout-modal.html' %}
     {% endif %}
 
     <script src="{% static 'js/menu.js' %}" type="module"></script>

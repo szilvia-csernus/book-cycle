@@ -22,7 +22,7 @@
                 <div class="account-details-box">
                 <p>Name: {{ full_name }}</p>
                 <p>Email: {{ user.email }}</p>
-                <p><a href="{% url 'account_change_password' %}" class="account-button">
+                <p><a href="{% url 'account_change_password' %}" class="primary-btn account-btn">
                     Change password
                 </a></p>
                 </div>
@@ -31,7 +31,7 @@
                     <form action="{% url 'profile'%}" method="POST" id="profile-update-form">
                         {% csrf_token %}
                         {{ form|crispy}}
-                        <button id="submit-button" type="submit" class="account-button">
+                        <button id="submit-button" type="submit" class="primary-btn account-btn">
                             Save Delivery Info
                         </button>
                     </form>
@@ -71,15 +71,7 @@
                         <h2 class="account-details-title">Sign Out</h1>
                         <p>If you share your device with other people, it is advised to always sign out after you finished working.</p>
                         
-                        <form class="account-form-frame" method="post" action="{% url 'account_logout' %}">
-                            {% csrf_token %}
-                            {% if redirect_field_value %}
-                            <input type="hidden" name="{{ redirect_field_name }}" value="{{ redirect_field_value }}" />
-                            {% endif %}
-                            <div>
-                            <button class="account-button" type="submit">Sign Out</button>
-                            </div>
-                        </form>
+                        <span class="signout-link primary-btn account-btn">Sign Out</span>
                     </div>
                 </div>
 
@@ -93,7 +85,7 @@
                         <form class="account-form-frame" method="post" action="{% url 'delete_profile' %}">
                             {% csrf_token %}
                             <div>
-                            <button class="account-button" type="submit">Delete My Account</button>
+                            <button class="primary-btn account-btn" type="submit">Delete My Account</button>
                             </div>
                         </form>
                 </div>
