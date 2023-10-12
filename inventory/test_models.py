@@ -1,5 +1,5 @@
 from django.test import TestCase
-from .models import YearGroup, Subject, Book
+from .models import YearGroup, Subject, Book, Stock
 from django.urls import reverse
 
 
@@ -55,3 +55,53 @@ class BookModelTest(TestCase):
         # Delete the only book in the database
         book.delete()
         self.assertEqual(Book.objects.count(), 0)
+
+
+class StockModelTest(TestCase):
+
+    def setUp(self):
+        # Set up test data for Book and a Stock item
+        book = Book.objects.create(title="Computing")
+        Stock.objects.create(
+            book=book,
+            price=10.00,
+            condition="New",
+            quantity=10,
+            blocked=3
+        )
+
+    def test_get_available_quantity(self):
+        stock = Stock.objects.get(id=1)
+        # Available quantity is quantity - blocked
+        self.assertEqual(stock.get_available_quantity(), 7)
+
+    def test_block_1_stock(self):
+        stock = Stock.objects.get(id=1)
+        # Test if blocked stock is increased by 1
+        stock.block_1_stock()
+        self.assertEqual(stock.blocked, 4)
+
+    def test_unblock_stock(self):
+        stock = Stock.objects.get(id=1)
+        # Test if blocked stock is decreased
+        stock.unblock_stock(2)
+        self.assertEqual(stock.blocked, 1)
+
+    def test_reduce_stock_by_purchase(self):
+        stock = Stock.objects.get(id=1)
+        # This method should decrease both the quantity and the blocked amounts
+        stock.reduce_stock_by_purchase(2)
+        self.assertEqual(stock.quantity, 8)
+        self.assertEqual(stock.blocked, 1)
+
+    def test_add_stock(self):
+        stock = Stock.objects.get(id=1)
+        # This method should increase the stock quantity
+        stock.add_stock(5)
+        self.assertEqual(stock.quantity, 15)
+
+    def test_reduce_stock(self):
+        stock = Stock.objects.get(id=1)
+        # This method should decrease the stock quantity
+        stock.reduce_stock(2)
+        self.assertEqual(stock.quantity, 8)
