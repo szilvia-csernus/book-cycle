@@ -1,0 +1,27 @@
+{% load static %}
+
+<link rel="stylesheet" href="{% static 'css/modal.css' %}">
+
+<div id="delete-book-modal" class="modal-background">
+    <div class="modal-body">
+
+        <!-- Confirmation text  -->
+        <div>
+            <h2 class="modal-title">Are you sure you want to permanently
+                <br>
+                delete this book from the database?
+            </h2>
+        </div>
+        <!-- Cancel & Delete Buttons  -->
+        <div>
+            <button id="delete-book-cancel" class="secondary-btn">Cancel</button>
+        </div>
+        <form method="post" action="{% url 'delete_book' slug=book.slug %}">
+            {% csrf_token %}
+            {% if redirect_field_value %}
+            <input type="hidden" name="{{ redirect_field_name }}" value="{{ redirect_field_value }}" />
+            {% endif %}
+            <button class="primary-btn" type="submit">Delete</button>
+        </form>
+    </div>
+</div>

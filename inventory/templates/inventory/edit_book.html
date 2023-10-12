@@ -14,7 +14,7 @@
 {% block content %}
 <main>
     <div class="checkout-background">
-        <h1 class="title">Edit Book</h1>
+        <h1 class="title">Inventory Management</h1>
         <div class="checkout-page-frame">
 
             <div class="checkout-form-frame">
@@ -32,7 +32,7 @@
                         {% endfor %}
                     </fieldset>
                     <div class="bag-buttons">
-                        <div><a href="{% url 'books' %}?{{redirect_query_string}}" class="edit-back-to-books-button">Back to
+                        <div><a href="{% url 'books' %}?{{redirect_query_string}}" class="secondary-btn edit-back-to-books-btn">Back to
                                 Books</a></div>
                         <button id="submit-button" type="submit" class="primary-btn checkout-btn">
                             Save Changes
@@ -49,18 +49,22 @@
                         to manage stock data.
                     </p>
                     <div class="bag-buttons">
-                        <a href="{% url 'delete_book' slug=book.slug %}" class="keep-shopping-button">
+                        <button id="delete-book" type="button" class="secondary-btn">
                         Delete Book
-                    </a>
+                        </button>
                     </div>
-                </form>
-                
-                
+                </form> 
             </div>
-
         </div>
     </div>
 </main>
+{% endblock %}
+
+{% block modals %}
+    {% if user.is_authenticated and user.is_staff %}
+    {% include 'includes/delete-book-modal.html' %}
+    {% endif %}
+    {{ block.super }}
 {% endblock %}
 
 {% block footer %}
