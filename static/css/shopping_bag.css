@@ -20,9 +20,9 @@
     font-size: 1.1rem;
     font-weight: bold;
     font-family: 'KoHo';
-    color: var(--text-primary);
+    color: var(--text-light);
+    text-shadow: 0 1px 5px black;
     background-color: var(--accent);
-    border: 1px solid var(--bg-primary);
     padding: .3rem 1rem .6rem;
     text-decoration: none;
     margin: 2rem;

@@ -19,6 +19,7 @@
 .checkout-fieldset-label {
     margin-bottom: 1.5rem;
     text-transform: uppercase;
+    text-align: center;
     border-top: 1px solid var(--bg-secondary);
     border-bottom: 1px solid var(--bg-secondary);
     padding: 1rem 0;
@@ -63,7 +64,6 @@
     flex-direction: column-reverse;
     align-items: flex-end;
     font-size: .9rem;
-    line-height: 1.5rem;
     gap: 0.5rem;
     margin-inline-start: 2px;
     margin-inline-end: 2px;
@@ -95,7 +95,7 @@
     .checkout-page-frame .bag-buttons {
         flex-direction: row;
         justify-content: flex-end;
-        gap: 0.5rem;
+        align-items: center;
     }
 }
 

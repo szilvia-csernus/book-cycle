@@ -78,27 +78,14 @@ select.account-form-input {
     font-family: 'KoHo';
 }
 
-.account-details-frame a {
-    color: var(--text-primary);
-    font-weight: bold;
-}
-
 .account-btn {
     padding: 0.5rem 1rem;
     margin: 1.5rem 0;
 }
 
-a.back-to-profile {
-    border: 1px solid var(--bg-secondary);
-    padding: 0.5rem 2rem;
-    background: var(--bg-gallery);
-    color: var(--text-secondary);
-    text-transform: uppercase;
-    margin: 1.5rem 0;
-    cursor: pointer;
-    font-size: .9rem;
-    display: inline-block;
-    margin-left: 2rem;
+.back-to-profile-btn {
+    padding: 0.5rem 1.6rem;
+    margin-bottom: 1rem;
 }
 
 

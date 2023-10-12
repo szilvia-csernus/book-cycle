@@ -47,11 +47,11 @@ ul, address, svg, input, textarea {
 @media (prefers-color-scheme: dark) {
   :root {
     --bg-secondary: #d573e2;
-    --bg-gallery: #0e102ba6;
-    --bg-detail: #2c2d3cd9;
+    --bg-gallery: #252635a6;
+    --bg-detail: #1e1f28b0;
     --bg-translucent: #0c122f99;
     --bg-primary: white;
-    --bg-toast: #576081ed;
+    --bg-toast: #5f6371fc;
     --bg-modal-body: #2d2f44fa;
     --text-primary: white;
     --text-contrast: rgb(20, 22, 34);
@@ -275,7 +275,7 @@ img.bag {
 
 .user-title {
     position: absolute;
-    top: 5.2rem;
+    top: 5.4rem;
     right: 1.5rem;
     color: var(--text-secondary-light);
     text-transform: uppercase;
@@ -510,7 +510,7 @@ img.open-book {
     padding: 0.2rem 1rem 1.3rem;
     transition: opacity .5s linear;
     background: var(--bg-toast);
-    box-shadow: 0 1px 5px var(--bg-primary);
+    box-shadow: 0 1px 5px var(--primary);
     display: flex;
     flex-direction: column;
     animation: appear .5s linear .2s forwards;
@@ -539,18 +539,15 @@ img.open-book {
 }
 
 .toast .triangle {
-    width: 0.5rem;
-    height: 1.5rem;
+    width: 1px;
+    height: 1px;
     position: absolute;
-    top: -1.5rem;
-    right: 1.2rem;
-    box-sizing: border-box;
-    border-bottom-color: var(--bg-toast);
+    top: -15px;
+    right: 13px;
     border-top: transparent;
-    border-left: transparent;
-    border-right: transparent;
-    border-bottom: 1rem solid var(--bg-toast);
-    border-style: solid;
+    border-left: 10px solid transparent;
+    border-right: 10px solid transparent;
+    border-bottom: 15px solid var(--bg-toast);
 }
 
 .toast h2 {

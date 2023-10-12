@@ -1,9 +1,17 @@
-// Toggle the visibility of the modal element
-const toggleModal = (modalElement) => {
+// Display modal
+const addModal = (modalElement, canceBtnId) => {
+	modalElement.classList.add('modal-active');
+	// Grab and add event listener to Cancel button to close modal
+	const cancelBtn = document.getElementById(canceBtnId);
+	cancelBtn.addEventListener('click', () => {
+		removeModal(modalElement, () => {});
+	});
+};
+
+// Remove modal
+const removeModal = (modalElement) => {
 	if (modalElement.classList.contains('modal-active')) {
 		modalElement.classList.remove('modal-active');
-	} else {
-		modalElement.classList.add('modal-active');
 	}
 };
 
@@ -13,12 +21,27 @@ const toggleModal = (modalElement) => {
 const signoutLinks = document.querySelectorAll('.signout-link');
 const signoutModal = document.getElementById('signout-modal');
 
+
 // Add event listener to signout link to render modal
-signoutLinks.forEach( link => link.addEventListener('click', () => {
-	toggleModal(signoutModal);
-	// Grab and add event listener to Cancel button to close modal
-	const cancelBtn = document.getElementById('signout-cancel');
-	cancelBtn.addEventListener('click', () => {
-		toggleModal(signoutModal)
-	})
+signoutLinks?.forEach( link => link.addEventListener('click', () => {
+	addModal(signoutModal, 'signout-cancel');
 }))
+
+
+// Grab Delete User button and Modal elements
+const deleteUserBtn = document.getElementById('delete-profile');
+console.log(deleteUserBtn)
+const deleteUserModal = document.getElementById('delete-user-modal');
+console.log(deleteUserModal)
+
+deleteUserBtn?.addEventListener('click', () => {
+	addModal(deleteUserModal, 'delete-user-cancel')
+})
+
+// Grab Delete Book and Modal elements
+const deleteBookBtn = document.getElementById('delete-book');
+const deleteBookModal = document.getElementById('delete-book-modal');
+
+deleteBookBtn?.addEventListener('click', () => {
+	addModal(deleteBookModal, 'delete-book-cancel')
+})

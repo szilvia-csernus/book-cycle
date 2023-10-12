@@ -116,9 +116,12 @@
         {% include 'shopping_bag/quick_bag.html' %}
     {% endif %}
 
-    {% if user.is_authenticated %}
-        {% include 'includes/signout-modal.html' %}
-    {% endif %}
+    {% block modals %}
+        {% if user.is_authenticated %}
+            {% include 'includes/signout-modal.html' %}
+            <script src="{% static 'js/modal.js' %}"></script>
+        {% endif %}
+    {% endblock %}
 
     <script src="{% static 'js/menu.js' %}" type="module"></script>
     <script src="{% static 'js/bag.js' %}" type="module"></script>
