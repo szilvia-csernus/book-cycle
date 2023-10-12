@@ -23,3 +23,6 @@ Follow the link and click on `htmlcov`
 
 Chrome warning about Same-Site Cookies flags up Stripe's cookies:
 https://support.stripe.com/questions/chrome-80-samesite-cookie-change?locale=en-GB
+
+Stripe's Fraud Detection Scheme for which it is recommended to include its script in every page:
+https://stripe.com/docs/disputes/prevention/advanced-fraud-detection

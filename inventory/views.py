@@ -244,7 +244,6 @@ def edit_book(request, slug):
                            form is valid.')
     else:
         bookform = BookForm(instance=book, initial=initial_data)
-        messages.info(request, f'You are editing {book.title}')
 
     query_string = build_query_string(request)
 
@@ -258,6 +257,7 @@ def edit_book(request, slug):
     return render(request, template, context)
 
 
+@require_POST
 @user_passes_test(lambda user: user.is_staff)
 def delete_book(request, slug):
     """ Delete the book from the database. """

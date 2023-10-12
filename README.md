@@ -12,7 +12,7 @@
 Database Schema in Lucid Charts:
 
 
-![database-schema](readme_files/database-schema.png)
+![database-schema](readme_files/database-schema.jpeg)
 
 
 https://lucid.app/lucidchart/8eb93ba8-43af-4939-9709-11dcc52da382/edit?viewport_loc=-452%2C117%2C2818%2C1215%2C0_0&invitationId=inv_a84acf43-e6e9-4d82-b0e2-672a16e53969
@@ -52,9 +52,6 @@ https://lucid.app/lucidchart/8eb93ba8-43af-4939-9709-11dcc52da382/edit?viewport_
 
 * How to access request.POST data sent using fetch request:
 https://stackoverflow.com/questions/61543829/django-taking-values-from-post-request-javascript-fetch-api
-
-* Set up Google authentication with django-allauth:
-https://www.youtube.com/watch?v=yO6PP0vEOMc
 
 * Django Allauth documentation:
 https://django-allauth.readthedocs.io/en/latest/account/configuration.html
