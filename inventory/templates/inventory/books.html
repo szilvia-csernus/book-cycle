@@ -28,8 +28,18 @@
                         <input id="search-input-nr2" class="filter-select filter-search" type="text" name="search" placeholder="-----" 
                         value="{{ search_term|default:'' }}">
                         <button id="search-button-nr2" type="button">
-                            <svg class="search-icon-nr2" width="32" height="20">
-                                <use href="{% static 'svg/search-icon.svg' %}#search-icon" title="search icon"></use>
+                            <!-- An unsolved issue by W3C is that the <use> tag inside an <svg> would be blocked by CORS policy as it exposes a security
+                                risk.
+                                As I serve my static files from AWS S3, it will be from external origin. I would also need to use the <use> tag 
+                                to be able to style the icon dynamically from css. The workaround for this issue today is to include/inject the 
+                                <svg> inline, as I'm doing it here. 
+                                See more here: https://bugs.chromium.org/p/chromium/issues/detail?id=470601 
+                                and here: https://github.com/w3c/svgwg/issues/707#issuecomment-895914972
+                                Upcoming solution: (drafts stage since 7 August, 2023) https://drafts.csswg.org/css-link-params/
+                            -->
+                            <svg class="search-icon-nr2" width="32" height="20" viewBox="0 0 31 20" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                <rect x="12" y="1" width="18" height="18" rx="9" stroke="" stroke-width="2" />
+                                <path d="M12 14L1 18" stroke="" stroke-width="2" />
                             </svg>
                         </button>
                     </div>
