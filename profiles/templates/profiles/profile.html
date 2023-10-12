@@ -78,22 +78,24 @@
                 {% if not user.is_staff %}
                 <div class="account-form-frame">
                     <h2 class="account-details-title">Delete Account</h1>
-                        <p>By deleting your account you will lose access to your order history 
-                            as well as your shipping details which would be pre-filled at checkout.
-                            You can re-register anytime.</p>
-                
-                        <form class="account-form-frame" method="post" action="{% url 'delete_profile' %}">
-                            {% csrf_token %}
-                            <div>
-                            <button class="primary-btn account-btn" type="submit">Delete My Account</button>
-                            </div>
-                        </form>
+                    <p>By deleting your account you will lose access to your order history 
+                        as well as your shipping details which would otherwise be pre-filled at checkout.
+                        You can re-register anytime.</p>
+
+                    <button id="delete-profile" class="primary-btn account-btn">Delete My Account</button> 
                 </div>
                 {% endif %}
             </div>  
         </div>
     </div>
 </main>
+{% endblock %}
+
+{% block modals %}
+    {% if user.is_authenticated and not user.is_staff %}
+        {% include 'includes/delete-user-modal.html' %}
+    {% endif %}
+    {{ block.super }}
 {% endblock %}
 
 {% block footer %}
