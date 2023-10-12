@@ -50,6 +50,51 @@ class BookModelTest(TestCase):
         url = reverse("book_detail", kwargs={"slug": book.slug})
         self.assertEqual(book.get_slug_url(), url)
 
+    def test_in_stock(self):
+        book = Book.objects.get(id=1)
+        # Test in_stock method when there is no stock
+        in_stock = book.in_stock()
+        self.assertFalse(in_stock)
+        # Test in_stock method when there is stock
+        Stock.objects.create(
+            book=book,
+            condition="new",
+            price=10.00,
+            quantity=10
+        )
+        in_stock = book.in_stock()
+        self.assertTrue(in_stock)
+
+    def test_get_stock_methods(self):
+        book = Book.objects.get(id=1)
+        # Test get_stock methods when there is no stock
+        cheapest_stock = book.get_cheapest_stock()
+        self.assertEqual(cheapest_stock, False)
+        # Test get_stock methods when there is stock
+        new = Stock.objects.create(
+            book=book,
+            condition="new",
+            price=10.00,
+            quantity=10
+        )
+        good = Stock.objects.create(
+            book=book,
+            condition="good",
+            price=8.00,
+            quantity=8
+        )
+        fair = Stock.objects.create(
+            book=book,
+            condition="fair",
+            price=5.00,
+            quantity=2
+        )
+        cheapest_stock = book.get_cheapest_stock()
+        self.assertEqual(cheapest_stock, fair)
+        self.assertEqual(book.get_stock_new(), new)
+        self.assertEqual(book.get_stock_good(), good)
+        self.assertEqual(book.get_stock_fair(), fair)
+
     def test_delete_book(self):
         book = Book.objects.get(id=1)
         # Delete the only book in the database
