@@ -1,10 +1,12 @@
  <!-- copied and customised from django's github page https://github.com/django/django/blob/main/django/forms/templates/django/forms/widgets/clearable_file_input.html -->
 
 {% if widget.is_initial %}
+    <br>
     <p>{{ widget.initial_text }}:</p>
-    <a href="{{ widget.value.url }}">
+    <br>
+    <div>
         <img width="{{ book.image.width }}" height="{{ book.image.height }}" class="uploaded-image" src="{{ widget.value.url }}" alt="{{ widget.name}}">
-    </a>
+    </div>
     {% if not widget.required %}
         <div class="custom-image-checkbox-frame">
             <input class="custom-image-checkbox" id="image-clear_id" type="checkbox" name="{{ widget.checkbox_name }}" 
@@ -12,13 +14,16 @@
             <label class="custom-image-checkbox-label" for="{{ widget.checkbox_id }}">
                 {{ widget.clear_checkbox_label }}</label>
         </div>
+        <p>OR</p>
     {% endif %}
     {{ widget.input_text }}
 {% endif %}
+
 <span class="custom-image-input">
-    Select Image <input id="new-image" type="{{ widget.type }}" name="{{ widget.name }}"
+    Select New Image <input id="new-image" type="{{ widget.type }}" name="{{ widget.name }}"  accept=".jpg, .jpeg, .png, .webp"
     {% include 'django/forms/widgets/attrs.html' %}>
 </span>
 <strong>
     <p class="filename" id="filename"></p>
 </strong>
+<br>
