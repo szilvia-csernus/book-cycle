@@ -203,3 +203,42 @@ class InventoryManagementTest(TestCase):
         self.assertTemplateUsed(response, 'inventory/manage_stock.html')
         self.assertIsInstance(response.context['book'], Book)
         self.assertEqual(response.context['book'], book)
+
+    # Test cases for add_stock
+
+    def test_add_stock_unauthorised(self):
+        stock = Stock.objects.get(id=1)
+        # Test if a non-staff user can access the add_stock view
+        response = self.client.get(reverse('add_stock',
+                                           args=[stock.id]))
+        self.assertNotEqual(response.status_code, 200)
+        self.assertTemplateNotUsed(response, 'inventory/add_stock.html')
+
+    def test_add_stock_view_successful(self):
+        # Test the add_stock view with a valid form submission
+        self.client.login(username='staffmember', password='staffpassword')
+        stock = Stock.objects.get(id=1)
+        response = self.client.post(
+            reverse('add_stock', args=[1]),
+            {'quantity': 5, 'redirect_url': reverse('manage_stock',
+                                                    args=[stock.book.slug])}
+        )
+        self.assertEqual(response.status_code, 302)  # Redirects on success
+        updated_stock = Stock.objects.get(id=1)
+        self.assertEqual(updated_stock.quantity, 15)
+        self.assertRaisesMessage(response, 'Successfully added stock!')
+
+    def test_add_stock_view_failed(self):
+        # Test the add_stock view with an invalid form submission
+        self.client.login(username='staffmember', password='staffpassword')
+        stock = Stock.objects.get(id=1)
+        response = self.client.post(
+            reverse('add_stock', args=[1]),
+            {'quantity': 'invalid',
+             'redirect_url': reverse('manage_stock',
+                                     args=[stock.book.slug])}
+        )
+        self.assertEqual(response.status_code, 302)  # Redirects on failure
+        updated_stock = Stock.objects.get(id=stock.id)
+        self.assertEqual(updated_stock.quantity, 10)  # Quantity remains
+        self.assertRaisesMessage(response, 'Failed to add stock!')
