@@ -40,6 +40,16 @@ https://lucid.app/lucidchart/8eb93ba8-43af-4939-9709-11dcc52da382/edit?viewport_
 * File converter (csv to json): https://csvjson.com/csv2json
 * Favicon generator: https://realfavicongenerator.net/
 
+
+## Learning Resources
+
+* Hello Django walkthrough project by Code Institute
+* Boutique Ado walkthrough project by Code Institute
+* Django documentation
+* Django-allauth documentation
+* Crispy forms documentation
+* Webinar by Matt Rudge (Code Institute) https://www.youtube.com/watch?app=desktop&si=7Y-7qKnSZBRNzIxG&v=YH--VobIA8c&feature=youtu.be
+
 ## Helpful ideas
 
 * Converting images to 'webp' format in python: https://www.webucator.com/tutorial/using-python-to-convert-images-to-webp/

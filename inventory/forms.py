@@ -6,11 +6,14 @@ from .models import YearGroup, Subject, Book
 class BookForm(forms.ModelForm):
     """ Form to add and edit books"""
 
-    stock_new_price = forms.DecimalField(max_digits=6, decimal_places=2,
+    stock_new_price = forms.DecimalField(max_value=999, max_digits=5,
+                                         decimal_places=2,
                                          label='Price (condition: New)')
-    stock_good_price = forms.DecimalField(max_digits=6, decimal_places=2,
+    stock_good_price = forms.DecimalField(max_value=999, max_digits=5,
+                                          decimal_places=2,
                                           label='Price (condition: Good)')
-    stock_fair_price = forms.DecimalField(max_digits=6, decimal_places=2,
+    stock_fair_price = forms.DecimalField(max_value=999, max_digits=5,
+                                          decimal_places=2,
                                           label='Price (condition: Fair)')
 
     class Meta:
