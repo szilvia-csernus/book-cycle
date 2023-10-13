@@ -34,7 +34,21 @@ class InventoryManagementTest(TestCase):
         Stock.objects.create(
             book=book,
             price=10.00,
-            condition="New",
+            condition="new",
+            quantity=10,
+            blocked=2
+        )
+        Stock.objects.create(
+            book=book,
+            price=8.00,
+            condition="good",
+            quantity=10,
+            blocked=2
+        )
+        Stock.objects.create(
+            book=book,
+            price=3.00,
+            condition="fair",
             quantity=10,
             blocked=2
         )
@@ -80,6 +94,7 @@ class InventoryManagementTest(TestCase):
     def test_add_book_form_submission(self):
         # Test a valid form submission
         self.client.login(username='staffmember', password='staffpassword')
+        response = self.client.get(reverse('add_book'))
         yeargroup = YearGroup.objects.get(id=1)
         subject = Subject.objects.get(id=1)
         price_new = 10.00
@@ -97,3 +112,66 @@ class InventoryManagementTest(TestCase):
             }
         )
         self.assertRaisesMessage(response, 'Book added successfully')
+
+    def test_edit_book_form_rendering_unauthenticated(self):
+        book = Book.objects.get(id=1)
+        # Test if a non-logged-in user can access the edit_book view
+        response = self.client.get(reverse('edit_book',
+                                           args=[book.slug]))
+        self.assertNotEqual(response.status_code, 200)
+        self.assertTemplateNotUsed(response, 'inventory/edit_book.html')
+
+    def test_edit_book_form_rendering_unauthorised(self):
+        book = Book.objects.get(id=1)
+        # Test if a non-staff user can access the edit_book view
+        self.client.login(username='emily', password='emilyspassword')
+        response = self.client.get(reverse('edit_book',
+                                           args=[book.slug]))
+        self.assertNotEqual(response.status_code, 200)
+        self.assertTemplateNotUsed(response, 'inventory/edit_book.html')
+
+    def test_edit_book_form_rendering_authorised(self):
+        book = Book.objects.get(id=1)
+        # Test if a staff member can access the edit_book view
+        self.client.login(username='staffmember', password='staffpassword')
+        response = self.client.get(reverse('edit_book',
+                                           args=[book.slug]))
+        self.assertEqual(response.status_code, 200)
+        self.assertTemplateUsed(response, 'inventory/edit_book.html')
+        self.assertIsInstance(response.context['bookform'], BookForm)
+
+    def test_edit_book_form_submission(self):
+        book = Book.objects.get(id=1)
+        # Test the edit book form's submission
+        self.client.login(username='staffmember', password='staffpassword')
+        response = self.client.get(reverse('edit_book',
+                                           kwargs={'slug': book.slug}))
+        price_new = 20.00  # Changed
+        price_good = 10.00  # Changed
+        price_fair = 3.00  # Changed
+        response = self.client.post(
+            reverse('edit_book', kwargs={'slug': book.slug}),
+            {
+                'title': 'Cooking - Food technology',  # Changed
+                'stock_new_price': price_new,
+                'stock_good_price': price_good,
+                'stock_fair_price': price_fair,
+            }
+        )
+        self.assertRaisesMessage(response, 'Successfully updated book!')
+
+    def test_delete_book_unauthorised(self):
+        book = Book.objects.get(id=1)
+        # Test if a non-staff user can access the delete_book view
+        response = self.client.get(reverse('delete_book',
+                                           args=[book.slug]))
+        self.assertNotEqual(response.status_code, 200)
+        self.assertTemplateNotUsed(response, 'inventory/delete_book.html')
+
+    def test_delete_book_submission(self):
+        book = Book.objects.get(id=1)
+        # Test the delete book form's submission
+        self.client.login(username='staffmember', password='staffpassword')
+        response = self.client.get(reverse('delete_book',
+                                           args=[book.slug]))
+        self.assertRaisesMessage(response, 'Book deleted!')
