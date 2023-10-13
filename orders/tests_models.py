@@ -1,31 +1,20 @@
 from django.test import TestCase
-from django.contrib.auth.models import User
-from django_countries.fields import Country
-from inventory.models import Stock
+from inventory.models import YearGroup, Subject, Book, Stock
 from orders.models import Order, OrderLineItem
 
 
 class OrderModelTestCase(TestCase):
+
     def setUp(self):
-        # create a user for testing, if needed
-        self.user = User.objects.create_user(username='testuser',
-                                             password='testpassword')
-        self.country = Country(name='United States', code='US')
-        self.country.save()
-        self.stock = Stock.objects.create(
-            book_title='Test Book',
-            condition='New',
-        )
+        # Set up test data for Order
         self.order = Order.objects.create(
-            full_name='John Doe',
-            email='johndoe@example.com',
+            full_name='Emily Grant',
+            email='emilygrant@example.com',
             phone_number='1234567890',
-            country=self.country,
+            country='GB',
             postcode='12345',
             town_or_city='City',
-            street_address1='123 Street',
-            street_address2='Apt 456',
-            county='County',
+            street_address1='asdfhgf',
             shipping_required=True
         )
 
@@ -35,47 +24,59 @@ class OrderModelTestCase(TestCase):
 
     def test_order_string_representation(self):
         # test: the string representation of an order is correct
-        expected_str = 'John Doe, order number: \
-            {}'.format(self.order.order_number)
+        expected_str = f'Emily Grant, order number: {self.order.order_number}'
         self.assertEqual(str(self.order), expected_str)
 
 
 class OrderLineItemModelTestCase(TestCase):
     def setUp(self):
-        self.user = User.objects.create_user(username='testuser',
-                                             password='testpassword')
-        self.country = Country(name='United States', code='US')
-        self.country.save()
-        self.stock = Stock.objects.create(
-            book_title='Test Book',
-            condition='New',
+        year_group = YearGroup.objects.create(name="alevel")
+        subject = Subject.objects.create(name="computing")
+        book = Book.objects.create(
+            title="Computer Science",
+            year_group=year_group,
+            subject=subject,
         )
-        self.order = Order.objects.create(
-            full_name='John Doe',
-            email='johndoe@example.com',
+        stock_new = Stock.objects.create(
+            book=book,
+            condition="new",
+            price=10.00,
+            quantity=10
+        )
+        stock_good = Stock.objects.create(
+            book=book,
+            condition="good",
+            price=8.00,
+            quantity=8
+        )
+        stock_fair = Stock.objects.create(
+            book=book,
+            condition="fair",
+            price=5.00,
+            quantity=2
+        )
+        order = Order.objects.create(
+            full_name='Emily Grant',
+            email='emilygrant@example.com',
             phone_number='1234567890',
-            country=self.country,
+            country='GB',
             postcode='12345',
             town_or_city='City',
-            street_address1='123 Street',
-            street_address2='Apt 456',
-            county='County',
+            street_address1='asdfhgf',
             shipping_required=True
         )
-        self.order_line_item = OrderLineItem.objects.create(
-            order=self.order,
-            stock=self.stock,
+        OrderLineItem.objects.create(
+            order=order,
+            stock=stock_new,
             quantity=2,
-            lineitem_total=59.98  # Should be updated by save() method
         )
 
     def test_order_line_item_total(self):
+        order_line_item = OrderLineItem.objects.get(id=1)
         # test: lineitem_total is correctly calculated by the save() method
-        expected_total = self.stock.price * self.order_line_item.quantity
-        self.assertEqual(self.order_line_item.lineitem_total, expected_total)
+        self.assertEqual(order_line_item.lineitem_total, 20)
 
     def test_order_line_item_string_representation(self):
+        order_line_item = OrderLineItem.objects.get(id=1)
         # test: the string representation of an order line item is correct
-        expected_str = 'Test Book, condition: New, x 10 on order: \
-            {}'.format(self.order.order_number)
-        self.assertEqual(str(self.order_line_item), expected_str)
+        self.assertIn(str('Computer Science', order_line_item))
