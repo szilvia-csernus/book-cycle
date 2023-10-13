@@ -93,7 +93,7 @@
 
 {% block modals %}
     {% if user.is_authenticated and not user.is_staff %}
-        {% include 'includes/delete-user-modal.html' %}
+        {% include 'profiles/includes/delete-user-modal.html' %}
     {% endif %}
     {{ block.super }}
 {% endblock %}

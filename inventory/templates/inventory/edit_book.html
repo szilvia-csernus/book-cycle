@@ -62,7 +62,7 @@
 
 {% block modals %}
     {% if user.is_authenticated and user.is_staff %}
-    {% include 'includes/delete-book-modal.html' %}
+    {% include 'inventory/includes/delete-book-modal.html' %}
     {% endif %}
     {{ block.super }}
 {% endblock %}
