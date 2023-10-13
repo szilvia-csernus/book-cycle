@@ -7,6 +7,7 @@ from .forms import BookForm
 
 class InventoryManagementTest(TestCase):
 
+    # Set up test data for all tests below
     def setUp(self):
         # Create a simple user
         User.objects.create_user(
@@ -70,6 +71,8 @@ class InventoryManagementTest(TestCase):
         # Check that the rendered context contains the book
         self.assertEqual(response.context['book'], book)
 
+    # Test cases for add_book
+
     def test_add_book_form_rendering_unauthenticated(self):
         # Test if a non-logged-in user can access the add_book view
         response = self.client.get(reverse('add_book'))
@@ -112,6 +115,8 @@ class InventoryManagementTest(TestCase):
             }
         )
         self.assertRaisesMessage(response, 'Book added successfully')
+
+    # Test cases for edit_book
 
     def test_edit_book_form_rendering_unauthenticated(self):
         book = Book.objects.get(id=1)
@@ -160,6 +165,8 @@ class InventoryManagementTest(TestCase):
         )
         self.assertRaisesMessage(response, 'Successfully updated book!')
 
+    # Test cases for delete_book
+
     def test_delete_book_unauthorised(self):
         book = Book.objects.get(id=1)
         # Test if a non-staff user can access the delete_book view
@@ -175,3 +182,24 @@ class InventoryManagementTest(TestCase):
         response = self.client.get(reverse('delete_book',
                                            args=[book.slug]))
         self.assertRaisesMessage(response, 'Book deleted!')
+
+    # Test cases for manage_stock
+
+    def test_manage_stock_unauthorised(self):
+        book = Book.objects.get(id=1)
+        # Test if a non-staff user can access the manage_stock view
+        response = self.client.get(reverse('manage_stock',
+                                           args=[book.slug]))
+        self.assertNotEqual(response.status_code, 200)
+        self.assertTemplateNotUsed(response, 'inventory/manage_stock.html')
+
+    def test_manage_stock_authorised(self):
+        book = Book.objects.get(id=1)
+        # Test if a staff member can access the manage_stock view
+        self.client.login(username='staffmember', password='staffpassword')
+        response = self.client.get(reverse('manage_stock',
+                                           args=[book.slug]))
+        self.assertEqual(response.status_code, 200)
+        self.assertTemplateUsed(response, 'inventory/manage_stock.html')
+        self.assertIsInstance(response.context['book'], Book)
+        self.assertEqual(response.context['book'], book)
