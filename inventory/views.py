@@ -359,5 +359,5 @@ def reduce_stock(request, stock_id):
         return redirect(redirect_url)
 
     except Exception:
-        messages.error(request, 'Failed to remove stock.')
+        messages.error(request, 'Failed to reduce stock.')
         return redirect(redirect_url)
