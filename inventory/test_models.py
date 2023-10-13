@@ -31,12 +31,17 @@ class BookModelTest(TestCase):
         year_group = YearGroup.objects.create(name="alevel")
         subject = Subject.objects.create(name="computing")
         Book.objects.create(
-            title="Computer Science for A Level Students",
+            title="Computer Science",
             year_group=year_group,
             subject=subject,
             image_url="http://example.com/computing.jpg",
             product_url="http://example.com/computing",
         )
+
+    def test_string_representation(self):
+        # Test book's string representation
+        book = Book.objects.get(id=1)
+        self.assertEqual(str(book), "Computer Science")
 
     def test_slug_creation(self):
         book = Book.objects.get(id=1)
@@ -70,6 +75,9 @@ class BookModelTest(TestCase):
         # Test get_stock methods when there is no stock
         cheapest_stock = book.get_cheapest_stock()
         self.assertEqual(cheapest_stock, False)
+        self.assertEqual(book.get_stock_new(), False)
+        self.assertEqual(book.get_stock_good(), False)
+        self.assertEqual(book.get_stock_fair(), False)
         # Test get_stock methods when there is stock
         new = Stock.objects.create(
             book=book,
@@ -110,34 +118,63 @@ class StockModelTest(TestCase):
         Stock.objects.create(
             book=book,
             price=10.00,
-            condition="New",
+            condition="new",
             quantity=10,
             blocked=3
         )
+        Stock.objects.create(
+            book=book,
+            condition="good",
+            price=8.00,
+            quantity=0,
+            blocked=0
+        )
+
+    def test_string_representation(self):
+        stock = Stock.objects.get(id=1)
+        # Test stock's string representation
+        self.assertEqual(str(stock), "Computing, condition: new")
 
     def test_get_available_quantity(self):
-        stock = Stock.objects.get(id=1)
+        stock_new = Stock.objects.get(id=1)
+        stock_good = Stock.objects.get(id=2)
         # Available quantity is quantity - blocked
-        self.assertEqual(stock.get_available_quantity(), 7)
+        self.assertEqual(stock_new.get_available_quantity(), 7)
+        self.assertEqual(stock_good.get_available_quantity(), 0)
 
     def test_block_1_stock(self):
-        stock = Stock.objects.get(id=1)
+        stock_new = Stock.objects.get(id=1)
+        stock_good = Stock.objects.get(id=2)
         # Test if blocked stock is increased by 1
-        stock.block_1_stock()
-        self.assertEqual(stock.blocked, 4)
+        stock_new.block_1_stock()
+        self.assertEqual(stock_new.blocked, 4)
+        # Test if blocked stock is not increased when there is no stock
+        with self.assertRaises(ValueError):
+            stock_good.block_1_stock()
+            self.assertEqual(stock_good.blocked, 0)
 
     def test_unblock_stock(self):
-        stock = Stock.objects.get(id=1)
+        stock_new = Stock.objects.get(id=1)
+        stock_good = Stock.objects.get(id=2)
         # Test if blocked stock is decreased
-        stock.unblock_stock(2)
-        self.assertEqual(stock.blocked, 1)
+        stock_new.unblock_stock(2)
+        self.assertEqual(stock_new.blocked, 1)
+        # Test if blocked stock is not decreased when blocked is less
+        stock_good.unblock_stock(2)
+        self.assertEqual(stock_good.blocked, 0)
 
     def test_reduce_stock_by_purchase(self):
-        stock = Stock.objects.get(id=1)
+        stock_new = Stock.objects.get(id=1)
+        stock_good = Stock.objects.get(id=2)
         # This method should decrease both the quantity and the blocked amounts
-        stock.reduce_stock_by_purchase(2)
-        self.assertEqual(stock.quantity, 8)
-        self.assertEqual(stock.blocked, 1)
+        stock_new.reduce_stock_by_purchase(2)
+        self.assertEqual(stock_new.quantity, 8)
+        self.assertEqual(stock_new.blocked, 1)
+        # Test if the method raises an error when there is not enough stock
+        with self.assertRaises(ValueError):
+            stock_good.reduce_stock_by_purchase(2)
+            self.assertEqual(stock_good.quantity, 0)
+            self.assertEqual(stock_good.blocked, 0)
 
     def test_add_stock(self):
         stock = Stock.objects.get(id=1)

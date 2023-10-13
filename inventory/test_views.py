@@ -240,8 +240,7 @@ class InventoryManagementTest(TestCase):
 
     def test_reduce_stock_unauthorised(self):
         # Test if a non-staff user can access the reduce_stock view
-        self.client.get(reverse('reduce_stock',
-                                           args=[1]))
+        self.client.get(reverse('reduce_stock', args=[1]))
         updated_stock = Stock.objects.get(id=1)
         self.assertEqual(updated_stock.quantity, 10)  # Quantity remains
 
