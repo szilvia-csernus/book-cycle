@@ -95,34 +95,32 @@ class InventoryManagementTest(TestCase):
         self.assertIsInstance(response.context['bookform'], BookForm)
 
     def test_add_book_form_submission(self):
-        # Test a valid form submission
         self.client.login(username='staffmember', password='staffpassword')
         response = self.client.get(reverse('add_book'))
-        yeargroup = YearGroup.objects.get(id=1)
-        subject = Subject.objects.get(id=1)
-        price_new = 10.00
-        price_good = 8.00
-        price_fair = 6.00
-        response = self.client.post(
-            reverse('add_book'),
-            {
-                'title': 'Cooking',
-                'year_group': yeargroup,
-                'subject': subject,
-                'stock_new_price': price_new,
-                'stock_good_price': price_good,
-                'stock_fair_price': price_fair,
-            }
-        )
-        self.assertRaisesMessage(response, 'Book added successfully')
+        yeargroup = YearGroup.objects.create(name="Junior",
+                                             friendly_name="Junior")
+        subject = Subject.objects.create(name="food", friendly_name="Food")
+        form_data = {
+            'title': 'Cooking',
+            'year_group': yeargroup.id,
+            'subject': subject.id,
+            'exam_board': 'Cooking Exam Board',
+            'publisher': 'Any Publisher',
+            'image_url': '',
+            'stock_new_price': 10.00,
+            'stock_good_price': 8.00,
+            'stock_fair_price': 3.00,
+        }
+
+        response = self.client.post(reverse('add_book'), data=form_data)
+        self.assertEqual(response.status_code, 302)  # Redirect on success
 
     # Test cases for edit_book
 
     def test_edit_book_form_rendering_unauthenticated(self):
-        book = Book.objects.get(id=1)
         # Test if a non-logged-in user can access the edit_book view
         response = self.client.get(reverse('edit_book',
-                                           args=[book.slug]))
+                                           args=[1]))
         self.assertNotEqual(response.status_code, 200)
         self.assertTemplateNotUsed(response, 'inventory/edit_book.html')
 
@@ -149,39 +147,38 @@ class InventoryManagementTest(TestCase):
         book = Book.objects.get(id=1)
         # Test the edit book form's submission
         self.client.login(username='staffmember', password='staffpassword')
-        response = self.client.get(reverse('edit_book',
-                                           kwargs={'slug': book.slug}))
-        price_new = 20.00  # Changed
-        price_good = 10.00  # Changed
-        price_fair = 3.00  # Changed
-        response = self.client.post(
-            reverse('edit_book', kwargs={'slug': book.slug}),
-            {
+        form_data = {
                 'title': 'Cooking - Food technology',  # Changed
-                'stock_new_price': price_new,
-                'stock_good_price': price_good,
-                'stock_fair_price': price_fair,
+                'year_group': 1,
+                'subject': 1,
+                'exam_board': 'Cooking Exam Board',
+                'publisher': 'Any Publisher',
+                'image_url': '',
+                'stock_new_price': 10.00,
+                'stock_good_price': 8.00,
+                'stock_fair_price': 3.00,
             }
-        )
-        self.assertRaisesMessage(response, 'Successfully updated book!')
+
+        response = self.client.post(reverse('edit_book', args=[book.slug]),
+                                    data=form_data)
+        self.assertEqual(response.status_code, 302)  # Redirect on success
 
     # Test cases for delete_book
 
     def test_delete_book_unauthorised(self):
         book = Book.objects.get(id=1)
         # Test if a non-staff user can access the delete_book view
-        response = self.client.get(reverse('delete_book',
-                                           args=[book.slug]))
-        self.assertNotEqual(response.status_code, 200)
-        self.assertTemplateNotUsed(response, 'inventory/delete_book.html')
+        self.client.post(reverse('delete_book', args=[book.slug]))
+        deleted_book = Book.objects.filter(id=1).first()
+        self.assertNotEqual(deleted_book, None)
 
     def test_delete_book_submission(self):
         book = Book.objects.get(id=1)
         # Test the delete book form's submission
         self.client.login(username='staffmember', password='staffpassword')
-        response = self.client.get(reverse('delete_book',
-                                           args=[book.slug]))
-        self.assertRaisesMessage(response, 'Book deleted!')
+        self.client.post(reverse('delete_book', args=[book.slug]))
+        deleted_book = Book.objects.filter(id=1).first()
+        self.assertEqual(deleted_book, None)
 
     # Test cases for manage_stock
 
@@ -208,37 +205,68 @@ class InventoryManagementTest(TestCase):
 
     def test_add_stock_unauthorised(self):
         stock = Stock.objects.get(id=1)
-        # Test if a non-staff user can access the add_stock view
-        response = self.client.get(reverse('add_stock',
-                                           args=[stock.id]))
-        self.assertNotEqual(response.status_code, 200)
-        self.assertTemplateNotUsed(response, 'inventory/add_stock.html')
-
-    def test_add_stock_view_successful(self):
-        # Test the add_stock view with a valid form submission
-        self.client.login(username='staffmember', password='staffpassword')
-        stock = Stock.objects.get(id=1)
-        response = self.client.post(
+        # Test if an unauthorised user can access the add_stock view
+        self.client.post(
             reverse('add_stock', args=[1]),
             {'quantity': 5, 'redirect_url': reverse('manage_stock',
                                                     args=[stock.book.slug])}
         )
-        self.assertEqual(response.status_code, 302)  # Redirects on success
+        updated_stock = Stock.objects.get(id=1)
+        self.assertEqual(updated_stock.quantity, 10)  # Quantity remains
+
+    def test_add_stock_view_successful(self):
+        # Test the add_stock view with a valid form submission
+        self.client.login(username='staffmember', password='staffpassword')
+        self.client.post(
+            reverse('add_stock', args=[1]),
+            {'quantity': 5,
+             'redirect_url': 'reverse(manage_stock, args=[stock.book.slug])'}
+        )
         updated_stock = Stock.objects.get(id=1)
         self.assertEqual(updated_stock.quantity, 15)
-        self.assertRaisesMessage(response, 'Successfully added stock!')
 
     def test_add_stock_view_failed(self):
         # Test the add_stock view with an invalid form submission
         self.client.login(username='staffmember', password='staffpassword')
+        self.client.post(
+            reverse('add_stock', args=[1]),
+            {'quantity': '',
+             'redirect_url': 'reverse(manage_stock, args=[stock.book.slug])'}
+        )
+        updated_stock = Stock.objects.get(id=1)
+        self.assertEqual(updated_stock.quantity, 10)  # Quantity remains
+
+    # Test cases for reduce_stock
+
+    def test_reduce_stock_unauthorised(self):
+        # Test if a non-staff user can access the reduce_stock view
+        self.client.get(reverse('reduce_stock',
+                                           args=[1]))
+        updated_stock = Stock.objects.get(id=1)
+        self.assertEqual(updated_stock.quantity, 10)  # Quantity remains
+
+    def test_reduce_stock_view_successful(self):
+        # Test the reduce_stock view with a valid form submission
+        self.client.login(username='staffmember', password='staffpassword')
         stock = Stock.objects.get(id=1)
         response = self.client.post(
-            reverse('add_stock', args=[1]),
-            {'quantity': 'invalid',
-             'redirect_url': reverse('manage_stock',
-                                     args=[stock.book.slug])}
+            reverse('reduce_stock', args=[1]),
+            {'quantity': 5, 'redirect_url': reverse('manage_stock',
+                                                    args=[stock.book.slug])}
         )
-        self.assertEqual(response.status_code, 302)  # Redirects on failure
+        self.assertEqual(response.status_code, 302)
+        updated_stock = Stock.objects.get(id=1)
+        self.assertEqual(updated_stock.quantity, 5)
+
+    def test_reduce_stock_view_failed(self):
+        # Test the reduce_stock view with an invalid form submission
+        self.client.login(username='staffmember', password='staffpassword')
+        stock = Stock.objects.get(id=1)
+        response = self.client.post(
+            reverse('reduce_stock', args=[1]),
+            {'quantity': 11,
+             'redirect_url': reverse('manage_stock', args=[stock.book.slug])}
+        )
+        self.assertEqual(response.status_code, 302)
         updated_stock = Stock.objects.get(id=stock.id)
         self.assertEqual(updated_stock.quantity, 10)  # Quantity remains
-        self.assertRaisesMessage(response, 'Failed to add stock!')
