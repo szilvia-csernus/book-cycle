@@ -239,13 +239,11 @@ def update_stock(request, order_number):
                 stock_item.reduce_stock_by_purchase(item.quantity)
                 stock_item.save()
             except ValueError:
-                # Log this error to the shop owner's issue tracker
                 messages.error(request, (
                     "One or more of the textbooks in your order were not "
                     "found in our database, please call us for assistance!"))
 
     except Stock.DoesNotExist:
-        # Log this error to the shop owner's issue tracker
         messages.error(request, (
             "One or more of the textbooks in your order were not "
             "found in our database, please call us for assistance!"))

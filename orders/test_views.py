@@ -2,6 +2,7 @@ from django.test import TestCase
 from django.urls import reverse
 from django.contrib.auth.models import User
 from django.core.files.uploadedfile import SimpleUploadedFile
+
 from inventory.models import YearGroup, Subject, Book, Stock
 from orders.models import Order, OrderLineItem
 
@@ -35,7 +36,7 @@ class CheckoutViewTest(TestCase):
         )
 
         # Create a simple user (not staff)
-        User.objects.create_user(
+        self.user = User.objects.create_user(
             username='emily',
             password='emilyspassword',
             is_staff=False
@@ -146,7 +147,9 @@ class CheckoutViewTest(TestCase):
             phone_number='1234567890',
             country='GB',
             postcode='12345',
-            shipping_required=False,
+            town_or_city='City',
+            street_address1='asdfhgf',
+            shipping_required=True
         )
         # Add a line item to the order
         OrderLineItem.objects.create(
@@ -154,11 +157,50 @@ class CheckoutViewTest(TestCase):
             stock=self.stock,
             quantity=2,
         )
+
+        # Simulate other circumstances, like shopping bag and stock data
+        self.session['bag'] = {str(self.stock.id): 2}
         self.stock.blocked = 2
         self.stock.save()
+
+        self.assertTrue(order.order_number)
+        self.assertEqual(self.stock.blocked, 2)
 
         response = self.client.get(reverse('update_stock',
                                            args=[order.order_number]))
         self.assertEqual(response.status_code, 302)
         # Expecting the stock to be reduced by 2
+        self.stock.refresh_from_db()
+        self.assertEqual(self.stock.blocked, 0)
         self.assertEqual(self.stock.quantity, 8)
+
+    def test_attach_user_profile_to_order(self):
+        order = Order.objects.create(
+            full_name='Emily Grant',
+            email='emilygrant@example.com',
+            phone_number='1234567890',
+            country='GB',
+            postcode='12345',
+            town_or_city='City',
+            street_address1='asasdfdf',
+        )
+        # Login user
+        self.client.login(username='emily', password='emilyspassword')
+
+        # Add save-info data to session as if the user has checked the box
+        self.session['save-info'] = True
+
+        # Attach the user's profile to the order
+        response = self.client.get(reverse('attach_user_profile_to_order',
+                                           args=[order.order_number]))
+        # Expecting a redirection to the checkout_success view
+        self.assertEqual(response.status_code, 302)
+        self.assertRedirects(response, reverse('checkout_success',
+                                               args=[order.order_number]))
+
+        # Verify that the order is associated with the user's profile
+        order.refresh_from_db()
+        self.assertEqual(order.user_profile, self.user.userprofile)
+
+        # Verify bag is cleared
+        self.assertNotIn('bag', self.client.session)
