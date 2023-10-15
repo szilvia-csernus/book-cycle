@@ -122,6 +122,7 @@ fields can be set.
 * The image upload field on both `Add Book` and `Edit Book` pages allowed more file formats than django's ImageField
 accepted as valid. If user attempted to upload an invalid image, it resulted in an invalid form error. To improve user experience, I restricted the file formats in the `custom_clerable_file_input.html` file, so the user can not accidentally
 select invalid file formats.
+* Automated testing revealed that uploading an image with no EXIF data would result in error. I corrected the inventory/signals.py file to handle such cases.
 
 # Remaining Bugs
 
