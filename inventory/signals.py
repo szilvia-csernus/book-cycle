@@ -1,9 +1,11 @@
-from django.db.models.signals import pre_save
+from django.db.models.signals import pre_save, pre_delete
 from django.dispatch import receiver
+from django.contrib.sessions.models import Session
+
 from PIL import Image, ImageOps
 from pathlib import Path
 
-from .models import Book
+from .models import Book, Stock
 
 
 @receiver(pre_save, sender=Book)
@@ -36,4 +38,21 @@ def resize_and_convert_image(sender, instance, **kwargs):
 
             instance.image = destination.name
         except Exception:
-            print('An error occurred while resizing image')
+            # If there is any error, do not save the image
+            pass
+
+
+@receiver(pre_delete, sender=Session)
+def un_block_stock(sender, instance, **kwargs):
+    """ If the session is about to be deleted or expired, unblock the stock
+    that was blocked by putting books in the shopping bag.
+    """
+
+    # Get the bag from the session
+    bag = instance.get_decoded().get('bag', {})
+
+    # Loop through the bag and unblock the stock
+    for stock_id, quantity in bag.items():
+        stock = Stock.objects.get(id=stock_id)
+        stock.blocked -= quantity
+        stock.save()

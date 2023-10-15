@@ -123,6 +123,7 @@ fields can be set.
 accepted as valid. If user attempted to upload an invalid image, it resulted in an invalid form error. To improve user experience, I restricted the file formats in the `custom_clerable_file_input.html` file, so the user can not accidentally
 select invalid file formats.
 * Automated testing revealed that uploading an image with no EXIF data would result in error. I corrected the inventory/signals.py file to handle such cases.
+* Manual testing revealed that the specified stock data remained blocked (reserved) after session (shopping bag) data got cleared. To rectify this, I wrote a signal to un-reserve the stock after a session is destroyed. I also configured the session to expire after 1 hour of inactivity so that items won't be reserved after this period.
 
 # Remaining Bugs
 
