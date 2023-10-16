@@ -5,7 +5,9 @@
 
 ### Python Validation
 
-Validator: https://pep8ci.herokuapp.com/
+In VSCode, I used the `autopep8` and `Flake8` extensions to help keep my code free of linting issues.
+
+The validation of the final versions of my files were carried out with CI's Python validator: https://pep8ci.herokuapp.com/
 
 | CI Python Linter Result | Passed |
 | :--- | :---: |
@@ -45,7 +47,14 @@ Validator: https://jshint.com/
 
 | JSHint Result | Passed | Warnings |
 | :--- | :---: | :--- | 
-
+| [bag.js file JSHint Result](testing_files/bag-js.jpeg)| &check; | ES11 features were flagged due to JSHint testing code against ES6.|
+| [book_management.js file JSHint Result](testing_files/book_management-js.jpeg)| &check; | ES11 features were flagged due to JSHint testing code against ES6.|
+| [books.js file JSHint Result](testing_files/books-js.jpeg)| &check; | |
+| [checkout.js file JSHint Result](testing_files/checkout-js.jpeg)| &check; | |
+| [menu.js file JSHint Result](testing_files/menu-js.jpeg)| &check; | |
+| [modal.js file JSHint Result](testing_files/modal-js.jpeg)| &check; | ES11 features were flagged due to JSHint testing code against ES6.|
+| [stripe-elements.js file JSHint Result](testing_files/stripe-elements-js.jpeg)| &check; | `Stripe` object is flagged as undefined due to it being imported in the template script.|
+| [toast.js file JSHint Result](testing_files/toast-js.jpeg)| &check; | ES11 features were flagged due to JSHint testing code against ES6.|
     
 
 ### HTML and CSS Validations
