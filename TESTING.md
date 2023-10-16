@@ -1,9 +1,9 @@
 o# TESTING - Book-Cycle project 
 
 
-## Validation
+# Code Validation
 
-### Python Validation
+## Python Validation
 
 In VSCode, I used the `autopep8` and `Flake8` extensions to help keep my code free of linting issues.
 
@@ -41,7 +41,7 @@ The validation of the final versions of my files were carried out with CI's Pyth
 | [shopping_bag/urls.py file CI Linter Result](testing_files/shopping_bag-urls-py.jpeg) | &check; |  
 | [shopping_bag/views.py file CI Linter Result](testing_files/shopping_bag-views-py.jpeg) | &check; |
 
-### JavaScript Validations
+## JavaScript Validations
 
 Validator: https://jshint.com/
 
@@ -57,18 +57,33 @@ Validator: https://jshint.com/
 | [toast.js file JSHint Result](testing_files/toast-js.jpeg)| &check; | ES11 features were flagged due to JSHint testing code against ES6.|
     
 
-### HTML and CSS Validations
+## HTML Validations
 
 Validator: https://validator.w3.org/
 
-> Please note that all the HTML validations' result looks the same, so I included only one screenshot under the `Home` Page.
-> CSS Errors can be ignored as they are referring to new CSS properties (translate, scale, rotate) that are now widely supported.
 
-| W3C Result | Passed |
+| W3 Result | Passed without errors |
 | :--- | :---: |
-| [`Home`](testing-images/ww3c-home.jpeg) Page | &check; |
-  
+| [`Home`](testing_files/w3-home.jpeg) | &check; |
+| [`Books`](testing_files/w3-books.jpeg) | &check; |
+| [`Book Detail`](testing_files/w3-book-detail.jpeg) | &check; |
+| [`Add Book`](testing_files/w3-add-book.jpeg) | &check; |
+| [`Edit Book`](testing_files/w3-edit-book.jpeg) | &check; |
+| [`Shopping Bag`](testing_files/w3-shopping-bag.jpeg) | &check; |
+| [`Checkout`](testing_files/w3-checkout.jpeg) | &check; |
+| [`Checkout Success`](testing_files/w3-checkout-success.jpeg) | &check; |
+| [`Orders to Post`](testing_files/w3-orders-post.jpeg) | &check; |
+| [`Orders for Collection`](testing_files/w3-orders-pickup.jpeg) | &check; |
+| [`Completed Orders`](testing_files/w3-orders-completed.jpeg) | &check; |
+| [`Order Detail`](testing_files/w3-order.jpeg) | &check; |
+| [`Login`](testing_files/w3-login.jpeg) | &check; |
+| [`Profile`](testing_files/w3-home.jpeg) | &check; |
+| [`Password Change`](testing_files/w3-password-change.jpeg) | &check; |
+| [`Password Reset`](testing_files/w3-password-reset.jpeg) | &check; |
 
+
+## CSS Validations
+> CSS Errors can be ignored as they are referring to new CSS properties (translate, scale, rotate) that are now widely supported.
 # Testing User Stories
 
 Tests were carried out on Chrome 114.0.5735.133  
@@ -106,10 +121,20 @@ Tests were carried out on Chrome 114.0.5735.133
 
  
 
-# Automated Testing
- 
+# Automated Tests - Unit tests
 
-To run the automated test cases, run:
+I wrote 78 unit tests for my python files, covering 88% of all statements.
+Please see the results below:
+
+
+![Unit tests](testing_files/unit-tests.jpeg)
+
+
+![Coverage Report](testing_files/coverage-report.pdf)
+
+
+
+To run the automated test cases in the development environment, run:
 
 `python manage.py test`
 
@@ -124,6 +149,34 @@ To view the report in the browser, run:
 `python -m http.server`
 
 Follow the link and click on `htmlcov`
+
+
+# Testing the Stripe implementation
+
+After successful stripe-cli installation and configuration, in VSCode we can run:
+
+`stripe listen --forward-to localhost:8000/checkout/wh/` 
+
+This gives back a webhook signing secret. This secret has to be copied in the `.env` file as `STRIPE_WH_SECRET`.
+
+In this console, we will see the events happening. 
+
+
+
+In a new console, we can trigger the events:
+
+`stripe trigger payment_intent.payment_failed`
+
+`stripe trigger payment_intent.succeeded`
+
+
+
+![stripe-terminal](testing_files/stripe-terminal.jpeg)
+
+On Stripe's Dashboard, we can also see the triggered events:
+
+![stripe-dashboard](testing_files/stripe-dashboard.jpeg)
+
 
 
  # Manual Testing
