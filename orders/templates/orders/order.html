@@ -21,7 +21,7 @@
             <strong>Date of Purchase: </strong> {{ order.date|date:"d M, Y" }}
         </div>
         <div class="order-name">
-            <strong>Phone Number: </strong> <a href="tel: {{ order.phone_number }}">{{ order.phone_number }}</a>
+            <strong>Phone Number: </strong> <a href="tel:{{ order.phone_number }}">{{ order.phone_number }}</a>
         </div>
         <div class="order-name">
             <strong>Name: </strong> {{ order.full_name }}
