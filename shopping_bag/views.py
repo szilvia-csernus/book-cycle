@@ -3,8 +3,6 @@ from inventory.models import Stock
 from django.http import HttpResponse
 from django.contrib import messages
 
-import pdb
-
 
 def view_bag(request):
     """ A view to return the shopping bag page """
@@ -89,7 +87,6 @@ def update_bag(request, stock_id, quantity_to_remove, redirect_url):
         return redirect(redirect_url)
 
     except Exception as e:
-        pdb.set_trace()
         messages.error(
             request, f'Error removing stock: {stock_item.book.title}\
             \n Error: {e}')

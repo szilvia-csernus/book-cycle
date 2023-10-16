@@ -30,9 +30,7 @@ signoutLinks?.forEach( link => link.addEventListener('click', () => {
 
 // Grab Delete User button and Modal elements
 const deleteUserBtn = document.getElementById('delete-profile');
-console.log(deleteUserBtn)
 const deleteUserModal = document.getElementById('delete-user-modal');
-console.log(deleteUserModal)
 
 deleteUserBtn?.addEventListener('click', () => {
 	addModal(deleteUserModal, 'delete-user-cancel')

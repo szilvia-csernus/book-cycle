@@ -20,9 +20,7 @@ image?.addEventListener('change', () => {
 
 clearImageCkeckbox?.addEventListener('change', () => {
     if (clearImageCkeckbox.checked === true) {
-        console.log(image.files.length)
         image.value = '';
-        console.log(image.files);
         filename.textContent = '';
     }
 })

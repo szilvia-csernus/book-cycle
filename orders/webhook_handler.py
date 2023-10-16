@@ -75,14 +75,12 @@ class StripeWH_Handler:
                 break
 
             except Order.DoesNotExist:
-                print('order does not exist')
                 # if order is not found, the webhook will try again max 5 times
                 # over 5 seconds before giving up and creating a new order
                 attempt += 1
                 time.sleep(1)
 
         if order_exists:
-            print('order exists')
             self._send_confirmation_email(order)
             return HttpResponse(
                 content=(f'Webhook received: {event["type"]} | SUCCESS: '
@@ -152,7 +150,6 @@ class StripeWH_Handler:
         """
         Handle the payment_intent.payment_failed webhook from Stripe
         """
-        print('payment intent failed')
         return HttpResponse(
             content=f'Webhook received: {event["type"]}',
             status=200)
