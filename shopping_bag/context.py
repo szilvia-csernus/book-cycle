@@ -4,7 +4,7 @@ from inventory.models import Stock, Book
 
 
 def bag_contents(request):
-    """ A view to return the shopping bag page """
+    """ Context for the shopping bag to be used in all views """
 
     book_count = 0
     bag = request.session.get('bag', {})
