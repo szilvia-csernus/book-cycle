@@ -89,6 +89,9 @@ main img.logo {
     position: absolute;
     right: 0.4rem;
     bottom: 0.8rem;
+    min-width: 1rem;
+    display: inline-block;
+    text-align: center;
 }
 
 @media screen and (min-width: 1000px) {

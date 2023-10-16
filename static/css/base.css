@@ -41,7 +41,7 @@ ul, address, svg, input, textarea {
     --text-placeholder: #aab7c4;
     --input-border: rgb(118, 118, 118);
     --books-found-color: #89009b;
-    --shadow-color: #160f69
+    --shadow-color: #160f69;
 }
 
 @media (prefers-color-scheme: dark) {
@@ -51,7 +51,7 @@ ul, address, svg, input, textarea {
     --bg-detail: #1e1f28b0;
     --bg-translucent: #0c122f99;
     --bg-primary: white;
-    --bg-toast: #3b404ffc;
+    --bg-toast: #31384cfc;
     --bg-modal-body: #2d2f44fa;
     --text-primary: white;
     --text-contrast: rgb(20, 22, 34);
@@ -483,6 +483,9 @@ img.bag {
     color: var(--text-light);
     font-size: .8rem;
     margin-left: 0.5rem;
+    min-width: 1rem;
+    display: inline-block;
+    text-align: center;
 }
 
 img.open-book {
@@ -510,7 +513,7 @@ img.open-book {
     padding: 0.2rem 1rem 1.3rem;
     transition: opacity .5s linear;
     background: var(--bg-toast);
-    box-shadow: 0 1px 5px var(--primary);
+    box-shadow: 0 1px 5px var(--bg-overlay);
     display: flex;
     flex-direction: column;
     animation: appear .5s linear .2s forwards;

@@ -23,7 +23,7 @@
     color: var(--text-light);
     text-shadow: 0 1px 5px black;
     background-color: var(--accent);
-    padding: .3rem 1rem .6rem;
+    padding: .5rem 1.5rem .7rem;
     text-decoration: none;
     margin: 2rem;
 }

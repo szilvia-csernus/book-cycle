@@ -460,12 +460,12 @@
 }
 
 .stockline-button {
-    border: 1px solid var(--bg-primary);
     padding: 0 .5rem;
     font-family: 'KoHo';
     font-size: .9rem;
-    color: var(--text-primary);
     cursor: pointer;
+    min-width: 0;
+    margin: 0;
 }
 
 .stockline-button:disabled {
@@ -493,14 +493,14 @@
 }
 
 .stockline-add-button {
-    border: 1px solid var(--bg-primary);
     padding: 0 .2rem;
     font-size: .8rem;
     font-weight: bold;
-    color: var(--text-primary);
     cursor: pointer;
     width: 100%;
     text-transform: uppercase;
+    min-width: 0;
+    margin: 0;
 }
 
 .back-to-books-button {
@@ -584,13 +584,14 @@
 }
 
 .manage-stockline input[type="number"] {
-    border: 1px solid var(--bg-primary);
-    width: 4rem;
-    text-align: center;
+    border: 1px solid var(--bg-secondary);
+    width: 2.7rem;
+    text-align: right;
 }
 
 .manage-stockline .stockline-button {
     width: 7rem;
+    text-transform: none;
 }
 
 .manage-stockline-condition {
