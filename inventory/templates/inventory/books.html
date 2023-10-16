@@ -50,9 +50,9 @@
                         <option value="None">-----</option>
                         {% for subj in all_subjects %}
                             <option value="{{ subj.name }}"
-                            {% if subject == subj.name %}
-                            selected
-                            {% endif %}
+                                {% if subject == subj.name %}
+                                selected
+                                {% endif %}
                             >{{ subj.friendly_name }}</option>
                         {% endfor %}
                     </select>
@@ -62,11 +62,11 @@
                     <select name="year_group" id="filter-yeargroup" class="filter-select filter-yeargroup">
                         <option value="None">-----</option>
                         {% for yg in all_year_groups %}
-                        <option value="{{ yg.name }}"
-                            {% if year_group == yg.name %}
-                            selected
-                            {% endif %}
-                        >{{ yg.friendly_name }}</option>
+                            <option value="{{ yg.name }}"
+                                {% if year_group == yg.name %}
+                                selected
+                                {% endif %}
+                            >{{ yg.friendly_name }}</option>
                         {% endfor %}
                     </select>
                 </div>

@@ -1,9 +1,9 @@
 from django.db.models.signals import pre_save, pre_delete
 from django.dispatch import receiver
+from django.core.files.storage import default_storage
 from django.contrib.sessions.models import Session
 
 from PIL import Image, ImageOps
-from pathlib import Path
 
 from .models import Book, Stock
 
@@ -31,12 +31,11 @@ def resize_and_convert_image(sender, instance, **kwargs):
             if img.height > 368 or img.width > 320:
                 img.thumbnail((320, 368))
 
-            # Save the resized image back to the same path
-            source = Path(instance.image.path)
-            destination = source.with_suffix(".webp")
-            img.save(destination, format="webp")
+            # Save the resized image using the storage backend
+            with default_storage.open(instance.image.name, 'wb') as dest:
+                img.save(dest, format="webp")
 
-            instance.image = destination.name
+            instance.image.name = dest.name
         except Exception:
             # If there is any error, do not save the image
             pass
