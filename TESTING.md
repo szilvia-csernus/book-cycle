@@ -7,9 +7,37 @@
 
 Validator: https://pep8ci.herokuapp.com/
 
-| CI Python Linter Result | Passed |Warnings | 
-| :--- | :---: | :--- | 
-    
+| CI Python Linter Result | Passed |
+| :--- | :---: |
+| [book_cycle/settings.py file CI Linter Result](testing_files/book_cycle-settings-py.jpeg) | &check; |
+| [book_cycle/urls.py file CI Linter Result](testing_files/book_cycle-urls-py.jpeg) | &check; |  
+| [book_cycle/wsgi.py file CI Linter Result](testing_files/book_cycle-wsgi-py.jpeg) | &check; |
+| [home/urls.py file CI Linter Result](testing_files/home-urls-py.jpeg) | &check; |
+| [home/views.py file CI Linter Result](testing_files/home-views-py.jpeg) | &check; |  
+| [inventory/admin.py file CI Linter Result](testing_files/inventory-admin-py.jpeg) | &check; |
+| [inventory/context.py file CI Linter Result](testing_files/inventory-context-py.jpeg) | &check; |  
+| [inventory/forms.py file CI Linter Result](testing_files/inventory-forms-py.jpeg) | &check; |
+| [inventory/models.py file CI Linter Result](testing_files/inventory-models-py.jpeg) | &check; |  
+| [inventory/signals.py file CI Linter Result](testing_files/inventory-signals-py.jpeg) | &check; |
+| [inventory/urls.py file CI Linter Result](testing_files/inventory-urls-py.jpeg) | &check; |  
+| [inventory/views.py file CI Linter Result](testing_files/inventory-views-py.jpeg) | &check; |
+| [inventory/widgets.py file CI Linter Result](testing_files/inventory-widgets-py.jpeg) | &check; |
+| [orders/admin.py file CI Linter Result](testing_files/orders-admin-py.jpeg) | &check; |
+| [orders/context.py file CI Linter Result](testing_files/orders-context-py.jpeg) | &check; |  
+| [orders/forms.py file CI Linter Result](testing_files/orders-forms-py.jpeg) | &check; |
+| [orders/models.py file CI Linter Result](testing_files/orders-models-py.jpeg) | &check; |  
+| [orders/signals.py file CI Linter Result](testing_files/orders-signals-py.jpeg) | &check; |
+| [orders/urls.py file CI Linter Result](testing_files/orders-urls-py.jpeg) | &check; |  
+| [orders/views.py file CI Linter Result](testing_files/orders-views-py.jpeg) | &check; |
+| [orders/webhook-handler.py file CI Linter Result](testing_files/orders-webhook-handler-py.jpeg) | &check; | 
+| [orders/webhooks.py file CI Linter Result](testing_files/orders-webhooks-py.jpeg) | &check; |
+| [profiles/forms.py file CI Linter Result](testing_files/profiles-forms-py.jpeg) | &check; |
+| [profiles/models.py file CI Linter Result](testing_files/profiles-models-py.jpeg) | &check; |  
+| [profiles/urls.py file CI Linter Result](testing_files/profiles-urls-py.jpeg) | &check; |  
+| [profiles/views.py file CI Linter Result](testing_files/profiles-views-py.jpeg) | &check; |
+| [shopping_bag/context.py file CI Linter Result](testing_files/shopping_bag-context-py.jpeg) | &check; |  
+| [shopping_bag/urls.py file CI Linter Result](testing_files/shopping_bag-urls-py.jpeg) | &check; |  
+| [shopping_bag/views.py file CI Linter Result](testing_files/shopping_bag-views-py.jpeg) | &check; |
 
 ### JavaScript Validations
 
