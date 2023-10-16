@@ -1,6 +1,6 @@
 // Grab the DOM elements for the menu
 const browseLink = document.querySelectorAll(".browse-link");
-const closeMenuBtn = document.getElementById("close-menu")
+const closeMenuBtn = document.getElementById("close-menu");
 const browse = document.getElementById("browse");
 
 /** Opens the search browser menu */
@@ -12,11 +12,11 @@ export function openBrowse() {
 	closeMenuBtn.addEventListener('click', () => {
 		browse.classList.remove('browse-open');
 		overlayEl.remove();
-	})
+	});
     overlayEl.addEventListener('click', () => {
-        browse.classList.remove("browse-open")
+        browse.classList.remove("browse-open");
         overlayEl.remove();
-    })
+    });
 }
 
 // There are two links (desktop, mobile) that should open the menu, so

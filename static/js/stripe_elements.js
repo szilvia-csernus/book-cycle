@@ -8,7 +8,7 @@
 */
 
 // Grab stripe's public key and client secret that are present in hidden fields
-const stripePublicKeyEl = document.getElementById('id_stripe_public_key')
+const stripePublicKeyEl = document.getElementById('id_stripe_public_key');
 const stripePublicKey = stripePublicKeyEl.textContent.slice(1, -1);
 
 const clientSecret = document
@@ -64,11 +64,11 @@ card.addEventListener('change', function (event) {
 // Toggle the visibility of the element with a fade effect
 const toggleElement = element => {
 	if (element.classList.contains('loading-overlay-active')) {
-		element.classList.remove('loading-overlay-active')
+		element.classList.remove('loading-overlay-active');
 	} else {
-		element.classList.add('loading-overlay-active')
+		element.classList.add('loading-overlay-active');
 	}
-}
+};
 
 // Handle form submit
 
@@ -77,7 +77,7 @@ const paymentForm = document.getElementById('payment-form');
 const submitButton = document.getElementById('submit-button');
 
 // Grab loading overlay and apply the css class to it
-const loadingOverlay = document.getElementById('loading-overlay')
+const loadingOverlay = document.getElementById('loading-overlay');
 loadingOverlay.classList.add('loading-overlay');
 
 
@@ -91,7 +91,7 @@ function handlePaymentResult(result) {
     errorDiv.innerHTML = html;
 
 	// Remove overlay and reveal the form
-	toggleElement(loadingOverlay)
+	toggleElement(loadingOverlay);
 	loadingOverlay.classList.remove('overlay');
 	paymentForm.style.display = 'block';
 
@@ -105,7 +105,7 @@ function handlePaymentResult(result) {
   }
 }
 
-const shippingInfo = localStorage.getItem('shipping') === 'post' ? true : false
+const shippingInfo = localStorage.getItem('shipping') === 'post' ? true : false;
 
 paymentForm.addEventListener('submit', event => {
 	event.preventDefault();
@@ -157,7 +157,7 @@ paymentForm.addEventListener('submit', event => {
 						country: paymentForm.country.value.trim(),
 						postal_code: paymentForm.postcode.value.trim(),
 					},
-				}
+				};
 			if (shippingInfo) {
 				shipping = {
 					name: paymentForm.full_name.value.trim(),

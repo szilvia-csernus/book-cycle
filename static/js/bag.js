@@ -11,10 +11,10 @@ const shippingInputElements = document.querySelectorAll('.shipping-info');
 // The checkout page also uses the same radiobutton elements.
 const pickups = document.querySelectorAll('input[type="radio"][value="pickup"]');
 const posts = document.querySelectorAll('input[type="radio"][value="post"]');
-const radioButtons = document.querySelectorAll('input[type="radio"][name="shipping-info"]')
+const radioButtons = document.querySelectorAll('input[type="radio"][name="shipping-info"]');
 
 // Check localstorage for shipping preference
-let shippingPreference = window.localStorage.getItem('shipping')
+let shippingPreference = window.localStorage.getItem('shipping');
 
 // Calculate grand total: add shipping cost and 'pad' the decimal places with
 // zeros if needed.
@@ -22,7 +22,7 @@ const addShipping = () => {
     grandTotalElements.forEach((el) => {
          el.textContent = Number(bagTotal + 3.5).toFixed(2);
     });
-}
+};
 
 // Calculate grand total without shipping cost and 'pad' the decimal places with
 // zeros if needed.
@@ -30,7 +30,7 @@ const freeShipping = () => {
 	grandTotalElements.forEach((el) => {
 		el.textContent = Number(bagTotal).toFixed(2);
 	});
-}
+};
 
 // If shippingPreference is in localStorage, set the corresponding button to checked,
 // otherwise set the 'pickup' option to checked.
@@ -39,37 +39,37 @@ const freeShipping = () => {
 if (shippingPreference === 'post') {
     posts.forEach(post => post.checked = true);
     addShipping();
-    shippingInputElements.forEach(el => el.value = 'post')
+    shippingInputElements.forEach(el => el.value = 'post');
 } else {
     pickups.forEach(pickup => pickup.checked = true);
-    freeShipping()
-    shippingInputElements.forEach(el => el.value = 'pickup')
+    freeShipping();
+    shippingInputElements.forEach(el => el.value = 'pickup');
 }
 
 // Handle state changes such that all post/pickup elements get updated on all pages.
 pickups.forEach(pickup => pickup.addEventListener('change', function() {
     if (this.checked) {
-        freeShipping()
+        freeShipping();
         pickups.forEach((pickup) => (pickup.checked = true));
-        shippingInputElements.forEach(el => el.value = 'pickup')
+        shippingInputElements.forEach(el => el.value = 'pickup');
     }
     else {
-        addShipping()
+        addShipping();
         posts.forEach((post) => (post.checked = true));
     }
-}))
+}));
 
 posts.forEach(post=>post.addEventListener('change', function() {
     if (this.checked) {
         addShipping();
         posts.forEach((post) => (post.checked = true));
-        shippingInputElements.forEach(el => el.value = 'post')
+        shippingInputElements.forEach(el => el.value = 'post');
     }
     else {
         freeShipping();
         pickups.forEach((pickup) => (pickup.checked = true));
     }
-}))
+}));
 
 // Add event listeners to all buttons to change localStorage['shipping'] whenever the 'checked'
 // attribute changes.
@@ -95,12 +95,12 @@ const closeQuickBag = () => {
         bagElement.classList.remove('quick-bag-open');
     }
     if (overlayEl) {
-        overlayEl.remove()
+        overlayEl.remove();
     }
     // release scrolling ban
     document.body.style.position = 'static';
     document.body.style.width = '';
-} 
+};
 
 /** Opens the quick bag window */
 const openQuickBag = () => {
@@ -112,12 +112,12 @@ const openQuickBag = () => {
     document.body.style.position = 'fixed';
     document.body.style.width = '100%';
 	closeQuickBagBtn.addEventListener('click', () => {
-		closeQuickBag()
+		closeQuickBag();
 	});
 	overlayEl.addEventListener('click', () => {
-		closeQuickBag()
+		closeQuickBag();
 	});
-}
+};
 
 bagLink?.addEventListener('click', openQuickBag);
 

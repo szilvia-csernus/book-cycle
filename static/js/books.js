@@ -6,12 +6,12 @@ const sortValue = currentUrl.searchParams.get('sort');
 const yearGroupValue = currentUrl.searchParams.get('year_group');
 
 // Grab all search and filter elements
-const allBooksBtn = document.getElementById('all-books')
-const year7to9Btn = document.getElementById('year7-9')
-const gcseBtn = document.getElementById('gcse')
-const aLevelBtn = document.getElementById('a-level')
-const moreOptionsBtn = document.getElementById('more-options')
-const filterSortBox = document.getElementById('filter-sort-search-box')
+const allBooksBtn = document.getElementById('all-books');
+const year7to9Btn = document.getElementById('year7-9');
+const gcseBtn = document.getElementById('gcse');
+const aLevelBtn = document.getElementById('a-level');
+const moreOptionsBtn = document.getElementById('more-options');
+const filterSortBox = document.getElementById('filter-sort-search-box');
 
 const searchTermElement = document.getElementById('search-input-nr2');
 const searchButton = document.getElementById('search-button-nr2');
@@ -34,7 +34,7 @@ else {
     if (yearGroupValue) {
         allBooksBtn.classList.remove('active');
         if (yearGroupValue === 'year7-9') {
-            year7to9Btn.classList.add('active')
+            year7to9Btn.classList.add('active');
             }
         else if (yearGroupValue === 'gcse') {
                 gcseBtn.classList.add('active');
@@ -50,9 +50,9 @@ else {
 
 year7to9Btn.addEventListener('click', () => {
     currentUrl.search = '';
-    currentUrl.searchParams.set('year_group', 'year7-9')
+    currentUrl.searchParams.set('year_group', 'year7-9');
     window.location.replace(currentUrl);
-})
+});
 
 gcseBtn.addEventListener('click', () => {
     currentUrl.search = '';
@@ -74,17 +74,17 @@ allBooksBtn.addEventListener('click', () => {
 /** Toggles an element by applying/removing the 'active' css class. */
 function toggleActive(element) {
     if (element.classList.contains('active')) {
-        element.classList.remove('active')
+        element.classList.remove('active');
         window.location.replace(currentUrl);
     } else {
-        element.classList.add('active')
+        element.classList.add('active');
     }
 }
 
 /** Removes the 'active' css class from the element. */
 function removeActive(element) {
     if (element.classList.contains('active')) {
-        element.classList.remove('active')
+        element.classList.remove('active');
     }
 }
 
@@ -99,7 +99,7 @@ moreOptionsBtn.addEventListener('click', () => {
 
     toggleActive(moreOptionsBtn);
     toggleActive(filterSortBox);
-})
+});
 
 /** separate the 'subject_asc' etc. sort input format into sort= and direction= 
  * and set them as params in the current url.
@@ -109,16 +109,16 @@ const resolveSortInput = () => {
     const direction = sortBy.value.split('_')[1];
     currentUrl.searchParams.set('sort', sort);
     currentUrl.searchParams.set('direction', direction);
-}
+};
 
 // If Enter is clicked after entering a search term, set all the search/filter
 // query parameters and reload the window.
 searchTermElement.addEventListener('keydown', (event) => {
 	
-    resolveSortInput()
+    resolveSortInput();
 
 	if (event.key === 'Enter') {
-        event.preventDefault()
+        event.preventDefault();
 		
         currentUrl.searchParams.set('search', event.target.value);
         currentUrl.searchParams.set('subject', filterSubject.value);
@@ -130,11 +130,11 @@ searchTermElement.addEventListener('keydown', (event) => {
 // If magnifying glass icon was clicked, set the search query parameter and
 // reload the window.
 searchButton.addEventListener('click', event => {
-    event.preventDefault()
-    resolveSortInput()
+    event.preventDefault();
+    resolveSortInput();
     currentUrl.searchParams.set('search', searchTermElement.value);
 	window.location.replace(currentUrl);
-})
+});
 
 
 // Update the filter/sort query parameters whenever the user changes the 
@@ -158,7 +158,7 @@ filterYearGroup.addEventListener('change', (event) => {
 
 sortBy.addEventListener('change', (event) => {
 
-    resolveSortInput()
+    resolveSortInput();
 
     currentUrl.searchParams.set('search', searchTermElement.value);
 	window.location.replace(currentUrl);
