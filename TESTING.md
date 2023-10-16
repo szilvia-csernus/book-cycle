@@ -83,7 +83,25 @@ Validator: https://validator.w3.org/
 
 
 ## CSS Validations
-> CSS Errors can be ignored as they are referring to new CSS properties (translate, scale, rotate) that are now widely supported.
+
+The css files were validated by direct input on https://validator.w3.org/nu/#textarea.
+The results of the css file validations all look the same:
+
+
+![CSS Validation](testing_files/css-validation.jpeg)
+
+
+| File | Passed without errors |
+| :--- | :---: |
+| `base.css` | &check; |
+| `account.css` | &check; |
+| `checkout.css` | &check; |
+| `home.css` | &check; |
+| `inventory.css` | &check; |
+| `loader.css` | &check; |
+| `modal.css` | &check; |
+| `orders.css` | &check; |
+| `shopping_bag.css` | &check; |
 # Testing User Stories
 
 Tests were carried out on Chrome 114.0.5735.133  
