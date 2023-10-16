@@ -48,13 +48,12 @@
                     <label for="filter-subject">Filter by Subject:  </label>
                     <select name="subject" id="filter-subject" class="filter-select filter-subject">
                         <option value="None">-----</option>
-                        {% for s in all_subjects %}
-                            <option value="{{ s.name }}"
-                            {% if subject == s.name %}
+                        {% for subj in all_subjects %}
+                            <option value="{{ subj.name }}"
+                            {% if subject == subj.name %}
                             selected
                             {% endif %}
-                            >{{ s.friendly_name }}
-                            </option>
+                            >{{ subj.friendly_name }}</option>
                         {% endfor %}
                     </select>
                 </div>

@@ -1,4 +1,4 @@
-# TESTING - Community Transport project 
+o# TESTING - Book-Cycle project 
 
 
 ## Validation
@@ -65,7 +65,8 @@ Validator: https://validator.w3.org/
 > CSS Errors can be ignored as they are referring to new CSS properties (translate, scale, rotate) that are now widely supported.
 
 | W3C Result | Passed |
-| :--- | :---: | 
+| :--- | :---: |
+| [`Home`](testing-images/ww3c-home.jpeg) Page | &check; |
   
 
 # Testing User Stories
@@ -161,6 +162,7 @@ accepted as valid. If user attempted to upload an invalid image, it resulted in 
 select invalid file formats.
 * Automated testing revealed that uploading an image with no EXIF data would result in error. I corrected the inventory/signals.py file to handle such cases.
 * Manual testing revealed that the specified stock data remained blocked (reserved) after session (shopping bag) data got cleared. To rectify this, I wrote a signal to un-reserve the stock after a session is destroyed. I also configured the session to expire after 1 hour of inactivity so that items won't be reserved after this period.
+* On `books` page, the Subject choices under `More Options` were all `None` on the deployed site, which did not occure in development. The issue was caused by a linebreak in front of the `</option>` tag.
 
 # Remaining Bugs
 
