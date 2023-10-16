@@ -12,10 +12,10 @@ Amount Paid: £{{ order.grand_total }}
 {% if order.shipping_required %}
 Your order will be shipped to {{ order.street_address1 }} in {{ order.town_or_city }}, {{ order.country }}.
 {% else %}
-You can pick your order up at our school in the usual opening hours.
+You can collect your order at our school in the usual opening hours.
 {% endif %}
 
-We've got your phone number on file as {{ order.phone_number }}.
+We have your phone number on file as {{ order.phone_number }}.
 
 If you have any questions, feel free to contact us at {{ contact_email }}.
 
