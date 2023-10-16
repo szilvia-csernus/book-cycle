@@ -66,7 +66,7 @@
                                 <form class="" action="{% url 'remove_from_bag' stock_item.id %}" method="POST">
                                     {% csrf_token %}
                                     <input type="hidden" name="redirect_url" value="{{ request.path }}">
-                                    <button type="submit" class="stockline-button">
+                                    <button type="submit" class="primary-btn stockline-button">
                                         &minus;
                                     </button>
                                 </form>
@@ -74,7 +74,7 @@
                                 <form class="" action="{% url 'add_to_bag' stock_item.id %}" method="POST">
                                     {% csrf_token %}
                                     <input type="hidden" name="redirect_url" value="{{ request.path }}">
-                                    <button type="submit" class="stockline-button"
+                                    <button type="submit" class="primary-btn stockline-button"
                                     {% if stock_item.stock_available_quantity < 1 %} 
                                         disabled
                                     {% endif %}
@@ -88,7 +88,7 @@
                                 <form class="stockline-button-container" action="{% url 'add_to_bag' stock_item.id %}" method="POST">
                                     {% csrf_token %}
                                     <input type="hidden" name="redirect_url" value="{{ request.path }}">
-                                    <button type="submit" class="stockline-add-button">
+                                    <button type="submit" class="primary-btn stockline-add-button">
                                         Add
                                     </button>
                                 </form>

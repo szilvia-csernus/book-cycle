@@ -65,8 +65,8 @@
                             <form class="" action="{% url 'add_stock' stock_item.id %}" method="POST">
                                 {% csrf_token %}
                                 <input type="hidden" name="redirect_url" value="{{ request.path }}">
-                                <input type="number" name="quantity"  value="0" min="1" max="999" aria-label="quantity to reduce stock">
-                                <button type="submit" class="stockline-button">
+                                <input type="number" name="quantity" class="stockline-btn"  value="0" min="1" max="999" aria-label="quantity to reduce stock">
+                                <button type="submit" class="secondary-btn stockline-button">
                                     &plus; Increase
                                 </button>
                             </form>
@@ -74,8 +74,8 @@
                             <form class="" action="{% url 'reduce_stock' stock_item.id %}" method="POST">
                                 {% csrf_token %}
                                 <input type="hidden" name="redirect_url" value="{{ request.path }}">
-                                <input type="number" name="quantity" value="0" min="1" max="999" aria-label="quantity to increase stock">
-                                <button type="submit" class="stockline-button" {% if stock_item.quantity < 1 %} disabled {% endif %}>
+                                <input type="number" name="quantity" class="stockline-btn" value="0" min="1" max="999" aria-label="quantity to increase stock">
+                                <button type="submit" class="secondary-btn stockline-button" {% if stock_item.quantity < 1 %} disabled {% endif %}>
                                     &minus; Remove
                                 </button>
                             </form>
