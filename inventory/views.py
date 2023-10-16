@@ -1,12 +1,14 @@
 from datetime import timedelta
-from django.utils import timezone
 
+from django.utils import timezone
 from django.shortcuts import render, get_object_or_404, redirect, reverse
 from django.db.models import Q
 from django.db.models.functions import Lower
 from django.contrib import messages
 from django.contrib.admin.views.decorators import staff_member_required
 from django.views.decorators.http import require_POST
+from django.core.files.storage import default_storage
+
 from .models import Book, Stock
 from .forms import BookForm
 
@@ -222,9 +224,8 @@ def edit_book(request, slug):
         if 'image' in bookform.changed_data:
             # Delete the old image file
             if book.image:
-                storage, path = book.image.storage, book.image.path
-                if storage.exists(path):
-                    storage.delete(path)
+                if default_storage.exists(book.image.name):
+                    default_storage.delete(book.image.name)
 
         if bookform.is_valid():
             bookform.save()
@@ -276,6 +277,10 @@ def delete_book(request, slug):
                 return redirect(reverse('edit_book', args=[book.slug]))
 
     try:
+        # Delete the associated image file
+        if book.image:
+            if default_storage.exists(book.image.name):
+                default_storage.delete(book.image.name)
         book.delete()
         messages.success(request, 'Book deleted!')
         return redirect(reverse('books'))

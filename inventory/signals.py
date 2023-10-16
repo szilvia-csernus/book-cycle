@@ -1,7 +1,10 @@
+import uuid
+
 from django.db.models.signals import pre_save, pre_delete
 from django.dispatch import receiver
 from django.core.files.storage import default_storage
 from django.contrib.sessions.models import Session
+from django.utils.text import slugify
 
 from PIL import Image, ImageOps
 
@@ -35,7 +38,11 @@ def resize_and_convert_image(sender, instance, **kwargs):
             with default_storage.open(instance.image.name, 'wb') as dest:
                 img.save(dest, format="webp")
 
-            instance.image.name = dest.name
+            # Generate a safe file name based on the book's title
+            new_uuid = str(uuid.uuid4())[:4]
+            safe_filename = slugify(f"{instance.title}-{new_uuid}") + '.webp'
+
+            instance.image.name = safe_filename
         except Exception:
             # If there is any error, do not save the image
             pass
