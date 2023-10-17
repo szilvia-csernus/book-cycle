@@ -20,13 +20,16 @@
             <div class="account-form-frame">
                 <h2 class="account-details-title">Personal Information</h2>
                 <div class="account-details-box">
-                <p>Name: {{ full_name }}</p>
-                <p>Email: {{ user.email }}</p>
+                <p><strong>Name: </strong>{{ full_name }}</p>
+                <p><strong>Email: </strong>{{ user.email }}</p>
                 {% if user.has_usable_password %}
                 <p><a href="{% url 'account_change_password' %}" class="primary-btn account-btn">
                     Change password
                 </a></p>
                 {% else %}
+                    <br>
+                    <p>As you signed up with a social account, you don't have a password set. 
+                        Would you like to be able to sign in with your email and a password?</p>
                     <p><a href="{% url 'account_set_password' %}" class="primary-btn account-btn">
                         Set password
                     </a></p>

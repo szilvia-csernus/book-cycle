@@ -36,7 +36,7 @@
 .account-details-box {
     display: flex;
     flex-direction: column;
-    height: 8rem;
+    min-height: 8rem;
     justify-content: center;
 }
 
