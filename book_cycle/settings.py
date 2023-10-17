@@ -210,7 +210,6 @@ ACCOUNT_LOGIN_ON_EMAIL_CONFIRMATION = True
 ACCOUNT_LOGIN_ON_PASSWORD_CHANGE = True
 ACCOUNT_LOGIN_ON_PASSWORD_RESET = True
 ACCOUNT_SESSION_REMEMBER = True
-# ACCOUNT_UNIQUE_EMAIL = True
 ACCOUNT_FORMS = {'signup': 'profiles.forms.CustomSignupForm'}
 ACCOUNT_SIGNUP_VIEW = 'profiles.views.CustomSignupView'
 SOCIALACCOUNT_PROVIDERS = {
@@ -272,7 +271,6 @@ STRIPE_CURRENCY = 'gbp'
 STRIPE_PUBLIC_KEY = os.getenv('STRIPE_PUBLIC_KEY', '')
 STRIPE_SECRET_KEY = os.getenv('STRIPE_SECRET_KEY', '')
 STRIPE_WH_SECRET = os.getenv('STRIPE_WH_SECRET', '')
-DEFAULT_FROM_EMAIL = 'admin@book-cycle.co.uk'
 
 SHIPPING_COST = Decimal(3.50)
 
@@ -311,3 +309,6 @@ else:
     EMAIL_HOST_PASSWORD = os.environ.get('EMAIL_HOST_PASS')
     DEFAULT_FROM_EMAIL = os.environ.get('EMAIL_HOST_USER')
     EMAIL_PORT = 587
+    SERVER_EMAIL = os.environ.get('EMAIL_HOST_USER')
+
+ADMINS = [('Admin', os.environ.get('EMAIL_HOST_USER'))]
