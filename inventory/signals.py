@@ -5,10 +5,22 @@ from django.dispatch import receiver
 from django.core.files.storage import default_storage
 from django.contrib.sessions.models import Session
 from django.utils.text import slugify
+from pathlib import Path
 
 from PIL import Image, ImageOps
 
 from .models import Book, Stock
+
+
+# @receiver(pre_delete, sender=Book)
+# def delete_image(sender, instance, **kwargs):
+#     """
+#     Delete the image from the storage when the book is deleted.
+#     """
+#     if instance.image:
+#         storage, url = instance.image.storage, instance.image.url
+#         if storage.exists(url):
+#             storage.delete(url)
 
 
 @receiver(pre_save, sender=Book)
@@ -21,28 +33,25 @@ def resize_and_convert_image(sender, instance, **kwargs):
             # Open the uploaded image using Pillow
             img = Image.open(instance.image)
 
-            # Check if the image has EXIF data
-            if hasattr(img, '_getexif'):
-                exif = img._getexif()
-                if exif:
-                    # Apply EXIF orientation (auto-rotate) if available
-                    orientation = exif.get(0x0112)
-                    if orientation:
-                        img = ImageOps.exif_transpose(img)
+            # Apply EXIF orientation (auto-rotate)
+            img = ImageOps.exif_transpose(img)
 
             # Resize while preserving aspect ratio
-            if img.height > 368 or img.width > 320:
+            if instance.image.height > 368 or instance.image.width > 320:
                 img.thumbnail((320, 368))
 
-            # Save the resized image using the storage backend
-            with default_storage.open(instance.image.name, 'wb') as dest:
-                img.save(dest, format="webp")
+            # Save the resized image back to the same path
+            source = Path(instance.image.path)
+            destination = source.with_suffix(".webp")
+            img.save(destination, format="webp")
+
+            instance.image = destination.name
 
             # Generate a safe file name based on the book's title
-            new_uuid = str(uuid.uuid4())[:4]
-            safe_filename = slugify(f"{instance.title}-{new_uuid}") + '.webp'
+            # new_uuid = str(uuid.uuid4())[:4]
+            # safe_filename = slugify(f"{instance.title}-{new_uuid}") + '.webp'
 
-            instance.image.name = safe_filename
+            # instance.image.name = safe_filename
         except Exception:
             # If there is any error, do not save the image
             pass
