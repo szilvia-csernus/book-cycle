@@ -1,0 +1,31 @@
+{% extends "base.html" %}
+{% load static %}
+
+{% block logo %}
+{% include 'includes/logo.html' %}
+{% endblock %}
+
+{% block content %}
+<a href="{% url 'home' %}" class="small-logo">
+    <img class="logo" src={% static 'svg/book-cycle-logo.svg' %} alt="book cycle logo" width="10" height="6">
+</a>
+<main>
+    <div class="shopping-bag-frame">
+        <h1 class="title">Not Found</h1>
+        <div class="bag-page-frame">
+            <p>Sorry, the page you are looking for does not exist.</p>
+
+            <a href="{% url 'home' %}" class="keep-shopping">Home</a>
+        </div>
+    </div>
+</main>
+{% endblock %}
+
+{% block footer %}
+{% include 'includes/footer.html' %}
+{% endblock %}
+
+{% block postload %}
+{{ block.super }}
+<script src="{% static 'js/bag.js' %}" type="module"></script>
+{% endblock %}
