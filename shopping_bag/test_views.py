@@ -3,22 +3,16 @@ from django.urls import reverse
 from django.core.files.uploadedfile import SimpleUploadedFile
 from inventory.models import YearGroup, Subject, Stock, Book
 
-import os
-
 
 class ShoppingBagViewsTest(TestCase):
     def setUp(self):
         year_group = YearGroup.objects.create(name="alevel")
         subject = Subject.objects.create(name="computing")
-        # Use a mock image for the book
+        # Create a test image
         image_path = "testing_files/img_for_testing_img_upload.png"
         with open(image_path, 'rb') as image_file:
             image_content = image_file.read()
-        # Get the image file name
-        image_name = os.path.basename(image_path)
-
-        # Create a SimpleUploadedFile
-        self.mock_image = SimpleUploadedFile(image_name,
+        self.mock_image = SimpleUploadedFile("img_for_testing_img_upload.png",
                                              image_content,
                                              content_type="image/png")
         book = Book.objects.create(

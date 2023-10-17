@@ -1,4 +1,5 @@
-o# TESTING - Book-Cycle project 
+# TESTING - Book-Cycle project 
+---
 
 
 # Code Validation
@@ -41,6 +42,8 @@ The validation of the final versions of my files were carried out with CI's Pyth
 | [shopping_bag/urls.py file CI Linter Result](testing_files/shopping_bag-urls-py.jpeg) | &check; |  
 | [shopping_bag/views.py file CI Linter Result](testing_files/shopping_bag-views-py.jpeg) | &check; |
 
+---
+
 ## JavaScript Validations
 
 Validator: https://jshint.com/
@@ -56,6 +59,7 @@ Validator: https://jshint.com/
 | [stripe-elements.js file JSHint Result](testing_files/stripe-elements-js.jpeg)| &check; | `Stripe` object is flagged as undefined due to it being imported in the template script.|
 | [toast.js file JSHint Result](testing_files/toast-js.jpeg)| &check; | ES11 features were flagged due to JSHint testing code against ES6.|
     
+---
 
 ## HTML Validations
 
@@ -81,6 +85,7 @@ Validator: https://validator.w3.org/
 | [`Password Change`](testing_files/w3-password-change.jpeg) | &check; |
 | [`Password Reset`](testing_files/w3-password-reset.jpeg) | &check; |
 
+---
 
 ## CSS Validations
 
@@ -102,6 +107,8 @@ The results of the css file validations all look the same:
 | `modal.css` | &check; |
 | `orders.css` | &check; |
 | `shopping_bag.css` | &check; |
+
+---
 # Testing User Stories
 
 Tests were carried out on Chrome 114.0.5735.133  
@@ -126,18 +133,19 @@ Tests were carried out on Chrome 114.0.5735.133
 |  |  **...be able to register and safely sign in.** |
 | &check; | The user can sign up with either one of their Google accounts or with their email and a password. |
 
+---
 
 # Accessibility
   
 
-* Images have `alt` labels. 
-* Icons that have inferred meanings are marked with `aria` labels.
 * Semantic HTML was used.
+* Images have `alt` labels. 
+* Icons which have inferred meanings are marked with `aria` labels.
 * All colours were tested for contrast in Chrome's Dev Tools.
 * Chrome Dev Tools' Lighthouse score is 100% for accessibility for both mobile and desktop devices. (See below.)
 * `WAVE` Accessibility checker was also used to check all the pages. 
 
- 
+--- 
 
 # Automated Tests - Unit tests
 
@@ -154,11 +162,11 @@ Please see the results below:
 
 To run the automated test cases in the development environment, run:
 
-`python manage.py test`
+`python manage.py test --settings=book_cycle.settings_test`
 
 To check the 'Coverage' of all code tested, run:
 
-`coverage run --source=inventory manage.py test`
+`coverage run --source=inventory manage.py test --settings=book_cycle.settings_test`
 `coverage report`
 
 To view the report in the browser, run:
@@ -168,8 +176,11 @@ To view the report in the browser, run:
 
 Follow the link and click on `htmlcov`
 
+---
 
-# Testing the Stripe implementation
+# Stripe implementation tests
+
+## Testing Webhooks
 
 After successful stripe-cli installation and configuration, in VSCode we can run:
 
@@ -196,6 +207,7 @@ On Stripe's Dashboard, we can also see the triggered events:
 ![stripe-dashboard](testing_files/stripe-dashboard.jpeg)
 
 
+---
 
  # Manual Testing
 
@@ -207,12 +219,14 @@ For detailed manual testing, please refer to this document:
 [Manual Test Cases](testing-images/manual-test-cases.pdf)
 
   
+---
 
 # Responsiveness Testing
 
 Responsiveness was tested using [Google Dev Tools](https://developer.chrome.com/docs/devtools/)  
 Browser & Version: Chrome 114.0.5735.133 (on Desktop, macOS Catalina version 10.15.7)
     
+---
 
 # Lighthouse tests
 
@@ -235,9 +249,13 @@ select invalid file formats.
 * Manual testing revealed that the specified stock data remained blocked (reserved) after session (shopping bag) data got cleared. To rectify this, I wrote a signal to un-reserve the stock after a session is destroyed. I also configured the session to expire after 1 hour of inactivity so that items won't be reserved after this period.
 * On `books` page, the Subject choices under `More Options` were all `None` on the deployed site, which did not occure in development. The issue was caused by a linebreak in front of the `</option>` tag.
 
+---
+
 # Remaining Bugs
 
+---
 
+* If the user signs up with a social account and later decides to set up a password, after they did so the `Set Password` function redirects the user to the `Change Password` page, despite setting the password successfully. As to my knowledge, configuring this url is not possible in this version (0.56.1) of `django-allauth` configuration as it is for `Change Password`. 
 ##
 
 Chrome warning about Same-Site Cookies flags up Stripe's cookies:

@@ -19,7 +19,7 @@ class CheckoutViewTest(TestCase):
         image_path = "testing_files/img_for_testing_img_upload.png"
         with open(image_path, 'rb') as image_file:
             image_content = image_file.read()
-        self.mock_image = SimpleUploadedFile("test_image.png",
+        self.mock_image = SimpleUploadedFile("img_for_testing_img_upload.png",
                                              image_content,
                                              content_type="image/png")
 
