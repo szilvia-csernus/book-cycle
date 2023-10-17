@@ -1,26 +1,11 @@
-import uuid
-
 from django.db.models.signals import pre_save, pre_delete
 from django.dispatch import receiver
-from django.core.files.storage import default_storage
 from django.contrib.sessions.models import Session
-from django.utils.text import slugify
 from pathlib import Path
 
 from PIL import Image, ImageOps
 
 from .models import Book, Stock
-
-
-# @receiver(pre_delete, sender=Book)
-# def delete_image(sender, instance, **kwargs):
-#     """
-#     Delete the image from the storage when the book is deleted.
-#     """
-#     if instance.image:
-#         storage, url = instance.image.storage, instance.image.url
-#         if storage.exists(url):
-#             storage.delete(url)
 
 
 @receiver(pre_save, sender=Book)
@@ -47,11 +32,6 @@ def resize_and_convert_image(sender, instance, **kwargs):
 
             instance.image = destination.name
 
-            # Generate a safe file name based on the book's title
-            # new_uuid = str(uuid.uuid4())[:4]
-            # safe_filename = slugify(f"{instance.title}-{new_uuid}") + '.webp'
-
-            # instance.image.name = safe_filename
         except Exception:
             # If there is any error, do not save the image
             pass

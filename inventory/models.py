@@ -133,18 +133,6 @@ class Book(models.Model):
             return False
         return stock
 
-    # def delete(self, *args, **kwargs):
-    #     """
-    #     Override the 'delete' method to erase the associated image file
-    #     in the storage(media) folder.
-    #     """
-    #     if self.image:
-    #         storage, url = self.image.storage, self.image.url
-    #         if storage.exists(url):
-    #             storage.delete(url)
-
-    #     super().delete(*args, **kwargs)
-
 
 class Stock(models.Model):
     book = models.ForeignKey(
