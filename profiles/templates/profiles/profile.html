@@ -22,9 +22,15 @@
                 <div class="account-details-box">
                 <p>Name: {{ full_name }}</p>
                 <p>Email: {{ user.email }}</p>
+                {% if user.has_usable_password %}
                 <p><a href="{% url 'account_change_password' %}" class="primary-btn account-btn">
                     Change password
                 </a></p>
+                {% else %}
+                    <p><a href="{% url 'account_set_password' %}" class="primary-btn account-btn">
+                        Set password
+                    </a></p>
+                {% endif %}
                 </div>
                 {% if not user.is_staff %}
                     <h2 class="account-details-title">Default Delivery Information</h2>
