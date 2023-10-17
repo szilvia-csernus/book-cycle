@@ -11,7 +11,7 @@
 </a>
 <main>
     <div class="shopping-bag-frame">
-        <h1 class="title">Error</h1>
+        <h1 class="title">Server Error (500)</h1>
         <div class="bag-page-frame">
             <br>
             <p>There seems to be a problem on our end, sorry for the inconvenience!
@@ -19,8 +19,10 @@
             <br>
             <p>Please try again later.
             </p>
-
-            <a href="{% url 'home' %}" class="keep-shopping">Home</a>
+            <br>
+            <div>
+                <a href="{% url 'home' %}" class="keep-shopping">Home</a>
+            </div>
 
         </div>
     </div>
