@@ -31,13 +31,13 @@
           <input type="hidden" name="{{ redirect_field_name }}" value="{{ redirect_field_value }}" >
           {% endif %}
           <div>
-            <a class="button secondaryAction" href="{% url 'account_reset_password' %}">{% trans "Forgot Password?" %}</a>
+            <a class="account-link" href="{% url 'account_reset_password' %}">{% trans "Forgot Password?" %}</a>
           </div>
           
           <button class="primary-btn account-btn" type="submit">{% trans "Sign In" %}</button>
           
           <p>{% blocktrans %}Don't have an account yet? Please
-            <a href="{{ signup_url }}">Register</a> first.{% endblocktrans %}
+            <a class="account-link" href="{{ signup_url }}">Register</a> first.{% endblocktrans %}
           </p>
         </form>
       </div>
