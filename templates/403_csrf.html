@@ -1,0 +1,34 @@
+{% extends "base.html" %}
+{% load static %}
+
+{% block logo %}
+{% include 'includes/logo.html' %}
+{% endblock %}
+
+{% block content %}
+<main>
+    <div class="shopping-bag-frame">
+        <h1 class="title">Access Denied</h1>
+        <div class="bag-page-frame">
+            <br>
+            <p>It seems that you don't have permission to reach the page you requested.
+            </p>
+            <br>
+
+            <div>
+                <a href="{% url 'home' %}" class="keep-shopping">Home</a>
+            </div>
+
+        </div>
+    </div>
+</main>
+{% endblock %}
+
+{% block footer %}
+{% include 'includes/footer.html' %}
+{% endblock %}
+
+{% block postload %}
+{{ block.super }}
+<script src="{% static 'js/bag.js' %}" type="module"></script>
+{% endblock %}
