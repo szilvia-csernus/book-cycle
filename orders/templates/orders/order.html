@@ -86,13 +86,13 @@
             <form action="{% url "ship_item" order.order_number %}" method="POST">
                 {% csrf_token %}
                 {{ shipping_form|crispy }}
-                <button type="submit" class="save-button">Mark Order as Shipped</button>
+                <button type="submit" class="primary-btn mark-order-btn">Mark Order as Shipped</button>
             </form>
             {% else %}
             <form action="{% url "collect_item" order.order_number %}" method="POST">
                 {% csrf_token %}
                 {{ collection_form|crispy }}
-                <button type="submit" class="save-button">Mark Order as Collected</button>
+                <button type="submit" class="primary-btn mark-order-btn">Mark Order as Collected</button>
             </form>
             {% endif %}
         </section>

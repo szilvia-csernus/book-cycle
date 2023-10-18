@@ -154,12 +154,7 @@ and add "..." to the end. */
     font-size: .9rem;
 }
 
-.save-button {
-    border: 1px solid var(--bg-secondary);
+.mark-order-btn {
     padding: 0.5rem 2rem;
-    color: var(--text-contrast);
-    background-color: var(--bg-secondary);
-    text-transform: uppercase;
     margin-top: 2rem;
-    cursor: pointer;
 }

@@ -586,6 +586,7 @@
     border: 1px solid var(--bg-secondary);
     width: 2.7rem;
     text-align: right;
+    font-size: .9rem;
 }
 
 .manage-stockline .stockline-button {
@@ -627,27 +628,12 @@
     flex-direction: column;
     margin: 2rem 0;
     display: flex;
-    gap: .7rem;
     align-items: flex-end;
 }
 
-.manage-back-to-books-button {
-    display: inline-block;
-    border: 1px solid var(--bg-secondary);
+.manage-stock-btn {
     width: 12rem;
-    color: var(--bg-secondary);
-    text-transform: uppercase;
-    text-align: center;
-}
-
-.manage-edit-book-button {
-    display: inline-block;
-    border: 1px solid var(--bg-secondary);
-    background-color: var(--bg-secondary);
-    width: 12rem;
-    color: var(--text-contrast);
-    text-transform: uppercase;
-    text-align: center;
+    line-height: normal;
 }
 
 .edit-back-to-books-btn {

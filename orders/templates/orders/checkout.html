@@ -90,17 +90,18 @@
                         {{ order_form.street_address1|as_crispy_field }}
                         {{ order_form.street_address2|as_crispy_field }}
                         {{ order_form.county|as_crispy_field }}
-                    
-                        <div class="checkout-form-info">
-                            {% if user.is_authenticated %}
-                                <label  for="save-info">Save this delivery information to my profile</label>
-                                <input class="checkbox" type="checkbox" id="save-info" name="save-info" checked>
-                            {% else %}
-                                <a href="{% url 'account_signup' %}">Create an account </a> or 
-                                <a href="{% url 'account_login' %}">login </a> to save this information. 
-                            {% endif %}
-                        </div>
                     {% endif %}
+                    
+                    <div class="checkout-form-info">
+                        {% if user.is_authenticated %}
+                            <label  for="save-info">Save this delivery information to my profile</label>
+                            <input class="checkbox" type="checkbox" id="save-info" name="save-info" checked>
+                        {% else %}
+                            <a href="{% url 'account_signup' %}">Create an account </a> or 
+                            <a href="{% url 'account_login' %}">login </a> to save this information. 
+                        {% endif %}
+                    </div>
+                    
                     </fieldset>
                     <fieldset class="checkout-fieldset">
                         <legend class="checkout-fieldset-label">Payment</legend>

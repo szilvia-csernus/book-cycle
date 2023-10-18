@@ -83,9 +83,9 @@
                     </div>
                 {% endfor %}
             <div class="manage-book-detail-buttons">
-                <div><a href="{% url 'books' %}?{{redirect_query_string}}" class="manage-back-to-books-button">Back to
+                <div><a href="{% url 'books' %}?{{redirect_query_string}}" class="secondary-btn manage-stock-btn">Back to
                         Books</a></div>
-                <div><a href="{% url 'edit_book' book.slug %}" class="manage-edit-book-button">Edit book details</a></div>
+                <div><a href="{% url 'edit_book' book.slug %}" class="primary-btn manage-stock-btn">Edit book details</a></div>
             </div>
 
         </div>
