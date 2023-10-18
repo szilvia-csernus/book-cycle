@@ -149,7 +149,7 @@ Tests were carried out on Chrome 114.0.5735.133
 
 # Automated Tests - Unit tests
 
-I wrote 78 unit tests for my python files, covering 88% of all statements.
+I wrote 78 unit tests for my python files, [covering 89%](testing_files/coverage-report.pdf) of all statements.
 Please see the results below:
 
 
@@ -166,7 +166,7 @@ To run the automated test cases in the development environment, run:
 
 To check the 'Coverage' of all code tested, run:
 
-`coverage run --source=inventory manage.py test --settings=book_cycle.settings_test`
+`coverage run manage.py test --settings=book_cycle.settings_test`
 `coverage report`
 
 To view the report in the browser, run:
