@@ -155,12 +155,13 @@ Please see the results below:
 
 ![Unit tests](testing_files/unit-tests.jpeg)
 
+---
 
-![Coverage Report](testing_files/coverage-report.pdf)
+[Click here for the detailed Coverage Report](testing_files/coverage-report.pdf)
 
+---
 
-
-To run the automated test cases in the development environment, run:
+To run the automated test cases on the development server, run:
 
 `python manage.py test --settings=book_cycle.settings_test`
 
@@ -211,8 +212,6 @@ On Stripe's Dashboard, we can also see the triggered events:
 
  # Manual Testing
 
-Tests were carried out on Chrome 114.0.5735.133  
-(macOS Catalina v10.15.7)
 
 For detailed manual testing, please refer to this document:  
 
@@ -232,8 +231,44 @@ Browser & Version: Chrome 114.0.5735.133 (on Desktop, macOS Catalina version 10.
 
 Performance, Accessibility, Best Practices and SEO tests were carried out with [Google Dev Tools](https://developer.chrome.com/docs/devtools/)' **Lighthouse** tool in `Incognito` mode.
 
-| Page | Device  | Result | Note |
-| :--: | :-----: | :----: | :--- |
+Initial Response time by Heroku, Stripe, Amazon AWS, as well as Google Fonts were all flagged as causes of Performance issues, hence the lower scores for `Performance`. In the `Note` section, I only list additional issues.
+
+| Page | Device  | Mode | Result | Note |
+| :--: | :-----: | :----: | :----: |:--- |
+| `Home` | mobile | light | ![LH for Home Page](testing_files/lh-home-mobile-light.jpeg) | |
+| `Home` | desktop | light | ![LH for Home Page](testing_files/lh-home-desktop-light.jpeg) | |
+| `Books` | mobile | light | ![LH for Books Page](testing_files/lh-books-mobile-light.jpeg) | |
+| `Books` | desktop | light | ![LH for Books Page](testing_files/lh-books-desktop-light.jpeg) |  |
+| `Book Detail` | mobile | light | ![LH for Book Detail Page](testing_files/lh-book-detail-mobile-light.jpeg) | |
+| `Book Detail` | desktop | light | ![LH for Book Detail Page](testing_files/lh-book-detail-desktop-light.jpeg) |  |
+| `Shopping Bag` | mobile | light | ![LH for Shopping Bag Page](testing_files/lh-shopping-bag-mobile-light.jpeg) | |
+| `Shopping Bag` | desktop | light | ![LH for Shopping Bag Page](testing_files/lh-shopping-bag-desktop-light.jpeg) | |
+| `Checkout` | mobile | light | ![LH for Checkout Page](testing_files/lh-checkout-mobile-light.jpeg) | Stripe has a focusable hidden element, which causes Accessibility issues. |
+| `Checkout` | desktop | light | ![LH for Checkout Page](testing_files/lh-checkout-desktop-light.jpeg) | Stripe has a focusable hidden element, which causes Accessibility issues.  |
+| `Checkout Success` | mobile | light | ![LH for Checkout Success Page](testing_files/lh-checkout-success-mobile-light.jpeg) | |
+| `Checkout Success` | desktop | light | ![LH for Checkout Success Page](testing_files/lh-checkout-success-desktop-light.jpeg) | |
+| `Profile` | mobile | light | ![LH for Profile Page](testing_files/lh-profile-mobile-light.jpeg) ||
+| `Profile` | desktop | light | ![LH for Profile Page](testing_files/lh-profile-desktop-light.jpeg) ||
+| `Login` | mobile | light | ![LH for Login Page](testing_files/lh-login-mobile-light.jpeg) | |
+| `Login` | desktop | light | ![LH for Login Page](testing_files/lh-login-desktop-light.jpeg) | |
+| `Register` | mobile | light | ![LH for Register Page](testing_files/lh-register-mobile-light.jpeg) | |
+| `Register` | desktop | light | ![LH for Register Page](testing_files/lh-register-desktop-light.jpeg) |  |
+| `Password Change, Set and Reset` | mobile | light | ![LH for Password Change, Set and Reset Page](testing_files/lh-password-mobile-light.jpeg) ||
+| `Password Change, Set and Reset` | desktop | light | ![LH for Password Change, Set and Reset Page](testing_files/lh-password-desktop-light.jpeg) | |
+| `Admin Home` | mobile | light | ![LH for Admin Home Page](testing_files/lh-admin-home-mobile-light.jpeg) | |
+| `Admin Home` | desktop | light | ![LH for Admin Home Page](testing_files/lh-admin-home-desktop-light.jpeg) | |
+| `Add New Book` | mobile | light | ![LH for Add New Book Page](testing_files/lh-add-book-mobile-light.jpeg) | |
+| `Add New Book` | desktop | light | ![LH for Add New Book Page](testing_files/lh-add-book-desktop-light.jpeg) | |
+| `Edit Book` | mobile | light | ![LH for Edit Book Page](testing_files/lh-edit-book-mobile-light.jpeg) | |
+| `Edit Book` | desktop | light | ![LH for Edit Book Page](testing_files/lh-edit-book-desktop-light.jpeg) | |
+| `Orders to Post` | mobile | light | ![LH for Orders to Post Page](testing_files/lh-orders-post-mobile-light.jpeg) | Long data fields are truncated in mobile view, that makes the 'focusable target' to be smaller than ideal. Admin functions are optimased for desktop. |
+| `Orders to Post` | desktop | light | ![LH for Orders to Post Page](testing_files/lh-orders-post-desktop-light.jpeg) | |
+| `Orders for Collection` | mobile | light | ![LH for Orders for Collection Page](testing_files/lh-orders-collection-mobile-light.jpeg) | Long data fields are truncated in mobile view, that makes the 'focusable target' to be smaller than ideal. Admin functions are optimased for desktop. |
+| `Orders for Collection` | desktop | light | ![LH for Orders for Collection Page](testing_files/lh-orders-collection-desktop-light.jpeg) | |
+| `Completed Orders` | mobile | light | ![LH for Completed Orders Page](testing_files/lh-completed-orders-mobile-light.jpeg) | Long data fields are truncated in mobile view, that makes the 'focusable target' to be smaller than ideal. Admin functions are optimased for desktop. |
+| `Completed Orders` | desktop | light | ![LH for Completed Orders Page](testing_files/lh-completed-orders-desktop-light.jpeg) | |
+| `Order Details` | mobile | light | ![LH for Order Details Page](testing_files/lh-order-detail-mobile-light.jpeg) | |
+| `Order Details` | desktop | light | ![LH for Order Details Page](testing_files/lh-order-detail-desktop-light.jpeg) | |
 
 ---
 
@@ -246,8 +281,7 @@ fields can be set.
 accepted as valid. If user attempted to upload an invalid image, it resulted in an invalid form error. To improve user experience, I restricted the file formats in the `custom_clerable_file_input.html` file, so the user can not accidentally
 select invalid file formats.
 * Automated testing revealed that uploading an image with no EXIF data would result in error. I corrected the inventory/signals.py file to handle such cases.
-* Manual testing revealed that the specified stock data remained blocked (reserved) after session (shopping bag) data got cleared. To rectify this, I wrote a signal to un-reserve the stock after a session is destroyed. I also configured the session to expire after 1 hour of inactivity so that items won't be reserved after this period.
-* On `books` page, the Subject choices under `More Options` were all `None` on the deployed site, which did not occure in development. The issue was caused by a linebreak in front of the `</option>` tag.
+* Manual testing revealed that the specified stock data remained blocked (reserved) after session (shopping bag) data got cleared. To rectify this, I wrote a signal to un-reserve the stock after a session is destroyed.
 
 ---
 
@@ -255,7 +289,7 @@ select invalid file formats.
 
 ---
 
-* If the user signs up with a social account and later decides to set up a password, after they did so the `Set Password` function redirects the user to the `Change Password` page, despite setting the password successfully. As to my knowledge, configuring this url is not possible in this version (0.56.1) of `django-allauth` configuration as it is for `Change Password`. 
+* If the user signs up with a social account and later decides to set up a password, after they did so the `Set Password` function redirects the user to the `Change Password` page, despite setting the password successfully. As to my knowledge, configuring this url for `Set Password` is not possible in this version (0.56.1) of `django-allauth`. 
 ##
 
 Chrome warning about Same-Site Cookies flags up Stripe's cookies:
