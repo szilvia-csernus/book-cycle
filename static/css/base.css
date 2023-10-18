@@ -141,6 +141,13 @@ label {
     margin: .5rem 0;
     min-width: 7rem;
     cursor: pointer;
+    transition: background-color 0.6s;
+}
+
+.primary-btn:hover:not(.primary-btn[disabled]),
+.primary-btn:focus:not(.primary-btn[disabled]) {
+    background-color: transparent;
+    color: var(--text-secondary);
 }
 
 .secondary-btn {
@@ -154,7 +161,32 @@ label {
     margin: .5rem 0;
     min-width: 7rem;
     cursor: pointer;
+    transition: background-color 0.6s;
 }
+
+.secondary-btn:hover,
+.secondary-btn:focus {
+    background-color: var(--bg-secondary);
+    color: var(--text-contrast);
+}
+
+.accent-btn {
+    font-weight: bold;
+    color: var(--text-light);
+    text-shadow: 0 1px 2px var(--primary);
+    background-color: var(--accent);
+    display: inline;
+    padding: 1rem 3rem 1rem;
+    text-decoration: none;
+    margin-bottom: 1rem;
+    transition: background-color 0.6s;
+}
+
+.accent-btn:hover,
+.accent-btn:focus {
+    background-color: var(--bg-overlay);
+}
+
 
 /* --------------------------------------- HEADER and FOOTER-------------- */
 
@@ -179,8 +211,7 @@ header {
     align-items: center;
     min-height: 7rem;
     max-width: 1442px;
-    font-family: 'Montserrat';
-    font-size: 1rem;
+    font-size: 1.1rem;
     background: var(--bg-radial-gradient);
     background-size: 100vw 100vh;
     z-index: 1;
@@ -226,6 +257,19 @@ footer {
     color: var(--text-light);
     align-items: center;
     column-gap: 1rem;
+    
+}
+
+.header-right a,
+.header-right span {
+    transition: color 0.6s;
+}
+
+.header-right a:hover,
+.header-right a:focus,
+.header-right span:hover,
+.header-right span:focus {
+    color: var(--accent);
 }
 
 img.user {
@@ -274,9 +318,6 @@ img.bag {
 }
 
 .user-title {
-    position: absolute;
-    top: 5.4rem;
-    right: 1.5rem;
     color: var(--text-secondary-light);
     text-transform: uppercase;
     font-weight: bold;
@@ -346,6 +387,12 @@ img.bag {
     top: 0.3rem;
     right: -0.3rem;
     stroke: var(--bg-primary);
+    transition: stroke 0.6s;
+}
+
+.search-icon:hover,
+.search-icon:focus {
+    stroke: var(--accent);
 }
 
 .browse img.open-book {
@@ -413,7 +460,6 @@ img.bag {
 .close-button {
     text-align: right;
     font-weight: bold;
-    font-family: 'Montserrat';
     font-size: 1.4rem;
     line-height: 1rem;
     color: var(--bg-primary);
@@ -445,6 +491,13 @@ img.bag {
     padding: 0.3rem 0;
     font-weight: 300;
     cursor: pointer;
+    color: var(--text-light);
+    transition: color 0.6s;
+}
+
+.browse-category-order:hover,
+.browse-category-order:active {
+    color: var(--accent);
 }
 
 .browse input {
@@ -480,13 +533,13 @@ img.bag {
     border: 1px solid var(--text-light);
     padding: 0.2rem 0.2rem;
     border-radius: 20px;
-    color: var(--text-light);
     font-size: .8rem;
     margin-left: 0.5rem;
     min-width: 1rem;
     display: inline-block;
     text-align: center;
 }
+
 
 img.open-book {
     width: 7rem;
@@ -498,7 +551,7 @@ img.open-book {
 .toast-container {
     display: none;
     position: fixed;
-    top: 7.5rem;
+    top: 6.5rem;
     right: 1.1rem;
     z-index: 4;
 }

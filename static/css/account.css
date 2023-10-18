@@ -43,6 +43,12 @@
 .account-link {
     color: var(--bg-secondary);
     font-weight: 400;
+    transition: color 0.6s;
+}
+
+.account-link:hover,
+.account-link:focus {
+    color: var(--accent);
 }
 
 .google-logo {

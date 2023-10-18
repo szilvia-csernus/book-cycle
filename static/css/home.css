@@ -43,20 +43,11 @@ main img.logo {
     }
 }
 
-.main-button {
-    font-size: 1.6rem;
-    font-weight: bold;
-    font-family: 'KoHo';
-    color: var(--text-light);
-    text-shadow: 0 1px 2px var(--primary);
-    background-color: var(--accent);
-    display: inline;
-    padding: 1rem 3rem 1rem;
-    text-decoration: none;
+.main-btn {
+    font-size: 1.7rem;
+    padding: .8rem 3rem 1rem;
     margin-bottom: 1rem;
     z-index: 2;
-    text-transform: uppercase;
-    
 }
 
 .staff-buttons-box {

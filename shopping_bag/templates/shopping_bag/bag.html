@@ -39,7 +39,7 @@
                                 <form class="" action="{% url 'remove_from_bag' properties.id %}" method="POST">
                                     {% csrf_token %}
                                     <input type="hidden" name="redirect_url" value="{{ request.path }}">
-                                    <button type="submit" class="bag-item-button">
+                                    <button type="submit" class="primary-btn bag-item-btn">
                                         &minus;
                                     </button>
                                 </form>
@@ -47,7 +47,7 @@
                                 <form class="" action="{% url 'add_to_bag' properties.id %}" method="POST">
                                     {% csrf_token %}
                                     <input type="hidden" name="redirect_url" value="{{ request.path }}">
-                                    <button type="submit" class="bag-item-button"
+                                    <button type="submit" class="primary-btn bag-item-btn"
                                     {% if properties.available_quantity < 1 %} 
                                         disabled
                                     {% endif %}
@@ -88,7 +88,7 @@
                 <!-- Grand Total is calculated in javascript.  -->
                 <div class="bag-grand-total">Grand Total: £<span class="grand-total-number"></span></div>
                 <div class="bag-buttons">
-                    <div><a href="{% url 'books' %}" class="keep-shopping-button">Keep shopping</a></div>
+                    <div><a href="{% url 'books' %}" class="secondary-btn keep-shopping-button">Keep shopping</a></div>
                     <form action="{% url 'check_stock_and_update_bag' %}" method="GET">
                         <input type="hidden" class="shipping-info" name="shipping-info">
                         <button class="primary-btn checkout-btn">Checkout</button>

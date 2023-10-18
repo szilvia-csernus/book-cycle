@@ -14,7 +14,7 @@
     {% block corecss %}
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=KoHo:wght@300;500;600&family=Koulen&family=Montserrat:ital,wght@0,300;0,500;1,200;1,500&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=KoHo:wght@300;500;600&family=Koulen&display=swap" rel="stylesheet">
     <link rel="icon" type="image/svg+xml" href="{% static 'favicons/favicon.svg'%}">
     <link rel="icon" type="image/png" href="{% static 'favicons/favicon.png'%}">
     <link rel="stylesheet" href="{% static 'css/base.css' %}">
@@ -64,8 +64,8 @@
                 </span>
                 <a href="{% url 'profile' %}" class="user-name">
                     {{ request.user.get_full_name }}
+                    <span class="user-title">{% if user.is_staff%} (staff){% endif %}</span>
                 </a>
-                <span class="user-title">{% if user.is_staff%}staff{% endif %}</span>
                 
             {% else %}
             <a href="{% url 'account_login' %}" class="mobile">

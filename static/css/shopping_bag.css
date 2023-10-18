@@ -15,19 +15,14 @@
     }
 }
 
-.keep-shopping {
+.back-to-btn {
     display: block;
     font-size: 1.1rem;
-    font-weight: bold;
-    font-family: 'KoHo';
-    color: var(--text-light);
-    text-shadow: 0 1px 5px black;
-    background-color: var(--accent);
     padding: .5rem 1.5rem .7rem;
-    text-decoration: none;
     margin: 2rem;
     text-align: center;
 }
+
 
 .title {
     padding: 1rem;
@@ -90,15 +85,14 @@
     cursor: pointer;
 }
 
-.bag-item-button {
-    background-color: var(--bg-secondary);
+.bag-item-btn {
     padding: 0 0.35rem .1rem;
     margin: 0 0.2rem;
     cursor: pointer;
-    color: var(--text-light);
+    min-width: unset;
 }
 
-.bag-item-button:disabled {
+.bag-item-btn:disabled {
     opacity: 0.5;
 }
 
@@ -149,10 +143,7 @@
 }
 
 .keep-shopping-button {
-    border: 1px solid var(--bg-secondary);
     padding: 0.5rem .9rem;
-    color: var(--text-secondary);
-    text-transform: uppercase;
 }
 
 .checkout-btn {
@@ -247,7 +238,6 @@
 .quick-bag > .close-button {
     text-align: right;
     font-weight: bold;
-    font-family: 'Montserrat';
     font-size: 1.4rem;
     line-height: 1rem;
     color: var(--text-primary);
