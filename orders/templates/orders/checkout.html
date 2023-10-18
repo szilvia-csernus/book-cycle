@@ -104,6 +104,21 @@
                     </fieldset>
                     <fieldset class="checkout-fieldset">
                         <legend class="checkout-fieldset-label">Payment</legend>
+                        <p>Attention! Payment is in test mode and no real card details will be considered as 
+                        valid input.</p>
+                        <br>
+                        <p> To try out the payment function, use any future expiry date and any CVC 
+                            alongside one of the test card numbers provided by Stripe:</p>
+                        <br>
+                        <p>Visa: 4242 4242 4242 4242</p>
+                        <p>Mastercard: 5555555555554444</p>
+                        <p>American Express: 378282246310005</p>
+                        <p>Insufficient funds: 4000000000009995</p>
+                        <p>Lost card: 4000000000009987</p>
+                        <br>
+                        <p>For more testing options, <a href="https://stripe.com/docs/testing?locale=en-GB#declined-payments" target="_blank">visit Stripe's website.</a>
+                            </p>
+                        <br>
                         <!-- A Stripe card element will go here -->
                         <div class="" id="card-element"></div>
                         <!-- Used to display form errors -->
