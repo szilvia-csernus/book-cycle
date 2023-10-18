@@ -21,13 +21,13 @@
                 <button id="more-options" class="search-filter-button">More Options</button>
             </div>
             <div id="filter-sort-search-box" class="filter-sort-search-box">
-
+                <div id="filter-sort-search-appear" class="filter-sort-search-appear">
                 <div class="filter-sort-input search-input">
                     <label for="search-input">Search term: </label>
                     <div class="search-input-box">
                         <input id="search-input-nr2" class="filter-select filter-search" type="text" name="search" placeholder="-----" 
                         value="{{ search_term|default:'' }}">
-                        <button id="search-button-nr2" type="button">
+                        <button id="search-button-nr2" aria-label="search button" type="button">
                             <!-- An unsolved issue by W3C is that the <use> tag inside an <svg> would be blocked by CORS policy as it exposes a security
                                 risk.
                                 As I serve my static files from AWS S3, it will be from external origin. I would also need to use the <use> tag 
@@ -80,6 +80,7 @@
                     </select>
                 </div>
 
+            </div>
             </div>
         </div>
         <!-- Display search result counts  -->

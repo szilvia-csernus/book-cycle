@@ -12,6 +12,7 @@ const gcseBtn = document.getElementById('gcse');
 const aLevelBtn = document.getElementById('a-level');
 const moreOptionsBtn = document.getElementById('more-options');
 const filterSortBox = document.getElementById('filter-sort-search-box');
+const filterSortAppear = document.getElementById('filter-sort-search-appear');
 
 const searchTermElement = document.getElementById('search-input-nr2');
 const searchButton = document.getElementById('search-button-nr2');
@@ -99,6 +100,7 @@ moreOptionsBtn.addEventListener('click', () => {
 
     toggleActive(moreOptionsBtn);
     toggleActive(filterSortBox);
+    toggleActive(filterSortAppear)
 });
 
 /** separate the 'subject_asc' etc. sort input format into sort= and direction= 

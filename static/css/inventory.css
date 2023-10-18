@@ -34,7 +34,7 @@
 
 .search-filter-button.active {
     background: var(--bg-secondary);
-    color: var(--bg-detail);
+    color: var(--text-contrast);
 }
 
 .search-filter-button:hover:not(.search-filter-button.active),
@@ -44,17 +44,27 @@
 }
 
 .filter-sort-search-box {
-    opacity: 0;
     height: 0;
-    padding: 1rem 0;
-    flex-direction: column;
-    font-weight: bold;
-    transition: opacity .5s;
+    opacity: 0;
+    transition: height 0.5s, opacity 0.5s;
 }
 
 .filter-sort-search-box.active {
     opacity: 1;
-    height: unset;
+    height: 11rem;
+    
+}
+
+.filter-sort-search-appear {
+    display: none;
+    padding: 1rem 0;
+    flex-direction: column;
+    font-weight: bold;
+    
+}
+
+.filter-sort-search-appear.active {
+    display: flex;
 }
 
 .filter-sort-input {
