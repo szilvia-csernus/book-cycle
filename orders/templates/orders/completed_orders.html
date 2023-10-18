@@ -60,8 +60,8 @@
             <h2 class="order-subtitle">Collected Orders</h2>
             {% if picked_up_orders|length > 0 %}
             <div class="completed-orders-box">
-                <div><strong>Order Number</strong></div>
                 <div><strong>Order Date</strong></div>
+                <div><strong>Order Number</strong></div>
                 <div><strong>Name</strong></div>
                 <div><strong>Total Paid</strong></div>
                 <div><strong>Collection Date</strong></div>
@@ -70,23 +70,23 @@
                 {% for order in picked_up_orders %}
                 <div class="order-item ">
                     <a href="{% url 'order' order.order_number%}?completed={{completed}}">
-                        {{ order.date|date:"d M, Y" }}</a>
+                        {{ order.date|date:"d/m/Y" }}</a>
                 </div>
                 <div class="order-item order-number">
                     <a href="{% url 'order' order.order_number%}?completed={{completed}}">
-                        {{ order.order_number|truncatechars:8 }}</a>
+                        {{ order.order_number|truncatechars:25 }}</a>
                 </div>
                 <div class="order-item order-name">
                     <a href="{% url 'order' order.order_number%}?completed={{completed}}">
-                        {{ order.full_name|truncatechars:20 }}</a>
+                        {{ order.full_name|truncatechars:25 }}</a>
                 </div>
                 <div class="order-item order-name">
                     <a href="{% url 'order' order.order_number%}?completed={{completed}}">
-                        {{ order.grand_total }}</a>
+                        £{{ order.grand_total }}</a>
                 </div>
                 <div class="order-item order-name">
                     <a href="{% url 'order' order.order_number%}?completed={{completed}}">
-                        {{ order.picked_up_on|date:"d M, Y" }}</a>
+                        {{ order.picked_up_on|date:"d/m/Y" }}</a>
                 </div>
                 <div class="order-item order-name">
                     <a href="{% url 'order' order.order_number%}?completed={{completed}}">
