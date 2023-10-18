@@ -113,11 +113,6 @@ TEMPLATES = [
     },
 ]
 
-# Set the session expiry time to 1 hour and to restart the timer on each
-# request (meaning the session will expire after 1 hour of inactivity)
-SESSION_COOKIE_AGE = 3600
-SESSION_SAVE_EVERY_REQUEST = True
-
 MESSAGE_STORAGE = 'django.contrib.messages.storage.session.SessionStorage'
 
 WSGI_APPLICATION = 'book_cycle.wsgi.application'
