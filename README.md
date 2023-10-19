@@ -1,21 +1,42 @@
-# bookCYCLE
+# Book-CYCLE
+
+Book-CYCLE is a Full Stack Webshop Application designed to be used by secondary schools in the UK. The purpose of the site is to promote re-use of textbooks by students while generating income for the school. The webshop allows the school to list all the textbooks they recommend their students to buy in both new and used conditions - possibly asking students to donate their used books back to the school. 
+
+Users can puchase listed textbooks using the STRIPE payment system, receiving confirmation emails about orders and shipping. School staff members can manage the book inventory and incoming orders.
+
+The webshop has not been customized to a specific school, which could be done by including the school's logo, contact details, and possibly some additional design elements. Customisations would allow the webshop to be utilized by multiple schools.
+
+The project is written in Django, a full-stack python framework alongside HTML, CSS and JavaScript. The Stripe API is used for payments.
 
 ---
-### [view the live project here](https://book-cycle-f6aff45df7ba.herokuapp.com/inventory/books/)
+### [View the live project here.](https://book-cycle-f6aff45df7ba.herokuapp.com/inventory/books/)
+
+---
+
+![Landing Page](readme_files/mockup-light.jpeg)
+![Landing Page](readme_files/mockup-dark.jpeg)
+
+Not for public use.
+    
+&copy; 2023 Szilvia Csernusne Berczes. All rights reserved.
 
 ---
 
 # User Stories
+![User Stories](readme_files/user-stories.jpg)
 
+---
 # Data
 
 Database Schema in Lucid Charts:
 
 
-![database-schema](readme_files/database-schema.jpeg)
+![database-schema](readme_files/database_schema.jpeg)
 
 
 https://lucid.app/lucidchart/8eb93ba8-43af-4939-9709-11dcc52da382/edit?viewport_loc=-452%2C117%2C2818%2C1215%2C0_0&invitationId=inv_a84acf43-e6e9-4d82-b0e2-672a16e53969
+
+---
 
 # Features
 
