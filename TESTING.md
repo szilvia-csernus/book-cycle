@@ -232,13 +232,6 @@ For detailed manual testing, please refer to this document:
   
 ---
 
-# Responsiveness Testing
-
-Responsiveness was tested using [Google Dev Tools](https://developer.chrome.com/docs/devtools/)  
-Browser & Version: Chrome 114.0.5735.133 (on Desktop, macOS Catalina version 10.15.7)
-    
----
-
 # Lighthouse tests
 
 Performance, Accessibility, Best Practices and SEO tests were carried out with [Google Dev Tools](https://developer.chrome.com/docs/devtools/)' **Lighthouse** tool in `Incognito` mode.
@@ -255,8 +248,8 @@ Initial Response time by Heroku, Stripe, Amazon AWS, as well as Google Fonts wer
 | `Book Detail` | desktop | ![LH for Book Detail Page](testing_files/lh-book-detail-desktop-light.jpeg) |![LH for Book Detail Page](testing_files/lh-book-detail-desktop-dark.jpeg) |  |
 | `Shopping Bag` | mobile | ![LH for Shopping Bag Page](testing_files/lh-shopping-bag-mobile-light.jpeg) |![LH for Shopping Bag Page](testing_files/lh-shopping-bag-mobile-dark.jpeg) | |
 | `Shopping Bag` | desktop | ![LH for Shopping Bag Page](testing_files/lh-shopping-bag-desktop-light.jpeg) |![LH for Shopping Bag Page](testing_files/lh-shopping-bag-desktop-dark.jpeg) | |
-| `Checkout` | mobile | ![LH for Checkout Page](testing_files/lh-checkout-mobile-light.jpeg) |![LH for Checkout Page](testing_files/lh-checkout-mobile-dark.jpeg) | Stripe has a focusable hidden element, which causes Accessibility issues. |
-| `Checkout` | desktop | ![LH for Checkout Page](testing_files/lh-checkout-desktop-light.jpeg) |![LH for Checkout Page](testing_files/lh-checkout-desktop-dark.jpeg) | Stripe has a focusable hidden element, which causes Accessibility issues.  |
+| `Checkout` | mobile | ![LH for Checkout Page](testing_files/lh-checkout-mobile-light.jpeg) |![LH for Checkout Page](testing_files/lh-checkout-mobile-dark.jpeg) | Stripe has a focusable <br> hidden element, which causes<br>Accessibility issues. |
+| `Checkout` | desktop | ![LH for Checkout Page](testing_files/lh-checkout-desktop-light.jpeg) |![LH for Checkout Page](testing_files/lh-checkout-desktop-dark.jpeg) | Stripe has a focusable <br> hidden element, which causes<br>Accessibility issues.  |
 | `Checkout Success` | mobile | ![LH for Checkout Success Page](testing_files/lh-checkout-success-mobile-light.jpeg) |![LH for Checkout Success Page](testing_files/lh-checkout-success-mobile-dark.jpeg) | |
 | `Checkout Success` | desktop | ![LH for Checkout Success Page](testing_files/lh-checkout-success-desktop-light.jpeg) |![LH for Checkout Success Page](testing_files/lh-checkout-success-desktop-dark.jpeg) | |
 | `Profile` | mobile | ![LH for Profile Page](testing_files/lh-profile-mobile-light.jpeg) |![LH for Profile Page](testing_files/lh-profile-mobile-dark.jpeg) ||
@@ -273,14 +266,40 @@ Initial Response time by Heroku, Stripe, Amazon AWS, as well as Google Fonts wer
 | `Add New Book` | desktop |  ![LH for Add New Book Page](testing_files/lh-add-book-desktop-light.jpeg) | ![LH for Add New Book Page](testing_files/lh-add-book-desktop-dark.jpeg) ||
 | `Edit Book` | mobile | ![LH for Edit Book Page](testing_files/lh-edit-book-mobile-light.jpeg) | ![LH for Edit Book Page](testing_files/lh-edit-book-mobile-dark.jpeg)|
 | `Edit Book` | desktop | ![LH for Edit Book Page](testing_files/lh-edit-book-desktop-light.jpeg) | ![LH for Edit Book Page](testing_files/lh-edit-book-desktop-dark.jpeg)|
-| `Orders to Post` | mobile |  ![LH for Orders to Post Page](testing_files/lh-orders-post-mobile-light.jpeg) |![LH for Orders to Post Page](testing_files/lh-orders-post-mobile-dark.jpeg) | Long data fields are truncated in mobile view, that makes the 'focusable target' to be smaller than ideal. Admin functions are optimased for desktop. |
+| `Orders to Post` | mobile |  ![LH for Orders to Post Page](testing_files/lh-orders-post-mobile-light.jpeg) |![LH for Orders to Post Page](testing_files/lh-orders-post-mobile-dark.jpeg) | Long data fields are truncated in <br>mobile view, which makes the 'focusable target' <br>unreadable by search engines.|
 | `Orders to Post` | desktop |  ![LH for Orders to Post Page](testing_files/lh-orders-post-desktop-light.jpeg) | ![LH for Orders to Post Page](testing_files/lh-orders-post-desktop-dark.jpeg) ||
-| `Orders for Collection` | mobile |  ![LH for Orders for Collection Page](testing_files/lh-orders-collection-mobile-light.jpeg) |![LH for Orders for Collection Page](testing_files/lh-orders-collection-mobile-dark.jpeg) | Long data fields are truncated in mobile view, that makes the 'focusable target' to be smaller than ideal. Admin functions are optimased for desktop. |
+| `Orders for Collection` | mobile |  ![LH for Orders for Collection Page](testing_files/lh-orders-collection-mobile-light.jpeg) |![LH for Orders for Collection Page](testing_files/lh-orders-collection-mobile-dark.jpeg) | Long data fields are truncated in <br>mobile view, which makes the 'focusable target' <br>unreadable by search engines. |
 | `Orders for Collection` | desktop |  ![LH for Orders for Collection Page](testing_files/lh-orders-collection-desktop-light.jpeg) |![LH for Orders for Collection Page](testing_files/lh-orders-collection-desktop-dark.jpeg) | |
-| `Completed Orders` | mobile |  ![LH for Completed Orders Page](testing_files/lh-completed-orders-mobile-light.jpeg) |![LH for Completed Orders Page](testing_files/lh-completed-orders-mobile-dark.jpeg) | Long data fields are truncated in mobile view, that makes the 'focusable target' to be smaller than ideal. Admin functions are optimased for desktop. |
+| `Completed Orders` | mobile |  ![LH for Completed Orders Page](testing_files/lh-completed-orders-mobile-light.jpeg) |![LH for Completed Orders Page](testing_files/lh-completed-orders-mobile-dark.jpeg) | Long data fields are truncated in <br>mobile view, which makes the 'focusable target' <br>unreadable by search engines. |
 | `Completed Orders` | desktop |  ![LH for Completed Orders Page](testing_files/lh-completed-orders-desktop-light.jpeg) |![LH for Completed Orders Page](testing_files/lh-completed-orders-desktop-dark.jpeg) | |
 | `Order Details` | mobile |  ![LH for Order Details Page](testing_files/lh-order-detail-mobile-light.jpeg) |![LH for Order Details Page](testing_files/lh-order-detail-mobile-dark.jpeg) | |
 | `Order Details` | desktop |  ![LH for Order Details Page](testing_files/lh-order-detail-desktop-light.jpeg) |![LH for Order Details Page](testing_files/lh-order-detail-desktop-dark.jpeg) | |
+
+---
+
+# Responsiveness Testing
+
+Responsiveness was tested using [Google Dev Tools](https://developer.chrome.com/docs/devtools/)  
+Browser & Version: Chrome Version 117.0.5938.149 (Official Build) (x86_64) on Desktop (macOS Catalina version 10.15.7)
+
+| Device | iPhone SE | iPhone XR | iPhone 12 Pro | Pixel 5 | Samsung Galaxy S8+ | Samsung Galaxy S20 Ultra | iPad Air | iPad Mini | Surface Pro 7 | Samsung Galaxy A51/71 | Nest Hub | Nest Hub Max |
+| :--- | :---: | :---: | :---: | :---: | :---: | :---: | :---: | :---: | :---: | :---: | :---: | :---: |
+| `Home` | &check; | &check; | &check; | &check; | &check; | &check; | &check; | &check; | &check; | &check; | &check; | &check; |
+| `Books` | &check; | &check; | &check; | &check; | &check; | &check; | &check; | &check; | &check; | &check; | &check; | &check; |
+| `Book Detail` | &check; | &check; | &check; | &check; | &check; | &check; | &check; | &check; | &check; | &check; | &check; | &check; |
+| `Shopping Bag` | &check; | &check; | &check; | &check; | &check; | &check; | &check; | &check; | &check; | &check; | &check; | &check; |
+| `Checkout` |&check; | &check; | &check; | &check; | &check; | &check; | &check; | &check; | &check; | &check; | &check; | &check; |
+| `Checkout Success` | &check; | &check; | &check; | &check; | &check; | &check; | &check; | &check; | &check; | &check; | &check; | &check; |
+| `Profile` | &check; | &check; | &check; | &check; | &check; | &check; | &check; | &check; | &check; | &check; | &check; | &check; |
+| `Login` | &check; | &check; | &check; | &check; | &check; | &check; | &check; | &check; | &check; | &check; | &check; | &check; |
+| `Register` | &check; | &check; | &check; | &check; | &check; | &check; | &check; | &check; | &check; | &check; | &check; | &check; |
+| `Password Change` | &check; | &check; | &check; | &check; | &check; | &check; | &check; | &check; | &check; | &check; | &check; | &check; |
+| `Admin Home` | &check; | &check; | &check; | &check; | &check; | &check; | &check; | &check; | &check; | &check; | &check; | &check; |
+| `Edit Book` | &check; | &check; | &check; | &check; | &check; | &check; | &check; | &check; | &check; | &check; | &check; | &check; |
+| `Orders to Post` | &check; | &check; | &check; | &check; | &check; | &check; | &check; | &check; | &check; | &check; | &check; | &check; |
+| `Orders for Collection` | &check; | &check; | &check; | &check; | &check; | &check; | &check; | &check; | &check; | &check; | &check; | &check; |
+| `Completed Orders` | &check; | &check; | &check; | &check; | &check; | &check; | &check; | &check; | &check; | &check; | &check; | &check; |
+| `Order Detail` | &check; | &check; | &check; | &check; | &check; | &check; | &check; | &check; | &check; | &check; | &check; | &check; |
 
 ---
 
@@ -299,13 +318,12 @@ select invalid file formats.
 
 # Remaining Bugs
 
----
 
 * If the user signs up with a social account and later decides to set up a password, after they did so, the `Set Password` function redirects the user to the `Change Password` page, despite setting the password successfully. As to my knowledge, configuring this url for `Set Password` is not possible in this version (0.56.1) of `django-allauth` - a possible solution could be a custom view that extends the set password view.
 
-* Stripe does not allow to set the card element's colour dynamically to respond to dark mode, it enforces `light-theme-only` as an `!important` inline styling that can not be changed. In order to display the card's number in both light and dark mode, I chose a grey colour that is readable with both backgrounds. This makes the card number's colour different from all other form element's colour.
+* Stripe does not allow setting the card element's colour dynamically to allow changing to dark mode, it enforces `light-theme-only` as an `!important` inline styling that can not be changed. In order to display the card's number in both light and dark mode, I chose a grey colour that is readable with both backgrounds. This makes the card number's colour different from all other form element's colour.
 
 * Chrome DevTool console displays warnings about Stripe's Same-Site Cookies. That is because Stripe recommends to import its script onto every page of the webshop to help Stripe's Fraud Detection Scheme:
-https://stripe.com/docs/disputes/prevention/advanced-fraud-detection To resolve the same cookie issue Stripe is working on the solution:
+https://stripe.com/docs/disputes/prevention/advanced-fraud-detection To resolve the same cookie issue, Stripe is working on the solution:
 https://support.stripe.com/questions/chrome-80-samesite-cookie-change?locale=en-GB
 
