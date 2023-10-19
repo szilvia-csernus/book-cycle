@@ -183,7 +183,9 @@ Follow the link and click on `htmlcov`
 
 ## Testing Webhooks
 
-After successful stripe-cli installation and configuration, in VSCode we can run:
+Webhooks are available by Stripe for the developer to listen to events and take actions accordingly. I use this functionality to send a confirmation email about the order as well as creating the order itself if there was a network error between the payment and the regular order creation. To test that listening to webhooks have been correctly set up, we can use the `Stripe CLI` in our local development environment (VSCode).
+
+After successful stripe-cli installation and configuration, we can run:
 
 `stripe listen --forward-to localhost:8000/checkout/wh/` 
 
@@ -203,10 +205,20 @@ In a new console, we can trigger the events:
 
 ![stripe-terminal](testing_files/stripe-terminal.jpeg)
 
-On Stripe's Dashboard, we can also see the triggered events:
+On Stripe's Dashboard, we can also see the events triggered by the `Stripe CLI`:
 
-![stripe-dashboard](testing_files/stripe-dashboard.jpeg)
+![stripe-dashboard-cli](testing_files/stripe-dashboard-cli.jpeg)
 
+## Stripe Dashboard
+
+On the Stripe Dashboard, we can see detailed informaion about all the payment attempts and their outcomes, as well as meta information about the user and the purchase. This information is available for test payments, so we can test that our Stripe integration works as intended.
+
+
+![Stripe Payments](testing_files/stripe-dashboard-payments.jpeg)
+
+We can also monitor how our webhook handler responded to events.
+
+![Stripe Payment WH](testing_files/stripe-payment-webhook.jpeg)
 
 ---
 
@@ -233,42 +245,42 @@ Performance, Accessibility, Best Practices and SEO tests were carried out with [
 
 Initial Response time by Heroku, Stripe, Amazon AWS, as well as Google Fonts were all flagged as causes of Performance issues, hence the lower scores for `Performance`. In the `Note` section, I only list additional issues.
 
-| Page | Device  | Mode | Result | Note |
-| :--: | :-----: | :----: | :----: |:--- |
-| `Home` | mobile | light | ![LH for Home Page](testing_files/lh-home-mobile-light.jpeg) | |
-| `Home` | desktop | light | ![LH for Home Page](testing_files/lh-home-desktop-light.jpeg) | |
-| `Books` | mobile | light | ![LH for Books Page](testing_files/lh-books-mobile-light.jpeg) | |
-| `Books` | desktop | light | ![LH for Books Page](testing_files/lh-books-desktop-light.jpeg) |  |
-| `Book Detail` | mobile | light | ![LH for Book Detail Page](testing_files/lh-book-detail-mobile-light.jpeg) | |
-| `Book Detail` | desktop | light | ![LH for Book Detail Page](testing_files/lh-book-detail-desktop-light.jpeg) |  |
-| `Shopping Bag` | mobile | light | ![LH for Shopping Bag Page](testing_files/lh-shopping-bag-mobile-light.jpeg) | |
-| `Shopping Bag` | desktop | light | ![LH for Shopping Bag Page](testing_files/lh-shopping-bag-desktop-light.jpeg) | |
-| `Checkout` | mobile | light | ![LH for Checkout Page](testing_files/lh-checkout-mobile-light.jpeg) | Stripe has a focusable hidden element, which causes Accessibility issues. |
-| `Checkout` | desktop | light | ![LH for Checkout Page](testing_files/lh-checkout-desktop-light.jpeg) | Stripe has a focusable hidden element, which causes Accessibility issues.  |
-| `Checkout Success` | mobile | light | ![LH for Checkout Success Page](testing_files/lh-checkout-success-mobile-light.jpeg) | |
-| `Checkout Success` | desktop | light | ![LH for Checkout Success Page](testing_files/lh-checkout-success-desktop-light.jpeg) | |
-| `Profile` | mobile | light | ![LH for Profile Page](testing_files/lh-profile-mobile-light.jpeg) ||
-| `Profile` | desktop | light | ![LH for Profile Page](testing_files/lh-profile-desktop-light.jpeg) ||
-| `Login` | mobile | light | ![LH for Login Page](testing_files/lh-login-mobile-light.jpeg) | |
-| `Login` | desktop | light | ![LH for Login Page](testing_files/lh-login-desktop-light.jpeg) | |
-| `Register` | mobile | light | ![LH for Register Page](testing_files/lh-register-mobile-light.jpeg) | |
-| `Register` | desktop | light | ![LH for Register Page](testing_files/lh-register-desktop-light.jpeg) |  |
-| `Password Change, Set and Reset` | mobile | light | ![LH for Password Change, Set and Reset Page](testing_files/lh-password-mobile-light.jpeg) ||
-| `Password Change, Set and Reset` | desktop | light | ![LH for Password Change, Set and Reset Page](testing_files/lh-password-desktop-light.jpeg) | |
-| `Admin Home` | mobile | light | ![LH for Admin Home Page](testing_files/lh-admin-home-mobile-light.jpeg) | |
-| `Admin Home` | desktop | light | ![LH for Admin Home Page](testing_files/lh-admin-home-desktop-light.jpeg) | |
-| `Add New Book` | mobile | light | ![LH for Add New Book Page](testing_files/lh-add-book-mobile-light.jpeg) | |
-| `Add New Book` | desktop | light | ![LH for Add New Book Page](testing_files/lh-add-book-desktop-light.jpeg) | |
-| `Edit Book` | mobile | light | ![LH for Edit Book Page](testing_files/lh-edit-book-mobile-light.jpeg) | |
-| `Edit Book` | desktop | light | ![LH for Edit Book Page](testing_files/lh-edit-book-desktop-light.jpeg) | |
-| `Orders to Post` | mobile | light | ![LH for Orders to Post Page](testing_files/lh-orders-post-mobile-light.jpeg) | Long data fields are truncated in mobile view, that makes the 'focusable target' to be smaller than ideal. Admin functions are optimased for desktop. |
-| `Orders to Post` | desktop | light | ![LH for Orders to Post Page](testing_files/lh-orders-post-desktop-light.jpeg) | |
-| `Orders for Collection` | mobile | light | ![LH for Orders for Collection Page](testing_files/lh-orders-collection-mobile-light.jpeg) | Long data fields are truncated in mobile view, that makes the 'focusable target' to be smaller than ideal. Admin functions are optimased for desktop. |
-| `Orders for Collection` | desktop | light | ![LH for Orders for Collection Page](testing_files/lh-orders-collection-desktop-light.jpeg) | |
-| `Completed Orders` | mobile | light | ![LH for Completed Orders Page](testing_files/lh-completed-orders-mobile-light.jpeg) | Long data fields are truncated in mobile view, that makes the 'focusable target' to be smaller than ideal. Admin functions are optimased for desktop. |
-| `Completed Orders` | desktop | light | ![LH for Completed Orders Page](testing_files/lh-completed-orders-desktop-light.jpeg) | |
-| `Order Details` | mobile | light | ![LH for Order Details Page](testing_files/lh-order-detail-mobile-light.jpeg) | |
-| `Order Details` | desktop | light | ![LH for Order Details Page](testing_files/lh-order-detail-desktop-light.jpeg) | |
+| Page | Device  | Result in `light mode` | Result in `dark mode` | Note |
+| :--: | :-----: | :------: | :------: |:--- |
+| `Home` | mobile | ![LH for Home Page](testing_files/lh-home-mobile-light.jpeg) |![LH for Home Page](testing_files/lh-home-mobile-dark.jpeg) | |
+| `Home` | desktop | ![LH for Home Page](testing_files/lh-home-desktop-light.jpeg) |![LH for Home Page](testing_files/lh-home-desktop-dark.jpeg) | |
+| `Books` | mobile | ![LH for Books Page](testing_files/lh-books-mobile-light.jpeg) |![LH for Books Page](testing_files/lh-books-mobile-dark.jpeg) | |
+| `Books` | desktop | ![LH for Books Page](testing_files/lh-books-desktop-light.jpeg) |![LH for Books Page](testing_files/lh-books-desktop-dark.jpeg) |  |
+| `Book Detail` | mobile | ![LH for Book Detail Page](testing_files/lh-book-detail-mobile-light.jpeg) |![LH for Book Detail Page](testing_files/lh-book-detail-mobile-dark.jpeg) | |
+| `Book Detail` | desktop | ![LH for Book Detail Page](testing_files/lh-book-detail-desktop-light.jpeg) |![LH for Book Detail Page](testing_files/lh-book-detail-desktop-dark.jpeg) |  |
+| `Shopping Bag` | mobile | ![LH for Shopping Bag Page](testing_files/lh-shopping-bag-mobile-light.jpeg) |![LH for Shopping Bag Page](testing_files/lh-shopping-bag-mobile-dark.jpeg) | |
+| `Shopping Bag` | desktop | ![LH for Shopping Bag Page](testing_files/lh-shopping-bag-desktop-light.jpeg) |![LH for Shopping Bag Page](testing_files/lh-shopping-bag-desktop-dark.jpeg) | |
+| `Checkout` | mobile | ![LH for Checkout Page](testing_files/lh-checkout-mobile-light.jpeg) |![LH for Checkout Page](testing_files/lh-checkout-mobile-dark.jpeg) | Stripe has a focusable hidden element, which causes Accessibility issues. |
+| `Checkout` | desktop | ![LH for Checkout Page](testing_files/lh-checkout-desktop-light.jpeg) |![LH for Checkout Page](testing_files/lh-checkout-desktop-dark.jpeg) | Stripe has a focusable hidden element, which causes Accessibility issues.  |
+| `Checkout Success` | mobile | ![LH for Checkout Success Page](testing_files/lh-checkout-success-mobile-light.jpeg) |![LH for Checkout Success Page](testing_files/lh-checkout-success-mobile-dark.jpeg) | |
+| `Checkout Success` | desktop | ![LH for Checkout Success Page](testing_files/lh-checkout-success-desktop-light.jpeg) |![LH for Checkout Success Page](testing_files/lh-checkout-success-desktop-dark.jpeg) | |
+| `Profile` | mobile | ![LH for Profile Page](testing_files/lh-profile-mobile-light.jpeg) |![LH for Profile Page](testing_files/lh-profile-mobile-dark.jpeg) ||
+| `Profile` | desktop | ![LH for Profile Page](testing_files/lh-profile-desktop-light.jpeg) |![LH for Profile Page](testing_files/lh-profile-desktop-dark.jpeg) ||
+| `Login` | mobile | ![LH for Login Page](testing_files/lh-login-mobile-light.jpeg) |![LH for Login Page](testing_files/lh-login-mobile-dark.jpeg) | |
+| `Login` | desktop | ![LH for Login Page](testing_files/lh-login-desktop-light.jpeg) |![LH for Login Page](testing_files/lh-login-desktop-dark.jpeg) | |
+| `Register` | mobile | ![LH for Register Page](testing_files/lh-register-mobile-light.jpeg) |![LH for Register Page](testing_files/lh-register-mobile-dark.jpeg) | |
+| `Register` | desktop | ![LH for Register Page](testing_files/lh-register-desktop-light.jpeg) |![LH for Register Page](testing_files/lh-register-desktop-dark.jpeg) |  |
+| `Password Change, Set and Reset` | mobile | ![LH for Password Change, Set and Reset Page](testing_files/lh-password-mobile-light.jpeg) |![LH for Password Change, Set and Reset Page](testing_files/lh-password-mobile-dark.jpeg) ||
+| `Password Change, Set and Reset` | desktop | ![LH for Password Change, Set and Reset Page](testing_files/lh-password-desktop-light.jpeg) |![LH for Password Change, Set and Reset Page](testing_files/lh-password-desktop-dark.jpeg) | |
+| `Admin Home` | mobile |  ![LH for Admin Home Page](testing_files/lh-admin-home-mobile-light.jpeg) | ![LH for Admin Home Page](testing_files/lh-admin-home-mobile-dark.jpeg) ||
+| `Admin Home` | desktop |  ![LH for Admin Home Page](testing_files/lh-admin-home-desktop-light.jpeg) | ![LH for Admin Home Page](testing_files/lh-admin-home-desktop-dark.jpeg) ||
+| `Add New Book` | mobile |  ![LH for Add New Book Page](testing_files/lh-add-book-mobile-light.jpeg) | ![LH for Add New Book Page](testing_files/lh-add-book-mobile-dark.jpeg) ||
+| `Add New Book` | desktop |  ![LH for Add New Book Page](testing_files/lh-add-book-desktop-light.jpeg) | ![LH for Add New Book Page](testing_files/lh-add-book-desktop-dark.jpeg) ||
+| `Edit Book` | mobile | ![LH for Edit Book Page](testing_files/lh-edit-book-mobile-light.jpeg) | ![LH for Edit Book Page](testing_files/lh-edit-book-mobile-dark.jpeg)|
+| `Edit Book` | desktop | ![LH for Edit Book Page](testing_files/lh-edit-book-desktop-light.jpeg) | ![LH for Edit Book Page](testing_files/lh-edit-book-desktop-dark.jpeg)|
+| `Orders to Post` | mobile |  ![LH for Orders to Post Page](testing_files/lh-orders-post-mobile-light.jpeg) |![LH for Orders to Post Page](testing_files/lh-orders-post-mobile-dark.jpeg) | Long data fields are truncated in mobile view, that makes the 'focusable target' to be smaller than ideal. Admin functions are optimased for desktop. |
+| `Orders to Post` | desktop |  ![LH for Orders to Post Page](testing_files/lh-orders-post-desktop-light.jpeg) | ![LH for Orders to Post Page](testing_files/lh-orders-post-desktop-dark.jpeg) ||
+| `Orders for Collection` | mobile |  ![LH for Orders for Collection Page](testing_files/lh-orders-collection-mobile-light.jpeg) |![LH for Orders for Collection Page](testing_files/lh-orders-collection-mobile-dark.jpeg) | Long data fields are truncated in mobile view, that makes the 'focusable target' to be smaller than ideal. Admin functions are optimased for desktop. |
+| `Orders for Collection` | desktop |  ![LH for Orders for Collection Page](testing_files/lh-orders-collection-desktop-light.jpeg) |![LH for Orders for Collection Page](testing_files/lh-orders-collection-desktop-dark.jpeg) | |
+| `Completed Orders` | mobile |  ![LH for Completed Orders Page](testing_files/lh-completed-orders-mobile-light.jpeg) |![LH for Completed Orders Page](testing_files/lh-completed-orders-mobile-dark.jpeg) | Long data fields are truncated in mobile view, that makes the 'focusable target' to be smaller than ideal. Admin functions are optimased for desktop. |
+| `Completed Orders` | desktop |  ![LH for Completed Orders Page](testing_files/lh-completed-orders-desktop-light.jpeg) |![LH for Completed Orders Page](testing_files/lh-completed-orders-desktop-dark.jpeg) | |
+| `Order Details` | mobile |  ![LH for Order Details Page](testing_files/lh-order-detail-mobile-light.jpeg) |![LH for Order Details Page](testing_files/lh-order-detail-mobile-dark.jpeg) | |
+| `Order Details` | desktop |  ![LH for Order Details Page](testing_files/lh-order-detail-desktop-light.jpeg) |![LH for Order Details Page](testing_files/lh-order-detail-desktop-dark.jpeg) | |
 
 ---
 
@@ -280,20 +292,20 @@ fields can be set.
 * The image upload field on both `Add Book` and `Edit Book` pages allowed more file formats than django's ImageField
 accepted as valid. If user attempted to upload an invalid image, it resulted in an invalid form error. To improve user experience, I restricted the file formats in the `custom_clerable_file_input.html` file, so the user can not accidentally
 select invalid file formats.
-* Automated testing revealed that uploading an image with no EXIF data would result in error. I corrected the inventory/signals.py file to handle such cases.
-* Manual testing revealed that the specified stock data remained blocked (reserved) after session (shopping bag) data got cleared. To rectify this, I wrote a signal to un-reserve the stock after a session is destroyed.
-
+* While testing the inventory functionalities I noticed that the specified stock data remained reserved in the inventory after session (shopping bag) data got cleared. This was an issue because the reserved items were not available other customers to purchase. To rectify this, I wrote a signal to un-reserve the stock after a session is destroyed.
+* Code validation revealed that a number of semicolons were missing from my JavaScript files. - Rectified.
+* Lighthouse testing revealed a number of small issues: Some buttons' contrast ratio needed to be increased, a link needed a 'more descriptive text', some links needed more space around them, the width and height of an image was referenced incorrectly. - All rectified.
 ---
 
 # Remaining Bugs
 
 ---
 
-* If the user signs up with a social account and later decides to set up a password, after they did so the `Set Password` function redirects the user to the `Change Password` page, despite setting the password successfully. As to my knowledge, configuring this url for `Set Password` is not possible in this version (0.56.1) of `django-allauth`. 
-##
+* If the user signs up with a social account and later decides to set up a password, after they did so, the `Set Password` function redirects the user to the `Change Password` page, despite setting the password successfully. As to my knowledge, configuring this url for `Set Password` is not possible in this version (0.56.1) of `django-allauth` - a possible solution could be a custom view that extends the set password view.
 
-Chrome warning about Same-Site Cookies flags up Stripe's cookies:
+* Stripe does not allow to set the card element's colour dynamically to respond to dark mode, it enforces `light-theme-only` as an `!important` inline styling that can not be changed. In order to display the card's number in both light and dark mode, I chose a grey colour that is readable with both backgrounds. This makes the card number's colour different from all other form element's colour.
+
+* Chrome DevTool console displays warnings about Stripe's Same-Site Cookies. That is because Stripe recommends to import its script onto every page of the webshop to help Stripe's Fraud Detection Scheme:
+https://stripe.com/docs/disputes/prevention/advanced-fraud-detection To resolve the same cookie issue Stripe is working on the solution:
 https://support.stripe.com/questions/chrome-80-samesite-cookie-change?locale=en-GB
 
-Stripe's Fraud Detection Scheme for which it is recommended to include its script in every page:
-https://stripe.com/docs/disputes/prevention/advanced-fraud-detection
