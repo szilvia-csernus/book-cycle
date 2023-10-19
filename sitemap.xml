@@ -1,0 +1,857 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<urlset
+      xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
+      xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+      xsi:schemaLocation="http://www.sitemaps.org/schemas/sitemap/0.9
+            http://www.sitemaps.org/schemas/sitemap/0.9/sitemap.xsd">
+<!-- created with Free Online Sitemap Generator www.xml-sitemaps.com -->
+
+
+<url>
+  <loc>https://book-cycle-f6aff45df7ba.herokuapp.com/</loc>
+  <lastmod>2023-10-19T18:23:44+00:00</lastmod>
+  <priority>1.00</priority>
+</url>
+<url>
+  <loc>https://book-cycle-f6aff45df7ba.herokuapp.com/accounts/login/</loc>
+  <lastmod>2023-10-19T18:23:44+00:00</lastmod>
+  <priority>0.80</priority>
+</url>
+<url>
+  <loc>https://book-cycle-f6aff45df7ba.herokuapp.com/profile/accounts/signup/</loc>
+  <lastmod>2023-10-19T18:23:44+00:00</lastmod>
+  <priority>0.80</priority>
+</url>
+<url>
+  <loc>https://book-cycle-f6aff45df7ba.herokuapp.com/inventory/books/?year_group=year7-9</loc>
+  <lastmod>2023-10-19T18:23:44+00:00</lastmod>
+  <priority>0.80</priority>
+</url>
+<url>
+  <loc>https://book-cycle-f6aff45df7ba.herokuapp.com/inventory/books/?year_group=gcse</loc>
+  <lastmod>2023-10-19T18:23:44+00:00</lastmod>
+  <priority>0.80</priority>
+</url>
+<url>
+  <loc>https://book-cycle-f6aff45df7ba.herokuapp.com/inventory/books/?year_group=a-level</loc>
+  <lastmod>2023-10-19T18:23:44+00:00</lastmod>
+  <priority>0.80</priority>
+</url>
+<url>
+  <loc>https://book-cycle-f6aff45df7ba.herokuapp.com/inventory/books/</loc>
+  <lastmod>2023-10-19T18:23:44+00:00</lastmod>
+  <priority>0.80</priority>
+</url>
+<url>
+  <loc>https://book-cycle-f6aff45df7ba.herokuapp.com/accounts/password/reset/</loc>
+  <lastmod>2023-10-19T18:23:44+00:00</lastmod>
+  <priority>0.64</priority>
+</url>
+<url>
+  <loc>https://book-cycle-f6aff45df7ba.herokuapp.com/inventory/book_detail/cambridge-lower-secondary-computing-7-students-book-ade7b9f5/?year_group=year7-9</loc>
+  <lastmod>2023-10-19T18:23:44+00:00</lastmod>
+  <priority>0.64</priority>
+</url>
+<url>
+  <loc>https://book-cycle-f6aff45df7ba.herokuapp.com/inventory/book_detail/cambridge-lower-secondary-computing-8-students-book-5524a353/?year_group=year7-9</loc>
+  <lastmod>2023-10-19T18:23:44+00:00</lastmod>
+  <priority>0.64</priority>
+</url>
+<url>
+  <loc>https://book-cycle-f6aff45df7ba.herokuapp.com/inventory/book_detail/cambridge-lower-secondary-computing-9-students-book-2b30ea24/?year_group=year7-9</loc>
+  <lastmod>2023-10-19T18:23:44+00:00</lastmod>
+  <priority>0.64</priority>
+</url>
+<url>
+  <loc>https://book-cycle-f6aff45df7ba.herokuapp.com/inventory/book_detail/exploring-science-working-scientifically-student-book-year-7-02b4d451/?year_group=year7-9</loc>
+  <lastmod>2023-10-19T18:23:44+00:00</lastmod>
+  <priority>0.64</priority>
+</url>
+<url>
+  <loc>https://book-cycle-f6aff45df7ba.herokuapp.com/inventory/book_detail/exploring-science-working-scientifically-student-book-year-8-0ac94aa6/?year_group=year7-9</loc>
+  <lastmod>2023-10-19T18:23:44+00:00</lastmod>
+  <priority>0.64</priority>
+</url>
+<url>
+  <loc>https://book-cycle-f6aff45df7ba.herokuapp.com/inventory/book_detail/exploring-science-working-scientifically-student-book-year-9-2df7a9af/?year_group=year7-9</loc>
+  <lastmod>2023-10-19T18:23:44+00:00</lastmod>
+  <priority>0.64</priority>
+</url>
+<url>
+  <loc>https://book-cycle-f6aff45df7ba.herokuapp.com/inventory/book_detail/knowing-history-early-modern-british-and-world-history-1509-1760-knowing-history-second-edition-449ff2c8/?year_group=year7-9</loc>
+  <lastmod>2023-10-19T18:23:44+00:00</lastmod>
+  <priority>0.64</priority>
+</url>
+<url>
+  <loc>https://book-cycle-f6aff45df7ba.herokuapp.com/inventory/book_detail/knowing-history-medieval-british-and-world-history-410-1509-knowing-history-second-edition-26a3780e/?year_group=year7-9</loc>
+  <lastmod>2023-10-19T18:23:44+00:00</lastmod>
+  <priority>0.64</priority>
+</url>
+<url>
+  <loc>https://book-cycle-f6aff45df7ba.herokuapp.com/inventory/book_detail/knowing-history-modern-british-and-world-history-1760-1900-knowing-history-second-edition-8bdc4429/?year_group=year7-9</loc>
+  <lastmod>2023-10-19T18:23:44+00:00</lastmod>
+  <priority>0.64</priority>
+</url>
+<url>
+  <loc>https://book-cycle-f6aff45df7ba.herokuapp.com/inventory/book_detail/knowing-history-twentieth-century-british-and-world-history-1900-2020-knowing-history-second-edition-04929bc3/?year_group=year7-9</loc>
+  <lastmod>2023-10-19T18:23:44+00:00</lastmod>
+  <priority>0.64</priority>
+</url>
+<url>
+  <loc>https://book-cycle-f6aff45df7ba.herokuapp.com/inventory/book_detail/macbeth-the-complete-play-with-annotations-audio-and-knowledge-organisers-224ab068/?year_group=year7-9</loc>
+  <lastmod>2023-10-19T18:23:44+00:00</lastmod>
+  <priority>0.64</priority>
+</url>
+<url>
+  <loc>https://book-cycle-f6aff45df7ba.herokuapp.com/inventory/book_detail/much-ado-about-nothing-the-complete-play-with-annotations-audio-and-knowledge-organisers-36d25289/?year_group=year7-9</loc>
+  <lastmod>2023-10-19T18:23:44+00:00</lastmod>
+  <priority>0.64</priority>
+</url>
+<url>
+  <loc>https://book-cycle-f6aff45df7ba.herokuapp.com/inventory/book_detail/new-ks3-english-complete-revision-practice-with-online-edition-quizzes-and-knowledge-organisers-68de8098/?year_group=year7-9</loc>
+  <lastmod>2023-10-19T18:23:44+00:00</lastmod>
+  <priority>0.64</priority>
+</url>
+<url>
+  <loc>https://book-cycle-f6aff45df7ba.herokuapp.com/inventory/book_detail/new-ks3-spelling-punctuation-grammar-revision-guide-with-online-edition-quizzes-50df36e1/?year_group=year7-9</loc>
+  <lastmod>2023-10-19T18:23:44+00:00</lastmod>
+  <priority>0.64</priority>
+</url>
+<url>
+  <loc>https://book-cycle-f6aff45df7ba.herokuapp.com/inventory/book_detail/progress-in-geography-key-stage-3-motivate-engage-and-prepare-pupils-b55f1eb4/?year_group=year7-9</loc>
+  <lastmod>2023-10-19T18:23:44+00:00</lastmod>
+  <priority>0.64</priority>
+</url>
+<url>
+  <loc>https://book-cycle-f6aff45df7ba.herokuapp.com/inventory/book_detail/romeo-juliet-the-complete-play-with-annotations-audio-and-knowledge-organisers-4623be1a/?year_group=year7-9</loc>
+  <lastmod>2023-10-19T18:23:44+00:00</lastmod>
+  <priority>0.64</priority>
+</url>
+<url>
+  <loc>https://book-cycle-f6aff45df7ba.herokuapp.com/inventory/book_detail/studio-1-pupil-book-11-14-french-70ec8379/?year_group=year7-9</loc>
+  <lastmod>2023-10-19T18:23:44+00:00</lastmod>
+  <priority>0.64</priority>
+</url>
+<url>
+  <loc>https://book-cycle-f6aff45df7ba.herokuapp.com/inventory/book_detail/the-merchant-of-venice-the-complete-play-with-annotations-audio-and-knowledge-organisers-d88a1055/?year_group=year7-9</loc>
+  <lastmod>2023-10-19T18:23:44+00:00</lastmod>
+  <priority>0.64</priority>
+</url>
+<url>
+  <loc>https://book-cycle-f6aff45df7ba.herokuapp.com/inventory/book_detail/the-tempest-the-complete-play-with-annotations-audio-and-knowledge-organisers-0b429aa3/?year_group=year7-9</loc>
+  <lastmod>2023-10-19T18:23:44+00:00</lastmod>
+  <priority>0.64</priority>
+</url>
+<url>
+  <loc>https://book-cycle-f6aff45df7ba.herokuapp.com/inventory/book_detail/viva-pupil-book-1-67e3573f/?year_group=year7-9</loc>
+  <lastmod>2023-10-19T18:23:44+00:00</lastmod>
+  <priority>0.64</priority>
+</url>
+<url>
+  <loc>https://book-cycle-f6aff45df7ba.herokuapp.com/inventory/book_detail/white-rose-maths-white-rose-maths-key-stage-3-maths-student-book-1-7bbcef59/?year_group=year7-9</loc>
+  <lastmod>2023-10-19T18:23:44+00:00</lastmod>
+  <priority>0.64</priority>
+</url>
+<url>
+  <loc>https://book-cycle-f6aff45df7ba.herokuapp.com/inventory/book_detail/white-rose-maths-white-rose-maths-key-stage-3-maths-student-book-2-ba0962bf/?year_group=year7-9</loc>
+  <lastmod>2023-10-19T18:23:44+00:00</lastmod>
+  <priority>0.64</priority>
+</url>
+<url>
+  <loc>https://book-cycle-f6aff45df7ba.herokuapp.com/inventory/book_detail/white-rose-maths-white-rose-maths-key-stage-3-maths-student-book-3-0732d906/?year_group=year7-9</loc>
+  <lastmod>2023-10-19T18:23:44+00:00</lastmod>
+  <priority>0.64</priority>
+</url>
+<url>
+  <loc>https://book-cycle-f6aff45df7ba.herokuapp.com/inventory/book_detail/aqa-gcse-9-1-religious-studies-specification-a-christianity-islam-judaism-and-the-religious-philosophical-and-ethical-themes-341d04ac/?year_group=gcse</loc>
+  <lastmod>2023-10-19T18:23:44+00:00</lastmod>
+  <priority>0.64</priority>
+</url>
+<url>
+  <loc>https://book-cycle-f6aff45df7ba.herokuapp.com/inventory/book_detail/aqa-gcse-biology-student-book-2e473450/?year_group=gcse</loc>
+  <lastmod>2023-10-19T18:23:44+00:00</lastmod>
+  <priority>0.64</priority>
+</url>
+<url>
+  <loc>https://book-cycle-f6aff45df7ba.herokuapp.com/inventory/book_detail/aqa-gcse-chemistry-student-book-d5664dec/?year_group=gcse</loc>
+  <lastmod>2023-10-19T18:23:44+00:00</lastmod>
+  <priority>0.64</priority>
+</url>
+<url>
+  <loc>https://book-cycle-f6aff45df7ba.herokuapp.com/inventory/book_detail/aqa-gcse-physics-student-book-81b2ef2f/?year_group=gcse</loc>
+  <lastmod>2023-10-19T18:23:44+00:00</lastmod>
+  <priority>0.64</priority>
+</url>
+<url>
+  <loc>https://book-cycle-f6aff45df7ba.herokuapp.com/inventory/book_detail/edexcel-gcse-9-1-mathematics-foundation-student-book-8c477f53/?year_group=gcse</loc>
+  <lastmod>2023-10-19T18:23:44+00:00</lastmod>
+  <priority>0.64</priority>
+</url>
+<url>
+  <loc>https://book-cycle-f6aff45df7ba.herokuapp.com/inventory/book_detail/edexcel-gcse-9-1-mathematics-higher-student-book-d3b71e79/?year_group=gcse</loc>
+  <lastmod>2023-10-19T18:23:44+00:00</lastmod>
+  <priority>0.64</priority>
+</url>
+<url>
+  <loc>https://book-cycle-f6aff45df7ba.herokuapp.com/inventory/book_detail/edexcel-gcse-9-1-pe-student-book-2nd-editions-6d7ecc29/?year_group=gcse</loc>
+  <lastmod>2023-10-19T18:23:44+00:00</lastmod>
+  <priority>0.64</priority>
+</url>
+<url>
+  <loc>https://book-cycle-f6aff45df7ba.herokuapp.com/inventory/book_detail/gcse-9-1-geography-specification-a-geographical-themes-and-challenges-5be9d719/?year_group=gcse</loc>
+  <lastmod>2023-10-19T18:23:44+00:00</lastmod>
+  <priority>0.64</priority>
+</url>
+<url>
+  <loc>https://book-cycle-f6aff45df7ba.herokuapp.com/inventory/book_detail/gcse-computer-science-for-ocr-student-book-updated-edition-195704f2/?year_group=gcse</loc>
+  <lastmod>2023-10-19T18:23:44+00:00</lastmod>
+  <priority>0.64</priority>
+</url>
+<url>
+  <loc>https://book-cycle-f6aff45df7ba.herokuapp.com/inventory/book_detail/gcse-english-aqa-poetry-guide-power-conflict-anthology-33dd0ffe/?year_group=gcse</loc>
+  <lastmod>2023-10-19T18:23:44+00:00</lastmod>
+  <priority>0.64</priority>
+</url>
+<url>
+  <loc>https://book-cycle-f6aff45df7ba.herokuapp.com/inventory/book_detail/gcse-english-language-for-aqa-progress-student-book-28f087a2/?year_group=gcse</loc>
+  <lastmod>2023-10-19T18:23:44+00:00</lastmod>
+  <priority>0.64</priority>
+</url>
+<url>
+  <loc>https://book-cycle-f6aff45df7ba.herokuapp.com/inventory/book_detail/gcse-english-shakespeare-text-guide-romeo-juliet-d74cee79/?year_group=gcse</loc>
+  <lastmod>2023-10-19T18:23:44+00:00</lastmod>
+  <priority>0.64</priority>
+</url>
+<url>
+  <loc>https://book-cycle-f6aff45df7ba.herokuapp.com/inventory/book_detail/gcse-english-text-guide-an-inspector-calls-54baba5f/?year_group=gcse</loc>
+  <lastmod>2023-10-19T18:23:44+00:00</lastmod>
+  <priority>0.64</priority>
+</url>
+<url>
+  <loc>https://book-cycle-f6aff45df7ba.herokuapp.com/inventory/book_detail/gcse-english-text-guide-dr-jekyll-and-mr-hyde-d6833647/?year_group=gcse</loc>
+  <lastmod>2023-10-19T18:23:44+00:00</lastmod>
+  <priority>0.64</priority>
+</url>
+<url>
+  <loc>https://book-cycle-f6aff45df7ba.herokuapp.com/inventory/book_detail/gcse-religious-studies-for-aqa-a-christianity-1f9b3da5/?year_group=gcse</loc>
+  <lastmod>2023-10-19T18:23:44+00:00</lastmod>
+  <priority>0.64</priority>
+</url>
+<url>
+  <loc>https://book-cycle-f6aff45df7ba.herokuapp.com/inventory/book_detail/gcse-religious-studies-for-aqa-a-islam-e47fc380/?year_group=gcse</loc>
+  <lastmod>2023-10-19T18:23:44+00:00</lastmod>
+  <priority>0.64</priority>
+</url>
+<url>
+  <loc>https://book-cycle-f6aff45df7ba.herokuapp.com/inventory/book_detail/ocr-gcse-food-preparation-and-nutrition-303decb3/?year_group=gcse</loc>
+  <lastmod>2023-10-19T18:23:44+00:00</lastmod>
+  <priority>0.64</priority>
+</url>
+<url>
+  <loc>https://book-cycle-f6aff45df7ba.herokuapp.com/inventory/book_detail/ocr-gcse-music-study-guide-b5951f5b/?year_group=gcse</loc>
+  <lastmod>2023-10-19T18:23:44+00:00</lastmod>
+  <priority>0.64</priority>
+</url>
+<url>
+  <loc>https://book-cycle-f6aff45df7ba.herokuapp.com/inventory/book_detail/oxford-aqa-gcse-history-9-1-britain-health-and-the-people-c1000-present-day-student-book-second-edition-7e7e4ed3/?year_group=gcse</loc>
+  <lastmod>2023-10-19T18:23:44+00:00</lastmod>
+  <priority>0.64</priority>
+</url>
+<url>
+  <loc>https://book-cycle-f6aff45df7ba.herokuapp.com/inventory/book_detail/oxford-aqa-gcse-history-9-1-elizabethan-england-c1568-1603-student-book-second-edition-69e410ca/?year_group=gcse</loc>
+  <lastmod>2023-10-19T18:23:44+00:00</lastmod>
+  <priority>0.64</priority>
+</url>
+<url>
+  <loc>https://book-cycle-f6aff45df7ba.herokuapp.com/inventory/book_detail/oxford-aqa-gcse-history-america-1920-1973-opportunity-and-inequality-student-book-c23a7011/?year_group=gcse</loc>
+  <lastmod>2023-10-19T18:23:44+00:00</lastmod>
+  <priority>0.64</priority>
+</url>
+<url>
+  <loc>https://book-cycle-f6aff45df7ba.herokuapp.com/inventory/book_detail/oxford-aqa-history-for-gcse-conflict-and-tension-the-inter-war-years-1918-1939-e52bb516/?year_group=gcse</loc>
+  <lastmod>2023-10-19T18:23:44+00:00</lastmod>
+  <priority>0.64</priority>
+</url>
+<url>
+  <loc>https://book-cycle-f6aff45df7ba.herokuapp.com/inventory/book_detail/pearson-edexcel-gcse-9-1-design-technology-8c6fa3b6/?year_group=gcse</loc>
+  <lastmod>2023-10-19T18:23:44+00:00</lastmod>
+  <priority>0.64</priority>
+</url>
+<url>
+  <loc>https://book-cycle-f6aff45df7ba.herokuapp.com/inventory/book_detail/studio-for-edexcel-gcse-9-1-french-e4522264/?year_group=gcse</loc>
+  <lastmod>2023-10-19T18:23:44+00:00</lastmod>
+  <priority>0.64</priority>
+</url>
+<url>
+  <loc>https://book-cycle-f6aff45df7ba.herokuapp.com/inventory/book_detail/viva-for-edexcel-gcse-9-1-spanish-4fd92ac4/?year_group=gcse</loc>
+  <lastmod>2023-10-19T18:23:44+00:00</lastmod>
+  <priority>0.64</priority>
+</url>
+<url>
+  <loc>https://book-cycle-f6aff45df7ba.herokuapp.com/inventory/book_detail/wjeceduqas-gcse-drama-student-book-8fece8d1/?year_group=gcse</loc>
+  <lastmod>2023-10-19T18:23:44+00:00</lastmod>
+  <priority>0.64</priority>
+</url>
+<url>
+  <loc>https://book-cycle-f6aff45df7ba.herokuapp.com/inventory/book_detail/aas-level-computer-science-for-ocr-student-book-0e1856f4/?year_group=a-level</loc>
+  <lastmod>2023-10-19T18:23:44+00:00</lastmod>
+  <priority>0.64</priority>
+</url>
+<url>
+  <loc>https://book-cycle-f6aff45df7ba.herokuapp.com/inventory/book_detail/aas-level-english-language-for-aqa-student-book-036108ed/?year_group=a-level</loc>
+  <lastmod>2023-10-19T18:23:44+00:00</lastmod>
+  <priority>0.64</priority>
+</url>
+<url>
+  <loc>https://book-cycle-f6aff45df7ba.herokuapp.com/inventory/book_detail/a-level-biology-for-ocr-a-student-book-6f5076f4/?year_group=a-level</loc>
+  <lastmod>2023-10-19T18:23:44+00:00</lastmod>
+  <priority>0.64</priority>
+</url>
+<url>
+  <loc>https://book-cycle-f6aff45df7ba.herokuapp.com/inventory/book_detail/a-level-chemistry-for-ocr-a-student-book-468a4bfa/?year_group=a-level</loc>
+  <lastmod>2023-10-19T18:23:44+00:00</lastmod>
+  <priority>0.64</priority>
+</url>
+<url>
+  <loc>https://book-cycle-f6aff45df7ba.herokuapp.com/inventory/book_detail/a-level-design-and-technology-for-edexcel-product-design-graphic-products-435aa1dd/?year_group=a-level</loc>
+  <lastmod>2023-10-19T18:23:44+00:00</lastmod>
+  <priority>0.64</priority>
+</url>
+<url>
+  <loc>https://book-cycle-f6aff45df7ba.herokuapp.com/inventory/book_detail/a-level-design-and-technology-for-edexcel-product-design-resistant-materials-90bc4320/?year_group=a-level</loc>
+  <lastmod>2023-10-19T18:23:44+00:00</lastmod>
+  <priority>0.64</priority>
+</url>
+<url>
+  <loc>https://book-cycle-f6aff45df7ba.herokuapp.com/inventory/book_detail/a-level-physics-for-ocr-a-student-book-d8b0a5bd/?year_group=a-level</loc>
+  <lastmod>2023-10-19T18:23:44+00:00</lastmod>
+  <priority>0.64</priority>
+</url>
+<url>
+  <loc>https://book-cycle-f6aff45df7ba.herokuapp.com/inventory/book_detail/aqa-a-level-economics-fifth-edition-fc970a01/?year_group=a-level</loc>
+  <lastmod>2023-10-19T18:23:44+00:00</lastmod>
+  <priority>0.64</priority>
+</url>
+<url>
+  <loc>https://book-cycle-f6aff45df7ba.herokuapp.com/inventory/book_detail/aqa-a-level-psychology-year-1-and-year-2-57916af1/?year_group=a-level</loc>
+  <lastmod>2023-10-19T18:23:44+00:00</lastmod>
+  <priority>0.64</priority>
+</url>
+<url>
+  <loc>https://book-cycle-f6aff45df7ba.herokuapp.com/inventory/book_detail/aqa-drama-and-theatre-a-level-and-as-3e0bccbe/?year_group=a-level</loc>
+  <lastmod>2023-10-19T18:23:44+00:00</lastmod>
+  <priority>0.64</priority>
+</url>
+<url>
+  <loc>https://book-cycle-f6aff45df7ba.herokuapp.com/inventory/book_detail/collins-aqa-a-level-sociology-aqa-a-level-sociology-student-book-1-eacb4f7c/?year_group=a-level</loc>
+  <lastmod>2023-10-19T18:23:44+00:00</lastmod>
+  <priority>0.64</priority>
+</url>
+<url>
+  <loc>https://book-cycle-f6aff45df7ba.herokuapp.com/inventory/book_detail/collins-aqa-a-level-sociology-aqa-a-level-sociology-student-book-2-c570b6ed/?year_group=a-level</loc>
+  <lastmod>2023-10-19T18:23:44+00:00</lastmod>
+  <priority>0.64</priority>
+</url>
+<url>
+  <loc>https://book-cycle-f6aff45df7ba.herokuapp.com/inventory/book_detail/edexcel-a-level-french-includes-as-4211ce59/?year_group=a-level</loc>
+  <lastmod>2023-10-19T18:23:44+00:00</lastmod>
+  <priority>0.64</priority>
+</url>
+<url>
+  <loc>https://book-cycle-f6aff45df7ba.herokuapp.com/inventory/book_detail/edexcel-a-level-further-mathematics-core-pure-mathematics-book-2-ba27af87/?year_group=a-level</loc>
+  <lastmod>2023-10-19T18:23:44+00:00</lastmod>
+  <priority>0.64</priority>
+</url>
+<url>
+  <loc>https://book-cycle-f6aff45df7ba.herokuapp.com/inventory/book_detail/edexcel-a-level-geography-2016-year-2-activebook-7017815b/?year_group=a-level</loc>
+  <lastmod>2023-10-19T18:23:44+00:00</lastmod>
+  <priority>0.64</priority>
+</url>
+<url>
+  <loc>https://book-cycle-f6aff45df7ba.herokuapp.com/inventory/book_detail/edexcel-a-level-mathematics-pure-mathematics-year-2-f54fd5f9/?year_group=a-level</loc>
+  <lastmod>2023-10-19T18:23:44+00:00</lastmod>
+  <priority>0.64</priority>
+</url>
+<url>
+  <loc>https://book-cycle-f6aff45df7ba.herokuapp.com/inventory/book_detail/edexcel-a-level-mathematics-statistics-mechanics-year-2-5a30d7ef/?year_group=a-level</loc>
+  <lastmod>2023-10-19T18:23:44+00:00</lastmod>
+  <priority>0.64</priority>
+</url>
+<url>
+  <loc>https://book-cycle-f6aff45df7ba.herokuapp.com/inventory/book_detail/edexcel-a-level-spanish-includes-as-66b86801/?year_group=a-level</loc>
+  <lastmod>2023-10-19T18:23:44+00:00</lastmod>
+  <priority>0.64</priority>
+</url>
+<url>
+  <loc>https://book-cycle-f6aff45df7ba.herokuapp.com/inventory/book_detail/edexcel-asa-level-business-5th-edition-student-book-0587b960/?year_group=a-level</loc>
+  <lastmod>2023-10-19T18:23:44+00:00</lastmod>
+  <priority>0.64</priority>
+</url>
+<url>
+  <loc>https://book-cycle-f6aff45df7ba.herokuapp.com/inventory/book_detail/edexcel-as-and-a-level-further-mathematics-core-pure-mathematics-book-1as-06fc7996/?year_group=a-level</loc>
+  <lastmod>2023-10-19T18:23:44+00:00</lastmod>
+  <priority>0.64</priority>
+</url>
+<url>
+  <loc>https://book-cycle-f6aff45df7ba.herokuapp.com/inventory/book_detail/edexcel-as-and-a-level-further-mathematics-further-pure-mathematics-1-5a48aa68/?year_group=a-level</loc>
+  <lastmod>2023-10-19T18:23:44+00:00</lastmod>
+  <priority>0.64</priority>
+</url>
+<url>
+  <loc>https://book-cycle-f6aff45df7ba.herokuapp.com/inventory/book_detail/edexcel-as-and-a-level-further-mathematics-further-statistics-1-2d43c897/?year_group=a-level</loc>
+  <lastmod>2023-10-19T18:23:44+00:00</lastmod>
+  <priority>0.64</priority>
+</url>
+<url>
+  <loc>https://book-cycle-f6aff45df7ba.herokuapp.com/inventory/book_detail/edexcel-as-and-a-level-mathematics-pure-mathematics-year-1as-1146d43e/?year_group=a-level</loc>
+  <lastmod>2023-10-19T18:23:44+00:00</lastmod>
+  <priority>0.64</priority>
+</url>
+<url>
+  <loc>https://book-cycle-f6aff45df7ba.herokuapp.com/inventory/book_detail/edexcel-as-and-a-level-mathematics-statistics-mechanics-year-1as-50ede278/?year_group=a-level</loc>
+  <lastmod>2023-10-19T18:23:44+00:00</lastmod>
+  <priority>0.64</priority>
+</url>
+<url>
+  <loc>https://book-cycle-f6aff45df7ba.herokuapp.com/inventory/book_detail/edexcel-as-level-geography-2016-year-1-activebook-3db2e713/?year_group=a-level</loc>
+  <lastmod>2023-10-19T18:23:44+00:00</lastmod>
+  <priority>0.64</priority>
+</url>
+<url>
+  <loc>https://book-cycle-f6aff45df7ba.herokuapp.com/inventory/book_detail/ocr-a-level-pe-year-1-and-year-2-709615b2/?year_group=a-level</loc>
+  <lastmod>2023-10-19T18:23:44+00:00</lastmod>
+  <priority>0.64</priority>
+</url>
+<url>
+  <loc>https://book-cycle-f6aff45df7ba.herokuapp.com/inventory/book_detail/ocr-religious-studies-a-level-year-1-and-as-2a33317c/?year_group=a-level</loc>
+  <lastmod>2023-10-19T18:23:44+00:00</lastmod>
+  <priority>0.64</priority>
+</url>
+<url>
+  <loc>https://book-cycle-f6aff45df7ba.herokuapp.com/inventory/book_detail/ocr-religious-studies-a-level-year-2-85768654/?year_group=a-level</loc>
+  <lastmod>2023-10-19T18:23:44+00:00</lastmod>
+  <priority>0.64</priority>
+</url>
+<url>
+  <loc>https://book-cycle-f6aff45df7ba.herokuapp.com/inventory/book_detail/oxford-aqa-history-for-a-level-the-making-of-modern-britain-1951-2007-5ceaec39/?year_group=a-level</loc>
+  <lastmod>2023-10-19T18:23:44+00:00</lastmod>
+  <priority>0.64</priority>
+</url>
+<url>
+  <loc>https://book-cycle-f6aff45df7ba.herokuapp.com/inventory/book_detail/oxford-aqa-history-for-a-level-the-quest-for-political-stability-germany-1871-1991-4bbc5ff3/?year_group=a-level</loc>
+  <lastmod>2023-10-19T18:23:44+00:00</lastmod>
+  <priority>0.64</priority>
+</url>
+<url>
+  <loc>https://book-cycle-f6aff45df7ba.herokuapp.com/inventory/book_detail/oxford-aqa-history-for-a-level-tsarist-and-communist-russia-1855-1964-7406f337/?year_group=a-level</loc>
+  <lastmod>2023-10-19T18:23:44+00:00</lastmod>
+  <priority>0.64</priority>
+</url>
+<url>
+  <loc>https://book-cycle-f6aff45df7ba.herokuapp.com/inventory/book_detail/wjec-eduqas-as-and-a-level-music-study-guide-89990dee/?year_group=a-level</loc>
+  <lastmod>2023-10-19T18:23:44+00:00</lastmod>
+  <priority>0.64</priority>
+</url>
+<url>
+  <loc>https://book-cycle-f6aff45df7ba.herokuapp.com/inventory/book_detail/wjeceduqas-media-studies-for-a-level-year-1-as-student-book-revised-edition-86521557/?year_group=a-level</loc>
+  <lastmod>2023-10-19T18:23:44+00:00</lastmod>
+  <priority>0.64</priority>
+</url>
+<url>
+  <loc>https://book-cycle-f6aff45df7ba.herokuapp.com/inventory/book_detail/wjeceduqas-media-studies-for-a-level-year-2-a2-student-book-revised-edition-f47138fb/?year_group=a-level</loc>
+  <lastmod>2023-10-19T18:23:44+00:00</lastmod>
+  <priority>0.64</priority>
+</url>
+<url>
+  <loc>https://book-cycle-f6aff45df7ba.herokuapp.com/inventory/book_detail/aas-level-computer-science-for-ocr-student-book-0e1856f4/?</loc>
+  <lastmod>2023-10-19T18:23:44+00:00</lastmod>
+  <priority>0.64</priority>
+</url>
+<url>
+  <loc>https://book-cycle-f6aff45df7ba.herokuapp.com/inventory/book_detail/aas-level-english-language-for-aqa-student-book-036108ed/?</loc>
+  <lastmod>2023-10-19T18:23:44+00:00</lastmod>
+  <priority>0.64</priority>
+</url>
+<url>
+  <loc>https://book-cycle-f6aff45df7ba.herokuapp.com/inventory/book_detail/a-level-biology-for-ocr-a-student-book-6f5076f4/?</loc>
+  <lastmod>2023-10-19T18:23:44+00:00</lastmod>
+  <priority>0.64</priority>
+</url>
+<url>
+  <loc>https://book-cycle-f6aff45df7ba.herokuapp.com/inventory/book_detail/a-level-chemistry-for-ocr-a-student-book-468a4bfa/?</loc>
+  <lastmod>2023-10-19T18:23:44+00:00</lastmod>
+  <priority>0.64</priority>
+</url>
+<url>
+  <loc>https://book-cycle-f6aff45df7ba.herokuapp.com/inventory/book_detail/a-level-design-and-technology-for-edexcel-product-design-graphic-products-435aa1dd/?</loc>
+  <lastmod>2023-10-19T18:23:44+00:00</lastmod>
+  <priority>0.64</priority>
+</url>
+<url>
+  <loc>https://book-cycle-f6aff45df7ba.herokuapp.com/inventory/book_detail/a-level-design-and-technology-for-edexcel-product-design-resistant-materials-90bc4320/?</loc>
+  <lastmod>2023-10-19T18:23:44+00:00</lastmod>
+  <priority>0.64</priority>
+</url>
+<url>
+  <loc>https://book-cycle-f6aff45df7ba.herokuapp.com/inventory/book_detail/a-level-physics-for-ocr-a-student-book-d8b0a5bd/?</loc>
+  <lastmod>2023-10-19T18:23:44+00:00</lastmod>
+  <priority>0.64</priority>
+</url>
+<url>
+  <loc>https://book-cycle-f6aff45df7ba.herokuapp.com/inventory/book_detail/aqa-a-level-economics-fifth-edition-fc970a01/?</loc>
+  <lastmod>2023-10-19T18:23:44+00:00</lastmod>
+  <priority>0.64</priority>
+</url>
+<url>
+  <loc>https://book-cycle-f6aff45df7ba.herokuapp.com/inventory/book_detail/aqa-a-level-psychology-year-1-and-year-2-57916af1/?</loc>
+  <lastmod>2023-10-19T18:23:44+00:00</lastmod>
+  <priority>0.64</priority>
+</url>
+<url>
+  <loc>https://book-cycle-f6aff45df7ba.herokuapp.com/inventory/book_detail/aqa-drama-and-theatre-a-level-and-as-3e0bccbe/?</loc>
+  <lastmod>2023-10-19T18:23:44+00:00</lastmod>
+  <priority>0.64</priority>
+</url>
+<url>
+  <loc>https://book-cycle-f6aff45df7ba.herokuapp.com/inventory/book_detail/aqa-gcse-9-1-religious-studies-specification-a-christianity-islam-judaism-and-the-religious-philosophical-and-ethical-themes-341d04ac/?</loc>
+  <lastmod>2023-10-19T18:23:44+00:00</lastmod>
+  <priority>0.64</priority>
+</url>
+<url>
+  <loc>https://book-cycle-f6aff45df7ba.herokuapp.com/inventory/book_detail/aqa-gcse-biology-student-book-2e473450/?</loc>
+  <lastmod>2023-10-19T18:23:44+00:00</lastmod>
+  <priority>0.64</priority>
+</url>
+<url>
+  <loc>https://book-cycle-f6aff45df7ba.herokuapp.com/inventory/book_detail/aqa-gcse-chemistry-student-book-d5664dec/?</loc>
+  <lastmod>2023-10-19T18:23:44+00:00</lastmod>
+  <priority>0.64</priority>
+</url>
+<url>
+  <loc>https://book-cycle-f6aff45df7ba.herokuapp.com/inventory/book_detail/aqa-gcse-physics-student-book-81b2ef2f/?</loc>
+  <lastmod>2023-10-19T18:23:44+00:00</lastmod>
+  <priority>0.64</priority>
+</url>
+<url>
+  <loc>https://book-cycle-f6aff45df7ba.herokuapp.com/inventory/book_detail/cambridge-lower-secondary-computing-7-students-book-ade7b9f5/?</loc>
+  <lastmod>2023-10-19T18:23:44+00:00</lastmod>
+  <priority>0.64</priority>
+</url>
+<url>
+  <loc>https://book-cycle-f6aff45df7ba.herokuapp.com/inventory/book_detail/cambridge-lower-secondary-computing-8-students-book-5524a353/?</loc>
+  <lastmod>2023-10-19T18:23:44+00:00</lastmod>
+  <priority>0.64</priority>
+</url>
+<url>
+  <loc>https://book-cycle-f6aff45df7ba.herokuapp.com/inventory/book_detail/cambridge-lower-secondary-computing-9-students-book-2b30ea24/?</loc>
+  <lastmod>2023-10-19T18:23:44+00:00</lastmod>
+  <priority>0.64</priority>
+</url>
+<url>
+  <loc>https://book-cycle-f6aff45df7ba.herokuapp.com/inventory/book_detail/collins-aqa-a-level-sociology-aqa-a-level-sociology-student-book-1-eacb4f7c/?</loc>
+  <lastmod>2023-10-19T18:23:44+00:00</lastmod>
+  <priority>0.64</priority>
+</url>
+<url>
+  <loc>https://book-cycle-f6aff45df7ba.herokuapp.com/inventory/book_detail/collins-aqa-a-level-sociology-aqa-a-level-sociology-student-book-2-c570b6ed/?</loc>
+  <lastmod>2023-10-19T18:23:44+00:00</lastmod>
+  <priority>0.64</priority>
+</url>
+<url>
+  <loc>https://book-cycle-f6aff45df7ba.herokuapp.com/inventory/book_detail/edexcel-a-level-french-includes-as-4211ce59/?</loc>
+  <lastmod>2023-10-19T18:23:44+00:00</lastmod>
+  <priority>0.64</priority>
+</url>
+<url>
+  <loc>https://book-cycle-f6aff45df7ba.herokuapp.com/inventory/book_detail/edexcel-a-level-further-mathematics-core-pure-mathematics-book-2-ba27af87/?</loc>
+  <lastmod>2023-10-19T18:23:44+00:00</lastmod>
+  <priority>0.64</priority>
+</url>
+<url>
+  <loc>https://book-cycle-f6aff45df7ba.herokuapp.com/inventory/book_detail/edexcel-a-level-geography-2016-year-2-activebook-7017815b/?</loc>
+  <lastmod>2023-10-19T18:23:44+00:00</lastmod>
+  <priority>0.64</priority>
+</url>
+<url>
+  <loc>https://book-cycle-f6aff45df7ba.herokuapp.com/inventory/book_detail/edexcel-a-level-mathematics-pure-mathematics-year-2-f54fd5f9/?</loc>
+  <lastmod>2023-10-19T18:23:44+00:00</lastmod>
+  <priority>0.64</priority>
+</url>
+<url>
+  <loc>https://book-cycle-f6aff45df7ba.herokuapp.com/inventory/book_detail/edexcel-a-level-mathematics-statistics-mechanics-year-2-5a30d7ef/?</loc>
+  <lastmod>2023-10-19T18:23:44+00:00</lastmod>
+  <priority>0.64</priority>
+</url>
+<url>
+  <loc>https://book-cycle-f6aff45df7ba.herokuapp.com/inventory/book_detail/edexcel-a-level-spanish-includes-as-66b86801/?</loc>
+  <lastmod>2023-10-19T18:23:44+00:00</lastmod>
+  <priority>0.64</priority>
+</url>
+<url>
+  <loc>https://book-cycle-f6aff45df7ba.herokuapp.com/inventory/book_detail/edexcel-asa-level-business-5th-edition-student-book-0587b960/?</loc>
+  <lastmod>2023-10-19T18:23:44+00:00</lastmod>
+  <priority>0.64</priority>
+</url>
+<url>
+  <loc>https://book-cycle-f6aff45df7ba.herokuapp.com/inventory/book_detail/edexcel-as-and-a-level-further-mathematics-core-pure-mathematics-book-1as-06fc7996/?</loc>
+  <lastmod>2023-10-19T18:23:44+00:00</lastmod>
+  <priority>0.64</priority>
+</url>
+<url>
+  <loc>https://book-cycle-f6aff45df7ba.herokuapp.com/inventory/book_detail/edexcel-as-and-a-level-further-mathematics-further-pure-mathematics-1-5a48aa68/?</loc>
+  <lastmod>2023-10-19T18:23:44+00:00</lastmod>
+  <priority>0.64</priority>
+</url>
+<url>
+  <loc>https://book-cycle-f6aff45df7ba.herokuapp.com/inventory/book_detail/edexcel-as-and-a-level-further-mathematics-further-statistics-1-2d43c897/?</loc>
+  <lastmod>2023-10-19T18:23:44+00:00</lastmod>
+  <priority>0.64</priority>
+</url>
+<url>
+  <loc>https://book-cycle-f6aff45df7ba.herokuapp.com/inventory/book_detail/edexcel-as-and-a-level-mathematics-pure-mathematics-year-1as-1146d43e/?</loc>
+  <lastmod>2023-10-19T18:23:44+00:00</lastmod>
+  <priority>0.64</priority>
+</url>
+<url>
+  <loc>https://book-cycle-f6aff45df7ba.herokuapp.com/inventory/book_detail/edexcel-as-and-a-level-mathematics-statistics-mechanics-year-1as-50ede278/?</loc>
+  <lastmod>2023-10-19T18:23:44+00:00</lastmod>
+  <priority>0.64</priority>
+</url>
+<url>
+  <loc>https://book-cycle-f6aff45df7ba.herokuapp.com/inventory/book_detail/edexcel-as-level-geography-2016-year-1-activebook-3db2e713/?</loc>
+  <lastmod>2023-10-19T18:23:44+00:00</lastmod>
+  <priority>0.64</priority>
+</url>
+<url>
+  <loc>https://book-cycle-f6aff45df7ba.herokuapp.com/inventory/book_detail/edexcel-gcse-9-1-mathematics-foundation-student-book-8c477f53/?</loc>
+  <lastmod>2023-10-19T18:23:44+00:00</lastmod>
+  <priority>0.64</priority>
+</url>
+<url>
+  <loc>https://book-cycle-f6aff45df7ba.herokuapp.com/inventory/book_detail/edexcel-gcse-9-1-mathematics-higher-student-book-d3b71e79/?</loc>
+  <lastmod>2023-10-19T18:23:44+00:00</lastmod>
+  <priority>0.64</priority>
+</url>
+<url>
+  <loc>https://book-cycle-f6aff45df7ba.herokuapp.com/inventory/book_detail/edexcel-gcse-9-1-pe-student-book-2nd-editions-6d7ecc29/?</loc>
+  <lastmod>2023-10-19T18:23:44+00:00</lastmod>
+  <priority>0.64</priority>
+</url>
+<url>
+  <loc>https://book-cycle-f6aff45df7ba.herokuapp.com/inventory/book_detail/exploring-science-working-scientifically-student-book-year-7-02b4d451/?</loc>
+  <lastmod>2023-10-19T18:23:44+00:00</lastmod>
+  <priority>0.64</priority>
+</url>
+<url>
+  <loc>https://book-cycle-f6aff45df7ba.herokuapp.com/inventory/book_detail/exploring-science-working-scientifically-student-book-year-8-0ac94aa6/?</loc>
+  <lastmod>2023-10-19T18:23:44+00:00</lastmod>
+  <priority>0.64</priority>
+</url>
+<url>
+  <loc>https://book-cycle-f6aff45df7ba.herokuapp.com/inventory/book_detail/exploring-science-working-scientifically-student-book-year-9-2df7a9af/?</loc>
+  <lastmod>2023-10-19T18:23:44+00:00</lastmod>
+  <priority>0.64</priority>
+</url>
+<url>
+  <loc>https://book-cycle-f6aff45df7ba.herokuapp.com/inventory/book_detail/gcse-9-1-geography-specification-a-geographical-themes-and-challenges-5be9d719/?</loc>
+  <lastmod>2023-10-19T18:23:44+00:00</lastmod>
+  <priority>0.64</priority>
+</url>
+<url>
+  <loc>https://book-cycle-f6aff45df7ba.herokuapp.com/inventory/book_detail/gcse-computer-science-for-ocr-student-book-updated-edition-195704f2/?</loc>
+  <lastmod>2023-10-19T18:23:44+00:00</lastmod>
+  <priority>0.64</priority>
+</url>
+<url>
+  <loc>https://book-cycle-f6aff45df7ba.herokuapp.com/inventory/book_detail/gcse-english-aqa-poetry-guide-power-conflict-anthology-33dd0ffe/?</loc>
+  <lastmod>2023-10-19T18:23:44+00:00</lastmod>
+  <priority>0.64</priority>
+</url>
+<url>
+  <loc>https://book-cycle-f6aff45df7ba.herokuapp.com/inventory/book_detail/gcse-english-language-for-aqa-progress-student-book-28f087a2/?</loc>
+  <lastmod>2023-10-19T18:23:44+00:00</lastmod>
+  <priority>0.64</priority>
+</url>
+<url>
+  <loc>https://book-cycle-f6aff45df7ba.herokuapp.com/inventory/book_detail/gcse-english-shakespeare-text-guide-romeo-juliet-d74cee79/?</loc>
+  <lastmod>2023-10-19T18:23:44+00:00</lastmod>
+  <priority>0.64</priority>
+</url>
+<url>
+  <loc>https://book-cycle-f6aff45df7ba.herokuapp.com/inventory/book_detail/gcse-english-text-guide-an-inspector-calls-54baba5f/?</loc>
+  <lastmod>2023-10-19T18:23:44+00:00</lastmod>
+  <priority>0.64</priority>
+</url>
+<url>
+  <loc>https://book-cycle-f6aff45df7ba.herokuapp.com/inventory/book_detail/gcse-english-text-guide-dr-jekyll-and-mr-hyde-d6833647/?</loc>
+  <lastmod>2023-10-19T18:23:44+00:00</lastmod>
+  <priority>0.64</priority>
+</url>
+<url>
+  <loc>https://book-cycle-f6aff45df7ba.herokuapp.com/inventory/book_detail/gcse-religious-studies-for-aqa-a-christianity-1f9b3da5/?</loc>
+  <lastmod>2023-10-19T18:23:44+00:00</lastmod>
+  <priority>0.64</priority>
+</url>
+<url>
+  <loc>https://book-cycle-f6aff45df7ba.herokuapp.com/inventory/book_detail/gcse-religious-studies-for-aqa-a-islam-e47fc380/?</loc>
+  <lastmod>2023-10-19T18:23:44+00:00</lastmod>
+  <priority>0.64</priority>
+</url>
+<url>
+  <loc>https://book-cycle-f6aff45df7ba.herokuapp.com/inventory/book_detail/knowing-history-early-modern-british-and-world-history-1509-1760-knowing-history-second-edition-449ff2c8/?</loc>
+  <lastmod>2023-10-19T18:23:44+00:00</lastmod>
+  <priority>0.64</priority>
+</url>
+<url>
+  <loc>https://book-cycle-f6aff45df7ba.herokuapp.com/inventory/book_detail/knowing-history-medieval-british-and-world-history-410-1509-knowing-history-second-edition-26a3780e/?</loc>
+  <lastmod>2023-10-19T18:23:44+00:00</lastmod>
+  <priority>0.64</priority>
+</url>
+<url>
+  <loc>https://book-cycle-f6aff45df7ba.herokuapp.com/inventory/book_detail/knowing-history-modern-british-and-world-history-1760-1900-knowing-history-second-edition-8bdc4429/?</loc>
+  <lastmod>2023-10-19T18:23:44+00:00</lastmod>
+  <priority>0.64</priority>
+</url>
+<url>
+  <loc>https://book-cycle-f6aff45df7ba.herokuapp.com/inventory/book_detail/knowing-history-twentieth-century-british-and-world-history-1900-2020-knowing-history-second-edition-04929bc3/?</loc>
+  <lastmod>2023-10-19T18:23:44+00:00</lastmod>
+  <priority>0.64</priority>
+</url>
+<url>
+  <loc>https://book-cycle-f6aff45df7ba.herokuapp.com/inventory/book_detail/macbeth-the-complete-play-with-annotations-audio-and-knowledge-organisers-224ab068/?</loc>
+  <lastmod>2023-10-19T18:23:44+00:00</lastmod>
+  <priority>0.64</priority>
+</url>
+<url>
+  <loc>https://book-cycle-f6aff45df7ba.herokuapp.com/inventory/book_detail/much-ado-about-nothing-the-complete-play-with-annotations-audio-and-knowledge-organisers-36d25289/?</loc>
+  <lastmod>2023-10-19T18:23:44+00:00</lastmod>
+  <priority>0.64</priority>
+</url>
+<url>
+  <loc>https://book-cycle-f6aff45df7ba.herokuapp.com/inventory/book_detail/new-ks3-english-complete-revision-practice-with-online-edition-quizzes-and-knowledge-organisers-68de8098/?</loc>
+  <lastmod>2023-10-19T18:23:44+00:00</lastmod>
+  <priority>0.64</priority>
+</url>
+<url>
+  <loc>https://book-cycle-f6aff45df7ba.herokuapp.com/inventory/book_detail/new-ks3-spelling-punctuation-grammar-revision-guide-with-online-edition-quizzes-50df36e1/?</loc>
+  <lastmod>2023-10-19T18:23:44+00:00</lastmod>
+  <priority>0.64</priority>
+</url>
+<url>
+  <loc>https://book-cycle-f6aff45df7ba.herokuapp.com/inventory/book_detail/ocr-a-level-pe-year-1-and-year-2-709615b2/?</loc>
+  <lastmod>2023-10-19T18:23:44+00:00</lastmod>
+  <priority>0.64</priority>
+</url>
+<url>
+  <loc>https://book-cycle-f6aff45df7ba.herokuapp.com/inventory/book_detail/ocr-gcse-food-preparation-and-nutrition-303decb3/?</loc>
+  <lastmod>2023-10-19T18:23:44+00:00</lastmod>
+  <priority>0.64</priority>
+</url>
+<url>
+  <loc>https://book-cycle-f6aff45df7ba.herokuapp.com/inventory/book_detail/ocr-gcse-music-study-guide-b5951f5b/?</loc>
+  <lastmod>2023-10-19T18:23:44+00:00</lastmod>
+  <priority>0.64</priority>
+</url>
+<url>
+  <loc>https://book-cycle-f6aff45df7ba.herokuapp.com/inventory/book_detail/ocr-religious-studies-a-level-year-1-and-as-2a33317c/?</loc>
+  <lastmod>2023-10-19T18:23:44+00:00</lastmod>
+  <priority>0.64</priority>
+</url>
+<url>
+  <loc>https://book-cycle-f6aff45df7ba.herokuapp.com/inventory/book_detail/ocr-religious-studies-a-level-year-2-85768654/?</loc>
+  <lastmod>2023-10-19T18:23:44+00:00</lastmod>
+  <priority>0.64</priority>
+</url>
+<url>
+  <loc>https://book-cycle-f6aff45df7ba.herokuapp.com/inventory/book_detail/oxford-aqa-gcse-history-9-1-britain-health-and-the-people-c1000-present-day-student-book-second-edition-7e7e4ed3/?</loc>
+  <lastmod>2023-10-19T18:23:44+00:00</lastmod>
+  <priority>0.64</priority>
+</url>
+<url>
+  <loc>https://book-cycle-f6aff45df7ba.herokuapp.com/inventory/book_detail/oxford-aqa-gcse-history-9-1-elizabethan-england-c1568-1603-student-book-second-edition-69e410ca/?</loc>
+  <lastmod>2023-10-19T18:23:44+00:00</lastmod>
+  <priority>0.64</priority>
+</url>
+<url>
+  <loc>https://book-cycle-f6aff45df7ba.herokuapp.com/inventory/book_detail/oxford-aqa-gcse-history-america-1920-1973-opportunity-and-inequality-student-book-c23a7011/?</loc>
+  <lastmod>2023-10-19T18:23:44+00:00</lastmod>
+  <priority>0.64</priority>
+</url>
+<url>
+  <loc>https://book-cycle-f6aff45df7ba.herokuapp.com/inventory/book_detail/oxford-aqa-history-for-a-level-the-making-of-modern-britain-1951-2007-5ceaec39/?</loc>
+  <lastmod>2023-10-19T18:23:44+00:00</lastmod>
+  <priority>0.64</priority>
+</url>
+<url>
+  <loc>https://book-cycle-f6aff45df7ba.herokuapp.com/inventory/book_detail/oxford-aqa-history-for-a-level-the-quest-for-political-stability-germany-1871-1991-4bbc5ff3/?</loc>
+  <lastmod>2023-10-19T18:23:44+00:00</lastmod>
+  <priority>0.64</priority>
+</url>
+<url>
+  <loc>https://book-cycle-f6aff45df7ba.herokuapp.com/inventory/book_detail/oxford-aqa-history-for-a-level-tsarist-and-communist-russia-1855-1964-7406f337/?</loc>
+  <lastmod>2023-10-19T18:23:44+00:00</lastmod>
+  <priority>0.64</priority>
+</url>
+<url>
+  <loc>https://book-cycle-f6aff45df7ba.herokuapp.com/inventory/book_detail/oxford-aqa-history-for-gcse-conflict-and-tension-the-inter-war-years-1918-1939-e52bb516/?</loc>
+  <lastmod>2023-10-19T18:23:44+00:00</lastmod>
+  <priority>0.64</priority>
+</url>
+<url>
+  <loc>https://book-cycle-f6aff45df7ba.herokuapp.com/inventory/book_detail/pearson-edexcel-gcse-9-1-design-technology-8c6fa3b6/?</loc>
+  <lastmod>2023-10-19T18:23:44+00:00</lastmod>
+  <priority>0.64</priority>
+</url>
+<url>
+  <loc>https://book-cycle-f6aff45df7ba.herokuapp.com/inventory/book_detail/progress-in-geography-key-stage-3-motivate-engage-and-prepare-pupils-b55f1eb4/?</loc>
+  <lastmod>2023-10-19T18:23:44+00:00</lastmod>
+  <priority>0.64</priority>
+</url>
+<url>
+  <loc>https://book-cycle-f6aff45df7ba.herokuapp.com/inventory/book_detail/romeo-juliet-the-complete-play-with-annotations-audio-and-knowledge-organisers-4623be1a/?</loc>
+  <lastmod>2023-10-19T18:23:44+00:00</lastmod>
+  <priority>0.64</priority>
+</url>
+<url>
+  <loc>https://book-cycle-f6aff45df7ba.herokuapp.com/inventory/book_detail/studio-1-pupil-book-11-14-french-70ec8379/?</loc>
+  <lastmod>2023-10-19T18:23:44+00:00</lastmod>
+  <priority>0.64</priority>
+</url>
+<url>
+  <loc>https://book-cycle-f6aff45df7ba.herokuapp.com/inventory/book_detail/studio-for-edexcel-gcse-9-1-french-e4522264/?</loc>
+  <lastmod>2023-10-19T18:23:44+00:00</lastmod>
+  <priority>0.64</priority>
+</url>
+<url>
+  <loc>https://book-cycle-f6aff45df7ba.herokuapp.com/inventory/book_detail/the-merchant-of-venice-the-complete-play-with-annotations-audio-and-knowledge-organisers-d88a1055/?</loc>
+  <lastmod>2023-10-19T18:23:44+00:00</lastmod>
+  <priority>0.64</priority>
+</url>
+<url>
+  <loc>https://book-cycle-f6aff45df7ba.herokuapp.com/inventory/book_detail/the-tempest-the-complete-play-with-annotations-audio-and-knowledge-organisers-0b429aa3/?</loc>
+  <lastmod>2023-10-19T18:23:44+00:00</lastmod>
+  <priority>0.64</priority>
+</url>
+<url>
+  <loc>https://book-cycle-f6aff45df7ba.herokuapp.com/inventory/book_detail/viva-for-edexcel-gcse-9-1-spanish-4fd92ac4/?</loc>
+  <lastmod>2023-10-19T18:23:44+00:00</lastmod>
+  <priority>0.64</priority>
+</url>
+<url>
+  <loc>https://book-cycle-f6aff45df7ba.herokuapp.com/inventory/book_detail/viva-pupil-book-1-67e3573f/?</loc>
+  <lastmod>2023-10-19T18:23:44+00:00</lastmod>
+  <priority>0.64</priority>
+</url>
+<url>
+  <loc>https://book-cycle-f6aff45df7ba.herokuapp.com/inventory/book_detail/white-rose-maths-white-rose-maths-key-stage-3-maths-student-book-1-7bbcef59/?</loc>
+  <lastmod>2023-10-19T18:23:44+00:00</lastmod>
+  <priority>0.64</priority>
+</url>
+<url>
+  <loc>https://book-cycle-f6aff45df7ba.herokuapp.com/inventory/books/?</loc>
+  <lastmod>2023-10-19T18:23:44+00:00</lastmod>
+  <priority>0.51</priority>
+</url>
+
+
+</urlset>
