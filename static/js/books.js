@@ -29,6 +29,7 @@ searchTermElement.value = searchValue;
 if (searchValue || subjectValue || sortValue) {
     moreOptionsBtn.classList.add('active');
     filterSortBox.classList.add('active');
+    filterSortAppear.classList.add('active');
     allBooksBtn.classList.remove('active');
 }
 else {
@@ -100,7 +101,7 @@ moreOptionsBtn.addEventListener('click', () => {
 
     toggleActive(moreOptionsBtn);
     toggleActive(filterSortBox);
-    toggleActive(filterSortAppear)
+    toggleActive(filterSortAppear);
 });
 
 /** separate the 'subject_asc' etc. sort input format into sort= and direction= 
