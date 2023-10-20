@@ -1,6 +1,6 @@
 from django.shortcuts import render
 from orders.context import manage_orders_details
-from django.http import HttpResponse
+from django.http import HttpResponse, HttpResponseServerError
 
 
 def home(request):
@@ -26,3 +26,15 @@ def sitemap(request):
     response = HttpResponse(sitemap_content, content_type='application/xml')
 
     return response
+
+
+def error_500(request):
+    """ A view to return the 500 error page for testing purposes"""
+    try:
+        # Bad expression to simulate an error
+        1 / 0
+
+        return HttpResponse("Impossible Success")
+    except Exception:
+        # Raise a 500 Internal Server Error
+        raise HttpResponseServerError("Intentional 500 Error")
