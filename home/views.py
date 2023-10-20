@@ -1,5 +1,6 @@
 from django.shortcuts import render
 from orders.context import manage_orders_details
+from django.http import HttpResponse
 
 
 def home(request):
@@ -15,3 +16,13 @@ def home(request):
 def privacy_notice(request):
     """ A view to return the privacy notice page """
     return render(request, 'home/privacy_notice.html')
+
+
+def sitemap(request):
+    """ A view to return the sitemap page - used for SEO """
+    with open('sitemap.xml', 'rb') as f:
+        sitemap_content = f.read()
+
+    response = HttpResponse(sitemap_content, content_type='application/xml')
+
+    return response
