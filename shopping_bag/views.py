@@ -21,8 +21,9 @@ def add_to_bag(request, stock_id):
         bag[str(stock_id)] += 1
     else:
         bag[str(stock_id)] = 1
-        messages.success(
-            request, f'{stock_item.book.title} was added to your bag')
+        messages.success(request, f'{stock_item.book.title}\
+                                 (condition: {stock_item.condition}) was\
+                                 added to your bag')
 
     stock_item.block_1_stock()
 
