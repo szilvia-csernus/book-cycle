@@ -82,6 +82,7 @@
     width: 50%;
     padding: 0.2rem;
     font-size: .9rem;
+    height: 2rem;
 }
 
 .filter-search {
@@ -394,7 +395,7 @@
     align-items: center;
     background-color: var(--bg-gallery);
     padding: 1rem;
-    min-height: 72vh;
+    min-height: 74.8vh;
 }
 
 .detail-page-frame {
