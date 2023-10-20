@@ -9,8 +9,7 @@ The webshop has not been customized to a specific school, which could be done by
 The project is written in Django, a full-stack python framework, alongside HTML, CSS and JavaScript. The Stripe API is used for payments.
 
 ---
-### [View the live project here.](https://book-cycle-f6aff45df7ba.herokuapp.com/inventory/books/)
-
+[View the live project here](https://book-cycle-f6aff45df7ba.herokuapp.com/inventory/books/)
 ---
 
 ![Landing Page](readme_files/mockup-light.jpeg)
@@ -64,7 +63,7 @@ https://lucid.app/lucidchart/8eb93ba8-43af-4939-9709-11dcc52da382/edit?viewport_
 
 ## Landing Page
 
-The Landing page is minimalist with only few options in the top. The side menu opens from the left hand side, where the user has options for searching for textbooks in the store.
+The Landing page is minimalist with only few options on the top. The side menu opens from the left hand side, where users can search for textbooks in the store.
 
 |Landing Page|Side Menu|Landing Page on mobile|
 |:---:|:---:|:---:|
@@ -76,57 +75,128 @@ The Landing page is minimalist with only few options in the top. The side menu o
 
 ### Filtering for books
 
-The user has filtering and searching options from the side menu, and additional options in the main bookstore page.
+The user has filtering and searching options from the side menu and additional options in the main bookstore page.
 Clicking the `shop` button or one of the filtering options from the menu, we will be taken to the bookstore:
 |||
 |:---:|:---:|
 |![Books light mode](readme_files/books-light.jpeg)|![Books dark mode](readme_files/books-dark.jpeg)|
 
+---
 
 Under the `More Options` button, complex searching, filtering and sorting can be carried out.
 |||
 |:---:|:---:|
 |![Books search light mode](readme_files/books-search-light.jpeg)|![Books search dark mode](readme_files/books-search-dark.jpeg)|
 
---
+---
 
 ## Shopping Process
 
 We can start shopping right away, without the need for signing up.
 We can add products directly from the bookstore's page or by visiting the individual book's page.
-|||
+|Book Detail Page light mode|Book Detail Page dark mode|
 |:---:|:---:|
 |![Book detail light mode](readme_files/book-detail-light.jpeg)|![Book detail dark mode](readme_files/book-detail-dark.jpeg)|
 
+---
+
 The shopping bag is available by clicking the shopping bag icon in the top right corner of the page.
-|||
+|Shopping bag from side light mode|Shopping bag from side dark mode|
 |:---:|:---:|
 |![Side bag light mode](readme_files/side-bag-light.jpeg)|![Side bag dark mode](readme_files/side-bag-dark.jpeg)|
 
+---
+
 If we would like to edit our shopping bag, we can do so by clicking the `Edit Bag` button. We can also select our shipping preference. 
-|||
+|Shopping bag light mode|Shopping bag dark mode|
 |:---:|:---:|
 |![Bag light mode](readme_files/bag-light.jpeg)|![Bag dark mode](readme_files/bag-dark.jpeg)|
+
+---
 
 If we choose to go back to the bookstore's page, we will see if we have a particular book in our shopping bag:
 
 ![In your bag!](readme_files/in-your-bag.jpeg)
 
-After clicking the `Checkout` button, we will be taken to the `Checkout Page`. If we chose to have the books posted to us, we need to give detailed shipping information. Otherwise, only the `Country` and the `Postcode` are be needed for the card payment.
-|||
+---
+
+After clicking the `Checkout` button, we will be taken to the `Checkout Page`. If we chose to have the books delivered, we need to give detailed shipping information. Otherwise, only the `Country` and the `Postcode` are needed for the card payment.
+|Checkout light mode|Checkout dark mode|
 |:---:|:---:|
 |![Checkout light mode](readme_files/checkout-light.jpeg)|![Checkout dark mode](readme_files/checkout-dark.jpeg)|
 
+---
+
 `Stripe` provides a number of test cards that we can use for successful / failed payments. After a successful payment, we will receive a confirmation email about our order.
-||||
-|:---:|:---:|:---:|
-|![Payment light mode](readme_files/payment-light.jpeg)|![Checkout success light mode](readme_files/checkout-success-light.jpeg)|![Email confirmation](readme_files/order-confirmation-email.jpeg)|
-
-
-## Authentication
+|Payment|Checkout Success Page & Email Confirmation|
+|:---:|:---:|
+|![Payment light mode](readme_files/payment-light.jpeg) ![Insufficient Funds](readme_files/insufficient-funds.jpeg)![Card Declined](readme_files/card-declined.jpeg)|![Checkout success light mode](readme_files/checkout-success-light.jpeg)![Email confirmation](readme_files/order-confirmation-email.jpeg)|
 
 ---
 
+## Authentication
+
+I used the `django-allauth` module to implement authentication. The user can sign up with email address & password, as well their `Google account`.
+
+### Register with email
+
+Signing Up with email and password is straightforward. After the user clicks the link in the verification email, they will get signed in straight away.
+|Register|Verify Email Page|Verify Email Message|
+|:---:|:---:|:---:|
+|![Register](readme_files/register.jpeg)|![Verify Email](readme_files/verify-email.jpeg)|![Sign Up Email](readme_files/sign-up-email.jpeg)|
+
+---
+### Sign in
+
+For signing in at a later time, the user's email and password are required.
+
+|Sign In Page|Sign In Success|
+|:---:|:---:|
+|![Sign In](readme_files/sign-in.jpeg)|![Sign In Success](readme_files/sign-in-success-ava.jpeg)|
+
+---
+### Registering/Signing in with a Google account
+
+If a user sings in with their Google account, there is no need to verify the email address so the process is significantly faster. In the admin views below, I demonstrate how my user account and social account was created when I signed up with my Google account. In this case, no Password has been set.
+
+|Google Sign In |Successful Sign In|User's account in Admin view|
+|:---:|:---:|:---:|
+|![Google Sign In](readme_files/google-sign-in.jpeg)|![Sign In Success](readme_files/sign-in-success-szilvi.jpeg)|![User Admin View](readme_files/user-admin-view.jpeg)![Social Account Admin View](readme_files/social-account-admin-view.jpeg)|
+
+---
+
+If a user already has an account and later decides to use their social account, their social account will be linked to their original account if the email address is the same.
+
+---
+### User Account
+
+After successful registration, the user has access to their `order history` and `contact details`. 
+|User Account Page light mode|User account Page dark mode|
+|:---:|:---:|
+|![User Account Light](readme_files/user-account-page-light.jpeg)|![User Account Dark](readme_files/user-account-page-dark.jpeg)|
+
+---
+
+The user can `change` their password if they have one or `set` a new password if they don't. 
+|Change Password |User with Social Account Only |Set Password|
+|:---:|:---:|:---:|
+|![Change Password](readme_files/change-password.jpeg)|![Account Set Password](readme_files/account-set-password.jpeg)|![Set Password](readme_files/set-password.jpeg)|
+
+---
+
+All users can use the `Forgot Password?` function.
+|Password Reset | Password Reset Notification |
+|:---:|:---:|
+|![Forgot Password](readme_files/password-reset.jpeg)|![Password Reset Notification](readme_files/password-reset-note.jpeg)|
+
+---
+### Deleting a User Account
+
+The user can delete their account from the database, including their social account. Their order history will not be erased from the database, but no profile info will have been attached to them and will be inaccessible for the user.
+I demonstrate how a user account is being deleted by deleting my social account I created earlier.
+| Confirm Notification |Account Deleted Message |Accound Deleted Admin View|
+|:---:|:---:|:---:|
+|![Change Password](readme_files/user-delete-confirm.jpeg)|![Account deleted message](readme_files/social-account-deleted-message.jpeg)|![Admin View](readme_files/social-account-deleted-admin-view.jpeg)|
 
 ## Shopping bag
 
