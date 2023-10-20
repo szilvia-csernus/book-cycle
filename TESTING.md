@@ -111,27 +111,7 @@ The results of the css file validations all look the same:
 ---
 # Testing User Stories
 
-Tests were carried out on Chrome 114.0.5735.133  
-(macOS Catalina v10.15.7)
-
-## Site Owner's Goals
-
-| Passed | Site Owneer's Goals
-| :--: | :-- |
-
-## Shopper's Goals
-
-| Passed | Site Owneer's Goals
-| :--: | :-- |
-
-
-## Staff member's Goals
-
-
-| Passed | Member's Goals
-| :--: | :-- |
-|  |  **...be able to register and safely sign in.** |
-| &check; | The user can sign up with either one of their Google accounts or with their email and a password. |
+For User Stories' testing, please [refer to this document](testing_files/user-stories-testing.pdf)
 
 ---
 
@@ -143,7 +123,6 @@ Tests were carried out on Chrome 114.0.5735.133
 * Icons which have inferred meanings are marked with `aria` labels.
 * All colours were tested for contrast in Chrome's Dev Tools.
 * Chrome Dev Tools' Lighthouse score is 100% for accessibility for both mobile and desktop devices. (See below.)
-* `WAVE` Accessibility checker was also used to check all the pages. 
 
 --- 
 
@@ -281,6 +260,8 @@ Initial Response time by Heroku, Stripe, Amazon AWS, as well as Google Fonts wer
 
 Responsiveness was tested using [Google Dev Tools](https://developer.chrome.com/docs/devtools/)  
 Browser & Version: Chrome Version 117.0.5938.149 (Official Build) (x86_64) on Desktop (macOS Catalina version 10.15.7)
+
+A test considered as passed if the width of the page resizes to the given device's width.
 
 | Device | iPhone SE | iPhone XR | iPhone 12 Pro | Pixel 5 | Samsung Galaxy S8+ | Samsung Galaxy S20 Ultra | iPad Air | iPad Mini | Surface Pro 7 | Samsung Galaxy A51/71 | Nest Hub | Nest Hub Max |
 | :--- | :---: | :---: | :---: | :---: | :---: | :---: | :---: | :---: | :---: | :---: | :---: | :---: |
