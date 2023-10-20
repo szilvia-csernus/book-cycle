@@ -6,7 +6,7 @@ const toastCloseButton = document.getElementById('toast-close-button');
 /** Apply styles to toast elements to make it appear */
 const activateToast = () => {
     toastContainer.classList.add('toast-container-active');
-    setTimeout(closeToast, 5000);
+    // setTimeout(closeToast, 5000);
 };
 
 /** Apply the disappear effect to toast and hide its container
