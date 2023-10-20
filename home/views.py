@@ -31,10 +31,7 @@ def sitemap(request):
 def error_500(request):
     """ A view to return the 500 error page for testing purposes"""
     try:
-        # Bad expression to simulate an error
         1 / 0
-
         return HttpResponse("Impossible Success")
     except Exception:
-        # Raise a 500 Internal Server Error
         raise HttpResponseServerError("Intentional 500 Error")
