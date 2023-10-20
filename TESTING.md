@@ -128,7 +128,7 @@ For User Stories' testing, please [refer to this document](testing_files/user-st
 
 # Automated Tests - Unit tests
 
-I wrote 78 unit tests for my python files, [covering 89%](testing_files/coverage-report.pdf) of all statements.
+I wrote 79 unit tests for my python files, [covering 89%](testing_files/coverage-report.pdf) of all statements.
 Please see the results below:
 
 
