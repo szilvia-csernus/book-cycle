@@ -42,6 +42,14 @@ Wireframes were created in [Balsamiq](https://balsamiq.cloud/).
 
 ## Colour Scheme
 
+I chose the colours myself, colour Palette was created using [Figma](https://www.figma.com/).
+
+|Book store - light mode| Book store - dark mode |
+|:---:|:---:|
+|![Main Colour Palette light mode](readme_files/colours-light.jpeg)|![Main Colour Palette dark mode](readme_files/colours-dark.jpeg)|
+|Admin Console - light mode| Admin Console - dark mode |
+|![Admin console light mode](readme_files/colours-staff-light.jpeg)|![Admin console dark mode](readme_files/colours-staff-dark.jpeg)|
+
 ---
 
 ## Typography
