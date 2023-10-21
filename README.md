@@ -68,8 +68,7 @@ The Landing page is minimalist with only few options on the top. The side menu o
 |Landing Page - light mode |Side Menu|Landing Page on mobile|
 |:---:|:---:|:---:|
 |![Landing Page light mode](readme_files/landing-page-light.jpeg)|![Browse light mode](readme_files/browse-light.jpeg)|![Browse light mode](readme_files/landing-page-light-mobile.jpeg)|
-|Landing Page - dark mode |Side Menu|Landing Page on mobile|
-|:---:|:---:|:---:|
+|Landing Page - dark mode |||
 |![Landing Page dark mode](readme_files/landing-page-dark.jpeg)|![Browse dark mode](readme_files/browse-dark.jpeg)|![Browse dark mode](readme_files/landing-page-dark-mobile.jpeg)|
 ---
 
@@ -79,15 +78,10 @@ The Landing page is minimalist with only few options on the top. The side menu o
 
 The user has filtering and searching options from the side menu and additional options in the main bookstore page.
 Clicking the `shop` button or one of the filtering options from the menu, we will be taken to the bookstore:
-|||
+|Book store - light mode| Book store - dark mode |
 |:---:|:---:|
 |![Books light mode](readme_files/books-light.jpeg)|![Books dark mode](readme_files/books-dark.jpeg)|
-
----
-
-Under the `More Options` button, complex searching, filtering and sorting can be carried out.
-|||
-|:---:|:---:|
+| <td colspan="2">Under the `More Options` button, complex searching, filtering and sorting can be carried out.
 |![Books search light mode](readme_files/books-search-light.jpeg)|![Books search dark mode](readme_files/books-search-dark.jpeg)|
 
 ---
@@ -103,14 +97,14 @@ We can add products directly from the bookstore's page or by visiting the indivi
 ---
 
 The shopping bag is available by clicking the shopping bag icon in the top right corner of the page.
-|Shopping bag from side light mode|Shopping bag from side dark mode|
+|Shopping bag from side - light mode|Shopping bag from side - dark mode|
 |:---:|:---:|
 |![Side bag light mode](readme_files/side-bag-light.jpeg)|![Side bag dark mode](readme_files/side-bag-dark.jpeg)|
 
 ---
 
 If we would like to edit our shopping bag, we can do so by clicking the `Edit Bag` button. We can also select our shipping preference. 
-|Shopping bag light mode|Shopping bag dark mode|
+|Shopping bag - light mode|Shopping bag - dark mode|
 |:---:|:---:|
 |![Bag light mode](readme_files/bag-light.jpeg)|![Bag dark mode](readme_files/bag-dark.jpeg)|
 
@@ -123,7 +117,7 @@ If we choose to go back to the bookstore's page, we will see if we have a partic
 ---
 
 After clicking the `Checkout` button, we will be taken to the `Checkout Page`. If we chose to have the books delivered, we need to give detailed shipping information. Otherwise, only the `Country` and the `Postcode` are needed for the card payment.
-|Checkout light mode|Checkout dark mode|
+|Checkout - light mode|Checkout - dark mode|
 |:---:|:---:|
 |![Checkout light mode](readme_files/checkout-light.jpeg)|![Checkout dark mode](readme_files/checkout-dark.jpeg)|
 
@@ -204,34 +198,48 @@ I demonstrate how a user account is being deleted by deleting my social account 
 ## Admin Functions
 
 If the user's account is a `Staff Account`, they are taken to a different home page after signing in.
-|Admin Home light mode|Side Menu|Admin Home dark mode|Side Menu|
-|:---:|:---:|:---:|:---:|
-|![Landing Page light mode](readme_files/admin-home-light.jpeg)|![Browse light mode](readme_files/admin-side-light.jpeg)|![Browse light mode](readme_files/admin-home-dark.jpeg)|![Browse light mode](readme_files/admin-side-dark.jpeg)|
+|Admin Home light mode|Side Menu|
+|:---:|:---:|
+|![Landing Page light mode](readme_files/admin-home-light.jpeg)|![Browse light mode](readme_files/admin-side-light.jpeg)|
+|Admin Home dark mode|Side Menu|
+|![Browse light mode](readme_files/admin-home-dark.jpeg)|![Browse light mode](readme_files/admin-side-dark.jpeg)|
 
 
 ---
 
 ## Inventory Management
 
+Staff members can Add/Edit/Delete Books as well as manage the books' stock.
+
+|Add New Book | Add New Book Success |
+|:---:|:---:|
+|![Add New Book](readme_files/add-new-book.jpeg)|![Add New Book Success](readme_files/add-book-success.jpeg)|
+|Edit Book | Edit Book Success |
+|![Edit Book](readme_files/edit-book.jpeg)|![Edit Book Success](readme_files/edit-book-success.jpeg)|
+|Manage Stock ||
+|![Manage Stock](readme_files/manage-stock.jpeg)||
+|Delete Book | Delete Book Success |
+|![Delete Book](readme_files/delete-book-confirm.jpeg)|![Delete Book Success](readme_files/delete-book-success.jpeg)|
+
 ---
 
 ## Order Management
 
-The staff member can monitor if there are new orders in the system. The orders which require shipping are listed separately from the ones that need to be collected.
+Staff members can monitor if there are new orders in the system. The orders which require shipping are listed separately from the ones that need to be collected.
 |Orders require shipping | Orders for Collection |
 |:---:|:---:|
 |![Orders for Shipping](readme_files/orders-for-shipping.jpeg)|![Orders for Collection](readme_files/orders-for-collection.jpeg)|
 
 ---
 
-On the order's page, the staff member can use the shipping details for postage and register the tracking number.
+On the individual order's page, the staff member can use the shipping details for postage and register the tracking number.
 |Order to Post (light mode) |Successful shipping|
 |:---:|:---:|
 |![Order to Post](readme_files/order-to-post.jpeg)![Manage shipping](readme_files/manage-order-post.jpeg)|![Order Post Success](readme_files/order-post-success.jpeg)![Order Post Email](readme_files/order-post-email.jpeg)|
 
 ---
 
-Similarly to the shipping, the staff member can register if an order had been collected.
+Similarly to the shipping, the staff member can register if an order has been collected.
 |Order for Collection (dark mode) |Successful Collection|
 |:---:|:---:|
 |![Order for Collection](readme_files/order-for-collection.jpeg)|![Order Collection Success](readme_files/order-collection-success.jpeg)![Order Collection Email](readme_files/order-collection-email.jpeg)|
