@@ -62,19 +62,28 @@ I used two fonts, [Koulen](https://fonts.google.com/specimen/Koulen) and [KoHo](
 
 The [main image](https://unsplash.com/photos/OQSCtabGkSY) on the home page is created by [Jessica Ruscello]("https://unsplash.com/@jruscello?utm_source=unsplash&utm_medium=referral&utm_content=creditCopyText"), distributed by [Unsplash]("https://unsplash.com/photos/OQSCtabGkSY?utm_source=unsplash&utm_medium=referral&utm_content=creditCopyText").
 
-The icons are my own drawings, with the exception of the [Google icon](https://design.google/?ref=svgrepo.com), which was downloaded from [SVG Repo](https://www.svgrepo.com/).
+The logo and icons are my own drawings, with the exception of the [Google icon](https://design.google/?ref=svgrepo.com), which was downloaded from [SVG Repo](https://www.svgrepo.com/).
 
 ---
 
-# Database Schema
+# Data
 
-Database Schema in Lucid Charts:
+## Database Schema
+I created 7 tables to model the data and its relationships. Furthermore, I utilised the `django-allauth` tables for authentication.
+
+[Lucid Charts](https://lucid.app/) was used to visualize the database schema.
 
 
 ![database-schema](readme_files/database_schema.jpeg)
 
 
-https://lucid.app/lucidchart/8eb93ba8-43af-4939-9709-11dcc52da382/edit?viewport_loc=-452%2C117%2C2818%2C1215%2C0_0&invitationId=inv_a84acf43-e6e9-4d82-b0e2-672a16e53969
+[Schema Link (accessible for LucidChart users)](https://lucid.app/lucidchart/8eb93ba8-43af-4939-9709-11dcc52da382/edit?viewport_loc=-452%2C117%2C2818%2C1215%2C0_0&invitationId=inv_a84acf43-e6e9-4d82-b0e2-672a16e53969)
+
+## Product data
+
+I compiled a custom textbook list, converted it to json then wrote custom scripts to create stock data - generating prices and stock amounts randomly. Finally, I used these files as `fixtures` to populate the database.
+
+The book pictures and details were taken from the publishers websites, a link pointing to the original site is provided for all books.
 
 ---
 
@@ -262,6 +271,85 @@ Similarly to the shipping, the staff member can register if an order has been co
 |Order for Collection (dark mode) |Successful Collection|
 |:---:|:---:|
 |![Order for Collection](readme_files/order-for-collection.jpeg)|![Order Collection Success](readme_files/order-collection-success.jpeg)![Order Collection Email](readme_files/order-collection-email.jpeg)|
+
+## Error pages
+
+In case of an error, custom error pages would be shown to the user.
+* `404 (not found) page` in case of an invalid URL was typed in,
+* `403 (access denied) page` if there is an authentication issue,
+* `400 (bad request)` if a request to the server was sent with incorrect data/sturcture,
+* `500 (internal server error)` in case there is a problem with code execution or with the connection to the server. 
+  
+|404 - Not Found | 403 - Access Denied | 500 = Server Error |
+|:---:|:---:|:---:|
+|![Not found page](readme_files/404.jpeg)|![Access denied](readme_files/403.jpeg)|![Error page](readme_files/500.jpeg)|
+
+    
+ ---
+
+## Future Implementations
+
+* Further functions for staff members - searching/filtering orders, handling returns and refunds.
+
+* Implementing an API to calculate postage data and integrate package tracking.
+
+* Re-creating the project in a Django REST + ReactJS architecture to improve user experience.
+
+
+---
+
+# Technologies Used
+  
+
+## Languages Used
+  
+
+The site was built with Python, PosgreSQL, JavaScript, HTML and CSS.
+    
+
+## Frameworks and Libraries
+  
+
+* [Django](https://www.djangoproject.com/) - Fullstack python framework
+
+* [django-allauth](https://allauth.org/) - A Django package for authentication
+
+* [crispy-forms](https://django-crispy-forms.readthedocs.io/en/latest/) - A Django package for form management
+
+* [Pillow](https://pypi.org/project/Pillow/) - A python imaging library for processing images
+
+I chose not to use any frontend libraries (like Bootstrap / Materialize) to reduce dependencies, improve the project's Lighthouse scores and to have greater control over the look and behaviour of the frontend of the project.
+
+
+
+## Other Programs Used
+
+* [Heroku](https://heroku.com/) - to deploy the project.
+
+* [ElephantSQL](https://elephantsql.com/) - to deploy the database.
+
+* [Google Fonts](https://fonts.google.com/)  - for texts.
+
+* [Balsamiq](https://balsamiq.cloud/)  - to create wireframes.
+
+* [Figma](https://www.figma.com/)  - to create colour palette and drawing of red car.
+
+* [RealFaviconGenerator](https://realfavicongenerator.net/svg-favicon/)  - to generate favicons.
+
+* [Multi Device Website Mockup](https://techsini.com/multi-mockup/index.php)  - to create site visuals for responsive design.
+
+* [VSCode](https://code.visualstudio.com/) - for local development.
+
+* [Git](https://git-scm.com/) & [Github](https://github.com/)  - for version control, safe storage and deployment.
+
+* [Google Dev Tools](https://developer.chrome.com/docs/devtools/)  - for testing and troubleshooting.
+
+* [Lucid App](https://lucid.app) - for database model visuals.
+
+* [Random Key Generator](https://randomkeygen.com/) - to generate a secret key.
+
+
+---
 
 # SEO
 
