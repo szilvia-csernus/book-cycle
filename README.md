@@ -42,7 +42,7 @@ Wireframes were created in [Balsamiq](https://balsamiq.cloud/).
 
 ## Colour Scheme
 
-I chose the colours myself, colour Palette was created using [Figma](https://www.figma.com/).
+I chose the colours myself, colour palette was created using [Figma](https://www.figma.com/).
 
 |Book store - light mode| Book store - dark mode |
 |:---:|:---:|
@@ -54,9 +54,15 @@ I chose the colours myself, colour Palette was created using [Figma](https://www
 
 ## Typography
 
+I used two fonts, [Koulen](https://fonts.google.com/specimen/Koulen) and [KoHo](https://fonts.google.com/specimen/KoHo) from the [Google Fonts](https://fonts.google.com/) library. I selected them because I felt that they complement each other and their styles are fitting the scheme.
+
 ---
 
 ## Imagery
+
+The [main image](https://unsplash.com/photos/OQSCtabGkSY) on the home page is created by [Jessica Ruscello]("https://unsplash.com/@jruscello?utm_source=unsplash&utm_medium=referral&utm_content=creditCopyText"), distributed by [Unsplash]("https://unsplash.com/photos/OQSCtabGkSY?utm_source=unsplash&utm_medium=referral&utm_content=creditCopyText").
+
+The icons are my own drawings, with the exception of the [Google icon](https://design.google/?ref=svgrepo.com), which was downloaded from [SVG Repo](https://www.svgrepo.com/).
 
 ---
 
@@ -308,7 +314,7 @@ https://stackoverflow.com/questions/61543829/django-taking-values-from-post-requ
 
 * Background image: https://unsplash.com/photos/OQSCtabGkSY - Photo by [Jessica Ruscello]("https://unsplash.com/@jruscello?utm_source=unsplash&utm_medium=referral&utm_content=creditCopyText") on [Unsplash]("https://unsplash.com/photos/OQSCtabGkSY?utm_source=unsplash&utm_medium=referral&utm_content=creditCopyText")
 
-* Google logo: Vectors and icons by <a href="https://design.google/?ref=svgrepo.com" target="_blank">Google Design</a> in Logo License via <a href="https://www.svgrepo.com/" target="_blank">SVG Repo</a>
+* Google logo: Vectors and icons by [Google Design](https://design.google/?ref=svgrepo.com) in Logo License via [SVG Repo](https://www.svgrepo.com/).
 
 * Exemption from Copyright law: https://www.gov.uk/guidance/exceptions-to-copyright#non-commercial-research-and-private-study
   
