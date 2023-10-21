@@ -65,9 +65,11 @@ https://lucid.app/lucidchart/8eb93ba8-43af-4939-9709-11dcc52da382/edit?viewport_
 
 The Landing page is minimalist with only few options on the top. The side menu opens from the left hand side, where users can search for textbooks in the store.
 
-|Landing Page|Side Menu|Landing Page on mobile|
+|Landing Page - light mode |Side Menu|Landing Page on mobile|
 |:---:|:---:|:---:|
 |![Landing Page light mode](readme_files/landing-page-light.jpeg)|![Browse light mode](readme_files/browse-light.jpeg)|![Browse light mode](readme_files/landing-page-light-mobile.jpeg)|
+|Landing Page - dark mode |Side Menu|Landing Page on mobile|
+|:---:|:---:|:---:|
 |![Landing Page dark mode](readme_files/landing-page-dark.jpeg)|![Browse dark mode](readme_files/browse-dark.jpeg)|![Browse dark mode](readme_files/landing-page-dark-mobile.jpeg)|
 ---
 
@@ -94,7 +96,7 @@ Under the `More Options` button, complex searching, filtering and sorting can be
 
 We can start shopping right away, without the need for signing up.
 We can add products directly from the bookstore's page or by visiting the individual book's page.
-|Book Detail Page light mode|Book Detail Page dark mode|
+|Book Detail Page - light mode|Book Detail Page - dark mode|
 |:---:|:---:|
 |![Book detail light mode](readme_files/book-detail-light.jpeg)|![Book detail dark mode](readme_files/book-detail-dark.jpeg)|
 
@@ -136,7 +138,7 @@ After clicking the `Checkout` button, we will be taken to the `Checkout Page`. I
 
 ## Authentication
 
-I used the `django-allauth` module to implement authentication. The user can sign up with email address & password, as well their `Google account`.
+I used the `django-allauth` package to implement authentication. The user can sign up with email address & password, as well their `Google account`.
 
 ### Register with email
 
@@ -159,9 +161,9 @@ For signing in at a later time, the user's email and password are required.
 
 If a user sings in with their Google account, there is no need to verify the email address so the process is significantly faster. In the admin views below, I demonstrate how my user account and social account was created when I signed up with my Google account. In this case, no Password has been set.
 
-|Google Sign In |Successful Sign In|User's account in Admin view|
-|:---:|:---:|:---:|
-|![Google Sign In](readme_files/google-sign-in.jpeg)|![Sign In Success](readme_files/sign-in-success-szilvi.jpeg)|![User Admin View](readme_files/user-admin-view.jpeg)![Social Account Admin View](readme_files/social-account-admin-view.jpeg)|
+|Google Sign In |User's account in Admin view|
+|:---:|:---:|
+|![Google Sign In](readme_files/google-sign-in.jpeg)![Sign In Success](readme_files/sign-in-success-szilvi.jpeg)|![User Admin View](readme_files/user-admin-view.jpeg)![Social Account Admin View](readme_files/social-account-admin-view.jpeg)|
 
 ---
 
@@ -184,10 +186,10 @@ The user can `change` their password if they have one or `set` a new password if
 
 ---
 
-All users can use the `Forgot Password?` function.
+All users can use the `Forgot your password?` function.
 |Password Reset | Password Reset Notification |
 |:---:|:---:|
-|![Forgot Password](readme_files/password-reset.jpeg)|![Password Reset Notification](readme_files/password-reset-note.jpeg)|
+|![Forgot your password](readme_files/password-reset.jpeg)|![Password Reset Notification](readme_files/password-reset-note.jpeg)|
 
 ---
 ### Deleting a User Account
@@ -198,15 +200,14 @@ I demonstrate how a user account is being deleted by deleting my social account 
 |:---:|:---:|:---:|
 |![Change Password](readme_files/user-delete-confirm.jpeg)|![Account deleted message](readme_files/social-account-deleted-message.jpeg)|![Admin View](readme_files/social-account-deleted-admin-view.jpeg)|
 
-## Shopping bag
-
----
-
-## Checkout
-
-![checkout-process](readme_files/checkout_flowchart.jpeg)
 
 ## Admin Functions
+
+If the user's account is a `Staff Account`, they are taken to a different home page after signing in.
+|Admin Home light mode|Side Menu|Admin Home dark mode|Side Menu|
+|:---:|:---:|:---:|:---:|
+|![Landing Page light mode](readme_files/admin-home-light.jpeg)|![Browse light mode](readme_files/admin-side-light.jpeg)|![Browse light mode](readme_files/admin-home-dark.jpeg)|![Browse light mode](readme_files/admin-side-dark.jpeg)|
+
 
 ---
 
@@ -216,7 +217,24 @@ I demonstrate how a user account is being deleted by deleting my social account 
 
 ## Order Management
 
+The staff member can monitor if there are new orders in the system. The orders which require shipping are listed separately from the ones that need to be collected.
+|Orders require shipping | Orders for Collection |
+|:---:|:---:|
+|![Orders for Shipping](readme_files/orders-for-shipping.jpeg)|![Orders for Collection](readme_files/orders-for-collection.jpeg)|
+
 ---
+
+On the order's page, the staff member can use the shipping details for postage and register the tracking number.
+|Order to Post (light mode) |Successful shipping|
+|:---:|:---:|
+|![Order to Post](readme_files/order-to-post.jpeg)![Manage shipping](readme_files/manage-order-post.jpeg)|![Order Post Success](readme_files/order-post-success.jpeg)![Order Post Email](readme_files/order-post-email.jpeg)|
+
+---
+
+Similarly to the shipping, the staff member can register if an order had been collected.
+|Order for Collection (dark mode) |Successful Collection|
+|:---:|:---:|
+|![Order for Collection](readme_files/order-for-collection.jpeg)|![Order Collection Success](readme_files/order-collection-success.jpeg)![Order Collection Email](readme_files/order-collection-email.jpeg)|
 
 # SEO
 
