@@ -51,7 +51,7 @@ ul, address, svg, input, textarea {
     --bg-detail: #1e1f28b0;
     --bg-translucent: #0c122f99;
     --bg-primary: white;
-    --bg-toast: #31384cfc;
+    --bg-toast: #282e41f5;
     --bg-modal-body: #2d2f44fa;
     --text-primary: white;
     --text-contrast: rgb(20, 22, 34);
@@ -263,6 +263,7 @@ footer {
 .header-right a,
 .header-right span {
     transition: color 0.6s;
+    transition: background-color 0.6;
 }
 
 .header-right a:hover,
@@ -308,6 +309,11 @@ img.bag {
     text-align: center;
     width: 1.3rem;
     margin: auto;
+}
+
+.book-nr:hover,
+.book-nr:focus {
+    background-color: var(--bg-overlay);
 }
 
 .user-name {
