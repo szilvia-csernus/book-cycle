@@ -32,6 +32,11 @@ Not for public use.
 ---
 ## Wireframes
 
+Wireframes were created in [Balsamiq](https://balsamiq.cloud/).   
+
+![Home Page](readme_files/wireframe-home.jpeg)  
+![All Books](readme_files/wireframe-books.jpeg)  
+![Book Detail](readme_files/wireframe-book-detail.jpeg) 
 
 ---
 
@@ -214,10 +219,10 @@ Staff members can Add/Edit/Delete Books as well as manage the books' stock.
 |Add New Book | Add New Book Success |
 |:---:|:---:|
 |![Add New Book](readme_files/add-new-book.jpeg)|![Add New Book Success](readme_files/add-book-success.jpeg)|
-|Edit Book | Edit Book Success |
-|![Edit Book](readme_files/edit-book.jpeg)|![Edit Book Success](readme_files/edit-book-success.jpeg)|
 |Manage Stock ||
 |![Manage Stock](readme_files/manage-stock.jpeg)||
+|Edit Book | Edit Book Success |
+|![Edit Book](readme_files/edit-book.jpeg)|![Edit Book Success](readme_files/edit-book-success.jpeg)|
 |Delete Book | Delete Book Success |
 |![Delete Book](readme_files/delete-book-confirm.jpeg)|![Delete Book Success](readme_files/delete-book-success.jpeg)|
 
