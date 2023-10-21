@@ -54,7 +54,7 @@ I chose the colours myself, colour palette was created using [Figma](https://www
 
 ## Typography
 
-I used two fonts, [Koulen](https://fonts.google.com/specimen/Koulen) and [KoHo](https://fonts.google.com/specimen/KoHo) from the [Google Fonts](https://fonts.google.com/) library. I selected them because I felt that they complement each other and their styles are fitting the scheme.
+I used two fonts, [Koulen](https://fonts.google.com/specimen/Koulen) and [KoHo](https://fonts.google.com/specimen/KoHo) from the [Google Fonts](https://fonts.google.com/) library. I selected them because I felt that they complement each other and their styles are fitting the theme.
 
 ---
 
@@ -328,11 +328,13 @@ I chose not to use any frontend libraries (like Bootstrap / Materialize) to redu
 
 * [ElephantSQL](https://elephantsql.com/) - to deploy the database.
 
+* [Amazon AWS S3]() - to serve static files. 
+
 * [Google Fonts](https://fonts.google.com/)  - for texts.
 
 * [Balsamiq](https://balsamiq.cloud/)  - to create wireframes.
 
-* [Figma](https://www.figma.com/)  - to create colour palette and drawing of red car.
+* [Figma](https://www.figma.com/)  - to create colour palette.
 
 * [RealFaviconGenerator](https://realfavicongenerator.net/svg-favicon/)  - to generate favicons.
 
