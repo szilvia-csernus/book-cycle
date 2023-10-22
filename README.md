@@ -15,7 +15,7 @@ The project is written in Django, a full-stack python framework, alongside HTML,
 ![Landing Page](readme_files/mockup-light.jpeg)
 ![Landing Page](readme_files/mockup-dark.jpeg)
 
-> This project was created for [Code Institute](www.codeintitute.net)'s Web Development Course as the Fourth Milestone Project (MS4) - Full Stack E-Commerce App Development Project - for educational purposes.
+> This project was created for [Code Institute](www.codeintitute.net)'s Web Development Course as the Fourth Milestone Project (MS4) - Full Stack E-Commerce Web Application.
 
 Not for public use.
     
@@ -334,7 +334,7 @@ I chose not to use any frontend libraries (like Bootstrap / Materialize) to redu
 
 * [Balsamiq](https://balsamiq.cloud/)  - to create wireframes.
 
-* [Figma](https://www.figma.com/)  - to create colour palette.
+* [Figma](https://www.figma.com/)  - to draw the logo and the icons, and to create colour palette.
 
 * [RealFaviconGenerator](https://realfavicongenerator.net/svg-favicon/)  - to generate favicons.
 
@@ -358,6 +358,71 @@ I chose not to use any frontend libraries (like Bootstrap / Materialize) to redu
 * Lighthouse scores for Search Engine Optimasation are 100% throughout all pages.
 
 * Furthermore, I created a `slug` for each book, based on their titles, that makes the book discoverable by search engines when someone is searching for the book's title. This approach will increase the site's traffic and increases potential revenue.
+
+---
+
+# Testing
+
+Please refer to [TESTING.md](TESTING.md) for detailed testing documentation.
+
+---
+    
+
+# Local Development and Deployment
+
+## Local Development
+
+To develop this project locally in VSCode, the followings steps are needed.    
+
+1. Make sure you have python installed.
+2. Clone this project into a new repository.
+3. Create a new virtual environment in the project's parent folder with `python3 -m venv venv`.
+4. While in the project's parent folder, activate the virtual environment with `source venv/bin/activate`.
+5. Reload VSCode window. If the virtual environment creation and activation was successful, `(venv)` will appear in front of the prompt.
+6. Install the required packages with `pip install -r requirements.txt`.
+7. Create a `.gitignore` file, and place in the lines below.
+
+    ```
+    .vscode
+    venv
+    *.sqlite3
+    *.pyc
+    __pycache__
+    .env
+    ```
+
+8. Create the `.env` file.
+    
+    ```
+    SECRET_KEY=<your-secret-key>
+    DEVELOPMENT=development
+    STRIPE_PUBLIC_KEY=<your-stripe-public-key>
+    STRIPE_SECRET_KEY=<your-stripe-secret-key>
+    STRIPE_WH_SECRET=<your-stripe-webhook-secret>
+    GOOGLE_CLIENT_ID=<your-google-client-id>
+    GOOGLE_SECRET=<your-google-secret>
+    DEBUG=anything
+    ```
+9. Run migrations with `python manage.py migrate`
+
+10. Create a superuser for your database with `python manage.py createsuperuser`
+
+11. Populate the database with data (in this order):
+    1. `python manage.py loaddata yeargroup`
+    2. `python manage.py loaddata subject`
+    3. `python manage.py loaddata book`
+    4. `python manage.py loaddata stock`
+
+12. To back up data:
+    1. `python manage.py dumpdata inventory.YearGroup > backup-yeargroup.json`
+    2. `python manage.py dumpdata inventory.Subject > backup-subject.json`
+    3. `python manage.py dumpdata inventory.Book > backup-book.json`
+    4. `python manage.py dumpdata inventory.Stock > backup-stock.json`
+
+    Alternatively, you can create just one backup file with `python manage.py dumpdata > backup.json`,
+    these will include all data inc. user login history.
+
+---
 
 
 
@@ -407,4 +472,27 @@ https://stackoverflow.com/questions/61543829/django-taking-values-from-post-requ
 * Google logo: Vectors and icons by [Google Design](https://design.google/?ref=svgrepo.com) in Logo License via [SVG Repo](https://www.svgrepo.com/).
 
 * Exemption from Copyright law: https://www.gov.uk/guidance/exceptions-to-copyright#non-commercial-research-and-private-study
+
+
+##  Acknowledgements
   
+I would like to thank the following contributors:
+
+* My mentor, [Rory Patrick Sheridan]( https://github.com/Ri-Dearg) and my college coordinator [Manuel Perez Romero](https://www.linkedin.com/in/manuel-perez-romero-460063176/) for giving useful feedback throughout the development and testing processes.
+
+* My family and friends for taking the time to test the site.
+
+* [Code Institute](www.codeintitute.net)'s Slack Community for continuous support.
+
+    
+
+
+
+##  Disclaimer
+  
+
+This project was created for [Code Institute](www.codeintitute.net)'s web application development course as the Fourth Milestone Project - for educational purposes.
+    
+Not for public use.
+    
+&copy;2023 Szilvia Csernusne Berczes. All rights reserved. 
