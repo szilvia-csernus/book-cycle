@@ -424,6 +424,125 @@ To develop this project locally in VSCode, the followings steps are needed.
 
 ---
 
+## Deployment
+
+The project is deployed on `Heroku`, the database on `ElephantSQL` and the static/media files on `Amazon AWS S3`.
+
+For deployment, the following steps were taken:
+
+1. Create a new ElephantSQL instance
+2. Migrate the database
+    * install `dj_database_url` and `psycopg2`,
+    * in settings.py, add
+    ```python
+    import dj_database_url
+
+    if 'DATABASE_URL' in os.environ:
+        DATABASES = {
+            'default': dj_database_url.parse(os.environ.get('DATABASE_URL', ''))
+        }
+        else:
+            DATABASES = {
+                'default': {
+                    'ENGINE': 'django.db.backends.sqlite3',
+                    'NAME': BASE_DIR / 'db.sqlite3',
+                }
+            }
+    ```
+    * temporarily, add `DATABASE_URL=<the-elephant-sql-database-url` to the `.env` file,
+    * run `python manage.py showmigrations`, this will show if we are connected to the external database. No checks should show!
+    * run `python manage.py migrate`
+    * create a superuser for the database with `python manage.py createsuperuser`
+    * populate the database with data (in this order):
+        1. `python manage.py loaddata yeargroup`
+        2. `python manage.py loaddata subject`
+        3. `python manage.py loaddata book`
+        4. `python manage.py loaddata stock`
+    * confirm that the data is in the external database by running a table query in the ElephantSQL/Browser console.
+    * remove the temporarily added `DATABASE_URL` from the `.env` file
+    * to prevent 500 error on the deployed sign-in, edit the line temporary in the `settings.py`: ACCOUNT_EMAIL_VERIFICATION='none'
+
+3. Create a new `Heroku App`.
+    * In Settings/Config Vars add:
+
+        ```
+        DATABASE_URL
+        SECRET_KEY
+        STRIPE_PUBLIC_KEY
+        STRIPE_SECRET_KEY
+        STRIPE_WH_SECRET
+        GOOGLE_CLIENT_ID
+        GOOGLE_SECRET 
+        EMAIL_HOST_PASS
+        EMAIL_HOST_USER
+        USE_AWS
+        AWS_ACCESS_KEY_ID
+        AWS_SECRET_ACCESS_KEY
+        ```
+    * install `gunicorn`
+    * create the `Procfile`
+    * to stop Heroku to collect static files, set `DISABLE_COLLECTSATIC` in the config file:
+    ```
+    heroku login
+    heroku config:set DISABLE_COLLECTSTATIC=1 --app <heroku-app-name>
+    ```
+    * add the new Heroku app url to `ALLOWED_HOSTS` in `settings.py`
+    * commit and push changes to Github.
+    * set up heroku as a remote heroku repo for the project: `heroku git:remote -a <github-repo-name>`
+    * deploy the project: `git push heroku main`
+    * set up automatic deployment on Heroku: Deploy/GitHub, search for `<github-repo-name>`, `Connect` then `Enable Automatic Deploys`
+3. Create a new `S3` bucket on `Amazon AWS` to serve static and media files
+    * Create a new bucket
+    * Enable static website hosting in Properties, this will give access point to be uset from the internet.
+    Select `Use this bucket to host a website`, keep the default values (they won't be used) and Save Changes.
+    * Set up permissions by generating a CORS policy with the Policy Generator.
+4. Set up a user group in `AWS IAM` in order to set up user permissions for the new bucket.
+    * Create a user group: create a policy by importing `Amazon S3 Full Access`, set it up with the bucket's ARN, attach the policy to the group.
+    * Create a user to go in the new group and create access key for this user
+    * Add all AWS keys to the Heroku Config Vars.
+5. Connect the django project to the new bucket
+    * install `boto3` and `django-storages`, add `storages` to INSTALLED_APPS in `settings.py`
+    * update the settings to use `AWS`:
+    ```python
+    if 'USE_AWS' in os.environ:
+        # Cache control
+        AWS_S3_OBJECT_PARAMETERS = {
+            'Expires': 'Thu, 31 Dec 2099 20:00:00 GMT',
+            'CacheControl': 'max-age=94608000',
+            }
+
+        AWS_STORAGE_BUCKET_NAME = 'book-cycle'
+        AWS_S3_REGION_NAME = 'eu-west-2'
+        AWS_ACCESS_KEY_ID = os.environ.get('AWS_ACCESS_KEY_ID')
+        AWS_SECRET_ACCESS_KEY = os.environ.get('AWS_SECRET_ACCESS_KEY')
+        AWS_S3_CUSTOM_DOMAIN = f'{AWS_STORAGE_BUCKET_NAME}.s3.amazonaws.com'
+
+        # Static and media files
+        STATICFILES_STORAGE = 'custom_storages.StaticStorage'
+        STATICFILES_LOCATION = 'static'
+        DEFAULT_FILE_STORAGE = 'custom_storages.MediaStorage'
+        MEDIAFILES_LOCATION = 'media'
+
+        # Override static and media URLs in production
+        STATIC_URL = f'https://{AWS_S3_CUSTOM_DOMAIN}/{STATICFILES_LOCATION}/'
+        MEDIA_URL = f'https://{AWS_S3_CUSTOM_DOMAIN}/{MEDIAFILES_LOCATION}/'
+    ```
+    * Remove `DISABLE_COLLECTSTATIC=1` variable from the Heroku config vars, because this time, we want django to collect the static files.
+    * Create the `custom_storages.py` file to tell django to use `AWS S3` whenever someone runs collectstatic, and when any product image upload occurs.
+    * Add and commit all changes to GitHub, which will trigger tha automatic deployment to Heroku. Go to Heroku's Activity tab and view the build log to see if it was successful.
+    * Go to `AWS S3`, the new bucket has a `static` folder init.
+    * For media files, add a new folder called `media` next to `static`. Click `Upload` and select all images to upload. Click `Upload`.
+6. Create/confirm the email address for the superuser.
+    * Log in to the admin panel, go to `Email addresses`. Add a new email address if there is none.
+    * Go to `Users`, select the only user, add the only email address then merk it as verified and primary.
+    * In `settings.py`, change the `ACCOUNT_EMAIL_VERIFIED` back to `mandatory`.
+    * Commit and push to GitHub.
+7. Set up `STRIPE` for the deployed site.
+    * Go to STRIPE `Developers` tag, grap the `API Keys` and add them to Heroku Config.
+    * Create a new webhook endpoint with the deployed url, `/checkout/wh/` at the end. Select all events and `Add` them. Scroll down and `Add endppoint`.
+    * Reveal the `Signing secret` and add it to the Heroku config vars.
+    * Test that the webhook listeners are working by [sending test webhook events from the CLI](TESTING.md#testing-webhooks).
+    
 
 
 # Credits
@@ -491,7 +610,7 @@ I would like to thank the following contributors:
 ##  Disclaimer
   
 
-This project was created for [Code Institute](www.codeintitute.net)'s web application development course as the Fourth Milestone Project - for educational purposes.
+This project was created for [Code Institute](www.codeintitute.net)'s web application development course as the 4th Milestone Project - for educational purposes.
     
 Not for public use.
     
