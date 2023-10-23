@@ -7,6 +7,7 @@ from django.contrib import messages
 from django.conf import settings
 from django.core.mail import send_mail
 from django.template.loader import render_to_string
+from django.contrib.admin.views.decorators import staff_member_required
 
 from .forms import OrderForm, ShippingForm, CollectionForm
 from .models import OrderLineItem, Order
@@ -304,6 +305,7 @@ def checkout_success(request, order_number):
     return render(request, template, context)
 
 
+@staff_member_required(login_url='/')
 def orders_post(request):
     """
     Display orders which require shipping
@@ -324,6 +326,7 @@ def orders_post(request):
     return render(request, template, context)
 
 
+@staff_member_required(login_url='/')
 def orders_pickup(request):
     """
     Display orders which don't require shipping
@@ -343,6 +346,7 @@ def orders_pickup(request):
     return render(request, template, context)
 
 
+@staff_member_required(login_url='/')
 def orders_completed(request):
     """
     Display all orders that have either been shipped or collected.
@@ -362,6 +366,7 @@ def orders_completed(request):
     return render(request, template, context)
 
 
+@staff_member_required(login_url='/')
 def order(request, order_number):
     """
     Display a single order
@@ -388,6 +393,7 @@ def order(request, order_number):
 
 
 @require_POST
+@staff_member_required(login_url='/')
 def ship_item(request, order_number):
     """
     Store postage info.
@@ -423,6 +429,7 @@ def ship_item(request, order_number):
 
 
 @require_POST
+@staff_member_required(login_url='/')
 def collect_item(request, order_number):
     """
     Store collection info.
