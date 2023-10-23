@@ -44,8 +44,8 @@ main img.logo {
 }
 
 .main-btn {
-    font-size: 1.7rem;
-    padding: .8rem 3rem 1rem;
+    font-size: 1.6rem;
+    padding: 0.8rem 3rem 0.9rem;
     margin-bottom: 1rem;
     z-index: 2;
 }
