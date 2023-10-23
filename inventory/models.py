@@ -5,6 +5,7 @@ import uuid
 
 
 class YearGroup(models.Model):
+    """ Model to store year group data """
     name = models.CharField(max_length=30)
     friendly_name = models.CharField(max_length=30, null=True)
 
@@ -13,6 +14,7 @@ class YearGroup(models.Model):
 
 
 class Subject(models.Model):
+    """ Model to store subject data """
     name = models.CharField(max_length=100)
     friendly_name = models.CharField(max_length=30, null=True)
 
@@ -21,6 +23,7 @@ class Subject(models.Model):
 
 
 class Book(models.Model):
+    """ Model to store book data """
     title = models.CharField(max_length=254)
     year_group = models.ForeignKey(
         'YearGroup',
@@ -135,6 +138,7 @@ class Book(models.Model):
 
 
 class Stock(models.Model):
+    """ Model to store stock data """
     book = models.ForeignKey(
         'Book',
         null=True,

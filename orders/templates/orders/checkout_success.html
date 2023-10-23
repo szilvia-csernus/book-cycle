@@ -11,11 +11,15 @@
 
 {% block content %}
 <main>
+
+    <!-- Checkout Success page -->
     <div class="checkout-background">
         <h1 class="title">Thank You</h1>
         <p class="success-confirmation-text">Your order information is below. A confirmation email will be sent to <strong>{{ order.email }}</strong></p>
         <div class="checkout-success-page-frame">
             <div class="success-details-frame">
+
+                <!-- Order details  -->
                 <h2 class="success-details-title">Order Summary </h2>
                 <div><strong>Order Number:</strong> <span>{{ order.order_number }}</span></div>
                 <div><strong>Order Date:</strong> <span id="order-date">{{ order.date|date:"d M, Y" }}
@@ -41,6 +45,8 @@
                 <div><strong>Total Paid:</strong> <span>£{{ order.grand_total }}</span></div>
                 
             </div>
+
+            <!-- Buttons  -->
             <div>
                 {% if from_profile %}
                 <a href="{% url 'profile' %}" class="primary-btn back-to-btn">Back to Profile</a>

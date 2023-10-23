@@ -569,7 +569,7 @@ https://django-crispy-forms.readthedocs.io/en/latest/index.html
 
 * Webinar by Matt Rudge (Code Institute) https://www.youtube.com/watch?app=desktop&si=7Y-7qKnSZBRNzIxG&v=YH--VobIA8c&feature=youtu.be
 
-## Helpful ideas
+## Other resources
 
 * Converting images to 'webp' format in python: https://www.webucator.com/tutorial/using-python-to-convert-images-to-webp/
 
@@ -581,6 +581,8 @@ https://django-crispy-forms.readthedocs.io/en/latest/index.html
 
 * How to access request.POST data, sent using JS fetch request, in django:
 https://stackoverflow.com/questions/61543829/django-taking-values-from-post-request-javascript-fetch-api
+
+* Privacy Notice Generator: https://termly.io
 
 
 

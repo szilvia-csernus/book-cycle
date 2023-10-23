@@ -14,6 +14,7 @@ User = get_user_model()
 
 
 class Order(models.Model):
+    """ Model to store order data """
     order_number = models.CharField(max_length=32, null=False, editable=False)
     user_profile = models.ForeignKey(UserProfile, on_delete=models.SET_NULL,
                                      null=True, blank=True,
@@ -114,6 +115,7 @@ class Order(models.Model):
 
 
 class OrderLineItem(models.Model):
+    """ Model to store order line item data """
     order = models.ForeignKey(Order, null=False, blank=False,
                               on_delete=models.CASCADE,
                               related_name='lineitems')

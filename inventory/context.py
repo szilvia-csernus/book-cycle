@@ -2,7 +2,7 @@ from .models import Subject, YearGroup
 
 
 def all_categories(request):
-
+    """ A context processor to allow all templates to access the categories """
     subjects = Subject.objects.all()
     year_groups = YearGroup.objects.all()
 

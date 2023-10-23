@@ -12,6 +12,8 @@
 
 {% block content %}
 <main>
+
+    <!-- Order list for both 'to be posted' and 'to be collected' orders -->
     <div class="order-list-frame">
         <h1 class="title">{{ title }}</h1>
         {% if orders|length > 0 %}
@@ -21,6 +23,8 @@
             <div><strong>Name</strong></div>
             <div><strong>Nr of Books</strong></div>
             <div class="total-paid"><strong>Total Paid</strong></div>
+
+            <!-- Order items  -->
             {% for order in orders %}
                 <div class="order-item">
                     <a href="{% url 'order' order.order_number%}?completed={{completed}}">

@@ -13,10 +13,13 @@
 
 {% block content %}
 <main>
+
+    <!-- Edit book page  -->
     <div class="checkout-background">
         <h1 class="title">Inventory Management</h1>
         <div class="checkout-page-frame">
 
+            <!-- Book form  -->
             <div class="checkout-form-frame">
                 <form action="{% url 'edit_book' slug=book.slug %}" method="POST" id="edit-book-form" class="add-book-form"
                     enctype="multipart/form-data">
@@ -39,6 +42,8 @@
                         </button>
                         
                     </div>
+
+                    <!-- Delete book  -->
                     <p class="checkout-fieldset-label">Delete Book</p>
                     <p>Deleting the book from the database is a destructive action hence 
                         restricted. In order to keep the orders history intact, a book can 

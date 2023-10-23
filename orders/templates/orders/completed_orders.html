@@ -12,8 +12,12 @@
 
 {% block content %}
 <main>
+
+    <!-- 'Completed Orders' page  -->
     <div class="order-list-frame">
         <h1 class="order-title">{{ title }}</h1>
+
+        <!-- List of posted orders  -->
         <section class="order-list-section">
             <h2 class="order-subtitle">Posted Orders</h2>
             {% if posted_orders|length > 0 %}
@@ -56,6 +60,8 @@
             <div class="no-orders">No orders to display.</div>
             {% endif %}
         </section>
+
+        <!-- List of collected orders  -->
         <section class="order-list-section">
             <h2 class="order-subtitle">Collected Orders</h2>
             {% if picked_up_orders|length > 0 %}

@@ -5,6 +5,7 @@ from .models import UserProfile
 
 
 class UserProfileForm(forms.ModelForm):
+    """ Form to add user profile data """
     class Meta:
         model = UserProfile
         exclude = ('user',)
@@ -47,6 +48,7 @@ class UserProfileForm(forms.ModelForm):
 
 
 class CustomSignupForm(SignupForm):
+    """ Form to Extend SignupForm with first and last name fields """
     first_name = forms.CharField(max_length=30, label='First Name',
                                  widget=forms.TextInput(attrs={'placeholder':
                                                         'First name'})

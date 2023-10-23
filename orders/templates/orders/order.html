@@ -12,6 +12,8 @@
 
 {% block content %}
 <main>
+
+    <!-- Individual Order's page  -->
     <div class="order-frame">
         <h1 class="order-title">Order</h1>
         <div class="order-subtitle">
@@ -53,6 +55,8 @@
                 </div>
             {% endfor %}
         </section>
+
+        <!-- Shipping address  -->
         {% if order.shipping_required %}
         <section class="order-list-section">
             <h2 class="order-subtitle">Shipping Address</h2>
@@ -68,6 +72,7 @@
         </section>
         {% endif %}
 
+        <!-- Order completion details  -->
         {% if completed %}
         <section class="order-list-section">
             <h2 class="order-subtitle">Order Completion</h2>

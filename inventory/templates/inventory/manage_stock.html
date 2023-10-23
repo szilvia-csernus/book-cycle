@@ -12,9 +12,12 @@
 {% block content %}
 
 <main>
+
+    <!-- 'Manage Stock' page  -->
     <section class="books-background detail-page">
         <div class="detail-page-frame">
 
+            <!-- Book image  -->
             <div class="book-image-box">
                 {% if book.image %}
                 <img class="book-image" src="{{ book.image.url }}" alt="{{ book.title }}" width="{{ book.image.width }}" height="{{ book.image.height }}">
@@ -26,6 +29,7 @@
             <div class="book-details-box">
                 <h2 class="book-title">{{ book.title }}</h2>
 
+                <!-- Book details  -->
                 <div>
                     {% if book.year_group %}
                     <p class="book-year-group">Year Group: <strong>{{ book.year_group.friendly_name }}</strong></p>
@@ -40,11 +44,14 @@
                     <p class="book-exam-board">Exam Board: <strong>{{ book.exam_board }}</strong></p>
                     {% endif %}
                 </div>
+
+                <!-- Original product link  -->
                 {% if book.product_url %}
                     <a class="real-product-link" href="{{ book.product_url }}" target="_blank">Original
                         product link</a>
                 {% endif %}
 
+                <!-- Stock details  -->
                 {% for stock_item in book_listing %}
                     <div class="manage-stockline">
                         <div>
@@ -82,6 +89,8 @@
                         </div>
                     </div>
                 {% endfor %}
+
+            <!-- 'Back to Books' and 'Edit Book' buttons  -->
             <div class="manage-book-detail-buttons">
                 <div><a href="{% url 'books' %}?{{redirect_query_string}}" class="secondary-btn manage-stock-btn">Back to
                         Books</a></div>
