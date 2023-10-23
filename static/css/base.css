@@ -263,7 +263,7 @@ footer {
 .header-right a,
 .header-right span {
     transition: color 0.6s;
-    transition: background-color 0.6;
+    transition: background-color 0.6s;
 }
 
 .header-right a:hover,
@@ -276,6 +276,8 @@ footer {
 img.user {
     width: 30px;
     height: 34px;
+    position: relative;
+    top: 2px
 }
 
 .bag-link {
