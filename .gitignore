@@ -5,4 +5,3 @@ book-cycle-venv
 *.pyc
 __pycache__
 .env
-node_modules
