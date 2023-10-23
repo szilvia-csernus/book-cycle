@@ -1,1 +1,0 @@
-[{"model": "inventory.yeargroup", "pk": 1, "fields": {"name": "Year 7-9"}}, {"model": "inventory.yeargroup", "pk": 2, "fields": {"name": "GCSE"}}, {"model": "inventory.yeargroup", "pk": 3, "fields": {"name": "A-Level"}}]
