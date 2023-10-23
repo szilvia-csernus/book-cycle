@@ -96,7 +96,7 @@
         {% else %}
             <p class="book-count">{{ count }} {% if count > 1 %} Books {% else %} Book {% endif %} found
                 {% if num_pages > 1 %}
-                (page {{ books.number }}/{{ num_pages }}).
+                 - page {{ books.number }}/{{ num_pages }}
                 {% endif %}
             </p>
         {% endif %}
