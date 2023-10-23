@@ -113,10 +113,11 @@ def all_books(request):
 
     count = books.count()
 
-    books_per_page = 12
+    books_per_page = 8
 
     paginator = Paginator(books, books_per_page)
     page_number = request.GET.get('page')
+    num_pages = paginator.num_pages
     books = paginator.get_page(page_number)
 
     current_sorting = f'{sort}_{direction}'
@@ -124,6 +125,7 @@ def all_books(request):
     context = {
         'books': books,
         'count': count,
+        'num_pages': num_pages,
         'search_term': search_term,
         'year_group': year_group,
         'subject': subject,
