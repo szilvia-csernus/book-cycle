@@ -12,6 +12,7 @@ import json
 import time
 
 
+# Code is adopted from Code Institute's Boutique Ado project
 class StripeWH_Handler:
     """Handle Stripe webhooks"""
 
