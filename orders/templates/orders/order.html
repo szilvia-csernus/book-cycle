@@ -41,11 +41,11 @@
             {% for lineitem in lineitems %}
                 <div class="order-item-box">
                     {% if lineitem.stock.book.image.url %}
-                    <img class="order-item-image" src="{{ lineitem.stock.book.image.url }}" alt="{{ lineitem.stock.book.title}}" width="39"
-                        height="50">
+                    <img class="order-item-image" src="{{ lineitem.stock.book.image.url }}" alt="{{ lineitem.stock.book.title}}" width="{{ linitem.stock.book.image.width }}"
+                        height="{{ lineitem.stock.book.image.height }}" loading="lazy">
                     {% else %}
                     <img class="order-item-image" src="{{ MEDIA_URL }}noimage.png" alt="no image for {{ lineitem.stock.book.title}}"
-                        width="39" height="50">
+                        width="39" height="50" loading="lazy">
                     {% endif %}
                     <h2 class="order-item-title">{{ lineitem.stock.book.title }}</h2>
                     <div class="order-item-condition"><span class="order-item-emphasized">{{ lineitem.stock.condition }}</span> x <span class="order-item-emphasized">{{ lineitem.quantity }}</span></div>

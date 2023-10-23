@@ -17,9 +17,9 @@
 
             <div class="book-image-box">
                 {% if book.image %}
-                <img class="book-image" src="{{ book.image.url }}" alt="{{ book.title }}" width="{{ book.image.width }}" height="{{ book.image.height }}">
+                <img class="book-image" src="{{ book.image.url }}" alt="{{ book.title }}" width="{{ book.image.width }}" height="{{ book.image.height }}" loading="lazy">
                 {% else %}
-                <img class="book-image" src="{{ MEDIA_URL }}noimage.png" alt="no image for {{ book.title}}" width="386" height="500">
+                <img class="book-image" src="{{ MEDIA_URL }}noimage.png" alt="no image for {{ book.title}}" width="386" height="500" loading="lazy">
                 {% endif %}
             </div>
             
