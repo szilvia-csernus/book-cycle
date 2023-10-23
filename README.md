@@ -1,12 +1,12 @@
 # Book-CYCLE
 
-Book-CYCLE is a Full Stack Webshop Application designed to be used by secondary schools in the UK. The purpose of the site is to promote re-use of textbooks by students while generating income for the school. The webshop allows the school to list all the textbooks they recommend their students to buy in both new and used conditions - possibly asking students to donate their used books back to the school. 
+Book-CYCLE is a Full Stack Webshop Application designed to be used by secondary schools in the UK. The purpose of the site is to promote the re-use of textbooks by students while generating income for the school. The webshop allows the school to list all the textbooks they recommend their students to buy in both new and used conditions, possibly asking students to donate their used books back to the school.
 
-Users can puchase listed textbooks using the STRIPE payment system, receiving confirmation emails about orders and shipping. School staff members can manage the book inventory and incoming orders.
+Users can purchase listed textbooks using the STRIPE payment system and will receive confirmation emails about orders and shipping. School staff members can manage the book inventory and incoming orders.
 
-The webshop has not been customized to a specific school, which could be done by including the school's logo, contact details, and possibly some additional design elements. Customisations would allow the webshop to be utilized by multiple schools.
+The webshop has not been customized for a specific school, but it can be done by including the school's logo, contact details, and possibly some additional design elements. Customizations would allow the webshop to be utilized by multiple schools.
 
-The project is written in Django, a full-stack python framework, alongside HTML, CSS and JavaScript. The Stripe API is used for payments.
+The project is written in Django, a full-stack Python framework, alongside HTML, CSS, and JavaScript. The Stripe API is used for payments.
 
 ---
 [View the live project here](https://book-cycle-f6aff45df7ba.herokuapp.com/inventory/books/)
@@ -15,7 +15,7 @@ The project is written in Django, a full-stack python framework, alongside HTML,
 ![Landing Page](readme_files/mockup-light.jpeg)
 ![Landing Page](readme_files/mockup-dark.jpeg)
 
-> This project was created for [Code Institute](www.codeintitute.net)'s Web Development Course as the Fourth Milestone Project (MS4) - Full Stack E-Commerce Web Application.
+> This project was created for [Code Institute](www.codeintitute.net)'s Web Development Course as the 4th Milestone Project (MS4) - Full Stack E-Commerce Web Application.
 
 Not for public use.
     
@@ -42,7 +42,7 @@ Wireframes were created in [Balsamiq](https://balsamiq.cloud/).
 
 ## Colour Scheme
 
-I chose the colours myself, colour palette was created using [Figma](https://www.figma.com/).
+I personally chose the colors for this project, and the colour palette was created using [Figma](https://www.figma.com).
 
 |Book store - light mode| Book store - dark mode |
 |:---:|:---:|
@@ -54,15 +54,15 @@ I chose the colours myself, colour palette was created using [Figma](https://www
 
 ## Typography
 
-I used two fonts, [Koulen](https://fonts.google.com/specimen/Koulen) and [KoHo](https://fonts.google.com/specimen/KoHo) from the [Google Fonts](https://fonts.google.com/) library. I selected them because I felt that they complement each other and their styles are fitting the theme.
+I used two fonts, [Koulen](https://fonts.google.com/specimen/Koulen) and [KoHo](https://fonts.google.com/specimen/KoHo) from the [Google Fonts](https://fonts.google.com/) library. I selected these fonts because I felt that they complement each other, and their styles are fitting for the theme.
 
 ---
 
 ## Imagery
 
-The [main image](https://unsplash.com/photos/OQSCtabGkSY) on the home page is created by [Jessica Ruscello]("https://unsplash.com/@jruscello?utm_source=unsplash&utm_medium=referral&utm_content=creditCopyText"), distributed by [Unsplash]("https://unsplash.com/photos/OQSCtabGkSY?utm_source=unsplash&utm_medium=referral&utm_content=creditCopyText").
+The [main image](https://unsplash.com/photos/OQSCtabGkSY) on the home page is credited to [Jessica Ruscello](https://unsplash.com/@jruscello?utm_source=unsplash&utm_medium=referral&utm_content=creditCopyText) and distributed by [Unsplash](https://unsplash.com/photos/OQSCtabGkSY?utm_source=unsplash&utm_medium=referral&utm_content=creditCopyText).
 
-The logo and icons are my own drawings, with the exception of the [Google icon](https://design.google/?ref=svgrepo.com), which was downloaded from [SVG Repo](https://www.svgrepo.com/).
+The logo and icons used in the project are my own drawings, with the exception of the [Google icon](https://design.google/?ref=svgrepo.com), which was downloaded from [SVG Repo](https://www.svgrepo.com/).
 
 ---
 
@@ -70,10 +70,10 @@ The logo and icons are my own drawings, with the exception of the [Google icon](
 
 ## Database Schema
 
-The diagram shows a layout of the tables represented by my models in the database. The tables that were created by  django by default are omitted, as well as the `django-allauth` tables, with the exeption of the `User` table which is directly connected to my `User Profile` and `Order` tables.
+The diagram illustrates a layout of the tables represented by my models in the database. The tables that were created by  django by default are omitted, as well as the `django-allauth` tables, with the exeption of the `User` table which is directly connected to my `User Profile` and `Order` tables.
 
 
-[Lucid Charts](https://lucid.app/) was used to visualize the database schema.
+I used [Lucid Charts](https://lucid.app/) to visualize the database schema.
 
 
 ![database-schema](readme_files/database_schema.jpeg)
@@ -83,9 +83,9 @@ The diagram shows a layout of the tables represented by my models in the databas
 
 ## Product data
 
-I compiled a custom textbook list, converted it to json and wrote custom scripts to create stock data - generating prices and stock amounts randomly. Finally, I used these files as `fixtures` to populate the database.
+I compiled a custom textbook list, converted it to JSON, and wrote custom scripts to create stock data, generating prices and stock amounts randomly. Finally, I used these files as `fixtures` to populate the database.
 
-The book pictures and details were taken from the publishers websites, a link pointing to the original site is provided for all books.
+The book pictures and details were taken from the publishers' websites, and a link pointing to the original site is provided for all books.
 
 ---
 
@@ -93,7 +93,7 @@ The book pictures and details were taken from the publishers websites, a link po
 
 ## Landing Page
 
-The Landing page is minimalist with only few options on the top. The side menu opens from the left hand side, where users can search for textbooks in the store.
+The Landing page is minimalist with only a few options at the top. The side menu opens from the left-hand side, where users can search for textbooks in the store.
 
 |Landing Page - light mode |Side Menu|Landing Page on mobile|
 |:---:|:---:|:---:|
@@ -106,25 +106,23 @@ The Landing page is minimalist with only few options on the top. The side menu o
 
 ### Filtering for books
 
-The user has filtering and searching options from the side menu and additional options in the main bookstore page.
-Clicking the `shop` button or one of the filtering options from the menu, we will be taken to the bookstore:
+Users have filtering and searching options from the side menu and additional options on the main bookstore page. Clicking the `shop` button or one of the filtering options from the menu will take us to the bookstore:
 |Book store - light mode| Book store - dark mode |
 |:---:|:---:|
 |![Books light mode](readme_files/books-light.jpeg)|![Books dark mode](readme_files/books-dark.jpeg)|
 | <td colspan="2">Under the `More Options` button, complex searching, filtering and sorting can be carried out.
 |![Books search light mode](readme_files/books-search-light.jpeg)|![Books search dark mode](readme_files/books-search-dark.jpeg)|
 
-In order to speed up loading, pagination is used to avoid unneccessary data load.
+In order to speed up loading, pagination is used to avoid unnecessary data load.
 
 ---
 
 ## Shopping Process
 
-We can start shopping right away, without the need for signing up.
-We can add products directly from the bookstore's page or by visiting the individual book's page.
+You can start shopping right away, without the need for signing up. You can add products directly from the bookstore's page or by visiting the individual book's page.
 
+Stock management allows displaying the available stock to the user and prevents purchasing out-of-stock items.
 
-Stock management allows to display the available stock to the user and prevent purchasing out-of-stock items.
 
 |Book Detail Page - light mode|Book Detail Page - dark mode|
 |:---:|:---:|
@@ -139,27 +137,30 @@ The shopping bag is available by clicking the shopping bag icon in the top right
 
 ---
 
-If we would like to edit our shopping bag, we can do so by clicking the `Edit Bag` button. We can also select our shipping preference. 
+If you would like to edit your shopping bag, you can do so by clicking the `Edit Bag` button. You can also select your shipping preference. 
 |Shopping bag - light mode|Shopping bag - dark mode|
 |:---:|:---:|
 |![Bag light mode](readme_files/bag-light.jpeg)|![Bag dark mode](readme_files/bag-dark.jpeg)|
 
 ---
 
-If we choose to go back to the bookstore's page, we will see if we have a particular book in our shopping bag:
+If you choose to go back to the bookstore's page, you will see if you have a particular book in your shopping bag:
+
 
 ![In your bag!](readme_files/in-your-bag.jpeg)
 
 ---
 
-After clicking the `Checkout` button, we will be taken to the `Checkout Page`. If we chose to have the books delivered, we need to give detailed shipping information. Otherwise, only the `Country` and the `Postcode` are needed for the card payment.
+After clicking the `Checkout` button, you will be taken to the `Checkout Page`. If you chose to have the books delivered, you need to provide detailed shipping information. Otherwise, only the `Country` and the `Postcode` are needed for the card payment.
+
 |Checkout - light mode|Checkout - dark mode|
 |:---:|:---:|
 |![Checkout light mode](readme_files/checkout-light.jpeg)|![Checkout dark mode](readme_files/checkout-dark.jpeg)|
 
 ---
 
-`Stripe` provides a number of test cards that we can use for successful / failed payments. After a successful payment, we will receive a confirmation email about our order.
+`Stripe` provides a number of test cards that you can use for successful or failed payments. After a successful payment, you will receive a confirmation email about your order.
+
 |Payment|Checkout Success Page & Email Confirmation|
 |:---:|:---:|
 |![Payment light mode](readme_files/payment-light.jpeg) ![Insufficient Funds](readme_files/insufficient-funds.jpeg)![Card Declined](readme_files/card-declined.jpeg)|![Checkout success light mode](readme_files/checkout-success-light.jpeg)![Email confirmation](readme_files/order-confirmation-email.jpeg)|
@@ -168,11 +169,11 @@ After clicking the `Checkout` button, we will be taken to the `Checkout Page`. I
 
 ## Authentication
 
-I used the `django-allauth` package to implement authentication. The user can sign up with email address & password, as well their `Google account`.
+I used the `django-allauth` package to implement authentication. The user can sign up with email address & password, as well as with their `Google account`.
 
 ### Register with email
 
-Signing Up with email and password is straightforward. After the user clicks the link in the verification email, they will get signed in straight away.
+Signing up with an email and password is straightforward. After the user clicks the link in the verification email, they will be signed in straight away.
 |Register|Verify Email Page|Verify Email Message|
 |:---:|:---:|:---:|
 |![Register](readme_files/register.jpeg)|![Verify Email](readme_files/verify-email.jpeg)|![Sign Up Email](readme_files/sign-up-email.jpeg)|
@@ -189,7 +190,7 @@ For signing in at a later time, the user's email and password are required.
 ---
 ### Registering/Signing in with a Google account
 
-If a user sings in with their Google account, there is no need to verify the email address so the process is significantly faster. In the admin views below, I demonstrate how my user account and social account was created when I signed up with my Google account. In this case, no Password has been set.
+If a user signs in with their Google account, there is no need to verify the email address, so the process is significantly faster. In the admin views below, I demonstrate how my user account and social account were created when I signed up with my Google account. In this case, no password has been set.
 
 |Google Sign In |User's account in Admin view|
 |:---:|:---:|
@@ -202,8 +203,8 @@ If a user already has an account and later decides to use their social account, 
 ---
 ### User Account
 
-After successful registration, the user has access to their `order history` and `contact details`. 
-|User Account Page light mode|User account Page dark mode|
+After successful registration, the user has access to their `order history` and `contact details`.
+| User Account Page - Light Mode | User Account Page - Dark Mode |
 |:---:|:---:|
 |![User Account Light](readme_files/user-account-page-light.jpeg)|![User Account Dark](readme_files/user-account-page-dark.jpeg)|
 
@@ -224,8 +225,7 @@ All users can use the `Forgot password?` function.
 ---
 ### Deleting a User Account
 
-The user can delete their account from the database, including their social account. Their order history will not be erased from the database, but no profile info will have been attached to them and will be inaccessible for the user.
-I demonstrate how a user account is being deleted by deleting my social account I created earlier.
+The user can delete their account from the database, including their social account. Their order history will not be erased from the database, but no profile info will be attached to them and will be inaccessible for the user. I demonstrate how a user account is being deleted by deleting my social account I created earlier.
 | Confirm Notification |Account Deleted Message |Accound Deleted Admin View|
 |:---:|:---:|:---:|
 |![Change Password](readme_files/user-delete-confirm.jpeg)|![Account deleted message](readme_files/social-account-deleted-message.jpeg)|![Admin View](readme_files/social-account-deleted-admin-view.jpeg)|
@@ -234,10 +234,10 @@ I demonstrate how a user account is being deleted by deleting my social account 
 ## Admin Functions
 
 If the user's account is a `Staff Account`, they are taken to a different home page after signing in.
-|Admin Home light mode|Side Menu|
+| Admin Home - Light Mode | Side Menu |
 |:---:|:---:|
 |![Landing Page light mode](readme_files/admin-home-light.jpeg)|![Browse light mode](readme_files/admin-side-light.jpeg)|
-|Admin Home dark mode|Side Menu|
+| Admin Home - Dark Mode | Side Menu |
 |![Browse light mode](readme_files/admin-home-dark.jpeg)|![Browse light mode](readme_files/admin-side-dark.jpeg)|
 
 
@@ -261,7 +261,8 @@ Staff members can Add/Edit/Delete Books as well as manage the books' stock.
 
 ## Order Management
 
-Staff members can monitor if there are new orders in the system. The orders which require shipping are listed separately from the ones that need to be collected.
+Staff members can monitor if there are new orders in the system. The orders that require shipping are listed separately from the ones that need to be collected.
+
 |Orders require shipping | Orders for Collection |
 |:---:|:---:|
 |![Orders for Shipping](readme_files/orders-for-shipping.jpeg)|![Orders for Collection](readme_files/orders-for-collection.jpeg)|
@@ -269,26 +270,28 @@ Staff members can monitor if there are new orders in the system. The orders whic
 ---
 
 On the individual order's page, the staff member can use the shipping details for postage and register the tracking number.
-|Order to Post (light mode) |Successful shipping|
+
+| Order to Post - Light Mode | Successful Shipping |
 |:---:|:---:|
 |![Order to Post](readme_files/order-to-post.jpeg)![Manage shipping](readme_files/manage-order-post.jpeg)|![Order Post Success](readme_files/order-post-success.jpeg)![Order Post Email](readme_files/order-post-email.jpeg)|
 
 ---
 
 Similarly to the shipping, the staff member can register if an order has been collected.
-|Order for Collection (dark mode) |Successful Collection|
+
+| Order for Collection - Dark Mode | Successful Collection |
 |:---:|:---:|
 |![Order for Collection](readme_files/order-for-collection.jpeg)|![Order Collection Success](readme_files/order-collection-success.jpeg)![Order Collection Email](readme_files/order-collection-email.jpeg)|
 
 ## Error pages
 
-In case of an error, custom error pages would be shown to the user.
-* `404 (not found) page` in case of an invalid URL was typed in,
-* `403 (access denied) page` if there is an authentication issue,
-* `400 (bad request)` if a request to the server was sent with incorrect data/sturcture,
-* `500 (internal server error)` in case there is a problem with code execution or with the connection to the server. 
-  
-|404 - Not Found | 403 - Access Denied | 500 = Server Error |
+In case of an error, custom error pages would be shown to the user:
+- `404 (not found) page` in case of an invalid URL was typed in.
+- `403 (access denied) page` if there is an authentication issue.
+- `400 (bad request)` if a request to the server was sent with incorrect data/structure.
+- `500 (internal server error)` in case there is a problem with code execution or with the connection to the server.
+
+| 404 - Not Found | 403 - Access Denied | 500 - Server Error |
 |:---:|:---:|:---:|
 |![Not found page](readme_files/404.jpeg)|![Access denied](readme_files/403.jpeg)|![Error page](readme_files/500.jpeg)|
 
@@ -296,32 +299,27 @@ In case of an error, custom error pages would be shown to the user.
  ---
 
 # Accessibility
-  
 
-* Semantic HTML was used.
-* Images have `alt` labels. 
-* Icons which have inferred meanings are marked with `aria` labels.
-* All colours were tested for contrast in Chrome's Dev Tools.
-* For detailed Lighthouse scores for Accessibility, please refer to the [Testing document](TESTING.md#lighthouse-tests).
-
---- 
+- Semantic HTML was used.
+- Images have `alt` labels.
+- Icons with inferred meanings are marked with `aria` labels.
+- All colours were tested for contrast in Chrome's Dev Tools.
+- For detailed Lighthouse scores for Accessibility, please refer to the [Testing document](TESTING.md#lighthouse-tests).
 
 
 # SEO
 
-* Lighthouse scores for Search Engine Optimasation are 100% throughout all pages.
-
-* `robots.txt` and `sitemap.xml` are provided to be used by search engines.
-
-* I created a `slug` for each book, based on their titles, that makes the book discoverable by search engines when someone is searching for the book's title. This approach will increase the site's traffic and increases potential revenue.
+- Lighthouse scores for Search Engine Optimization are 100% throughout all pages.
+- `robots.txt` and `sitemap.xml` files are provided for use by search engines.
+- I created a `slug` for each book, based on their titles, making the books discoverable by search engines when someone is searching for the book's title. This approach increases site traffic and potential revenue.
 
 ---
 
 # Performance
 
-In order to achieve the best possible performance, I chose not to use any frontend libraries that have to load before the page renders (like Bootstrap / Materialize or JQuery) to reduce render blocking code loading. While writing the code this way was more complex, it greatly improved the project's Lighthouse scores. In local development, all my Performance scores are over 90%. The lower performance in production are all down to unavoidable elements, like Stripe's script needed for Fraud detection and the slow response time from the hosting providers - purchasing more expensive hosting packages would greatly improve performance in production. 
+To achieve the best possible performance, I chose not to use any frontend libraries that have to load before the page renders (like Bootstrap, Materialize, or JQuery) to reduce render-blocking code loading. While writing the code this way was more complex, it greatly improved the project's Lighthouse scores. In local development, all my Performance scores are over 90%. The lower performance in production is all due to unavoidable elements, like Stripe's script needed for Fraud detection and the slow response time from the hosting providers. Purchasing more expensive hosting packages would greatly improve performance in production.
 
-To further improve the site's responsiveness and achieve seamless user experience, a frontend framework like ReactJS could be used combined with Django's REST framework for the backend. This architecture however, was beyond the scope of this project.
+To further improve the site's responsiveness and achieve a seamless user experience, a frontend framework like ReactJS could be used combined with Django's REST framework for the backend. This architecture, however, was beyond the scope of this project.
 
 For the project's detailed Lighthouse scores, please refer to the [Testing document](TESTING.md#lighthouse-tests).
 
@@ -329,12 +327,9 @@ For the project's detailed Lighthouse scores, please refer to the [Testing docum
 
 ## Future Implementations
 
-* Further functions for staff members - searching/filtering orders, handling returns and refunds.
-
-* Implementing an API to calculate postage data and integrate package tracking.
-
-* Re-creating the project in a Django REST + ReactJS architecture to improve user experience.
-
+- Further functions for staff members: searching/filtering orders, handling returns and refunds.
+- Implementing an API to calculate postage data and integrate package tracking.
+- Re-creating the project in a Django REST + ReactJS architecture to improve the user experience.
 
 ---
 
@@ -344,74 +339,48 @@ For the project's detailed Lighthouse scores, please refer to the [Testing docum
 ## Languages Used
   
 
-* Python
-    - Using the Django framework and other plugins to develop the app.
-* HTML
-    - For page structure.
-* CSS
-    - For styling.
-* Javascript
-    - Interactive frontend components and AJAX.
+- Python: Using the Django framework and other plugins to develop the app.
+- HTML: For page structure.
+- CSS: For styling.
+- JavaScript: Interactive frontend components and AJAX.
   
 
 ## Frameworks, Libraries and Packages
   
 
-* [Django](https://www.djangoproject.com/) - Fullstack python framework
-
-* [Stripe](https://stripe.com/gb) - Used for processing payments securely.
-
-* [django-allauth](https://allauth.org/) - A Django package for authentication
-
-* [crispy-forms](https://django-crispy-forms.readthedocs.io/en/latest/) - A Django package for form management
-
-* [Pillow](https://pypi.org/project/Pillow/) - A python imaging library for processing images
-
-* `boto3` - Used for configuration and Management of AWS
-
-* `coverage` - Measures lines of code tested.
-
-* `dj-database-url` - Parses databse URLs for django.
-
-* `django-countries` - Provides model fields for up-to-date country selection.
-
-* `django-storages` - Creates custom storages for use with AWS.
-
-* `gunicorn` - Web server to run on heroku.
-
-* `psycopg2` - Adapter for use with a Postrgres Database.
+- [Django](https://www.djangoproject.com/): Full-stack python framework.
+- [Stripe](https://stripe.com/gb): Used for processing payments securely.
+- [django-allauth](https://allauth.org/): A Django package for authentication.
+- [crispy-forms](https://django-crispy-forms.readthedocs.io/en/latest/): A Django package for form management.
+- [Pillow](https://pypi.org/project/Pillow/): A Python imaging library for processing images.
+- `boto3`: Used for configuration and Management of AWS.
+- `coverage`: Measures lines of code tested.
+- `dj-database-url`: Parses database URLs for Django.
+- `django-countries`: Provides model fields for up-to-date country selection.
+- `django-storages`: Creates custom storages for use with AWS.
+- `gunicorn`: Web server to run on Heroku.
+- `psycopg2`: Adapter for use with a PostgreSQL Database.
 
 
 ## Hosting platforms
 
-* `Heroku` - for hosting main codebase.
-
-* `ElephantSQL` - for database hosting.
-
-* `Amazon AWS S3` - for static/media file hosting. 
+- `Heroku`: For hosting the main codebase.
+- `ElephantSQL`: For database hosting.
+- `Amazon AWS S3`: For static/media file hosting. 
 
 
 ## Other Tools
 
-* [Google Fonts](https://fonts.google.com/)  - for texts.
-
-* [Balsamiq](https://balsamiq.cloud/)  - to create wireframes.
-
-* [Figma](https://www.figma.com/)  - to draw the logo and the icons, and to create colour palette.
-
-* [RealFaviconGenerator](https://realfavicongenerator.net/svg-favicon/)  - to generate favicons.
-
-* [Multi Device Website Mockup](https://techsini.com/multi-mockup/index.php)  - to create site visuals for responsive design.
-
-* [VSCode](https://code.visualstudio.com/) - for local development.
-
-* [Git](https://git-scm.com/) & [Github](https://github.com/)  - for version control, safe storage and deployment.
-
-* [Google Dev Tools](https://developer.chrome.com/docs/devtools/)  - for testing and troubleshooting.
-
-* [Lucid App](https://lucid.app) - for database model visuals.
-
-* [Random Key Generator](https://randomkeygen.com/) - to generate a secret key.
+- [Google Fonts](https://fonts.google.com/): For texts.
+- [Balsamiq](https://balsamiq.cloud/): To create wireframes.
+- [Figma](https://www.figma.com/): To draw the logo and the icons, and to create the color palette.
+- [RealFaviconGenerator](https://realfavicongenerator.net/svg-favicon/): To generate favicons.
+- [Multi Device Website Mockup](https://techsini.com/multi-mockup/index.php): To create site visuals for responsive design.
+- [VSCode](https://code.visualstudio.com/): For local development.
+- [Git](https://git-scm.com/) & [Github](https://github.com/): For version control, safe storage, and deployment.
+- [Google Dev Tools](https://developer.chrome.com/docs/devtools/): For testing and troubleshooting.
+- [Lucid App](https://lucid.app): For database model visuals.
+- [Random Key Generator](https://randomkeygen.com/): To generate a secret key.
 
 
 
@@ -651,11 +620,9 @@ https://stackoverflow.com/questions/61543829/django-taking-values-from-post-requ
 
 ## Images
 
-* Background image: https://unsplash.com/photos/OQSCtabGkSY - Photo by [Jessica Ruscello]("https://unsplash.com/@jruscello?utm_source=unsplash&utm_medium=referral&utm_content=creditCopyText") on [Unsplash]("https://unsplash.com/photos/OQSCtabGkSY?utm_source=unsplash&utm_medium=referral&utm_content=creditCopyText")
-
-* Google logo: Vectors and icons by [Google Design](https://design.google/?ref=svgrepo.com) in Logo License via [SVG Repo](https://www.svgrepo.com/).
-
-* The book images were taken from the publishers' websites. As this project was created for educational purposes only, it is exempt to copyright law. Nevertheless, I credited all products by providing a link to the original website. For further information, please refer to the UK government's website:  https://www.gov.uk/guidance/exceptions-to-copyright#non-commercial-research-and-private-study
+- **Background image:** [Unsplash](https://unsplash.com/photos/OQSCtabGkSY) - Photo by [Jessica Ruscello](https://unsplash.com/@jruscello?utm_source=unsplash&utm_medium=referral&utm_content=creditCopyText) on [Unsplash](https://unsplash.com/photos/OQSCtabGkSY?utm_source=unsplash&utm_medium=referral&utm_content=creditCopyText).
+- **Google logo:** Vectors and icons by [Google Design](https://design.google/?ref=svgrepo.com) in Logo License via [SVG Repo](https://www.svgrepo.com/).
+- The book images were taken from the publishers' websites. As this project was created for educational purposes only, it is exempt from copyright law. Nevertheless, I credited all products by providing a link to the original website. For further information, please refer to the UK government's website: [Exceptions to Copyright](https://www.gov.uk/guidance/exceptions-to-copyright#non-commercial-research-and-private-study).
 
 
 
@@ -663,19 +630,17 @@ https://stackoverflow.com/questions/61543829/django-taking-values-from-post-requ
   
 I would like to thank the following contributors:
 
-* My mentor, [Rory Patrick Sheridan]( https://github.com/Ri-Dearg) and my college coordinator [Manuel Perez Romero](https://www.linkedin.com/in/manuel-perez-romero-460063176/) for giving useful feedback throughout the development and testing processes.
-
-* My family and friends for taking the time to test the site.
-
-* [Code Institute](www.codeintitute.net)'s Slack Community for continuous support.
+- My mentor, [Rory Patrick Sheridan](https://github.com/Ri-Dearg), and my college coordinator [Manuel Perez Romero](https://www.linkedin.com/in/manuel-perez-romero-460063176/) for providing useful feedback throughout the development and testing processes.
+- My family and friends for taking the time to test the site.
+- [Code Institute](www.codeintitute.net)'s Slack Community for continuous support.
 
 
 
 ##  Disclaimer
   
 
-This project was created for [Code Institute](www.codeintitute.net)'s web application development course as the 4th Milestone Project - for educational purposes.
+This project was created for [Code Institute](www.codeintitute.net)'s web application development course as the 4th Milestone Project for educational purposes.
     
 Not for public use.
     
-&copy;2023 Szilvia Csernusne Berczes. All rights reserved. 
+&copy; 2023 Szilvia Csernusne Berczes. All rights reserved. 
