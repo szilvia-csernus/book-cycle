@@ -69,7 +69,7 @@ The logo and icons are my own drawings, with the exception of the [Google icon](
 # Data
 
 ## Database Schema
-I created 7 tables to model the data and its relationships. Furthermore, I utilised the `django-allauth` tables for authentication.
+In addition to the default django tables, I created 7 tables to model the data and its relationships. I also utilised the `django-allauth` tables for authentication.
 
 [Lucid Charts](https://lucid.app/) was used to visualize the database schema.
 
@@ -590,7 +590,8 @@ https://stackoverflow.com/questions/61543829/django-taking-values-from-post-requ
 
 * Google logo: Vectors and icons by [Google Design](https://design.google/?ref=svgrepo.com) in Logo License via [SVG Repo](https://www.svgrepo.com/).
 
-* Exemption from Copyright law: https://www.gov.uk/guidance/exceptions-to-copyright#non-commercial-research-and-private-study
+* The book images were taken from the publishers' websites. As this project was created for educational purposes only, I don't benefit from it financially, and using these pictures are not effecting the publishers negatively, in my understanding this is a case for exemption to copyright law. Nevertheless, I credit all products by providing a link to the original website. For further information, please see:  https://www.gov.uk/guidance/exceptions-to-copyright#non-commercial-research-and-private-study
+
 
 
 ##  Acknowledgements
