@@ -168,8 +168,31 @@ sortBy.addEventListener('change', (event) => {
 });
 
 
-// Scroll back to top if user clicks the 'back to top' button.
-const backToTopBtn = document.querySelector('.back-to-top');
+// The 'back to top' button
+const backToTopBtn = document.getElementById('back-to-top');
+
+/* 
+Show the back-to-top button if user scrolls down 500px
+*/
+function handleScroll() {
+	// Get the current scroll position
+	const scrollY = window.scrollY;
+
+	const scrollThreshold = 500;
+
+	// Check if the user has scrolled past the threshold
+	if (scrollY > scrollThreshold) {
+		// add back-to-top element to the DOM
+		backToTopBtn.classList.add('active');
+	} else {
+        // remove back-to-top element
+		backToTopBtn?.classList.remove('active');
+	}
+}
+
+window.addEventListener('scroll', handleScroll);
+
+// scroll back to top if user clicks the back-to-top button
 backToTopBtn.addEventListener('click', () => {
 	window.scrollTo(0, 0);
 });

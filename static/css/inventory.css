@@ -175,6 +175,7 @@
 }
 
 .back-to-top {
+    display: none;
     position: fixed;
     bottom: 0;
     right: 1rem;
@@ -184,6 +185,10 @@
     cursor: pointer;
     color:var(--text-secondary);
     background-color: var(--bg-detail);
+}
+
+.back-to-top.active {
+    display: block;
 }
 
 @media screen and (min-width: 416px) {
