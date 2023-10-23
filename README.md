@@ -19,7 +19,7 @@ The project is written in Django, a full-stack python framework, alongside HTML,
 
 Not for public use.
     
-&copy; 2023 Szilvia Csernusne Berczes. All rights reserved.
+&copy; 2023 Szilvia Csernusne Berczes.
 
 ---
 
@@ -69,7 +69,9 @@ The logo and icons are my own drawings, with the exception of the [Google icon](
 # Data
 
 ## Database Schema
-In addition to the default django tables, I created 7 tables to model the data and its relationships. I also utilised the `django-allauth` tables for authentication.
+
+The diagram shows a layout of the tables represented by my models in the database. The tables that were created by  django by default are omitted, as well as the `django-allauth` tables, with the exeption of the `User` table which is directly connected to my `User Profile` and `Order` tables.
+
 
 [Lucid Charts](https://lucid.app/) was used to visualize the database schema.
 
@@ -81,7 +83,7 @@ In addition to the default django tables, I created 7 tables to model the data a
 
 ## Product data
 
-I compiled a custom textbook list, converted it to json then wrote custom scripts to create stock data - generating prices and stock amounts randomly. Finally, I used these files as `fixtures` to populate the database.
+I compiled a custom textbook list, converted it to json and wrote custom scripts to create stock data - generating prices and stock amounts randomly. Finally, I used these files as `fixtures` to populate the database.
 
 The book pictures and details were taken from the publishers websites, a link pointing to the original site is provided for all books.
 
@@ -112,12 +114,18 @@ Clicking the `shop` button or one of the filtering options from the menu, we wil
 | <td colspan="2">Under the `More Options` button, complex searching, filtering and sorting can be carried out.
 |![Books search light mode](readme_files/books-search-light.jpeg)|![Books search dark mode](readme_files/books-search-dark.jpeg)|
 
+In order to speed up loading, pagination is used to avoid unneccessary data load.
+
 ---
 
 ## Shopping Process
 
 We can start shopping right away, without the need for signing up.
 We can add products directly from the bookstore's page or by visiting the individual book's page.
+
+
+Stock management allows to display the available stock to the user and prevent purchasing out-of-stock items.
+
 |Book Detail Page - light mode|Book Detail Page - dark mode|
 |:---:|:---:|
 |![Book detail light mode](readme_files/book-detail-light.jpeg)|![Book detail dark mode](readme_files/book-detail-dark.jpeg)|
@@ -208,10 +216,10 @@ The user can `change` their password if they have one or `set` a new password if
 
 ---
 
-All users can use the `Forgot your password?` function.
+All users can use the `Forgot password?` function.
 |Password Reset | Password Reset Notification |
 |:---:|:---:|
-|![Forgot your password](readme_files/password-reset.jpeg)|![Password Reset Notification](readme_files/password-reset-note.jpeg)|
+|![Forgot password](readme_files/password-reset.jpeg)|![Password Reset Notification](readme_files/password-reset-note.jpeg)|
 
 ---
 ### Deleting a User Account
@@ -287,6 +295,38 @@ In case of an error, custom error pages would be shown to the user.
     
  ---
 
+# Accessibility
+  
+
+* Semantic HTML was used.
+* Images have `alt` labels. 
+* Icons which have inferred meanings are marked with `aria` labels.
+* All colours were tested for contrast in Chrome's Dev Tools.
+* For detailed Lighthouse scores for Accessibility, please refer to the [Testing document](TESTING.md#lighthouse-tests).
+
+--- 
+
+
+# SEO
+
+* Lighthouse scores for Search Engine Optimasation are 100% throughout all pages.
+
+* `robots.txt` and `sitemap.xml` are provided to be used by search engines.
+
+* I created a `slug` for each book, based on their titles, that makes the book discoverable by search engines when someone is searching for the book's title. This approach will increase the site's traffic and increases potential revenue.
+
+---
+
+# Performance
+
+In order to achieve the best possible performance, I chose not to use any frontend libraries that have to load before the page renders (like Bootstrap / Materialize or JQuery) to reduce render blocking code loading. While writing the code this way was more complex, it greatly improved the project's Lighthouse scores. In local development, all my Performance scores are over 90%. The lower performance in production are all down to unavoidable elements, like Stripe's script needed for Fraud detection and the slow response time from the hosting providers - purchasing more expensive hosting packages would greatly improve performance in production. 
+
+To further improve the site's responsiveness and achieve seamless user experience, a frontend framework like ReactJS could be used combined with Django's REST framework for the backend. This architecture however, was beyond the scope of this project.
+
+For the project's detailed Lighthouse scores, please refer to the [Testing document](TESTING.md#lighthouse-tests).
+
+---
+
 ## Future Implementations
 
 * Further functions for staff members - searching/filtering orders, handling returns and refunds.
@@ -304,13 +344,22 @@ In case of an error, custom error pages would be shown to the user.
 ## Languages Used
   
 
-The site was built with Python, PosgreSQL, JavaScript, HTML and CSS.
-    
+* Python
+    - Using the Django framework and other plugins to develop the app.
+* HTML
+    - For page structure.
+* CSS
+    - For styling.
+* Javascript
+    - Interactive frontend components and AJAX.
+  
 
-## Frameworks and Libraries
+## Frameworks, Libraries and Packages
   
 
 * [Django](https://www.djangoproject.com/) - Fullstack python framework
+
+* [Stripe](https://stripe.com/gb) - Used for processing payments securely.
 
 * [django-allauth](https://allauth.org/) - A Django package for authentication
 
@@ -318,17 +367,31 @@ The site was built with Python, PosgreSQL, JavaScript, HTML and CSS.
 
 * [Pillow](https://pypi.org/project/Pillow/) - A python imaging library for processing images
 
-I chose not to use any frontend libraries (like Bootstrap / Materialize) to reduce dependencies, improve the project's Lighthouse scores and to have greater control over the look and behaviour of the frontend of the project.
+* `boto3` - Used for configuration and Management of AWS
+
+* `coverage` - Measures lines of code tested.
+
+* `dj-database-url` - Parses databse URLs for django.
+
+* `django-countries` - Provides model fields for up-to-date country selection.
+
+* `django-storages` - Creates custom storages for use with AWS.
+
+* `gunicorn` - Web server to run on heroku.
+
+* `psycopg2` - Adapter for use with a Postrgres Database.
 
 
+## Hosting platforms
 
-## Other Programs Used
+* `Heroku` - for hosting main codebase.
 
-* [Heroku](https://heroku.com/) - to deploy the project.
+* `ElephantSQL` - for database hosting.
 
-* [ElephantSQL](https://elephantsql.com/) - to deploy the database.
+* `Amazon AWS S3` - for static/media file hosting. 
 
-* [Amazon AWS S3]() - to serve static files. 
+
+## Other Tools
 
 * [Google Fonts](https://fonts.google.com/)  - for texts.
 
@@ -351,15 +414,9 @@ I chose not to use any frontend libraries (like Bootstrap / Materialize) to redu
 * [Random Key Generator](https://randomkeygen.com/) - to generate a secret key.
 
 
----
-
-# SEO
-
-* Lighthouse scores for Search Engine Optimasation are 100% throughout all pages.
-
-* Furthermore, I created a `slug` for each book, based on their titles, that makes the book discoverable by search engines when someone is searching for the book's title. This approach will increase the site's traffic and increases potential revenue.
 
 ---
+
 
 # Testing
 
@@ -374,7 +431,8 @@ Please refer to [TESTING.md](TESTING.md) for detailed testing documentation.
 
 To develop this project locally in VSCode, the followings steps are needed.    
 
-1. Make sure you have python installed.
+0. Prerequisites: make sure python and psql are installed.
+1. Set up a free account with STRIPE.
 2. Clone this project into a new repository.
 3. Create a new virtual environment in the project's parent folder with `python3 -m venv venv`.
 4. While in the project's parent folder, activate the virtual environment with `source venv/bin/activate`.
@@ -430,6 +488,7 @@ The project is deployed on `Heroku`, the database on `ElephantSQL` and the stati
 
 For deployment, the following steps were taken:
 
+0. Prerequisites: An account with Heroku, ElephantSQL, Amazon AWS, Stripe, and an email server provider, such as Google.
 1. Create a new ElephantSQL instance
 2. Migrate the database
     * install `dj_database_url` and `psycopg2`,
@@ -547,18 +606,12 @@ For deployment, the following steps were taken:
 
 # Credits
 
-
-## Programs used
-
-* Image converter: https://cloudconvert.com/jpg-to-webp
-* File converter (csv to json): https://csvjson.com/csv2json
-* Favicon generator: https://realfavicongenerator.net/
-
-
 ## Learning Resources
 
 * Hello Django walkthrough project by Code Institute
-* Boutique Ado walkthrough project by Code Institute
+
+* Boutique Ado walkthrough project by Code Institute - The Stripe implementation and the webhooks were adopted from this porject.
+
 * Django documentation
 
 * Django Allauth documentation:
@@ -568,6 +621,16 @@ https://django-allauth.readthedocs.io/en/latest/account/configuration.html
 https://django-crispy-forms.readthedocs.io/en/latest/index.html
 
 * Webinar by Matt Rudge (Code Institute) https://www.youtube.com/watch?app=desktop&si=7Y-7qKnSZBRNzIxG&v=YH--VobIA8c&feature=youtu.be
+
+---
+
+## Programs used
+
+* Image converter: https://cloudconvert.com/jpg-to-webp
+* File converter (csv to json): https://csvjson.com/csv2json
+* Favicon generator: https://realfavicongenerator.net/
+
+---
 
 ## Other resources
 
@@ -592,7 +655,7 @@ https://stackoverflow.com/questions/61543829/django-taking-values-from-post-requ
 
 * Google logo: Vectors and icons by [Google Design](https://design.google/?ref=svgrepo.com) in Logo License via [SVG Repo](https://www.svgrepo.com/).
 
-* The book images were taken from the publishers' websites. As this project was created for educational purposes only, I don't benefit from it financially, and using these pictures are not effecting the publishers negatively, in my understanding this is a case for exemption to copyright law. Nevertheless, I credit all products by providing a link to the original website. For further information, please see:  https://www.gov.uk/guidance/exceptions-to-copyright#non-commercial-research-and-private-study
+* The book images were taken from the publishers' websites. As this project was created for educational purposes only, it is exempt to copyright law. Nevertheless, I credited all products by providing a link to the original website. For further information, please refer to the UK government's website:  https://www.gov.uk/guidance/exceptions-to-copyright#non-commercial-research-and-private-study
 
 
 
@@ -605,8 +668,6 @@ I would like to thank the following contributors:
 * My family and friends for taking the time to test the site.
 
 * [Code Institute](www.codeintitute.net)'s Slack Community for continuous support.
-
-    
 
 
 
