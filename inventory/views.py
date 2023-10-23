@@ -8,6 +8,7 @@ from django.contrib import messages
 from django.contrib.admin.views.decorators import staff_member_required
 from django.views.decorators.http import require_POST
 from django.core.files.storage import default_storage
+from django.core.paginator import Paginator
 
 from .models import Book, Stock
 from .forms import BookForm
@@ -110,10 +111,19 @@ def all_books(request):
 
         books = books.order_by(sortkey)
 
+    count = books.count()
+
+    books_per_page = 12
+
+    paginator = Paginator(books, books_per_page)
+    page_number = request.GET.get('page')
+    books = paginator.get_page(page_number)
+
     current_sorting = f'{sort}_{direction}'
     query_string = request.GET.urlencode()
     context = {
         'books': books,
+        'count': count,
         'search_term': search_term,
         'year_group': year_group,
         'subject': subject,

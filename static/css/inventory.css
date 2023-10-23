@@ -161,6 +161,19 @@
     padding: 1rem;
 }
 
+.step-links {
+    display: flex;
+    justify-content: center;
+    padding: 2rem 1rem 3rem;
+    color: var(--text-secondary);
+    gap: 1rem;
+    align-items: center;
+}
+
+.current {
+    font-weight: bold;
+}
+
 .back-to-top {
     position: fixed;
     bottom: 0;
