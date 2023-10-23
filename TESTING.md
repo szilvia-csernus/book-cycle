@@ -115,17 +115,6 @@ For User Stories' testing, please [refer to this document](testing_files/user-st
 
 ---
 
-# Accessibility
-  
-
-* Semantic HTML was used.
-* Images have `alt` labels. 
-* Icons which have inferred meanings are marked with `aria` labels.
-* All colours were tested for contrast in Chrome's Dev Tools.
-* Chrome Dev Tools' Lighthouse score is 100% for accessibility for both mobile and desktop devices. (See below.)
-
---- 
-
 # Automated Tests - Unit tests
 
 I wrote 79 unit tests for my python files, [covering 89%](testing_files/coverage-report.pdf) of all statements.
