@@ -4,6 +4,7 @@ from orders.forms import OrderForm
 
 
 class OrderFormTests(TestCase):
+    """ Test OrderForm """
     def test_order_form_valid(self):
         form_data = {
             'full_name': 'Emily Grant',

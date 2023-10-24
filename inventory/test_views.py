@@ -95,6 +95,7 @@ class InventoryManagementTest(TestCase):
         self.assertIsInstance(response.context['bookform'], BookForm)
 
     def test_add_book_form_submission(self):
+        # Test the add book form's submission
         self.client.login(username='staffmember', password='staffpassword')
         response = self.client.get(reverse('add_book'))
         yeargroup = YearGroup.objects.create(name="Junior",

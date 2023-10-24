@@ -4,12 +4,15 @@ from profiles.forms import UserProfileForm
 
 
 class UserProfileFormTest(TestCase):
+    """ Test UserProfileForm """
     def setUp(self):
+        # Set up test data
         self.user = User.objects.create_user(username='emily',
                                              password='emilyspassword')
         self.user_profile = self.user.userprofile
 
     def test_user_profile_form_valid_data(self):
+        # Test the form with valid data
         form_data = {
             'default_phone_number': '1234567890',
             'default_country': 'GB',
@@ -23,10 +26,12 @@ class UserProfileFormTest(TestCase):
         self.assertTrue(form.is_valid())
 
     def test_user_profile_form_default_country(self):
+        # Test the default country is set to 'GB'
         form = UserProfileForm(instance=self.user_profile)
         self.assertEqual(form.initial['default_country'], 'GB')
 
     def test_user_profile_form_placeholder_and_classes(self):
+        # Test the placeholders and classes are correct
         form = UserProfileForm(instance=self.user_profile)
         self.assertEqual(
             form.fields['default_phone_number'].widget.attrs['placeholder'],
@@ -63,6 +68,7 @@ class UserProfileFormTest(TestCase):
             'County')
 
     def test_user_profile_form_labels(self):
+        # Test the labels are correct
         form = UserProfileForm(instance=self.user_profile)
         self.assertEqual(form.fields['default_phone_number'].label,
                          'Phone Number')

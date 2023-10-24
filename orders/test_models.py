@@ -5,7 +5,7 @@ from django.contrib.auth.models import User
 
 
 class OrderModelTestCase(TestCase):
-
+    """ Test Order model """
     def setUp(self):
         # Set up test data for Order
         year_group = YearGroup.objects.create(name="alevel")
@@ -72,6 +72,7 @@ class OrderModelTestCase(TestCase):
 
 
 class OrderLineItemModelTestCase(TestCase):
+    """ Test OrderLineItem model """
     def setUp(self):
         year_group = YearGroup.objects.create(name="alevel")
         subject = Subject.objects.create(name="computing")

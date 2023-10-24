@@ -10,6 +10,7 @@ from orders.models import Order, OrderLineItem
 
 
 class CheckoutViewTest(TestCase):
+    """ Test checkout view """
     def setUp(self):
         # Set up test data inclluding adding items to the shopping bag
         year_group = YearGroup.objects.create(name="alevel")

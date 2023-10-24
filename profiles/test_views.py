@@ -9,6 +9,7 @@ from inventory.models import YearGroup, Subject, Book, Stock
 
 
 class ProfileViewTest(TestCase):
+    """ Test profile view """
     def setUp(self):
         # Create a simple user (not staff) and log her in
         self.user = User.objects.create_user(

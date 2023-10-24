@@ -4,7 +4,7 @@ from django.urls import reverse
 
 
 class YearGroupModelTest(TestCase):
-
+    """ Test YearGroup model """
     def test_string_representation(self):
         # Create a YearGroup instance and test its string representation
         YearGroup.objects.create(name="alevel", friendly_name="A Level")
@@ -14,7 +14,7 @@ class YearGroupModelTest(TestCase):
 
 
 class SubjectModelTest(TestCase):
-
+    """ Test Subject model """
     def test_string_representation(self):
         # Create a Subject instance and test its string representation
         Subject.objects.create(name="computing",
@@ -25,7 +25,7 @@ class SubjectModelTest(TestCase):
 
 
 class BookModelTest(TestCase):
-
+    """ Test Book model """
     def setUp(self):
         # Set up test data for YearGroup and Subject and a Book
         year_group = YearGroup.objects.create(name="alevel")
@@ -44,11 +44,13 @@ class BookModelTest(TestCase):
         self.assertEqual(str(book), "Computer Science")
 
     def test_slug_creation(self):
+        # Test if the slug is created when a book is saved
         book = Book.objects.get(id=1)
         # The 'save' method should automatically generate a slug
         self.assertTrue(book.slug)
 
     def test_get_slug_url(self):
+        # Test get_slug_url method
         book = Book.objects.get(id=1)
         # The get_slug_url method should return the full url for the book,
         # when the slug is appended to the 'book_detail' url
@@ -56,6 +58,7 @@ class BookModelTest(TestCase):
         self.assertEqual(book.get_slug_url(), url)
 
     def test_in_stock(self):
+        # Test in_stock method
         book = Book.objects.get(id=1)
         # Test in_stock method when there is no stock
         in_stock = book.in_stock()
@@ -71,6 +74,7 @@ class BookModelTest(TestCase):
         self.assertTrue(in_stock)
 
     def test_get_stock_methods(self):
+        # Test get_stock methods
         book = Book.objects.get(id=1)
         # Test get_stock methods when there is no stock
         cheapest_stock = book.get_cheapest_stock()
@@ -111,9 +115,9 @@ class BookModelTest(TestCase):
 
 
 class StockModelTest(TestCase):
-
+    """ Test Stock model """
     def setUp(self):
-        # Set up test data for Book and a Stock item
+        # Set up test data for Book and a Stock items
         book = Book.objects.create(title="Computing")
         Stock.objects.create(
             book=book,
@@ -131,11 +135,13 @@ class StockModelTest(TestCase):
         )
 
     def test_string_representation(self):
+        # Get the first stock item
         stock = Stock.objects.get(id=1)
         # Test stock's string representation
         self.assertEqual(str(stock), "Computing, condition: new")
 
     def test_get_available_quantity(self):
+        # Test get_available_quantity method
         stock_new = Stock.objects.get(id=1)
         stock_good = Stock.objects.get(id=2)
         # Available quantity is quantity - blocked
