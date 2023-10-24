@@ -107,11 +107,23 @@ The Landing page is minimalist with only a few options at the top. The side menu
 ### Filtering for books
 
 Users have filtering and searching options from the side menu and additional options on the main bookstore page. Clicking the `shop` button or one of the filtering options from the menu will take us to the bookstore:
-|Book store - light mode| Book store - dark mode |
+| Book store - light mode| Book store - dark mode |
 |:---:|:---:|
-|![Books light mode](readme_files/books-light.jpeg)|![Books dark mode](readme_files/books-dark.jpeg)|
-| <td colspan="2">Under the `More Options` button, complex searching, filtering and sorting can be carried out.
+|![Books light mode](readme_files/books-light.jpeg)|![Books - dark  mode](readme_files/books-dark.jpeg)|
+
+
+Under the `More Options` button, complex searching, filtering and sorting can be carried out.
+| | |
+|:---:|:---:|
 |![Books search light mode](readme_files/books-search-light.jpeg)|![Books search dark mode](readme_files/books-search-dark.jpeg)|
+
+### Book details
+
+The lowest price of the book, its condition (new, good or fair), if it is out of stock or 'in your bag' are all listed among the details of the book.
+||||||
+|:---:|:---:|:---:|:---:|:---:|
+|![Book details](readme_files/book-details-light.jpeg)|![Book details](readme_files/book-details-dark.jpeg)|![Book out of stock](readme_files/book-details-out-of-stock-light.jpeg)|![Book out of stock](readme_files/book-details-out-of-stock-dark.jpeg)|![Book in your bag](readme_files/book-details-in-your-bag.jpeg)|
+
 
 In order to speed up loading, pagination is used to avoid unnecessary data load.
 
@@ -119,7 +131,9 @@ In order to speed up loading, pagination is used to avoid unnecessary data load.
 
 ## Shopping Process
 
-You can start shopping right away, without the need for signing up. You can add products directly from the bookstore's page or by visiting the individual book's page.
+You can start shopping right away, without the need for signing up. You can add products directly from the bookstore's page or by visiting the individual book's page. The number of books in your shopping bag will be shown in the top right corner.
+
+![shopping bag](readme_files/shopping-bag.jpeg)
 
 Stock management allows displaying the available stock to the user and prevents purchasing out-of-stock items.
 
