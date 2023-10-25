@@ -96,6 +96,7 @@ body {
     font-size: 1rem;
     font-weight: 300;
     justify-content: space-between;
+    min-height: 100vh;
 }
 
 html {
