@@ -177,11 +177,10 @@
 .back-to-top {
     display: none;
     position: fixed;
-    bottom: 0;
+    bottom: 1rem;
     right: 1rem;
     padding: .5rem .7rem;
     border: 1px solid var(--bg-secondary);
-    border-bottom: 0;
     cursor: pointer;
     color:var(--text-secondary);
     background-color: var(--bg-detail);
