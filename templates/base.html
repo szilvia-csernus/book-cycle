@@ -61,10 +61,10 @@
                 <span class="signout-link desktop">
                     Sign Out
                 </span>
-                <a href="{% url 'profile' %}" class="user-name">
+                <div class="user-name">
                     {{ request.user.get_full_name }}
-                    <span class="user-title">{% if user.is_staff%} (staff){% endif %}</span>
-                </a>
+                    <strong class="user-title">{% if user.is_staff%} (staff){% endif %}</strong>
+                </div>
                 
             {% else %}
             <a href="{% url 'account_login' %}" class="mobile">
@@ -109,6 +109,7 @@
     {% endblock %}
 
     {% block footer %}
+    {% include 'includes/footer.html' %}
     {% endblock %}
     
     {% if not user.is_staff %}
