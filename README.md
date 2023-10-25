@@ -352,8 +352,10 @@ For the project's detailed Lighthouse scores, please refer to the [Testing docum
 ## Future Implementations
 
 - Further functions for staff members: searching/filtering orders, handling returns and refunds.
+- Adding further functionality to stock management, i.e. reports, analytics.
+- Re-structure the database and functions to replace the Session-based shopping bag with a Shopping Bag model in order to have greater control over managing the user's shopping bag items.
 - Implementing an API to calculate postage data and integrate package tracking.
-- Re-creating the project in a Django REST + ReactJS architecture to improve the user experience.
+- Re-creating the project in a Django REST + ReactJS architecture to improve UX.
 
 ---
 
@@ -656,7 +658,7 @@ https://stackoverflow.com/questions/61543829/django-taking-values-from-post-requ
 I would like to thank the following contributors:
 
 - My mentor, [Rory Patrick Sheridan](https://github.com/Ri-Dearg), and my college coordinator [Manuel Perez Romero](https://www.linkedin.com/in/manuel-perez-romero-460063176/) for providing useful feedback throughout the development and testing processes.
-- My family, friends and fellow students, especially [Karolis Petrauskas](https://www.linkedin.com/in/kpetrauskas92/) for taking the time to test the site and give suggestions for improvements.
+- My family, friends and fellow students, especially [Karolis Petrauskas](https://www.linkedin.com/in/kpetrauskas92/) and [Allen Gleeson](https://www.linkedin.com/in/allen-gleeson-a6263711a/) for taking the time to test the site and give suggestions for improvements.
 - [Code Institute](www.codeintitute.net)'s Slack Community for continuous support.
 
 
