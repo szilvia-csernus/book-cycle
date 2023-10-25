@@ -290,11 +290,13 @@ select invalid file formats.
 
 # Remaining Bugs
 
+* As I mentioned in the README file, the shopping bag is stored in django's built in Session model, similarly to Code Institute's boutique-ado reference project. While this approach was sufficient for the webshop-only site, it is error-prone when stock-management is implemented, especially when handling 'releasing a previously reserved item' if user does not check out or if starts shopping as an anonymus user and later signs in. I wrote a signal that releases these items when the Session is destroyed, but this signal  doesn't get fired when Sessions are not deleted the usual ways (expire or get unused and 'garbage-collected' at some point). As these events happen in the middleware layer of the data flow architecture, capturing them would include writing sheduled background tasks and they will still not solve the issue for all scenarios. For this reason, in hindsight, creating a shopping bag model and connecting it to the user's Session would have been a better approach.
+
 * If the user signs up with a social account and later decides to set up a password, after they did so, the `Set Password` function redirects the user to the `Change Password` page, despite setting the password successfully. As to my knowledge, configuring this url for `Set Password` is not possible in this version (0.56.1) of `django-allauth` - a possible solution could be a custom view that extends the set password view.
 
 * Stripe does not allow setting the card element's colour dynamically to allow changing to dark mode, it enforces `light-theme-only` as an `!important` inline styling that can not be changed. In order to display the card's number in both light and dark mode, I chose a grey colour that is readable with both backgrounds. This makes the card number's colour different from all other form element's colour.
 
-* Chrome DevTool console displays warnings about Stripe's Same-Site Cookies. That is because Stripe recommends to import its script onto every page of the webshop to help Stripe's Fraud Detection Scheme:
+* Chrome DevTool console displays warnings about Stripe's Same-Site Cookies. That is due to Stripe's Fraud Detection Scheme:
 https://stripe.com/docs/disputes/prevention/advanced-fraud-detection To resolve the same cookie issue, Stripe is working on the solution:
 https://support.stripe.com/questions/chrome-80-samesite-cookie-change?locale=en-GB
 

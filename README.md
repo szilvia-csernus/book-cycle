@@ -80,6 +80,8 @@ When a user makes a purchase, the stock item is represented as an `Orderline Ite
 
 Upon user registration on the site and the creation of a `User` instance, a corresponding `User Profile` instance is created to store the user's default shipping and contact information. This feature enhances the checkout process for subsequent purchases.
 
+Shopping bag is stored in django's built in `Session` model as a text field as was suggested in Code Institute's reference project (Boutique Ado) - not included in the diagram below.
+
 
 I used [Lucid Charts](https://lucid.app/) to visualize the database schema.
 
