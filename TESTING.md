@@ -192,10 +192,10 @@ We can also monitor how our webhook handler responded to events.
 
  # Manual Testing
 
+I conducted manual testing throughout the development process, advancing to the next feature once I was satisfied with the current one's functionality. The test cases below are specifically related to the final testing of the project.
 
-For detailed manual testing, please refer to this document:  
 
-[Manual Test Cases](testing-images/manual-test-cases.pdf)
+[Manual Test Cases](testing_files/manual-test-cases.pdf)
 
   
 ---
@@ -287,7 +287,6 @@ select invalid file formats.
 ---
 
 # Remaining Bugs
-
 
 * If the user signs up with a social account and later decides to set up a password, after they did so, the `Set Password` function redirects the user to the `Change Password` page, despite setting the password successfully. As to my knowledge, configuring this url for `Set Password` is not possible in this version (0.56.1) of `django-allauth` - a possible solution could be a custom view that extends the set password view.
 
