@@ -44,6 +44,8 @@ Wireframes were created in [Balsamiq](https://balsamiq.cloud/).
 
 I personally chose the colors for this project, and the colour palette was created using [Figma](https://www.figma.com).
 
+Light and dark modes are implemented for both customer and staff member pages, automatically adjusting to the computer's light/dark mode settings.
+
 |Book store - light mode| Book store - dark mode |
 |:---:|:---:|
 |![Main Colour Palette light mode](readme_files/colours-light.jpeg)|![Main Colour Palette dark mode](readme_files/colours-dark.jpeg)|
@@ -71,6 +73,12 @@ The logo and icons used in the project are my own drawings, with the exception o
 ## Database Schema
 
 The diagram illustrates a layout of the tables represented by my models in the database. The tables that were created by  django by default are omitted, as well as the `django-allauth` tables, with the exeption of the `User` table which is directly connected to my `User Profile` and `Order` tables.
+
+The `Book` model contains most of the product details. To enable filtering by both `Year Group` and `Subject`, I chose to create separate models for each category. For each book instance, three `Stock` instances are created, representing different conditions: New, Good, and Fair. This one-to-many relationship allows me to manage prices, quantities, and reserved quantities based on the book's condition rather than the book itself. This structure also facilitates inventory management functions, such as adjusting stock levels, reserving stock while it's in a user's shopping bag, and reducing stock when a purchase is made.
+
+When a user makes a purchase, the stock item is represented as an `Orderline Item` within the `Order` instance, which establishes a many-to-one relationship. The `Order` model contains all the necessary order details, including delivery, contact, and payment information. A `User Profile` is only attached to an order if the user has created an account and is signed in.
+
+Upon user registration on the site and the creation of a `User` instance, a corresponding `User Profile` instance is created to store the user's default shipping and contact information. This feature enhances the checkout process for subsequent purchases.
 
 
 I used [Lucid Charts](https://lucid.app/) to visualize the database schema.
@@ -331,7 +339,7 @@ In case of an error, custom error pages would be shown to the user:
 
 # Performance
 
-To achieve the best possible performance, I chose not to use any frontend libraries that have to load before the page renders (like Bootstrap, Materialize, or JQuery) to reduce render-blocking code loading. While writing the code this way was more complex, it greatly improved the project's Lighthouse scores. In local development, all my Performance scores are over 90%. The lower performance in production is all due to unavoidable elements, like Stripe's script needed for Fraud detection and the slow response time from the hosting providers. Purchasing more expensive hosting packages would greatly improve performance in production.
+To achieve the best possible performance, I chose not to use any frontend libraries that have to load before the page renders (like Bootstrap, Materialize, or JQuery) to reduce render-blocking code loading. While writing the code this way was more complex, it greatly improved the project's Lighthouse scores. The lower performance in production is all due to unavoidable elements, like Stripe's script needed for Fraud detection and the slow response time from the hosting providers. Purchasing more expensive hosting packages would greatly improve performance in production.
 
 To further improve the site's responsiveness and achieve a seamless user experience, a frontend framework like ReactJS could be used combined with Django's REST framework for the backend. This architecture, however, was beyond the scope of this project.
 
@@ -367,6 +375,7 @@ For the project's detailed Lighthouse scores, please refer to the [Testing docum
 - [django-allauth](https://allauth.org/): A Django package for authentication.
 - [crispy-forms](https://django-crispy-forms.readthedocs.io/en/latest/): A Django package for form management.
 - [Pillow](https://pypi.org/project/Pillow/): A Python imaging library for processing images.
+- [Google Fonts](https://fonts.google.com/): For decorative text fonts.
 - `boto3`: Used for configuration and Management of AWS.
 - `coverage`: Measures lines of code tested.
 - `dj-database-url`: Parses database URLs for Django.
@@ -385,7 +394,6 @@ For the project's detailed Lighthouse scores, please refer to the [Testing docum
 
 ## Other Tools
 
-- [Google Fonts](https://fonts.google.com/): For texts.
 - [Balsamiq](https://balsamiq.cloud/): To create wireframes.
 - [Figma](https://www.figma.com/): To draw the logo and the icons, and to create the color palette.
 - [RealFaviconGenerator](https://realfavicongenerator.net/svg-favicon/): To generate favicons.
@@ -616,6 +624,8 @@ https://django-crispy-forms.readthedocs.io/en/latest/index.html
 ---
 
 ## Other resources
+
+* Converting CSV to JSON: https://csvjson.com/csv2json
 
 * Converting images to 'webp' format in python: https://www.webucator.com/tutorial/using-python-to-convert-images-to-webp/
 
