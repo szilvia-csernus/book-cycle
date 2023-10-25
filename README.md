@@ -420,7 +420,7 @@ Please refer to [TESTING.md](TESTING.md) for detailed testing documentation.
 
 ## Local Development
 
-To develop this project locally in VSCode, the followings steps are needed.    
+To develop this project locally in VSCode, the following steps are needed.    
 
 0. Prerequisites: make sure python and psql are installed.
 1. Set up a free account with STRIPE.
@@ -543,7 +543,7 @@ For deployment, the following steps were taken:
     * set up automatic deployment on Heroku: Deploy/GitHub, search for `<github-repo-name>`, `Connect` then `Enable Automatic Deploys`
 3. Create a new `S3` bucket on `Amazon AWS` to serve static and media files
     * Create a new bucket
-    * Enable static website hosting in Properties, this will give access point to be uset from the internet.
+    * Enable static website hosting in Properties, this will give access point to be used from the internet.
     Select `Use this bucket to host a website`, keep the default values (they won't be used) and Save Changes.
     * Set up permissions by generating a CORS policy with the Policy Generator.
 4. Set up a user group in `AWS IAM` in order to set up user permissions for the new bucket.
@@ -579,12 +579,12 @@ For deployment, the following steps were taken:
     ```
     * Remove `DISABLE_COLLECTSTATIC=1` variable from the Heroku config vars, because this time, we want django to collect the static files.
     * Create the `custom_storages.py` file to tell django to use `AWS S3` whenever someone runs collectstatic, and when any product image upload occurs.
-    * Add and commit all changes to GitHub, which will trigger tha automatic deployment to Heroku. Go to Heroku's Activity tab and view the build log to see if it was successful.
-    * Go to `AWS S3`, the new bucket has a `static` folder init.
-    * For media files, add a new folder called `media` next to `static`. Click `Upload` and select all images to upload. Click `Upload`.
+    * Add and commit all changes to GitHub, which will trigger the automatic deployment to Heroku. Go to Heroku's Activity tab and view the build log to see if it was successful.
+    * Go to `AWS S3`, the new bucket has a `static` folder in it.
+    * For media files, add a new folder called `media` next to `static`. Click `Upload` and select all images to upload. Click `Upload` again.
 6. Create/confirm the email address for the superuser.
     * Log in to the admin panel, go to `Email addresses`. Add a new email address if there is none.
-    * Go to `Users`, select the only user, add the only email address then merk it as verified and primary.
+    * Go to `Users`, select the only user, add the only email address then mark it as verified and primary.
     * In `settings.py`, change the `ACCOUNT_EMAIL_VERIFIED` back to `mandatory`.
     * Commit and push to GitHub.
 7. Set up `STRIPE` for the deployed site.
@@ -623,9 +623,8 @@ https://django-crispy-forms.readthedocs.io/en/latest/index.html
 
 ---
 
-## Other resources
+## Other helpful ideas/resources
 
-* Converting CSV to JSON: https://csvjson.com/csv2json
 
 * Converting images to 'webp' format in python: https://www.webucator.com/tutorial/using-python-to-convert-images-to-webp/
 
@@ -655,7 +654,7 @@ https://stackoverflow.com/questions/61543829/django-taking-values-from-post-requ
 I would like to thank the following contributors:
 
 - My mentor, [Rory Patrick Sheridan](https://github.com/Ri-Dearg), and my college coordinator [Manuel Perez Romero](https://www.linkedin.com/in/manuel-perez-romero-460063176/) for providing useful feedback throughout the development and testing processes.
-- My family and friends for taking the time to test the site.
+- My family, friends and fellow students, especially [Karolis Petrauskas](https://www.linkedin.com/in/kpetrauskas92/) for taking the time to test the site and give suggestions for improvements.
 - [Code Institute](www.codeintitute.net)'s Slack Community for continuous support.
 
 
