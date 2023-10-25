@@ -250,6 +250,8 @@ Initial Response time by Heroku, Stripe, Amazon AWS, as well as Google Fonts wer
 Responsiveness was tested using [Google Dev Tools](https://developer.chrome.com/docs/devtools/)  
 Browser & Version: Chrome Version 117.0.5938.149 (Official Build) (x86_64) on Desktop (macOS Catalina version 10.15.7)
 
+The site is optimized for a minimum device width of 360px, so my tests do not include smaller screens. In 2021, approximately 4% of European citizens used smaller devices, and this number is likely even smaller now. All information, buttons, and links are still accessible on smaller screens, but the book detail and shopping bag pages should be completely redesigned if we prioritised these devices.
+
 A test considered as passed if the width of the page resizes to the given device's width.
 
 | Device | iPhone SE | iPhone XR | iPhone 12 Pro | Pixel 5 | Samsung Galaxy S8+ | Samsung Galaxy S20 Ultra | iPad Air | iPad Mini | Surface Pro 7 | Samsung Galaxy A51/71 | Nest Hub | Nest Hub Max |
