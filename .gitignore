@@ -1,7 +1,10 @@
-.vscode
+.vscode*
 venv
 book-cycle-venv
 *.sqlite3
 *.pyc
 __pycache__
 .env
+S3-ac.numbers
+textbooks.numbers
+
