@@ -4,7 +4,7 @@ const addModal = (modalElement, canceBtnId) => {
 	// Grab and add event listener to Cancel button to close modal
 	const cancelBtn = document.getElementById(canceBtnId);
 	cancelBtn.addEventListener('click', () => {
-		removeModal(modalElement, () => {});
+		removeModal(modalElement);
 	});
 };
 
