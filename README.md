@@ -1,5 +1,7 @@
 # Book-CYCLE
 
+[![DeepScan grade](https://deepscan.io/api/teams/23376/projects/26639/branches/850428/badge/grade.svg)](https://deepscan.io/dashboard#view=project&tid=23376&pid=26639&bid=850428)
+
 Book-CYCLE is a Full Stack Webshop Application designed to be used by secondary schools in the UK. The purpose of the site is to promote the re-use of textbooks by students while generating income for the school. The webshop allows the school to list all the textbooks they recommend their students to buy in both new and used conditions, possibly asking students to donate their used books back to the school.
 
 Users can purchase listed textbooks using the STRIPE payment system and will receive confirmation emails about orders and shipping. School staff members can manage the book inventory and incoming orders.
@@ -9,7 +11,8 @@ The webshop has not been customized for a specific school, but it can be done by
 The project is written in Django, a full-stack Python framework, alongside HTML, CSS, and JavaScript. The Stripe API is used for payments.
 
 ---
-[View the live project here](https://book-cycle-f6aff45df7ba.herokuapp.com/inventory/books/)
+[View the live project here](https://book-cycle-f6aff45df7ba.herokuapp.com)
+
 ---
 
 ![Landing Page](readme_files/mockup-light.jpeg)
