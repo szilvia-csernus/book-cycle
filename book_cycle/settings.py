@@ -323,25 +323,26 @@ PWA_APP_START_URL = '/'
 PWA_APP_STATUS_BAR_COLOR = 'default'
 PWA_APP_ICONS = [
     {
-        "src": "/static/icons/android-chrome-192x192.png",
+        "src": os.path.join(STATIC_URL, "icons/android-chrome-192x192.png"),
         "sizes": "192x192",
         "type": "image/png"
     },
     {
-        "src": "/static/icons/android-chrome-512x512.png",
+        "src": os.path.join(STATIC_URL, "icons/android-chrome-512x512.png"),
         "sizes": "512x512",
         "type": "image/png"
     }
 ]
 PWA_APP_ICONS_APPLE = [
     {
-        'src': 'static/icons/apple-touch-icon.png',
+        'src': os.path.join(STATIC_URL, 'icons/apple-touch-icon.png'),
         'sizes': '160x160'
     }
 ]
 PWA_APP_SPLASH_SCREEN = [
     {
-        'src': 'static/screenshots/landing-page-light-mobile.jpeg',
+        'src': os.path.join(STATIC_URL,
+                            "screenshots/landing-page-light-mobile.jpeg"),
         'media': '(device-width: 320px) and (device-height: 568px) \
         and (-webkit-device-pixel-ratio: 2)'
     }
@@ -350,12 +351,14 @@ PWA_APP_DIR = 'ltr'
 PWA_APP_LANG = 'en-US'
 PWA_APP_SCREENSHOTS = [
     {
-        "src": "screenshots/landing-page-light-mobile.jpeg",
+        "src": os.path.join(STATIC_URL,
+                            "screenshots/landing-page-light-mobile.jpeg"),
         "sizes": "348x752",
         "type": "image/png"
     },
     {
-        "src": "screenshots/books-light.jpeg",
+        "src": os.path.join(STATIC_URL,
+                            "screenshots/books-light.jpeg"),
         "sizes": "884x857",
         "type": "image/png"
     }
