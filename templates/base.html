@@ -17,6 +17,7 @@
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=KoHo:wght@300;500;600&family=Koulen&display=swap" rel="stylesheet">
     
+    <!-- Settings for PWA -->
     <link rel="manifest" href="{% static 'app.webmanifest' %}" type="application/manifest+json">
     <link rel="apple-touch-icon" sizes="180x180" href="{% static 'icons/apple-touch-icon.png'%}">
     <link rel="icon" type="image/svg+xml" href="{% static 'favicons/favicon.svg'%}">
@@ -25,6 +26,7 @@
     <meta name="msapplication-config" content="{% static 'browserconfig.xml' %}" />
     <meta name="msapplication-TileColor" content="#560190">
     <meta name="theme-color" content="#560190">
+    <script src="{% static 'sw-register.js' %}"></script>
 
     
     <link rel="stylesheet" href="{% static 'css/base.css' %}">
