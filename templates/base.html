@@ -26,7 +26,11 @@
     <meta name="msapplication-config" content="{% static 'browserconfig.xml' %}" />
     <meta name="msapplication-TileColor" content="#560190">
     <meta name="theme-color" content="#560190">
-    <script src="{% static 'sw-register.js' %}"></script>
+    <script>
+        if ('serviceWorker' in navigator) {
+            navigator.serviceWorker.register('{% static "serviceworker.js" %}');
+        }
+    </script>
 
     
     <link rel="stylesheet" href="{% static 'css/base.css' %}">
