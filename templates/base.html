@@ -28,7 +28,7 @@
     <meta name="theme-color" content="#560190">
     <script>
         if ('serviceWorker' in navigator) {
-            navigator.serviceWorker.register('{% static "serviceworker.js" %}');
+            navigator.serviceWorker.register("{% url 'serviceworker' %}");
         }
     </script>
 

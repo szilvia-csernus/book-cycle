@@ -2,13 +2,17 @@
 
 [![DeepScan grade](https://deepscan.io/api/teams/23376/projects/26639/branches/850428/badge/grade.svg)](https://deepscan.io/dashboard#view=project&tid=23376&pid=26639&bid=850428)
 
-Book-CYCLE is a Full Stack Webshop Application designed to be used by secondary schools in the UK. The purpose of the site is to promote the re-use of textbooks by students while generating income for the school. The webshop allows the school to list all the textbooks they recommend their students to buy in both new and used conditions, possibly asking students to donate their used books back to the school.
+Book-CYCLE is a Full Stack Webshop Application designed to be used by secondary schools in the UK. 
+
+The project is written in `Django`, a full-stack Python framework, alongside `HTML`, `CSS`, `JavaScript` and the `Stripe API` for payments. It is a `Progressive Web App (PWA)`, allowing the user to install the app on both mobile and desktop devices.
+
+The purpose of the application is to promote the re-use of textbooks by students while generating income for the school. The webshop allows the school to list all the textbooks they recommend their students to buy in both new and used conditions, possibly asking students to donate their used books back to the school.
 
 Users can purchase listed textbooks using the STRIPE payment system and will receive confirmation emails about orders and shipping. School staff members can manage the book inventory and incoming orders.
 
 The webshop has not been customized for a specific school, but it can be done by including the school's logo, contact details, and possibly some additional design elements. Customizations would allow the webshop to be utilized by multiple schools.
 
-The project is written in Django, a full-stack Python framework, alongside HTML, CSS, and JavaScript. The Stripe API is used for payments.
+
 
 ---
 [View the live project here](https://book-cycle-f6aff45df7ba.herokuapp.com)
@@ -23,82 +27,6 @@ The project is written in Django, a full-stack Python framework, alongside HTML,
 Not for public use.
     
 &copy; 2023 Szilvia Csernusne Berczes.
-
----
-
-# User Experience (UX)
-
-## User Stories
-
-![User Stories](readme_files/user-stories.jpg)
-
----
-## Wireframes
-
-Wireframes were created in [Balsamiq](https://balsamiq.cloud/).   
-
-![Home Page](readme_files/wireframe-home.jpeg)  
-![All Books](readme_files/wireframe-books.jpeg)  
-![Book Detail](readme_files/wireframe-book-detail.jpeg) 
-
----
-
-## Colour Scheme
-
-I personally chose the colors for this project, and the colour palette was created using [Figma](https://www.figma.com).
-
-Light and dark modes are implemented for both customer and staff member pages, automatically adjusting to the computer's light/dark mode settings.
-
-|Book store - light mode| Book store - dark mode |
-|:---:|:---:|
-|![Main Colour Palette light mode](readme_files/colours-light.jpeg)|![Main Colour Palette dark mode](readme_files/colours-dark.jpeg)|
-|Admin Console - light mode| Admin Console - dark mode |
-|![Admin console light mode](readme_files/colours-staff-light.jpeg)|![Admin console dark mode](readme_files/colours-staff-dark.jpeg)|
-
----
-
-## Typography
-
-I used two fonts, [Koulen](https://fonts.google.com/specimen/Koulen) and [KoHo](https://fonts.google.com/specimen/KoHo) from the [Google Fonts](https://fonts.google.com/) library. I selected these fonts because I felt that they complement each other, and their styles are fitting for the theme.
-
----
-
-## Imagery
-
-The [main image](https://unsplash.com/photos/OQSCtabGkSY) on the home page is credited to [Jessica Ruscello](https://unsplash.com/@jruscello?utm_source=unsplash&utm_medium=referral&utm_content=creditCopyText) and distributed by [Unsplash](https://unsplash.com/photos/OQSCtabGkSY?utm_source=unsplash&utm_medium=referral&utm_content=creditCopyText).
-
-The logo and icons used in the project are my own drawings, with the exception of the [Google icon](https://design.google/?ref=svgrepo.com), which was downloaded from [SVG Repo](https://www.svgrepo.com/).
-
----
-
-# Data
-
-## Database Schema
-
-The diagram illustrates a layout of the tables represented by my models in the database. The tables that were created by  django by default are omitted, as well as the `django-allauth` tables, with the exeption of the `User` table which is directly connected to my `User Profile` and `Order` tables.
-
-The `Book` model contains most of the product details. To enable filtering by both `Year Group` and `Subject`, I chose to create separate models for each category. For each book instance, three `Stock` instances are created, representing different conditions: New, Good, and Fair. This one-to-many relationship allows me to manage prices, quantities, and reserved quantities based on the book's condition rather than the book itself. This structure also facilitates inventory management functions, such as adjusting stock levels, reserving stock while it's in a user's shopping bag, and reducing stock when a purchase is made.
-
-When a user makes a purchase, the stock item is represented as an `Orderline Item` within the `Order` instance, which establishes a many-to-one relationship. The `Order` model contains all the necessary order details, including delivery, contact, and payment information. A `User Profile` is only attached to an order if the user has created an account and is signed in.
-
-Upon user registration on the site and the creation of a `User` instance, a corresponding `User Profile` instance is created to store the user's default shipping and contact information. This feature enhances the checkout process for subsequent purchases.
-
-Shopping bag is stored in django's built in `Session` model as a text field as was suggested in Code Institute's reference project (Boutique Ado) - not included in the diagram below.
-
-
-I used [Lucid Charts](https://lucid.app/) to visualize the database schema.
-
-
-![database-schema](readme_files/database_schema.jpeg)
-
-
-[Schema Link (accessible for LucidChart users)](https://lucid.app/lucidchart/8eb93ba8-43af-4939-9709-11dcc52da382/edit?viewport_loc=-452%2C117%2C2818%2C1215%2C0_0&invitationId=inv_a84acf43-e6e9-4d82-b0e2-672a16e53969)
-
-## Product data
-
-I compiled a custom textbook list, converted it to JSON, and wrote custom scripts to create stock data, generating prices and stock amounts randomly. Finally, I used these files as `fixtures` to populate the database.
-
-The book pictures and details were taken from the publishers' websites, and a link pointing to the original site is provided for all books.
 
 ---
 
@@ -257,6 +185,21 @@ The user can delete their account from the database, including their social acco
 |:---:|:---:|:---:|
 |![Change Password](readme_files/user-delete-confirm.jpeg)|![Account deleted message](readme_files/social-account-deleted-message.jpeg)|![Admin View](readme_files/social-account-deleted-admin-view.jpeg)|
 
+---
+## Error pages
+
+In case of an error, custom error pages would be shown to the user:
+- `404 (not found) page` in case of an invalid URL was typed in.
+- `403 (access denied) page` if there is an authentication issue.
+- `400 (bad request)` if a request to the server was sent with incorrect data/structure.
+- `500 (internal server error)` in case there is a problem with code execution or with the connection to the server.
+
+| 404 - Not Found | 403 - Access Denied | 500 - Server Error |
+|:---:|:---:|:---:|
+|![Not found page](readme_files/404.jpeg)|![Access denied](readme_files/403.jpeg)|![Error page](readme_files/500.jpeg)|
+   
+ ---
+
 
 ## Admin Functions
 
@@ -310,20 +253,84 @@ Similarly to the shipping, the staff member can register if an order has been co
 |:---:|:---:|
 |![Order for Collection](readme_files/order-for-collection.jpeg)|![Order Collection Success](readme_files/order-collection-success.jpeg)![Order Collection Email](readme_files/order-collection-email.jpeg)|
 
-## Error pages
+---
 
-In case of an error, custom error pages would be shown to the user:
-- `404 (not found) page` in case of an invalid URL was typed in.
-- `403 (access denied) page` if there is an authentication issue.
-- `400 (bad request)` if a request to the server was sent with incorrect data/structure.
-- `500 (internal server error)` in case there is a problem with code execution or with the connection to the server.
+# User Experience (UX)
 
-| 404 - Not Found | 403 - Access Denied | 500 - Server Error |
-|:---:|:---:|:---:|
-|![Not found page](readme_files/404.jpeg)|![Access denied](readme_files/403.jpeg)|![Error page](readme_files/500.jpeg)|
+## User Stories
 
-    
- ---
+![User Stories](readme_files/user-stories.jpg)
+
+---
+## Wireframes
+
+Wireframes were created in [Balsamiq](https://balsamiq.cloud/).   
+
+![Home Page](readme_files/wireframe-home.jpeg)  
+![All Books](readme_files/wireframe-books.jpeg)  
+![Book Detail](readme_files/wireframe-book-detail.jpeg) 
+
+---
+
+## Colour Scheme
+
+I personally chose the colors for this project, and the colour palette was created using [Figma](https://www.figma.com).
+
+Light and dark modes are implemented for both customer and staff member pages, automatically adjusting to the computer's light/dark mode settings.
+
+|Book store - light mode| Book store - dark mode |
+|:---:|:---:|
+|![Main Colour Palette light mode](readme_files/colours-light.jpeg)|![Main Colour Palette dark mode](readme_files/colours-dark.jpeg)|
+|Admin Console - light mode| Admin Console - dark mode |
+|![Admin console light mode](readme_files/colours-staff-light.jpeg)|![Admin console dark mode](readme_files/colours-staff-dark.jpeg)|
+
+---
+
+## Typography
+
+I used two fonts, [Koulen](https://fonts.google.com/specimen/Koulen) and [KoHo](https://fonts.google.com/specimen/KoHo) from the [Google Fonts](https://fonts.google.com/) library. I selected these fonts because I felt that they complement each other, and their styles are fitting for the theme.
+
+---
+
+## Imagery
+
+The [main image](https://unsplash.com/photos/OQSCtabGkSY) on the home page is credited to [Jessica Ruscello](https://unsplash.com/@jruscello?utm_source=unsplash&utm_medium=referral&utm_content=creditCopyText) and distributed by [Unsplash](https://unsplash.com/photos/OQSCtabGkSY?utm_source=unsplash&utm_medium=referral&utm_content=creditCopyText).
+
+The logo and icons used in the project are my own drawings, with the exception of the [Google icon](https://design.google/?ref=svgrepo.com), which was downloaded from [SVG Repo](https://www.svgrepo.com/).
+
+---
+
+# Data
+
+## Database Schema
+
+The diagram illustrates a layout of the tables represented by my models in the database. The tables that were created by  django by default are omitted, as well as the `django-allauth` tables, with the exeption of the `User` table which is directly connected to my `User Profile` and `Order` tables.
+
+The `Book` model contains most of the product details. To enable filtering by both `Year Group` and `Subject`, I chose to create separate models for each category. For each book instance, three `Stock` instances are created, representing different conditions: New, Good, and Fair. This one-to-many relationship allows me to manage prices, quantities, and reserved quantities based on the book's condition rather than the book itself. This structure also facilitates inventory management functions, such as adjusting stock levels, reserving stock while it's in a user's shopping bag, and reducing stock when a purchase is made.
+
+When a user makes a purchase, the stock item is represented as an `Orderline Item` within the `Order` instance, which establishes a many-to-one relationship. The `Order` model contains all the necessary order details, including delivery, contact, and payment information. A `User Profile` is only attached to an order if the user has created an account and is signed in.
+
+Upon user registration on the site and the creation of a `User` instance, a corresponding `User Profile` instance is created to store the user's default shipping and contact information. This feature enhances the checkout process for subsequent purchases.
+
+Shopping bag is stored in django's built in `Session` model as a text field as was suggested in Code Institute's reference project (Boutique Ado) - not included in the diagram below.
+
+
+I used [Lucid Charts](https://lucid.app/) to visualize the database schema.
+
+
+![database-schema](readme_files/database_schema.jpeg)
+
+
+[Schema Link (accessible for LucidChart users)](https://lucid.app/lucidchart/8eb93ba8-43af-4939-9709-11dcc52da382/edit?viewport_loc=-452%2C117%2C2818%2C1215%2C0_0&invitationId=inv_a84acf43-e6e9-4d82-b0e2-672a16e53969)
+
+## Product data
+
+I compiled a custom textbook list, converted it to JSON, and wrote custom scripts to create stock data, generating prices and stock amounts randomly. Finally, I used these files as `fixtures` to populate the database.
+
+The book pictures and details were taken from the publishers' websites, and a link pointing to the original site is provided for all books.
+
+---
+
 
 # Accessibility
 

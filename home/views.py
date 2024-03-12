@@ -1,6 +1,8 @@
+from django.views.static import serve
 from django.shortcuts import render
 from orders.context import manage_orders_details
 from django.templatetags.static import static
+from django.conf import settings
 from django.http import HttpResponse, HttpResponseServerError, JsonResponse
 
 
@@ -36,6 +38,13 @@ def error_500(request):
         return HttpResponse("Impossible Success")
     except Exception:
         raise HttpResponseServerError("Intentional 500 Error")
+
+
+# Serve the service worker file from the same domain (not directly from S3) to
+# have it in the same scope as the main page for the PWA manifest to work
+def serviceworker(request):
+    path = 'serviceworker.js'
+    return serve(request, path, document_root=settings.STATICFILES_DIRS[0])
 
 
 def static_file_urls(request):
