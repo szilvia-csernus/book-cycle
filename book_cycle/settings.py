@@ -62,7 +62,7 @@ INSTALLED_APPS = [
 
     # other
     'crispy_forms',
-
+    'pwa',
 ]
 
 MIDDLEWARE = [
@@ -308,3 +308,56 @@ else:
     SERVER_EMAIL = os.environ.get('EMAIL_HOST_USER')
 
 ADMINS = [('Admin', os.environ.get('EMAIL_HOST_USER'))]
+
+
+# PWA
+PWA_SERVICE_WORKER_PATH = os.path.join(BASE_DIR, 'home', 'serviceworker.js')
+PWA_APP_NAME = 'BookCycle'
+PWA_APP_DESCRIPTION = "All-condition webshop for secondary schools in the UK."
+PWA_APP_THEME_COLOR = '#560190'
+PWA_APP_BACKGROUND_COLOR = '#560190'
+PWA_APP_DISPLAY = 'standalone'
+PWA_APP_SCOPE = '/'
+PWA_APP_ORIENTATION = 'any'
+PWA_APP_START_URL = '/'
+PWA_APP_STATUS_BAR_COLOR = 'default'
+PWA_APP_ICONS = [
+    {
+        "src": "/static/icons/android-chrome-192x192.png",
+        "sizes": "192x192",
+        "type": "image/png"
+    },
+    {
+        "src": "/static/icons/android-chrome-512x512.png",
+        "sizes": "512x512",
+        "type": "image/png"
+    }
+]
+PWA_APP_ICONS_APPLE = [
+    {
+        'src': 'static/icons/apple-touch-icon.png',
+        'sizes': '160x160'
+    }
+]
+PWA_APP_SPLASH_SCREEN = [
+    {
+        'src': 'static/screenshots/landing-page-light-mobile.jpeg',
+        'media': '(device-width: 320px) and (device-height: 568px) \
+        and (-webkit-device-pixel-ratio: 2)'
+    }
+]
+PWA_APP_DIR = 'ltr'
+PWA_APP_LANG = 'en-US'
+PWA_APP_SCREENSHOTS = [
+    {
+        "src": "screenshots/landing-page-light-mobile.jpeg",
+        "sizes": "348x752",
+        "type": "image/png"
+    },
+    {
+        "src": "screenshots/books-light.jpeg",
+        "sizes": "884x857",
+        "type": "image/png"
+    }
+]
+PWA_APP_DEBUG_MODE = False
