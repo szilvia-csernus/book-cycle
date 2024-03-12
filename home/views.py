@@ -1,6 +1,7 @@
 from django.shortcuts import render
 from orders.context import manage_orders_details
-from django.http import HttpResponse, HttpResponseServerError
+from django.templatetags.static import static
+from django.http import HttpResponse, HttpResponseServerError, JsonResponse
 
 
 def home(request):
@@ -35,3 +36,31 @@ def error_500(request):
         return HttpResponse("Impossible Success")
     except Exception:
         raise HttpResponseServerError("Intentional 500 Error")
+
+
+def static_file_urls(request):
+    static_files = [
+        '/css/account.css',
+        '/css/base.css',
+        '/css/checkout.css',
+        '/css/home.css',
+        '/css/inventory.css',
+        '/css/loader.css',
+        '/css/modal.css',
+        '/css/orders.css',
+        '/css/shopping_bag.css',
+        '/js/bag.js',
+        '/js/book_management.js',
+        '/js/books.js',
+        '/js/checkout.js',
+        '/js/menu.js',
+        '/js/modal.js',
+        '/js/stripe_elements.js',
+        '/js/toast.js',
+    ]
+
+    # Convert static file paths to absolute URLs
+    static_file_urls = [request.build_absolute_uri(
+        static(file)) for file in static_files]
+
+    return JsonResponse(static_file_urls, safe=False)
