@@ -7,4 +7,6 @@ __pycache__
 .env
 S3-ac.numbers
 textbooks.numbers
+media_test
+.coverage
 

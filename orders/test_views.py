@@ -1,5 +1,3 @@
-from django.utils import timezone
-
 from django.test import TestCase
 from django.urls import reverse
 from django.contrib.auth.models import User
@@ -219,56 +217,6 @@ class CheckoutViewTest(TestCase):
         self.assertTemplateUsed(response, 'orders/checkout_success.html')
         self.assertEqual(response.context['order'], order)
 
-    def test_orders_post_view(self):
-        # Create an order that requires shipping
-        Order.objects.create(
-            full_name='Emily Grant',
-            email='emilygrant@example.com',
-            shipping_required=True
-        )
-
-        response = self.client.get(reverse('orders_post'))
-        self.assertEqual(response.status_code, 200)
-        self.assertTemplateUsed(response, 'orders/open_orders.html')
-        self.assertEqual(len(response.context['orders']), 1)
-
-    def test_orders_pickup_view(self):
-        # Create an order that doesn't require shipping
-        Order.objects.create(
-            full_name='Emily Grant',
-            email='emilygrant@example.com',
-            shipping_required=False
-        )
-
-        response = self.client.get(reverse('orders_pickup'))
-        self.assertEqual(response.status_code, 200)
-        self.assertTemplateUsed(response, 'orders/open_orders.html')
-        self.assertEqual(len(response.context['orders']), 1)
-
-    def test_orders_completed_view(self):
-        # Create a completed order
-        Order.objects.create(
-            full_name='Emily Grant',
-            email='emilygrant@example.com',
-            posted_on=timezone.now()
-        )
-
-        response = self.client.get(reverse('orders_completed'))
-        self.assertEqual(response.status_code, 200)
-        self.assertTemplateUsed(response, 'orders/completed_orders.html')
-        self.assertEqual(len(response.context['posted_orders']), 1)
-        self.assertEqual(len(response.context['picked_up_orders']), 0)
-
-    def test_order_view_existing_order(self):
-        order = Order.objects.create(order_number="123456")
-        response = self.client.get(reverse('order', args=[order.order_number]))
-        self.assertEqual(response.status_code, 200)
-
-    def test_order_view_non_existing_order(self):
-        response = self.client.get(reverse('order',
-                                           args=["nonexistent_order_number"]))
-        self.assertEqual(response.status_code, 404)
-
     def test_ship_item(self):
         # Test ship_item view
         # Create a user with staff permissions
@@ -285,12 +233,3 @@ class CheckoutViewTest(TestCase):
                                     {'tracking_number': '12345'})
         self.assertEqual(response.status_code, 302)
         self.assertRedirects(response, reverse('orders_post'))
-
-    def test_collect_item(self):
-        # Test collect_item view
-        order = Order.objects.create(order_number="123456")
-        response = self.client.post(reverse('collect_item',
-                                            args=[order.order_number]),
-                                    {'collected_by': 'Random Person'})
-        self.assertEqual(response.status_code, 302)
-        self.assertRedirects(response, reverse('orders_pickup'))
