@@ -18,7 +18,7 @@
         "display": "standalone",
         "start_url": "",
         "orientation": "any",
-        "scope": "/",
+        "scope": ".",
         "description": "All-condition webshop for secondary schools in the UK.",
         "screenshots": [
             {
