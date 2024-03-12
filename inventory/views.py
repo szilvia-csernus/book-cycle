@@ -9,6 +9,7 @@ from django.contrib.admin.views.decorators import staff_member_required
 from django.views.decorators.http import require_POST
 from django.core.files.storage import default_storage
 from django.core.paginator import Paginator
+from django.http import JsonResponse
 
 from .models import Book, Stock
 from .forms import BookForm
@@ -378,3 +379,15 @@ def reduce_stock(request, stock_id):
     except Exception:
         messages.error(request, 'Failed to reduce stock.')
         return redirect(redirect_url)
+
+
+def book_image_urls(request):
+    """
+    Return a list of image urls for all books as a JSON response.
+    """
+    books = Book.objects.all()
+    image_urls = [request.build_absolute_uri(
+        book.image.url) for book in books if book.image]
+    # safe=False is set to allow serialization of objects (in this case, a
+    # list) other than dict
+    return JsonResponse(image_urls, safe=False)
