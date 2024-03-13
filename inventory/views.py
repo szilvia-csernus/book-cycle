@@ -1,3 +1,4 @@
+import os
 from datetime import timedelta
 
 from django.utils import timezone
@@ -388,9 +389,15 @@ def book_image_urls(request):
     books = Book.objects.all()
     image_urls = [request.build_absolute_uri(
         book.image.url) for book in books if book.image]
+
     # Add the default image url to the list
-    image_urls.append(request.build_absolute_uri(
-        '/media/noimage.png'))
+    if 'USE_AWS' in os.environ:
+        # In production, use the S3 storage's URL method
+        image_urls.append(default_storage.url('noimage.png'))
+    else:
+        image_urls.append(request.build_absolute_uri(
+            '/media/noimage.png'))
+
     # safe=False is set to allow serialization of objects (in this case, a
     # list) other than dict
     return JsonResponse(image_urls, safe=False)

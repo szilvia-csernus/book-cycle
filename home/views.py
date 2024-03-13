@@ -1,8 +1,8 @@
-from django.views.static import serve
+import os
 from django.shortcuts import render
 from orders.context import manage_orders_details
 from django.templatetags.static import static
-from django.conf import settings
+from django.core.files.storage import default_storage
 from django.http import HttpResponse, HttpResponseServerError, JsonResponse
 
 
@@ -40,13 +40,6 @@ def error_500(request):
         raise HttpResponseServerError("Intentional 500 Error")
 
 
-# Serve the service worker file from the same domain (not directly from S3) to
-# have it in the same scope as the main page for the PWA manifest to work
-def serviceworker(request):
-    path = 'serviceworker.js'
-    return serve(request, path, document_root=settings.STATICFILES_DIRS[0])
-
-
 def static_file_urls(request):
     static_files = [
         '/css/account.css',
@@ -68,8 +61,12 @@ def static_file_urls(request):
         '/js/toast.js',
     ]
 
-    # Convert static file paths to absolute URLs
-    static_file_urls = [request.build_absolute_uri(
-        static(file)) for file in static_files]
+    if 'USE_AWS' in os.environ:
+        # In production, use the S3 storage's URL method
+        static_file_urls = [default_storage.url(file) for file in static_files]
+    else:
+        # In development, we use Django's static file helper function
+        static_file_urls = [request.build_absolute_uri(
+            static(file)) for file in static_files]
 
     return JsonResponse(static_file_urls, safe=False)
