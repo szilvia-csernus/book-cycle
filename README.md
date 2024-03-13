@@ -32,6 +32,22 @@ Not for public use.
 
 # Features
 
+## Installation
+
+Book-CYCLE is a `Progressive Web App (PWA)`, allowing the user to install the app to the computer or mobile as a standalone app, providing a native-app-like experience. 
+
+|Install - MacOS Chrome | Install - Windows Edge|
+|:---:|:---:|
+|![Install MacOS Chrome](readme_files/install-app-chrome.jpeg) | ![Install Windows Edge](readme_files/install-app-windows-edge.jpeg)|
+| Install - Android | Installed App - iPhone |
+|![Install Android](readme_files/install-app-android.jpeg) | ![Install Windows Edge](readme_files/install-app-iphone.jpeg)|
+
+
+
+Cache-first strategy is implemented in the Service Worker, where all the static and image files are pre-cached and served from the cache whenever possible. This implementation greatly improves the loading speed of the application.
+
+___
+
 ## Landing Page
 
 The Landing page is minimalist with only a few options at the top. The side menu opens from the left-hand side, where users can search for textbooks in the store.
@@ -351,9 +367,8 @@ The book pictures and details were taken from the publishers' websites, and a li
 
 # Performance
 
-To achieve the best possible performance, I chose not to use any frontend libraries that have to load before the page renders (like Bootstrap, Materialize, or JQuery) to reduce render-blocking code loading. While writing the code this way was more complex, it greatly improved the project's Lighthouse scores. The lower performance in production is all due to unavoidable elements, like Stripe's script needed for Fraud detection and the slow response time from the hosting providers. Purchasing more expensive hosting packages would greatly improve performance in production.
+The app is currently hosted in the most budget-friendly package of Heroku, with expected high-latency. To mitigate this, I used the `Cache First Strategy` as part of the `Progressive Web App (PWA)` implementation, which greatly improved serving the static and image files of the application. The lower performance in production is due to unavoidable elements, like Stripe's script needed for Fraud detection and the slow response time from the hosting providers. Purchasing more expensive hosting packages would greatly improve performance in production.
 
-To further improve the site's responsiveness and achieve a seamless user experience, a frontend framework like ReactJS could be used combined with Django's REST framework for the backend. This architecture, however, was beyond the scope of this project.
 
 For the project's detailed Lighthouse scores, please refer to the [Testing document](TESTING.md#lighthouse-tests).
 
