@@ -1,8 +1,6 @@
-import os
 from django.shortcuts import render
 from orders.context import manage_orders_details
-from django.templatetags.static import static
-from django.core.files.storage import default_storage
+from django.contrib.staticfiles.storage import staticfiles_storage
 from django.http import HttpResponse, HttpResponseServerError, JsonResponse
 
 
@@ -61,12 +59,7 @@ def static_file_urls(request):
         'js/toast.js',
     ]
 
-    if 'USE_AWS' in os.environ:
-        # In production, use the S3 storage's URL method
-        static_file_urls = [default_storage.url(file) for file in static_files]
-    else:
-        # In development, we use Django's static file helper function
-        static_file_urls = [request.build_absolute_uri(
-            static(file)) for file in static_files]
+    # Use staticfiles_storage for both development and production
+    static_file_urls = [staticfiles_storage.url(file) for file in static_files]
 
     return JsonResponse(static_file_urls, safe=False)
