@@ -362,14 +362,16 @@ PWA_APP_SCREENSHOTS = [
                             "screenshots/landing-page-light-mobile.jpeg"),
         "sizes": "348x752",
         "type": "image/png",
-        "form_factor": "narrow"
+        "form_factor": "narrow",
+        "label": "BookCYCLE Home Page"
     },
     {
         "src": os.path.join(STATIC_URL,
                             "screenshots/books-light.jpeg"),
         "sizes": "884x857",
         "type": "image/png",
-        "form_factor": "wide"
+        "form_factor": "wide",
+        "label": "BookCYCLE Webshop"
     }
 ]
 PWA_APP_DEBUG_MODE = False
