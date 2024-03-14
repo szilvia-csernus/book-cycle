@@ -330,7 +330,14 @@ PWA_APP_ICONS = [
     {
         "src": os.path.join(STATIC_URL, "icons/android-chrome-512x512.png"),
         "sizes": "512x512",
-        "type": "image/png"
+        "type": "image/png",
+        "purpose": "maskable",
+    },
+    {
+        "src": os.path.join(STATIC_URL, "icons/android-chrome-512x512.png"),
+        "sizes": "512x512",
+        "type": "image/png",
+        "purpose": "any",
     }
 ]
 PWA_APP_ICONS_APPLE = [
