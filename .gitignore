@@ -9,4 +9,5 @@ S3-ac.numbers
 textbooks.numbers
 media_test
 .coverage
-
+secrets
+.DS_Store

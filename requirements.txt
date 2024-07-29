@@ -5,7 +5,7 @@ certifi==2023.7.22
 cffi==1.15.1
 charset-normalizer==3.2.0
 coverage==7.3.0
-cryptography==41.0.4
+cryptography==40.0.1 # This change needed for AWS EC2: "awscli 2.15.30 requires cryptography<40.0.2,>=3.3.2, but you have cryptography 41.0.4 which is incompatible."
 defusedxml==0.7.1
 dj-database-url==0.5.0
 Django==3.2.20
@@ -21,7 +21,7 @@ jmespath==1.0.1
 oauthlib==3.2.2
 packaging==23.2
 Pillow==10.0.1
-psycopg2==2.9.8
+psycopg2-binary
 pycparser==2.21
 Pygments==2.16.1
 PyJWT==2.8.0
