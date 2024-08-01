@@ -1,10 +1,1 @@
-Disallow: /admin/
-Disallow: /accounts/
-Disallow: /orders/
-Disallow: /shopping_bag/
-Disallow: /checkout/wh/
-Disallow: /invenory/books/
-Disallow: /invenory/add_book/
-Disallow: /invenory/edit_book/
-Disallow: /invenory/delete_book/
-Disallow: /invenory/manage_stock/
+Disallow: /
