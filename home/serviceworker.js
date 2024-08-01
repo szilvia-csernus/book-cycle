@@ -9,18 +9,24 @@ const image_files = [];
 // Service Worker Installation
 self.addEventListener('install', (event) => {
 	const fetch_static_files = async () => {
-		const response = await fetch('/static-file-urls/');
-		const data = await response.json();
-		static_files.push(...data);
-		return static_files;
-	};
+    const response = await fetch("/static-file-urls/", {
+      mode: "cors",
+      credentials: "omit",
+    });
+    const data = await response.json();
+    static_files.push(...data);
+    return static_files;
+  };
 
-	const fetch_image_files = async () => {
-		const response = await fetch('/inventory/book-image-urls/');
-		const data = await response.json();
-		image_files.push(...data);
-		return image_files;
-	};
+  const fetch_image_files = async () => {
+    const response = await fetch("/inventory/book-image-urls/", {
+      mode: "cors",
+      credentials: "omit",
+    });
+    const data = await response.json();
+    image_files.push(...data);
+    return image_files;
+  };
 
 	event.waitUntil(
 		caches.open('static_files').then(async (cache) => {
