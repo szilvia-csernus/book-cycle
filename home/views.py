@@ -14,6 +14,12 @@ def home(request):
     return render(request, 'home/home.html', context)
 
 
+def robots_txt(request):
+    """ A view to return the robots.txt page - used for SEO """
+    
+    return render(request, 'home/robots.txt', content_type='text/plain')
+
+
 def privacy_notice(request):
     """ A view to return the privacy notice page """
     return render(request, 'home/privacy_notice.html')
