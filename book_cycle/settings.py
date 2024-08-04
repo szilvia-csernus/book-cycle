@@ -310,7 +310,7 @@ ADMINS = [('Admin', os.environ.get('EMAIL_HOST_USER'))]
 
 
 # PWA
-PWA_SERVICE_WORKER_PATH = os.path.join(STATIC_URL, 'home/serviceworker.js')
+PWA_SERVICE_WORKER_PATH = f'{STATIC_URL}serviceworker.js'
 PWA_APP_NAME = 'BookCycle'
 PWA_APP_DESCRIPTION = "All-condition webshop for secondary schools in the UK."
 PWA_APP_THEME_COLOR = '#560190'

@@ -23,7 +23,6 @@ from orders.webhooks import webhook
 urlpatterns = [
     path('admin/', admin.site.urls),
     path('accounts/', include('allauth.urls')),
-    path('', include('pwa.urls')),
     path('', include('home.urls')),
     path('inventory/', include('inventory.urls')),
     path('shopping_bag/', include('shopping_bag.urls')),
