@@ -20,10 +20,6 @@ def robots_txt(request):
     return render(request, 'home/robots.txt', content_type='text/plain')
 
 
-def serviceworker(request):
-    return render(request, 'home/serviceworker.js', content_type='application/javascript')
-
-
 def privacy_notice(request):
     """ A view to return the privacy notice page """
     return render(request, 'home/privacy_notice.html')

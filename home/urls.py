@@ -8,5 +8,4 @@ urlpatterns = [
     path('500/', views.error_500, name='error_500'),
     path('static-file-urls/', views.static_file_urls, name='static_file_urls'),
     path('robots.txt', views.robots_txt, name='robots_txt'),
-    path('serviceworker.js', views.serviceworker, name='serviceworker'),
 ]
