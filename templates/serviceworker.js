@@ -1,10 +1,10 @@
 // v1
 
-const static_files = [
+const staticFilesUrls = [
     'https://fonts.googleapis.com/css2?family=KoHo:wght@300;500;600&family=Koulen&display=swap',
 ];
 
-const image_files = [];
+const imageFilesUrls = [];
 
 // Service Worker Installation
 self.addEventListener('install', (event) => {
@@ -14,8 +14,8 @@ self.addEventListener('install', (event) => {
       credentials: "omit",
     });
     const data = await response.json();
-    static_files.push(...data);
-    return static_files;
+    staticFilesUrls.push(...data);
+    return staticFilesUrls;
   };
 
   const fetch_image_files = async () => {
@@ -24,21 +24,32 @@ self.addEventListener('install', (event) => {
       credentials: "omit",
     });
     const data = await response.json();
-    image_files.push(...data);
-    return image_files;
+    imageFilesUrls.push(...data);
+    return imageFilesUrls;
   };
 
 	event.waitUntil(
-		caches.open('static_files').then(async (cache) => {
-			const staticFiles = await fetch_static_files();
-			return cache.addAll(staticFiles);
-		})
-	);
+    caches.open("static_files").then(async (cache) => {
+			const urls = await fetch_static_files();
+			const corsRequests = urls.map((url) => new Request(url, { mode: "cors" }));
+			return await Promise.all(
+				corsRequests.map((request) => fetch(request).then((response) => cache.put(request, response))
+				)
+			);
+    })
+  );
 
 	event.waitUntil(
 		caches.open('image_files').then(async (cache) => {
-			const imageFiles = await fetch_image_files();
-			return cache.addAll(imageFiles);
+			const urls = await fetch_image_files();
+			const corsRequests = urls.map(
+        (url) => new Request(url, { mode: "cors" })
+      );
+      return Promise.all(
+        corsRequests.map((request) =>
+          fetch(request).then((response) => cache.put(request, response))
+        )
+      );
 		})
 	);
 });
