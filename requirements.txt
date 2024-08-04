@@ -16,7 +16,7 @@ django-jasmine==0.5.1
 django-pwa==1.1.0
 django-storages==1.14.1
 gunicorn==21.2.0
-idna==3.4
+idna==3.7
 jmespath==1.0.1
 oauthlib==3.2.2
 packaging==23.2
