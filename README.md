@@ -15,7 +15,7 @@ The webshop has not been customized for a specific school, but it can be done by
 
 
 ---
-[View the live project here](https://book-cycle-f6aff45df7ba.herokuapp.com)
+[View the live project here](https://book-cycle.szilvia-csernus.co.uk/)
 
 ---
 
@@ -504,9 +504,9 @@ To develop this project locally in VSCode, the following steps are needed.
 
 ## Deployment
 
-The project is deployed on `Heroku`, the database on `ElephantSQL` and the static/media files on `Amazon AWS S3`.
+I originally deployed this project on `Heroku`, the database on `ElephantSQL` and the static/media files on `Amazon AWS S3`.
 
-For deployment, the following steps were taken:
+I took the following steps:
 
 0. Prerequisites: An account with Heroku, ElephantSQL, Amazon AWS, Stripe, and an email server provider, such as Google.
 1. Create a new ElephantSQL instance
@@ -621,6 +621,57 @@ For deployment, the following steps were taken:
     * Create a new webhook endpoint with the deployed url, `/checkout/wh/` at the end. Select all events and `Add` them. Scroll down and `Add endppoint`.
     * Reveal the `Signing secret` and add it to the Heroku config vars.
     * Test that the webhook listeners are working by [sending test webhook events from the CLI](TESTING.md#testing-webhooks).
+
+
+
+## Database migration from ElephantSQL to AWS RDS
+
+I took the following steps.
+
+
+1. I created an AWS RDS server instance which is running posgresql@16, have a public IP address and password authentication is enabled. 
+For the VPC it resides in, has an internet gateway and the subnet's route table has this internet gateway as a network connection. In the instance's security group as an inbound rule, the port 5432 is open.
+
+I created a new database with the help of `pgAdmin` in this AWS RDS server instance.
+
+
+2. Migrated the database
+    * installed the latest version of postgresql, version 16.
+    * I used Code Institute's migration tool: https://github.com/Code-Institute-Org/postgres-migration-tool
+
+
+##  App migration from Heroku to AWS EC2
+
+1. I created a custom VPC in the Europe(London) Region with 3 public subnets in each availability zones. I added an internet
+    gateway to the VPC and configured the route tables so the public subnets have this internet gateway as a network connection.
+
+2. I added my environmental variables to Systems Manager's Parameter store and created an IAM role to allow access to these parameters by an EC2 instance.
+
+3. Created a new `EC2 Launch Template` a for the deployment so that it can be re-used for re-deployement.
+    * I selected the Amazon Linux image (AMI) and the smallest possible instance type.
+    * I created a security group which allows inbound traffic on port 80 and attached this security group to the launch template.
+    * Added the IAM role I created earlier.
+    * In Advanced Settings, I populated the `user-data` field (bash script) which would run upon launch. It
+        - installs python, git, and nginx
+        - creates a virtual environment (useful for accessibility reasons)
+        - installs all required packages
+        - clones the github repo
+        - retrieves metadata from the to-be-created instance to be used as an environmental variable.
+        - creates the .env file and for this, it retrieves environmental variables from the parameter store.
+        - migrates the database (runs when change is detected)
+        - runs the 'collectstatic' function to move updated static and media files to S3
+        - creates the nginx configuration and starts the nginx server
+        - starts the gunicorn server.
+
+4. Launced a new `EC2` instance with the launch template, into a selected subnet.
+
+5. Created an internet facing, application load balancer in the same VPC as the EC2 instance is in.
+    * Created a target group for the load balancer and registered the running EC2 instance to this target group.
+    * Added a listener for port 80 (http) to redirect all traffic to port 443 (https)
+    * Added a Secure listener for port 443 (https) and added the SSL certificate I earlier aquired for the domain name.
+    * Added a HTTP Header rule, which forwards all traffic with the header of "book-cycle.szilvia-csernus.co.uk" to the target group.
+
+
     
 
 
