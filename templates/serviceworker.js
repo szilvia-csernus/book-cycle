@@ -55,22 +55,3 @@ self.addEventListener('install', (event) => {
 		})
 	);
 });
-
-// Cache first strategy
-self.addEventListener('fetch', (event) => {
-  const url = new URL(event.request.url);
-
-  // Exclude all paths that start with /accounts/ from cache
-  if (url.pathname.startsWith("/accounts/")) {
-    event.respondWith(fetch(event.request));
-    return;
-  }
-
-  event.respondWith(
-    caches.match(event.request).then((response) => {
-      return (
-        response || fetch(event.request, { mode: "cors", credentials: "omit", redirect: "follow" })
-      );
-    })
-  );
-});
