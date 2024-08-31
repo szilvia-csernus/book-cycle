@@ -8,7 +8,7 @@ const imageFilesUrls = [];
 
 // Service Worker Installation
 self.addEventListener('install', (event) => {
-	const fetch_static_files = async () => {
+	const fetchStaticFileURLs = async () => {
     const response = await fetch("/static-file-urls/", {
       mode: "cors",
       credentials: "omit",
@@ -18,7 +18,7 @@ self.addEventListener('install', (event) => {
     return staticFilesUrls;
   };
 
-  const fetch_image_files = async () => {
+  const fetchImageFileURLs = async () => {
     const response = await fetch("/inventory/book-image-urls/", {
       mode: "cors",
       credentials: "omit",
@@ -30,8 +30,10 @@ self.addEventListener('install', (event) => {
 
 	event.waitUntil(
     caches.open("static_files").then(async (cache) => {
-			const urls = await fetch_static_files();
-			const corsRequests = urls.map((url) => new Request(url, { mode: "cors" }));
+			const urls = await fetchStaticFileURLs();
+			const corsRequests = urls.map(
+        (url) => new Request(url, { mode: "cors", credentials: "omit" })
+      );
 			return await Promise.all(
 				corsRequests.map((request) => fetch(request).then((response) => cache.put(request, response))
 				)
@@ -41,9 +43,9 @@ self.addEventListener('install', (event) => {
 
 	event.waitUntil(
 		caches.open('image_files').then(async (cache) => {
-			const urls = await fetch_image_files();
+			const urls = await fetchImageFileURLs();
 			const corsRequests = urls.map(
-        (url) => new Request(url, { mode: "cors" })
+        (url) => new Request(url, { mode: "cors", credentials: "omit" })
       );
       return Promise.all(
         corsRequests.map((request) =>
@@ -67,7 +69,7 @@ self.addEventListener('fetch', (event) => {
   event.respondWith(
     caches.match(event.request).then((response) => {
       return (
-        response || fetch(event.request, { mode: "cors", redirect: "follow" })
+        response || fetch(event.request, { mode: "cors", credentials: "omit", redirect: "follow" })
       );
     })
   );
