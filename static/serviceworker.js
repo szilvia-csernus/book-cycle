@@ -68,7 +68,7 @@ self.addEventListener("fetch", (event) => {
   if (cachedUrls.has(url.href)) {
     event.respondWith(
       caches.match(event.request).then((response) => {
-        return response || fetch(event.request);
+        return response || fetch(event.request, { mode: "no-cors" });
       })
     );
   } else {
