@@ -73,6 +73,6 @@ self.addEventListener("fetch", (event) => {
     );
   } else {
     // For other requests, fetch from the network
-    event.respondWith(fetch(event.request));
+    event.respondWith(fetch(event.request, { mode: "no-cors" }));
   }
 });
