@@ -35,7 +35,7 @@ self.addEventListener("install", (event) => {
     caches.open("static_files").then(async (cache) => {
       const urls = await fetchStaticFileURLs();
       const corsRequests = urls.map(
-        (url) => new Request(url, { mode: "no-cors" })
+        (url) => new Request(url)
       );
       return await Promise.all(
         corsRequests.map((request) =>
@@ -49,11 +49,11 @@ self.addEventListener("install", (event) => {
     caches.open("image_files").then(async (cache) => {
       const urls = await fetchImageFileURLs();
       const corsRequests = urls.map(
-        (url) => new Request(url, { mode: "no-cors" })
+        (url) => new Request(url)
       );
       return Promise.all(
         corsRequests.map((request) =>
-          fetch(request, { mode: "no-cors" }).then((response) =>
+          fetch(request).then((response) =>
             cache.put(request, response)
           )
         )
@@ -70,11 +70,11 @@ self.addEventListener("fetch", (event) => {
   if (cachedUrls.has(url.href)) {
     event.respondWith(
       caches.match(event.request).then((response) => {
-        return response || fetch(event.request, { mode: "no-cors" });
+        return response || fetch(event.request);
       })
     );
   } else {
     // For other requests, fetch from the network
-    event.respondWith(fetch(event.request, { mode: "no-cors" }));
+    event.respondWith(fetch(event.request));
   }
 });
