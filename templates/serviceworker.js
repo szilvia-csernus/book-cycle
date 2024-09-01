@@ -1,4 +1,4 @@
-// v1
+// v2
 
 const staticFilesUrls = [
   "https://fonts.googleapis.com/css2?family=KoHo:wght@300;500;600&family=Koulen&display=swap",
@@ -35,7 +35,7 @@ self.addEventListener("install", (event) => {
     caches.open("static_files").then(async (cache) => {
       const urls = await fetchStaticFileURLs();
       const corsRequests = urls.map(
-        (url) => new Request(url, { mode: "cors", credentials: "omit" })
+        (url) => new Request(url, { mode: "no-cors" })
       );
       return await Promise.all(
         corsRequests.map((request) =>
@@ -49,11 +49,13 @@ self.addEventListener("install", (event) => {
     caches.open("image_files").then(async (cache) => {
       const urls = await fetchImageFileURLs();
       const corsRequests = urls.map(
-        (url) => new Request(url, { mode: "cors", credentials: "omit" })
+        (url) => new Request(url, { mode: "no-cors" })
       );
       return Promise.all(
         corsRequests.map((request) =>
-          fetch(request).then((response) => cache.put(request, response))
+          fetch(request, { mode: "no-cors" }).then((response) =>
+            cache.put(request, response)
+          )
         )
       );
     })
@@ -68,18 +70,11 @@ self.addEventListener("fetch", (event) => {
   if (cachedUrls.has(url.href)) {
     event.respondWith(
       caches.match(event.request).then((response) => {
-        return (
-          response ||
-          fetch(event.request, {
-            mode: "cors",
-            credentials: "omit",
-            redirect: "follow",
-          })
-        );
+        return response || fetch(event.request, { mode: "no-cors" });
       })
     );
   } else {
     // For other requests, fetch from the network
-    event.respondWith(fetch(event.request));
+    event.respondWith(fetch(event.request, { mode: "no-cors" }));
   }
 });
