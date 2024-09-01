@@ -53,7 +53,9 @@ self.addEventListener("install", (event) => {
       );
       return Promise.all(
         corsRequests.map((request) =>
-          fetch(request).then((response) => cache.put(request, response))
+          fetch(request, { mode: "no-cors" }).then((response) =>
+            cache.put(request, response)
+          )
         )
       );
     })
