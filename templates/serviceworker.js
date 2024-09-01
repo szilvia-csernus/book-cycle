@@ -34,12 +34,9 @@ self.addEventListener("install", (event) => {
   event.waitUntil(
     caches.open("static_files").then(async (cache) => {
       const urls = await fetchStaticFileURLs();
-      const corsRequests = urls.map(
-        (url) => new Request(url)
-      );
       return await Promise.all(
-        corsRequests.map((request) =>
-          fetch(request).then((response) => cache.put(request, response))
+        urls.map((url) =>
+          fetch(url, {mode: "cors"}).then((response) => cache.put(url, response))
         )
       );
     })
@@ -48,13 +45,10 @@ self.addEventListener("install", (event) => {
   event.waitUntil(
     caches.open("image_files").then(async (cache) => {
       const urls = await fetchImageFileURLs();
-      const corsRequests = urls.map(
-        (url) => new Request(url)
-      );
       return Promise.all(
-        corsRequests.map((request) =>
-          fetch(request).then((response) =>
-            cache.put(request, response)
+        urls.map((url) =>
+          fetch(url, { mode: "cors" }).then((response) =>
+            cache.put(url, response)
           )
         )
       );
@@ -64,10 +58,9 @@ self.addEventListener("install", (event) => {
 
 // Cache first strategy for static and image files only
 self.addEventListener("fetch", (event) => {
-  const url = new URL(event.request.url);
-
+  
   // Check if the request URL is in the cached URLs set
-  if (cachedUrls.has(url.href)) {
+  if (cachedUrls.has(event.request.url)) {
     event.respondWith(
       caches.match(event.request).then((response) => {
         return response || fetch(event.request);
