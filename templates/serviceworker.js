@@ -33,12 +33,25 @@ self.addEventListener("install", (event) => {
 
   event.waitUntil(
     caches.open("static_files").then(async (cache) => {
-      const urls = await fetchStaticFileURLs();
-      return await Promise.all(
-        urls.map((url) =>
-          fetch(url, {mode: "cors"}).then((response) => cache.put(url, response))
-        )
-      );
+      try {
+        const urls = await fetchStaticFileURLs();
+        await Promise.all(
+          urls.map(async (url) => {
+            try {
+              const response = await fetch(url, { mode: "cors" });
+              if (response.ok) {
+                await cache.put(url, response.clone());
+              } else {
+                console.error(`Failed to fetch ${url}: ${response.statusText}`);
+              }
+            } catch (error) {
+              console.error(`Fetch error for ${url}:`, error);
+            }
+          })
+        );
+      } catch (error) {
+        console.error("Error fetching static file URLs:", error);
+      }
     })
   );
 
