@@ -58,16 +58,39 @@ self.addEventListener("install", (event) => {
 
 // Cache first strategy for static and image files only
 self.addEventListener("fetch", (event) => {
+  const url = new URL(event.request.url);
 
   // Check if the request URL is in the cached URLs set
-  if (cachedUrls.has(event.request.url)) {
+  if (cachedUrls.has(url.href)) {
     event.respondWith(
-      caches.match(event.request, { mode: "cors" }).then((response) => {
-        return response || fetch(event.request);
+      caches.match(event.request).then((response) => {
+        return response || fetch(event.request, { mode: "cors" }).then((networkResponse) => {
+          return caches.open("dynamic").then((cache) => {
+            cache.put(event.request, networkResponse.clone());
+            return networkResponse;
+          });
+        }).catch(() => {
+          return new Response("Network error occurred", {
+            status: 408,
+            statusText: "Network error",
+          });
+        });
       })
     );
   } else {
     // For other requests, fetch from the network
-    event.respondWith(fetch(event.request, { mode: "cors" }));
+    event.respondWith(
+      fetch(event.request, { mode: "cors" }).then((networkResponse) => {
+        return caches.open("dynamic").then((cache) => {
+          cache.put(event.request, networkResponse.clone());
+          return networkResponse;
+        });
+      }).catch(() => {
+        return new Response("Network error occurred", {
+          status: 408,
+          statusText: "Network error",
+        });
+      })
+    );
   }
 });
