@@ -58,16 +58,16 @@ self.addEventListener("install", (event) => {
 
 // Cache first strategy for static and image files only
 self.addEventListener("fetch", (event) => {
-  
+
   // Check if the request URL is in the cached URLs set
   if (cachedUrls.has(event.request.url)) {
     event.respondWith(
-      caches.match(event.request).then((response) => {
+      caches.match(event.request, { mode: "cors" }).then((response) => {
         return response || fetch(event.request);
       })
     );
   } else {
     // For other requests, fetch from the network
-    event.respondWith(fetch(event.request));
+    event.respondWith(fetch(event.request, { mode: "cors" }));
   }
 });
