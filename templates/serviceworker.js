@@ -48,7 +48,7 @@ self.addEventListener("install", (event) => {
         await Promise.all(
           urls.map(async (url) => {
             try {
-              const response = await fetch(url, { mode: "no-cors" });
+              const response = await fetch(url, { mode: "cors" });
               if (response.ok) {
                 await cache.put(url, response.clone());
               } else {
@@ -72,7 +72,7 @@ self.addEventListener("install", (event) => {
         await Promise.all(
           urls.map(async (url) => {
             try {
-              const response = await fetch(url, { mode: "no-cors" });
+              const response = await fetch(url, { mode: "cors" });
               if (response.ok) {
                 await cache.put(url, response.clone());
               } else {
@@ -100,7 +100,7 @@ self.addEventListener("fetch", (event) => {
       caches.match(event.request).then((response) => {
         return (
           response ||
-          fetch(event.request, { mode: "no-cors" })
+          fetch(event.request, { mode: "cors" })
             .then((networkResponse) => {
               return caches.open("dynamic").then((cache) => {
                 cache.put(event.request, networkResponse.clone());
@@ -120,7 +120,7 @@ self.addEventListener("fetch", (event) => {
   } else {
     // For other requests, fetch from the network
     event.respondWith(
-      fetch(event.request, { mode: "no-cors" })
+      fetch(event.request, { mode: "cors" })
         .then((networkResponse) => {
           return caches.open("dynamic").then((cache) => {
             cache.put(event.request, networkResponse.clone());
