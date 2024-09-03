@@ -2,15 +2,22 @@
 
 [![DeepScan grade](https://deepscan.io/api/teams/23376/projects/26639/branches/850428/badge/grade.svg)](https://deepscan.io/dashboard#view=project&tid=23376&pid=26639&bid=850428)
 
-Book-CYCLE is a Full Stack Webshop Application designed to be used by secondary schools in the UK. 
+>
+> This project was created for [Code Institute](www.codeintitute.net)'s Level 5 Full-Stack Web Development Course as the 4th Milestone Project (MS4) - Full Stack E-Commerce Web Application.
+>
+> Not for public use.
+>
 
-The project is written in `Django`, a full-stack Python framework, alongside `HTML`, `CSS`, `JavaScript` and the `Stripe API` for payments. It is a `Progressive Web App (PWA)`, allowing the user to install the app on both mobile and desktop devices.
+---
+
+
+Book-CYCLE is a Full Stack E-Commerce Application designed to be used by secondary schools in the UK. 
+
+The project is written in `Django`, a full-stack Python framework, alongside `HTML`, `CSS`, `JavaScript` and the `Stripe API` for payments. 
 
 The purpose of the application is to promote the re-use of textbooks by students while generating income for the school. The webshop allows the school to list all the textbooks they recommend their students to buy in both new and used conditions, possibly asking students to donate their used books back to the school.
 
 Users can purchase listed textbooks using the STRIPE payment system and will receive confirmation emails about orders and shipping. School staff members can manage the book inventory and incoming orders.
-
-The webshop has not been customized for a specific school, but it can be done by including the school's logo, contact details, and possibly some additional design elements. Customizations would allow the webshop to be utilized by multiple schools.
 
 
 
@@ -22,9 +29,9 @@ The webshop has not been customized for a specific school, but it can be done by
 ![Landing Page](readme_files/mockup-light.jpeg)
 ![Landing Page](readme_files/mockup-dark.jpeg)
 
-> This project was created for [Code Institute](www.codeintitute.net)'s Web Development Course as the 4th Milestone Project (MS4) - Full Stack E-Commerce Web Application.
 
-Not for public use.
+
+
     
 &copy; 2023 Szilvia Csernusne Berczes.
 
@@ -32,21 +39,6 @@ Not for public use.
 
 # Features
 
-## Installation
-
-Book-CYCLE is a `Progressive Web App (PWA)`, allowing the user to install the app to the computer or mobile as a standalone app, providing a native-app-like experience. 
-
-|Install - MacOS Chrome | Install - Windows Edge|
-|:---:|:---:|
-|![Install MacOS Chrome](readme_files/install-app-chrome.jpeg) | ![Install Windows Edge](readme_files/install-app-windows-edge.jpeg)|
-| Install - Android | Installed App - iPhone |
-|![Install Android](readme_files/install-app-android.jpeg) | ![Install Windows Edge](readme_files/install-app-iphone.jpeg)|
-
-
-
-Cache-first strategy is implemented in the Service Worker, where all the static and image files are pre-cached and served from the cache whenever possible. This implementation greatly improves the loading speed of the application.
-
-___
 
 ## Landing Page
 
@@ -367,7 +359,7 @@ The book pictures and details were taken from the publishers' websites, and a li
 
 # Performance
 
-The app is currently hosted in the most budget-friendly package of Heroku, with expected high-latency. To mitigate this, I used the `Cache First Strategy` as part of the `Progressive Web App (PWA)` implementation, which greatly improved serving the static and image files of the application. The lower performance in production is due to unavoidable elements, like Stripe's script needed for Fraud detection and the slow response time from the hosting providers. Purchasing more expensive hosting packages would greatly improve performance in production.
+The app is currently hosted in the most budget-friendly package of Heroku, with expected high-latency. The lower performance in production is due to unavoidable elements, like Stripe's script needed for Fraud detection and the slow response time from the hosting providers. Purchasing more expensive hosting packages would greatly improve performance in production.
 
 
 For the project's detailed Lighthouse scores, please refer to the [Testing document](TESTING.md#lighthouse-tests).
@@ -416,9 +408,10 @@ For the project's detailed Lighthouse scores, please refer to the [Testing docum
 
 ## Hosting platforms
 
-- `Heroku`: For hosting the main codebase.
-- `ElephantSQL`: For database hosting.
-- `Amazon AWS S3`: For static/media file hosting. 
+- `AWS EC2`: For hosting the gunicorn server. 
+- `Heroku`: originally, the project was hosted on Heroku, which is still accessible here: https://book-cycle-f6aff45df7ba.herokuapp.com/
+- `AWS RDS`:OFor database hosting. (Originally, the database was hosted on ElephantSQL, see migration details below.)
+- `AWS S3`: For static/media file hosting. 
 
 
 ## Other Tools
@@ -455,7 +448,7 @@ To develop this project locally in VSCode, the following steps are needed.
 1. Set up a free account with STRIPE.
 2. Clone this project into a new repository.
 3. Create a new virtual environment in the project's parent folder with `python3 -m venv venv`.
-4. While in the project's parent folder, activate the virtual environment with `source venv/bin/activate`.
+4. Aactivate the virtual environment either by accepting the pop-up from VSCode or with the `source venv/bin/activate` command.
 5. Reload VSCode window. If the virtual environment creation and activation was successful, `(venv)` will appear in front of the prompt.
 6. Install the required packages with `pip install -r requirements.txt`.
 7. Create a `.gitignore` file, and place in the lines below.
@@ -629,13 +622,20 @@ I took the following steps:
 I took the following steps.
 
 
-1. I created an AWS RDS server instance which is running posgresql@16, have a public IP address and password authentication is enabled. 
-For the VPC it resides in, has an internet gateway and the subnet's route table has this internet gateway as a network connection. In the instance's security group as an inbound rule, the port 5432 is open.
+1. I created an AWS RDS server instance which 
+    - is running posgresql@16, 
+    - has a public IP address and 
+    - password authentication is enabled.
 
-I created a new database with the help of `pgAdmin` in this AWS RDS server instance.
+    The VPC, which the database belongs
+    - has an internet gateway and 
+    - the subnet's route table has this internet gateway as a network connection. 
+    - In the instance's security group as an inbound rule, the port 5432 is open.
+
+2. I created a new database in this AWS RDS server instance with the help of `pgAdmin`.
 
 
-2. Migrated the database
+3. Migrated the database
     * installed the latest version of postgresql, version 16.
     * I used Code Institute's migration tool: https://github.com/Code-Institute-Org/postgres-migration-tool
 
@@ -671,8 +671,6 @@ I created a new database with the help of `pgAdmin` in this AWS RDS server insta
     * Added a Secure listener for port 443 (https) and added the SSL certificate I earlier aquired for the domain name.
     * Added a HTTP Header rule, which forwards all traffic with the header of "book-cycle.szilvia-csernus.co.uk" to the target group.
 
-
-    
 
 
 # Credits
