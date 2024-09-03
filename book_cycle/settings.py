@@ -61,7 +61,6 @@ INSTALLED_APPS = [
 
     # other
     'crispy_forms',
-    'pwa',
 ]
 
 MIDDLEWARE = [
