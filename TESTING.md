@@ -1,6 +1,9 @@
 # TESTING - Book-Cycle project 
 ---
 
+## UPDATE
+Please note that the testing files below refer to the originally Heroku/ElephantSQL-deployed version of the project. Re-deployment on AWS EC2 and AWS RDS greatly improved the Performance of the app. In addition, I disallowed crawling my app by web crawlers, which affected the Lighthouse's SEO score.
+
 
 # Code Validation
 
@@ -201,6 +204,9 @@ I conducted manual testing throughout the development process, advancing to the 
 ---
 
 # Lighthouse tests
+
+# UPDATE:
+Please note that the Lighthouse scores below refer to the originally Heroku/ElephantSQL-deployed version of the project. Re-deployment on AWS EC2 and AWS RDS greatly improved the Performance of the app. In addition, I disallowed crawling my app by web crawlers, which affected the Lighthouse's SEO score.
 
 Performance, Accessibility, Best Practices and SEO tests were carried out with [Google Dev Tools](https://developer.chrome.com/docs/devtools/)' **Lighthouse** tool in `Incognito` mode.
 

@@ -39,6 +39,8 @@ Users can purchase listed textbooks using the STRIPE payment system and will rec
 
 # Features
 
+**UPDATE**: Please note that the images below were taken at the time when the project originally was deployed on Heroku, hence different app URLs are visible.
+
 
 ## Landing Page
 
@@ -358,8 +360,6 @@ The book pictures and details were taken from the publishers' websites, and a li
 ---
 
 # Performance
-
-The app is currently hosted in the most budget-friendly package of Heroku, with expected high-latency. The lower performance in production is due to unavoidable elements, like Stripe's script needed for Fraud detection and the slow response time from the hosting providers. Purchasing more expensive hosting packages would greatly improve performance in production.
 
 
 For the project's detailed Lighthouse scores, please refer to the [Testing document](TESTING.md#lighthouse-tests).
