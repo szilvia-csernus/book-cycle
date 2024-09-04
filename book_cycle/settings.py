@@ -32,6 +32,18 @@ DEBUG = "DEBUG" in os.environ
 
 ALLOWED_HOSTS = os.environ.get('HOSTS', '').split(',') + ['localhost', '127.0.0.1']
 
+# Use the X-Forwarded-Proto header to determine the scheme - this is important for
+# AWS EC3 nginx proxy, which uses http to communicate with the Django app
+# The X-Forwarded-Proto header tells Django whether the original request was made
+# using http or https. This is important for generating URLs (in my case, the
+# callback URL by Google) with the correct scheme.
+# Why It's Important
+# Without this setting, Django would see the forwarded request as an HTTP request
+# (since Nginx forwards it over HTTP), and it would generate URLs with the http scheme
+# instead of https. This can cause issues with redirects, callback URLs, and other
+# security-related features.
+SECURE_PROXY_SSL_HEADER = ('HTTP_X_FORWARDED_PROTO', 'https')
+
 
 # Application definition
 
