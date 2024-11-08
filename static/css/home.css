@@ -34,7 +34,7 @@ main img.logo {
 
 @media screen and (min-width: 500px) {
     main {
-        background: url('/media/background-desktop.webp') no-repeat center bottom fixed;
+        background: url('/media/background-desktop.webp') no-repeat center center fixed;
     }
     main img.logo {
         max-width: 400px;
